@@ -1,7 +1,7 @@
 # Getting Started
 ```
-$ git clone {url}
-$ cd {url}
+$ git clone git@github.com:GIT-Hack-SafeSpace/SafeSpave-MVP.git
+$ cd SafeSpave-MVP
 $ npm i
 $ npm run dev
 ```
