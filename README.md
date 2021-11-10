@@ -1,4 +1,11 @@
-# Getting Started
+# SafeSpace
+[![Netlify Status](https://api.netlify.com/api/v1/badges/85440566-24b0-4ff8-bdb2-81771e75dd15/deploy-status)](https://app.netlify.com/sites/safespacemvp/deploys)
+
+Built in conjunction with the **Girls in Tech Mental Health for All Hackathon**:
+Building an inclusive future requires mental health and wellbeing technologies that cater to all
+
+---
+## Getting Started
 ```
 $ git clone git@github.com:GIT-Hack-SafeSpace/SafeSpave-MVP.git
 $ cd SafeSpave-MVP
