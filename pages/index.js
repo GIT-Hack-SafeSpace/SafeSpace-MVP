@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { supabase } from "../utils/client";
 import Login from "./login";
 import Mood from "./mood";
-// import Profile from "./profile";
 import RantRave from "./rant-rave";
 
 export default function Home() {
