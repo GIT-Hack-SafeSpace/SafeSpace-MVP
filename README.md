@@ -9,8 +9,8 @@ Building an inclusive future requires mental health and wellbeing technologies t
 ---
 ## Getting Started
 ```
-$ git clone git@github.com:GIT-Hack-SafeSpace/SafeSpave-MVP.git
-$ cd SafeSpave-MVP
+$ git clone git@github.com:GIT-Hack-SafeSpace/SafeSpace-MVP.git
+$ cd SafeSpace-MVP
 $ npm i
 $ npm run dev
 ```
