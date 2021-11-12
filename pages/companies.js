@@ -39,5 +39,19 @@ export default function Companies() {
     }
   };
 
-  return <div>{loading ? <Loader /> : 'Companies' }</div>;
+  const view = () => {
+    if (loading) {
+      return <Loader />;
+    } else {
+      return data.map((d) => (
+        <div key={d.id} className='text-white'>
+          <h1>{d.name}</h1>
+          <h3>{d.industry}</h3>
+          <p>{d.content}</p>
+        </div>
+      ));
+    }
+  };
+
+  return <div>{view()}</div>;
 }
