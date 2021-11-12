@@ -62,7 +62,7 @@ export default function CreateCompany({ user }) {
           }
         />
       </div>
-      <Form.Group className='mb-3' controlId='content'>
+      <Form.Group className='mb-3'>
         <Form.Label>Company Rave</Form.Label>
         <Form.Control
           as='textarea'

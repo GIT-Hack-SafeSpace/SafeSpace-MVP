@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { supabase } from '../utils/client';
 import { useRouter } from 'next/router';
 import Loader from '../components/Loader';
+import ModalComp from '../components/Modal';
 
 export default function RantRave() {
   const [data, setData] = useState([]);
@@ -58,5 +59,12 @@ export default function RantRave() {
     }
   };
 
-  return <div>{view()}</div>;
+  return (
+    <div>
+      <ModalComp btnText='Add Log' title='Add Log'>
+        ADD FORM
+      </ModalComp>
+      {view()}
+    </div>
+  );
 }

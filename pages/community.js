@@ -1,8 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { supabase } from "../utils/client";
 import { useRouter } from "next/router";
+import Loader from "../components/Loader";
 
 export default function Community() {
+  const [loading] = useState(true);
   const router = useRouter();
 
   useEffect(() => {
@@ -14,5 +16,5 @@ export default function Community() {
     }
   }, []);
 
-  return <div>Community</div>;
+  return <div>{loading ? <Loader /> : 'Community'}</div>;
 }
