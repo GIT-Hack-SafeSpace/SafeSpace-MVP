@@ -33,11 +33,14 @@ export default function Profile() {
           .select(`username, industry, avatar_url`)
           .eq("id", user.id)
           .single();
+
         if (error && status !== 406) {
           throw error;
         }
         if (data) {
           setUser({...data, id: user.id});
+        } else {
+          setUser({id: user.id})
         }
       }
     } catch (error) {
@@ -81,8 +84,6 @@ export default function Profile() {
   if (!user) return null
   return (
     <div style={{ maxWidth: "420px", margin: "96px auto" }}>
-      <h2>Hello, {user.username}</h2>
-
       <div className="form-widget">
         <div>
           {/* <Avatar

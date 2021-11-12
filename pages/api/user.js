@@ -9,12 +9,11 @@ export async function getOnboarding() {
       let { data, error, status } = await supabase
         .from("profiles")
         .select(`personality`)
-        .eq("id", user.id)
-        .single();
+        .eq("id", user.id);
       if (error && status !== 406) {
         throw error;
       }
-      if (data) {
+      if (data.length) {
         return data;
       }
     }
