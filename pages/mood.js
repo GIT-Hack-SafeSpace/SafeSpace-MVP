@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { supabase } from '../utils/client';
 import { useRouter } from 'next/router';
-import { getOnboarding } from './api/user';
-import Profile from './profile';
 import Loader from '../components/Loader';
 
 export default function Mood({ session }) {
@@ -33,12 +31,13 @@ export default function Mood({ session }) {
         let { data, error, status } = await supabase
           .from('profiles')
           .select(`username, industry, avatar_url`)
-          .eq('id', user.id);
+          .eq('id', user.id)
+          .single();
 
         if (error && status !== 406) {
           throw error;
         }
-        if (data.length) {
+        if (data) {
           setFirstUse(false);
         }
       }
