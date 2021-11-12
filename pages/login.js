@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { supabase } from "../utils/client";
 
-export default function Auth() {
+export default function Login() {
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState("");
 
@@ -21,7 +21,7 @@ export default function Auth() {
   return (
     <div className="row flex flex-center">
       <div className="col-6 form-widget">
-        <h1 className="header">Safe Space</h1>
+        <h1 className="header">SafeSpace</h1>
         <p className="description">
           Sign in via magic link with your email below
         </p>
@@ -43,7 +43,7 @@ export default function Auth() {
             className="button block"
             disabled={loading}
           >
-            <span>{loading ? "Loading" : "Send magic link"}</span>
+            <span>{loading ? "Loading" : "Send secure link to email"}</span>
           </button>
         </div>
       </div>
