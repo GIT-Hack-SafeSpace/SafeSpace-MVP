@@ -54,7 +54,7 @@ export default function Mood({ session }) {
       router.push('/profile');
     } else {
       // show mood
-      return <div className="text-white">MOOD</div>;
+      return <div className="text-white">MOOD VIEW</div>;
     }
   };
 
