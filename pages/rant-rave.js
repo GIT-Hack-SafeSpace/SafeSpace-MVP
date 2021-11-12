@@ -14,38 +14,34 @@ export default function RantRave() {
 
     if (!user) {
       router.push('/login');
-    }else {
-      getPosts(user.id)
+    } else {
+      getPosts(user.id);
     }
   }, []);
 
   const getPosts = async (userId) => {
-    console.log("hello there", userId)
     try {
-      let { 
-        data: rave_rant_post, 
+      let {
+        data: rave_rant_post,
         error,
-        status
+        status,
       } = await supabase
-      .from('rave_rant_post')
-      .select('*')
-      .eq('profile_id', userId)
+        .from('rave_rant_post')
+        .select('*')
+        .eq('profile_id', userId);
 
-      
       if (error && status !== 406) {
         throw error;
       }
-      console.log(data,"the data")
-      if(data) {
-        setData(rave_rant_post)
+      if (data) {
+        setData(rave_rant_post);
       }
-
     } catch (error) {
       alert(error.message);
     } finally {
       setLoading(false);
     }
-  }
+  };
   const view = () => {
     if (loading) {
       return <Loader />;
