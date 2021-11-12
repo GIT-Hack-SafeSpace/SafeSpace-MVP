@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { supabase } from "../utils/client";
 import { useRouter } from "next/router";
+import ResourcePg from "../components/Resource";
 
 export default function Resources() {
   const router = useRouter();
@@ -14,5 +15,9 @@ export default function Resources() {
     }
   }, []);
 
-  return <div>Rant/Rave</div>;
+  return <div>
+    <h1>Mood</h1>
+    <ResourcePg />
+
+  </div>;
 }
