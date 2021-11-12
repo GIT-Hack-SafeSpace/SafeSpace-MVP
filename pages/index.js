@@ -3,7 +3,6 @@ import Loader from '../components/Loader';
 import { supabase } from '../utils/client';
 import Login from './login';
 import Mood from './mood';
-import RantRave from './rant-rave';
 
 export default function Home() {
   const [session, setSession] = useState(null);
