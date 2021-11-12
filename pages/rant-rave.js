@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { supabase } from '../utils/client';
 import { useRouter } from 'next/router';
 import Loader from '../components/Loader';
+import ModalComp from '../components/Modal';
 
 export default function RantRave() {
   const [data, setData] = useState([]);
@@ -14,38 +15,34 @@ export default function RantRave() {
 
     if (!user) {
       router.push('/login');
-    }else {
-      getPosts(user.id)
+    } else {
+      getPosts(user.id);
     }
   }, []);
 
   const getPosts = async (userId) => {
-    console.log("hello there", userId)
     try {
-      let { 
-        data: rave_rant_post, 
+      let {
+        data: rave_rant_post,
         error,
-        status
+        status,
       } = await supabase
-      .from('rave_rant_post')
-      .select('*')
-      .eq('profile_id', userId)
+        .from('rave_rant_post')
+        .select('*')
+        .eq('profile_id', userId);
 
-      
       if (error && status !== 406) {
         throw error;
       }
-      console.log(data,"the data")
-      if(data) {
-        setData(rave_rant_post)
+      if (data) {
+        setData(rave_rant_post);
       }
-
     } catch (error) {
       alert(error.message);
     } finally {
       setLoading(false);
     }
-  }
+  };
   const view = () => {
     if (loading) {
       return <Loader />;
@@ -62,5 +59,12 @@ export default function RantRave() {
     }
   };
 
-  return <div>{view()}</div>;
+  return (
+    <div>
+      <ModalComp btnText='Add Log' title='Add Log'>
+        ADD FORM
+      </ModalComp>
+      {view()}
+    </div>
+  );
 }
