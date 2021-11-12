@@ -2,10 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { supabase } from '../utils/client';
 import { useRouter } from 'next/router';
 import Loader from '../components/Loader';
+import Modal from '../components/Modal';
+import CreateCompany from '../components/CreateCompany';
 
 export default function Companies() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [user, setUser] = useState({});
   const router = useRouter();
 
   useEffect(() => {
@@ -15,6 +18,7 @@ export default function Companies() {
       router.push('/login');
     } else {
       getCompanyData();
+      setUser(user);
     }
   }, []);
 
@@ -53,5 +57,12 @@ export default function Companies() {
     }
   };
 
-  return <div>{view()}</div>;
+  return (
+    <div className='text-white'>
+      <Modal btnText='Create Company' title='Create Company'>
+        <CreateCompany user={user} />
+      </Modal>
+      {view()}
+    </div>
+  );
 }
