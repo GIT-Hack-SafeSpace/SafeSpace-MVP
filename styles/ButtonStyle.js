@@ -10,4 +10,9 @@ export const ButtonStyle = styled.div`
     background-color: #63988e !important;
     border-color: #63988e !important;
   }
+
+  .btn-danger {
+    background-color: #ED3457 !important;
+    border-color: #ED3457 !important;
+  }
 `;
