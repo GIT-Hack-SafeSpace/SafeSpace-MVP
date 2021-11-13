@@ -3,5 +3,5 @@ export const moods = [
     { value: 'happy', label: 'Happy'},
     { value: 'meh', label: 'Meh'},
     { value: 'sad', label: 'Sad'},
-    { value: 'Mad', label: 'Mad'},
+    { value: 'mad', label: 'Mad'},
 ]
