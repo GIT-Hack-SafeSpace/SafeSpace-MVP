@@ -17,11 +17,5 @@ export default function Resources() {
     }
   }, []);
 
-<<<<<<< HEAD
-  return <div>
-    <ResourcePg />
-  </div>;
-=======
   return <div>{loading ? <Loader /> : 'Resources'}</div>;
->>>>>>> 5f7434684473f3b347d303618086389f4992333f
 }
