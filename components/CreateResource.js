@@ -3,6 +3,7 @@ import { supabase } from '../utils/client';
 import Form from 'react-bootstrap/Form';
 import Select from 'react-select';
 import styled from 'styled-components';
+// TODO: Add resources/therapy data to select
 import { industries } from '../data/industries';
 
 const SelectStyle = styled.div`
@@ -63,6 +64,7 @@ export default function CreateResource({ user }) {
         />
       </div>
       <SelectStyle>
+      {/* // TODO: Add resources/therapy data to select */}
         <label htmlFor='industry'>Resource Type</label>
         <Select
           required
