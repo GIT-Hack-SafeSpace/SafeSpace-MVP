@@ -3,10 +3,12 @@ import { supabase } from '../utils/client';
 import { useRouter } from 'next/router';
 import Loader from '../components/Loader';
 import ModalComp from '../components/Modal';
+import CreateRantRave from '../components/CreateRantRave';
 
 export default function RantRave() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [user, setUser] = useState({});
   const router = useRouter();
 
   useEffect(() => {
@@ -17,8 +19,22 @@ export default function RantRave() {
       router.push('/login');
     } else {
       getPosts(user.id);
+      setUser(user);
     }
+    // subscribe to all inserts (post)
+    const rave_rant_post = supabase
+      .from('rave_rant_post')
+      .on('INSERT', (payload) => {
+        handleInsert(payload);
+      })
+      .subscribe();
+
+    return () => supabase.removeSubscription(rave_rant_post);
   }, []);
+
+  const handleInsert = (payload) => {
+    setData((prevPosts) => [...prevPosts, payload.new]);
+  };
 
   const getPosts = async (userId) => {
     try {
@@ -47,24 +63,24 @@ export default function RantRave() {
     if (loading) {
       return <Loader />;
     } else {
-      return data.map((d) => (
-        <div key={d.id} className='text-white'>
-          <h1>{d.content}</h1>
-          <h3>{d.created_at}</h3>
-          <p>{d.profile_id}</p>
-          <p>{d.isPersonal}</p>
-          <p>{d.isResolved}</p>
-        </div>
-      ));
+      return (
+        <>
+          <ModalComp btnText='Add Log' title='Add Log'>
+            <CreateRantRave user={user} />
+          </ModalComp>
+          {data.map((d) => (
+            <div key={d.id} className='text-white'>
+              <h1>{d.content}</h1>
+              <h3>{d.created_at}</h3>
+              <p>{d.profile_id}</p>
+              <p>{d.isPersonal}</p>
+              <p>{d.isResolved}</p>
+            </div>
+          ))}
+        </>
+      );
     }
   };
 
-  return (
-    <div>
-      <ModalComp btnText='Add Log' title='Add Log'>
-        ADD FORM
-      </ModalComp>
-      {view()}
-    </div>
-  );
+  return <div>{view()}</div>;
 }
