@@ -4,6 +4,8 @@ import { useRouter } from 'next/router';
 import Loader from '../components/Loader';
 import ModalComp from '../components/Modal';
 import CreateInspo from '../components/CreateInspo';
+import Card from 'react-bootstrap/Card'
+
 
 export default function Inspiration() {
   const [data, setData] = useState([]);
@@ -68,17 +70,26 @@ export default function Inspiration() {
           <ModalComp btnText='Create Inspiration' title='Create Inspiration'>
             <CreateInspo user={user} />
           </ModalComp>
-          {data.map((d) => (
-            <div key={d.id} className='text-white'>
-              <h1>{d.name}</h1>
-              <h3>{d.industry}</h3>
-              <p>{d.content}</p>
-            </div>
-          ))}
+          {
+            data.map((d) => (
+                <div key={d.id} className='text-white'>
+                    <Card className="bg-dark text-white">
+                      <Card.Img src="https://parade.com/wp-content/uploads/2019/12/mlk-inspirational-quote.jpg" alt="_1" height="800px" />
+                      <Card.ImgOverlay>
+                          {/* <Card.Title>Card title</Card.Title> */}
+                          {/* <Card.Text>Last updated 3 mins ago</Card.Text> */}
+                          <Card.Text>{d.content}
+                          </Card.Text>
+                      </Card.ImgOverlay>
+                  </Card>
+                </div>
+            )) 
+        }
         </>
       );
     }
   };
 
-  return <div className='text-white'>{view()}</div>;
+  return <div className='text-white'>{view()}
+  </div>;
 }
