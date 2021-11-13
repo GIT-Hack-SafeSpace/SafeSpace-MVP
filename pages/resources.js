@@ -5,7 +5,7 @@ import ResourcePg from "../components/Resource";
 import Loader from "../components/Loader";
 
 export default function Resources() {
-  const [loading] = useState(true);
+  const [loading, setLoading ] = useState(true);
   const router = useRouter();
 
   useEffect(() => {
@@ -14,8 +14,12 @@ export default function Resources() {
 
     if (!user) {
       router.push("/login");
+    } else {
+      setLoading(false)
     }
   }, []);
 
-  return <div>{loading ? <Loader /> : 'Resources'}</div>;
+  return <div>
+    {loading ? <Loader /> : <ResourcePg />}
+    </div>;
 }
