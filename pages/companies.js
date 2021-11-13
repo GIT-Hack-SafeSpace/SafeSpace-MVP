@@ -57,22 +57,22 @@ export default function Companies() {
     if (loading) {
       return <Loader />;
     } else {
-      return data.map((d) => (
-        <div key={d.id} className='text-white'>
-          <h1>{d.name}</h1>
-          <h3>{d.industry}</h3>
-          <p>{d.content}</p>
-        </div>
-      ));
+      return (
+        <>
+          <ModalComp btnText='Create Company' title='Create Company'>
+            <CreateCompany user={user} />
+          </ModalComp>
+          {data.map((d) => (
+            <div key={d.id} className='text-white'>
+              <h1>{d.name}</h1>
+              <h3>{d.industry}</h3>
+              <p>{d.content}</p>
+            </div>
+          ))}
+        </>
+      );
     }
   };
 
-  return (
-    <div className='text-white'>
-      <ModalComp btnText='Create Company' title='Create Company'>
-        <CreateCompany user={user} />
-      </ModalComp>
-      {view()}
-    </div>
-  );
+  return <div className='text-white'>{view()}</div>;
 }
