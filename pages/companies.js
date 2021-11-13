@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { supabase } from '../utils/client';
 import { useRouter } from 'next/router';
 import Loader from '../components/Loader';
-import Modal from '../components/Modal';
+import ModalComp from '../components/Modal';
 import CreateCompany from '../components/CreateCompany';
 
 export default function Companies() {
@@ -20,7 +20,21 @@ export default function Companies() {
       getCompanyData();
       setUser(user);
     }
+
+    // subscribe to all inserts (post)
+    const companyPost = supabase
+      .from('company_post')
+      .on('INSERT', (payload) => {
+        handleInsert(payload);
+      })
+      .subscribe();
+
+    return () => supabase.removeSubscription(companyPost);
   }, []);
+
+  const handleInsert = (payload) => {
+    setData((prevPosts) => [...prevPosts, payload.new]);
+  };
 
   const getCompanyData = async () => {
     try {
@@ -30,12 +44,8 @@ export default function Companies() {
         status,
       } = await supabase.from('company_post').select('*');
 
-      if (error && status !== 406) {
-        throw error;
-      }
-      if (data) {
-        setData(company_post);
-      }
+      if (error && status !== 406) throw error;
+      if (data) setData(company_post);
     } catch (error) {
       alert(error.message);
     } finally {
@@ -59,9 +69,9 @@ export default function Companies() {
 
   return (
     <div className='text-white'>
-      <Modal btnText='Create Company' title='Create Company'>
+      <ModalComp btnText='Create Company' title='Create Company'>
         <CreateCompany user={user} />
-      </Modal>
+      </ModalComp>
       {view()}
     </div>
   );

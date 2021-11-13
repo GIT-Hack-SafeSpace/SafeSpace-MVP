@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { supabase } from "../utils/client";
+import { useEffect, useState } from 'react';
+import { supabase } from '../utils/client';
 
 export default function Avatar({ url, size, onUpload }) {
   const [avatarUrl, setAvatarUrl] = useState(null);
@@ -12,7 +12,7 @@ export default function Avatar({ url, size, onUpload }) {
   async function downloadImage(path) {
     try {
       const { data, error } = await supabase.storage
-        .from("avatars")
+        .from('avatars')
         .download(path);
       if (error) {
         throw error;
@@ -20,7 +20,7 @@ export default function Avatar({ url, size, onUpload }) {
       const url = URL.createObjectURL(data);
       setAvatarUrl(url);
     } catch (error) {
-      console.log("Error downloading image: ", error.message);
+      console.log('Error downloading image: ', error.message);
     }
   }
 
@@ -29,16 +29,16 @@ export default function Avatar({ url, size, onUpload }) {
       setUploading(true);
 
       if (!event.target.files || event.target.files.length === 0) {
-        throw new Error("You must select an image to upload.");
+        throw new Error('You must select an image to upload.');
       }
 
       const file = event.target.files[0];
-      const fileExt = file.name.split(".").pop();
+      const fileExt = file.name.split('.').pop();
       const fileName = `${Math.random()}.${fileExt}`;
       const filePath = `${fileName}`;
 
       let { error: uploadError } = await supabase.storage
-        .from("avatars")
+        .from('avatars')
         .upload(filePath, file);
 
       if (uploadError) {
@@ -58,32 +58,44 @@ export default function Avatar({ url, size, onUpload }) {
       {avatarUrl ? (
         <img
           src={avatarUrl}
-          alt="Avatar"
-          className="avatar image"
+          alt='Avatar'
+          className='avatar image'
           style={{ height: size, width: size }}
         />
       ) : (
         <div
-          className="avatar no-image"
+          className='avatar no-image'
           style={{ height: size, width: size }}
         />
       )}
       <div style={{ width: size }}>
-        <label className="button primary block" htmlFor="single">
-          {uploading ? "Uploading ..." : "Upload"}
+        <label className='button primary block' htmlFor='single'>
+          {uploading ? 'Uploading ...' : 'Upload'}
         </label>
         <input
           style={{
-            visibility: "hidden",
-            position: "absolute",
+            visibility: 'hidden',
+            position: 'absolute',
           }}
-          type="file"
-          id="single"
-          accept="image/*"
+          type='file'
+          id='single'
+          accept='image/*'
           onChange={uploadAvatar}
           disabled={uploading}
         />
       </div>
     </div>
   );
+}
+
+{
+  // code to use 
+  /* <Avatar
+          url={avatar_url}
+          size={150}
+          onUpload={(url) => {
+            setUser((prevState) => ({ ...prevState, avatar_url: url }));
+            updateProfile({ username, industry, avatar_url: url });
+          }}
+        /> */
 }

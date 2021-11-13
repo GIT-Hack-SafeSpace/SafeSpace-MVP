@@ -86,16 +86,6 @@ export default function Profile() {
     <div style={{ maxWidth: "420px", margin: "96px auto" }}>
       <div className="form-widget">
         <div>
-          {/* <Avatar
-          url={avatar_url}
-          size={150}
-          onUpload={(url) => {
-            setUser((prevState) => ({ ...prevState, avatar_url: url }));
-            updateProfile({ username, industry, avatar_url: url });
-          }}
-        /> */}
-        </div>
-        <div>
           <label htmlFor="username">Username</label>
           <input
             id="username"

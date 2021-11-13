@@ -2,10 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { supabase } from '../utils/client';
 import { useRouter } from 'next/router';
 import Loader from '../components/Loader';
+import ModalComp from '../components/Modal';
+import CreateRantRave from '../components/CreateRantRave';
 
 export default function RantRave() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [user, setUser] = useState({});
   const router = useRouter();
 
   useEffect(() => {
@@ -14,51 +17,68 @@ export default function RantRave() {
 
     if (!user) {
       router.push('/login');
-    }else {
-      getPosts(user.id)
+    } else {
+      getPosts(user.id);
+      setUser(user);
     }
+    // subscribe to all inserts (post)
+    const rave_rant_post = supabase
+      .from('rave_rant_post')
+      .on('INSERT', (payload) => {
+        handleInsert(payload);
+      })
+      .subscribe();
+
+    return () => supabase.removeSubscription(rave_rant_post);
   }, []);
 
-  const getPosts = async (userId) => {
-    console.log("hello there", userId)
-    try {
-      let { 
-        data: rave_rant_post, 
-        error,
-        status
-      } = await supabase
-      .from('rave_rant_post')
-      .select('*')
-      .eq('profile_id', userId)
+  const handleInsert = (payload) => {
+    setData((prevPosts) => [...prevPosts, payload.new]);
+  };
 
-      
+  const getPosts = async (userId) => {
+    try {
+      let {
+        data: rave_rant_post,
+        error,
+        status,
+      } = await supabase
+        .from('rave_rant_post')
+        .select('*')
+        .eq('profile_id', userId);
+
       if (error && status !== 406) {
         throw error;
       }
-      console.log(data,"the data")
-      if(data) {
-        setData(rave_rant_post)
+      if (data) {
+        setData(rave_rant_post);
       }
-
     } catch (error) {
       alert(error.message);
     } finally {
       setLoading(false);
     }
-  }
+  };
   const view = () => {
     if (loading) {
       return <Loader />;
     } else {
-      return data.map((d) => (
-        <div key={d.id} className='text-white'>
-          <h1>{d.content}</h1>
-          <h3>{d.created_at}</h3>
-          <p>{d.profile_id}</p>
-          <p>{d.isPersonal}</p>
-          <p>{d.isResolved}</p>
-        </div>
-      ));
+      return (
+        <>
+          <ModalComp btnText='Add Log' title='Add Log'>
+            <CreateRantRave user={user} />
+          </ModalComp>
+          {data.map((d) => (
+            <div key={d.id} className='text-white'>
+              <h1>{d.content}</h1>
+              <h3>{d.created_at}</h3>
+              <p>{d.profile_id}</p>
+              <p>{d.isPersonal}</p>
+              <p>{d.isResolved}</p>
+            </div>
+          ))}
+        </>
+      );
     }
   };
 
