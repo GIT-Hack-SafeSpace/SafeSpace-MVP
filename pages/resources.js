@@ -68,7 +68,7 @@ export default function Resources() {
             <CreateResource user={user} />
           </ModalComp>
           {data.map((d) => (
-            <div key={d.id} className='text-white'>
+            <div key={d.id} >
               <h1>{d.name}</h1>
               <h3>{d.therapy_type}</h3>
               <p>{d.profile_id}</p>

@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { supabase } from '../utils/client';
 import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 import styled from 'styled-components';
+import { ButtonStyle } from '../styles/ButtonStyle';
 
 const SelectStyle = styled.div`
   .select__option {
@@ -16,7 +18,8 @@ export default function CreateInspo({ user }) {
     isResolved: false,
   });
 
-  const postInspo = async () => {
+  const postInspo = async (e) => {
+    e.preventDefault();
     const { id } = user;
     const { content } = data;
     try {
@@ -45,10 +48,11 @@ export default function CreateInspo({ user }) {
   };
 
   return (
-    <Form>
+    <Form onSubmit={postInspo}>
       <Form.Group className='mb-3'>
         <Form.Label>Message</Form.Label>
         <Form.Control
+          required
           as='textarea'
           rows={3}
           id='content'
@@ -63,15 +67,11 @@ export default function CreateInspo({ user }) {
           }
         />
       </Form.Group>
-      <div>
-        <button
-          className='button block primary mt-3'
-          onClick={postInspo}
-          disabled={loading}
-        >
-          {loading ? 'Loading ...' : 'Create'}
-        </button>
-      </div>
+      <ButtonStyle>
+        <Button className='save-change' type='submit' disabled={loading}>
+          {loading ? 'Loading ...' : 'Save Changes'}
+        </Button>
+      </ButtonStyle>
     </Form>
   );
 }
