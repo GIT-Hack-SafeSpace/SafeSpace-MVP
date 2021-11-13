@@ -16,8 +16,6 @@ export default function Resources() {
   }, []);
 
   return <div>
-    <h1>Mood</h1>
     <ResourcePg />
-
   </div>;
 }

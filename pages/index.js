@@ -17,7 +17,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className='container' style={{ padding: '50px 0 100px 0' }}>
+    <div className='container' style={{ padding: '50px 0 100px 0', width: '375px' }}>
       {loading ? <Loader /> : !session ? <Login /> : <Mood session={session} />}
     </div>
   );

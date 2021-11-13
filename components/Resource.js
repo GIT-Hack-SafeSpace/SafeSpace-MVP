@@ -126,8 +126,9 @@ export default function ResourcePg() {
     <img className="resourceImg" src="https://templebethmiriam.org/wp-content/uploads/2010/01/o-BLACK-WOMAN-HAPPY-OUTSIDE-facebook.jpg" alt="Exercise & Mediation"/>
     <div className="bottom-left">Exercise & Meditation</div>
    </div>
+
 </div>
-   
+
     <footer className="footerBar">
         <div className="orderFooterOptions">
             <div className="footerBarOption">
