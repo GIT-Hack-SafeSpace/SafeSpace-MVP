@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { supabase } from '../utils/client';
 import Form from 'react-bootstrap/Form';
-import { industries } from '../data/industries';
-import Select from 'react-select';
 import styled from 'styled-components';
 
 const SelectStyle = styled.div`
