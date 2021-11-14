@@ -4,6 +4,8 @@ import { useRouter } from 'next/router';
 import Loader from '../components/Loader';
 import ModalComp from '../components/Modal';
 import CreateCompany from '../components/CreateCompany';
+import Card from 'react-bootstrap/Card';
+
 
 export default function Companies() {
   const [data, setData] = useState([]);
@@ -62,13 +64,24 @@ export default function Companies() {
           <ModalComp btnText='Create Company' title='Create Company'>
             <CreateCompany user={user} />
           </ModalComp>
-          {data.map((d) => (
-            <div key={d.id} className='text-white'>
-              <h1>{d.name}</h1>
-              <h3>{d.industry}</h3>
-              <p>{d.content}</p>
-            </div>
-          ))}
+          {
+            data.map((d) => (
+              <div key={d.id} className='text-white'>
+                <Card style={{ width: '18rem' }}>
+                  <Card.Body>
+                    <Card.Title>{d.name}</Card.Title>
+                    <Card.Subtitle className="mb-2 text-muted">{d.industry}</Card.Subtitle>
+                    <Card.Text>{d.content}</Card.Text>
+                    <Card.Link href="#">Card Link</Card.Link>
+                    <Card.Link href="#">Another Link</Card.Link>
+                  </Card.Body>
+                </Card>
+                {/* <h1>{d.name}</h1>
+                <h3>{d.industry}</h3>
+                <p>{d.content}</p> */}
+              </div>
+          ))
+          }
         </>
       );
     }

@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import Loader from '../components/Loader';
 import ModalComp from '../components/Modal';
 import CreateInspo from '../components/CreateInspo';
-import Card from 'react-bootstrap/Card'
+import Card from 'react-bootstrap/Card';
 
 
 export default function Inspiration() {
