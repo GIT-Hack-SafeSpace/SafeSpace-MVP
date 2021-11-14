@@ -18,20 +18,20 @@ const ResourceLayout = styled.div`
 
   .resourceRectangle {
       width: 100%;
-      height: 200px;
+      height: 158px;
       position: relative;
       text-align: center;
-      margin-bottom: 19px;
+      border-top: 2px solid white;
     }
 
     .resourceImg {
-        width: 110%;
+        width: 105%;
     }
 
     .bottom-left {
         position: absolute;
         bottom: 0px;
-        left: 19px;
+        left: 15px;
         font-size: 30px;
         color: white;
         filter: drop-shadow(2px 2px 10px black);
@@ -42,9 +42,18 @@ export default function ResourcePg() {
   return (
     <ResourceLayout>
             <div className="resourceRectangle">
-                <Link href="/creative-resources">
+                <Link href="/resources/help">
                     <a>
-                        <img className="resourceImg" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKmR73W1iR_RTCb2ZUDnXIOrW487S-54JWxA&usqp=CAU" alt="Happy Black Women"/>
+                        <img className="resourceImg" src='images/help.png' alt="Help"/>
+                        <div className="bottom-left">Help</div>
+                    </a>
+                </Link>
+            </div>
+
+            <div className="resourceRectangle">
+                <Link href="/resources/creative">
+                    <a>
+                        <img className="resourceImg" src='images/creativesolutions.png' alt="Happy Black Women"/>
                         <div className="bottom-left">Creative Solutions</div>
                     </a>
                 </Link>
@@ -53,7 +62,7 @@ export default function ResourcePg() {
             <div className="resourceRectangle">
                 <Link href="/resources/seeking-counseling">
                     <a>
-                        <img className="resourceImg" src="https://www.thetemper.com/wp-content/uploads/2020/06/Black-Therapist.png-e1516484163919.jpg" alt="Black women counseling"/>
+                        <img className="resourceImg" src='images/seekingcounseling.png' alt="Black women counseling"/>
                         <div className="bottom-left">Seek Counseling</div>
                     </a>
                 </Link>
@@ -62,7 +71,7 @@ export default function ResourcePg() {
             <div className="resourceRectangle">
                 <Link href="/resources/exercise-meditation">
                     <a>
-                        <img className="resourceImg" src="https://templebethmiriam.org/wp-content/uploads/2010/01/o-BLACK-WOMAN-HAPPY-OUTSIDE-facebook.jpg" alt="Exercise & Mediation"/>
+                        <img className="resourceImg" src='images/exercise.png' alt="Exercise & Mediation"/>
                         <div className="bottom-left">Exercise & Meditation</div>
                     </a>
                 </Link>
