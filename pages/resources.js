@@ -3,6 +3,7 @@ import { supabase } from '../utils/client';
 import { useRouter } from 'next/router';
 import Loader from '../components/Loader';
 import ModalComp from '../components/Modal';
+import CreateResource from '../components/CreateResource'
 
 
 export default function Resources() {

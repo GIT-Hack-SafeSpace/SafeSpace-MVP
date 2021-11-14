@@ -69,9 +69,7 @@ export default function Companies() {
               <h3>{d.industry}</h3>
               <p>{d.content}</p>
             </div>
-          
-          ))
-        }
+          ))}
         </>
       )}
   };
