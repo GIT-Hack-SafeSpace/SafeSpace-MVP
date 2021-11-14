@@ -23,7 +23,7 @@ export default function CreateRantRave({ user }) {
   const postRantRave = async (e) => {
     e.preventDefault();
     const { id } = user;
-    const { where, who, content, isPersonal, isResolved, type } =
+    const { where, who, content, isPersonal, isResolved, type, title } =
       data;
     try {
       setLoading(true);
@@ -35,6 +35,7 @@ export default function CreateRantRave({ user }) {
         type,
         where,
         who,
+        title,
         created_at: new Date(),
       };
 
@@ -89,6 +90,22 @@ export default function CreateRantRave({ user }) {
           }))
         }
       />
+        <div>
+        <label htmlFor='name'>Journal Entry</label>
+        <Form.Control
+          required
+          id='title'
+          type='text'
+          placeholder='Title of Entry'
+          value={data.title || ''}
+          onChange={(e) =>
+            setData((prevState) => ({
+              ...prevState,
+              title: e.target.value,
+            }))
+          }
+        />
+      </div>
       <div>
         <label htmlFor='name'>Who?</label>
         <Form.Control

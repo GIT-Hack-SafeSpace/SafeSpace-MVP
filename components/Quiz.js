@@ -199,6 +199,7 @@ export default function Quiz() {
       return quizView();
     }
   };
-
+  
+  if (!user) return null;
   return <div>{view()}</div>;
 }
