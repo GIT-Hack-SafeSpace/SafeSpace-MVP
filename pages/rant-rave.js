@@ -5,6 +5,7 @@ import Loader from '../components/Loader';
 import ModalComp from '../components/Modal';
 import CreateRantRave from '../components/CreateRantRave';
 
+
 export default function RantRave() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);

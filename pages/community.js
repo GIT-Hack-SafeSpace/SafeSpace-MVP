@@ -3,6 +3,7 @@ import { supabase } from '../utils/client';
 import { useRouter } from 'next/router';
 import Loader from '../components/Loader';
 
+
 export default function Community() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
