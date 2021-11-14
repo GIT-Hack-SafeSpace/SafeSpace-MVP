@@ -4,6 +4,14 @@ import { useRouter } from 'next/router';
 import Loader from '../components/Loader';
 import MainLayout from '../layouts/MainLayout';
 
+import CommunityPost from '../components/CommunityPost';
+
+import styled from 'styled-components';
+
+const CommunityView = styled.div`
+h1{
+  font-size:28px;
+}`
 
 export default function Community() {
   const [data, setData] = useState([]);
@@ -63,17 +71,10 @@ export default function Community() {
       return <Loader />;
     } else {
       return (
-        <>
-          {data.map((d) => (
-            <div key={d.id}>
-              <h1>{d.content}</h1>
-              <h3>{d.created_at}</h3>
-              <p>{d.profile_id}</p>
-              <p>{d.isPersonal}</p>
-              <p>{d.isResolved}</p>
-            </div>
-          ))}
-        </>
+        <CommunityView>
+          <h1>Community</h1>
+          <CommunityPost data={data}/>
+        </CommunityView>
       );
     }
   };
