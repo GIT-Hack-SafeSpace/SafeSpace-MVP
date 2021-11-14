@@ -5,6 +5,7 @@ import Loader from '../components/Loader';
 import ModalComp from '../components/Modal';
 import CreateCompany from '../components/CreateCompany';
 
+
 export default function Companies() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -70,8 +71,7 @@ export default function Companies() {
             </div>
           ))}
         </>
-      );
-    }
+      )}
   };
 
   return <div>{view()}</div>;

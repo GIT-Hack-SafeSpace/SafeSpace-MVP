@@ -3,6 +3,7 @@ import { supabase } from '../utils/client';
 import { useRouter } from 'next/router';
 import Loader from '../components/Loader';
 
+
 export default function Mood({ session }) {
   const [firstUse, setFirstUse] = useState(true);
   const [loading, setLoading] = useState(true);
