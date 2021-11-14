@@ -51,7 +51,7 @@ export default function Login() {
     } else {
       return (
         <div className='d-flex flex-column text-center'>
-          <h1 className='header'>SafeSpace.</h1>
+          <h1>SafeSpace.</h1>
           <hr />
           <p className='description'>
             A place where Black women can support each other, manage their
