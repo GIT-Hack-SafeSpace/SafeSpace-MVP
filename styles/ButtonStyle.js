@@ -88,14 +88,6 @@ export const MoodStyles = styled.div`
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
-
-    &.excited,
-    &.happy,
-    &.meh,
-    &.sad,
-    &.mad {
-      
-      border: none;
-    }
+    border: none;
   }
 `;
