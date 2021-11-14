@@ -52,7 +52,7 @@ export const ButtonStyle = styled.div`
     border-color: #eea127 !important;
     width: 121px;
     padding: 8px 15px;
-    margin: 20px;
+    margin: -15px 20px 20px;
     border-style: none;
     border-radius: 50px;
     font-weight: 400;

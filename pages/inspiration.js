@@ -5,6 +5,7 @@ import Loader from '../components/Loader';
 import ModalComp from '../components/Modal';
 import CreateInspo from '../components/CreateInspo';
 
+
 export default function Inspiration() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);

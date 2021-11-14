@@ -17,8 +17,8 @@ export default function Home() {
   }, []);
 
   return (
-    <div>
+    <>
       {loading ? <Loader /> : !session ? <Login /> : <Mood session={session} />}
-    </div>
+    </>
   );
 }
