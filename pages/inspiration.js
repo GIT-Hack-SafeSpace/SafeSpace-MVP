@@ -4,6 +4,8 @@ import { useRouter } from 'next/router';
 import Loader from '../components/Loader';
 import ModalComp from '../components/Modal';
 import CreateInspo from '../components/CreateInspo';
+import GlobalHeader from '../components/GlobalHeader';
+import GlobalFooter from '../components/GlobalFooter';
 
 export default function Inspiration() {
   const [data, setData] = useState([]);
@@ -65,16 +67,21 @@ export default function Inspiration() {
     } else {
       return (
         <>
-          <ModalComp btnText='Create Inspiration' title='Create Inspiration'>
-            <CreateInspo user={user} />
-          </ModalComp>
-          {data.map((d) => (
-            <div key={d.id} className='text-white'>
-              <h1>{d.name}</h1>
-              <h3>{d.industry}</h3>
-              <p>{d.content}</p>
-            </div>
-          ))}
+        <GlobalHeader />
+          <div className="viewWrapper" style={{marginTop: '90px', width: '375px', height: '644px', border: '2px solid blue' }}>
+
+            <ModalComp btnText='Create Inspiration' title='Create Inspiration'>
+              <CreateInspo user={user} />
+            </ModalComp>
+            {data.map((d) => (
+              <div key={d.id} className='text-white'>
+                <h1>{d.name}</h1>
+                <h3>{d.industry}</h3>
+                <p>{d.content}</p>
+              </div>
+            ))}
+          </div>
+        <GlobalFooter />
         </>
       );
     }

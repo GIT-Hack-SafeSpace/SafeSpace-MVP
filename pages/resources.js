@@ -2,8 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { supabase } from '../utils/client';
 import { useRouter } from 'next/router';
 import Loader from '../components/Loader';
-import CreateResource from '../components/CreateResource';
+import ResourcePg from '../components/Resource';
 import ModalComp from '../components/Modal';
+import GlobalHeader from '../components/GlobalHeader';
+import GlobalFooter from '../components/GlobalFooter';
 
 export default function Resources() {
   const [data, setData] = useState([]);
@@ -50,6 +52,7 @@ export default function Resources() {
       }
       if (data) {
         setData(therapy);
+        console.log(data)
       }
     } catch (error) {
       alert(error.message);
@@ -64,16 +67,19 @@ export default function Resources() {
     } else {
       return (
         <>
-          <ModalComp btnText='Create Resource' title='Create Resource'>
-            <CreateResource user={user} />
-          </ModalComp>
-          {data.map((d) => (
-            <div key={d.id} className='text-white'>
-              <h1>{d.name}</h1>
-              <h3>{d.therapy_type}</h3>
-              <p>{d.profile_id}</p>
-            </div>
-          ))}
+        <GlobalHeader />
+          <ResourcePg />
+          {/* <div className="viewWrapper" style={{marginTop: '90px', width: '375px', height: '644px', border: '2px solid blue' }}>
+            {data.map((d) => (
+              <div key={d.id} className='text-white'>
+                <h1>{d.name}</h1>
+                <h3>{d.therapy_type}</h3>
+                <p>{d.profile_id}</p>
+              </div>
+            ))}
+          </div> */}
+          <GlobalFooter />
+
         </>
       );
     }

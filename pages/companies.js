@@ -4,6 +4,8 @@ import { useRouter } from 'next/router';
 import Loader from '../components/Loader';
 import ModalComp from '../components/Modal';
 import CreateCompany from '../components/CreateCompany';
+import GlobalHeader from '../components/GlobalHeader';
+import GlobalFooter from '../components/GlobalFooter';
 
 export default function Companies() {
   const [data, setData] = useState([]);
@@ -59,16 +61,21 @@ export default function Companies() {
     } else {
       return (
         <>
-          <ModalComp btnText='Create Company' title='Create Company'>
-            <CreateCompany user={user} />
-          </ModalComp>
-          {data.map((d) => (
-            <div key={d.id} className='text-white'>
-              <h1>{d.name}</h1>
-              <h3>{d.industry}</h3>
-              <p>{d.content}</p>
+        <GlobalHeader />
+          <div className="viewWrapper" style={{marginTop: '90px', width: '375px', height: '644px', border: '2px solid blue' }}>
+
+            <ModalComp btnText='Create Company' title='Create Company'>
+              <CreateCompany user={user} />
+            </ModalComp>
+            {data.map((d) => (
+              <div key={d.id} className='text-white'>
+                <h1>{d.name}</h1>
+                <h3>{d.industry}</h3>
+                <p>{d.content}</p>
+              </div>
+            ))}
             </div>
-          ))}
+          <GlobalFooter />
         </>
       );
     }

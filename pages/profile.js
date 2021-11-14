@@ -4,6 +4,8 @@ import { useRouter } from "next/router";
 import Select from "react-select";
 import styled from "styled-components";
 import { industries } from "../data/industries";
+import GlobalHeader from "../components/GlobalHeader";
+import GlobalFooter from "../components/GlobalFooter";
 
 const SelectStyle = styled.div`
   .select__option {
@@ -83,6 +85,8 @@ export default function Profile() {
   
   if (!user) return null
   return (
+    <>
+    <GlobalHeader />
     <div style={{ maxWidth: "420px", margin: "96px auto" }}>
       <div className="form-widget">
         <div>
@@ -142,5 +146,8 @@ export default function Profile() {
         </div>
       </div>
     </div>
+
+    <GlobalFooter />
+    </>
   );
 }

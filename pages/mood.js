@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { supabase } from '../utils/client';
 import { useRouter } from 'next/router';
 import Loader from '../components/Loader';
+import GlobalHeader from '../components/GlobalHeader';
+import GlobalFooter from '../components/GlobalFooter';
 
 export default function Mood({ session }) {
   const [firstUse, setFirstUse] = useState(true);
@@ -54,7 +56,17 @@ export default function Mood({ session }) {
       router.push('/profile');
     } else {
       // show mood
-      return <div className="text-white">MOOD VIEW</div>;
+      return (
+      <>
+      <GlobalHeader />
+        <div className="viewWrapper" style={{marginTop: '90px', width: '375px', height: '644px', border: '2px solid blue' }}>
+          <div className="text-white">
+            MOOD VIEW
+          </div>
+        </div>
+      <GlobalFooter />
+      </>
+      );
     }
   };
 
