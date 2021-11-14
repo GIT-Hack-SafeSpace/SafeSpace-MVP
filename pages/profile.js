@@ -34,7 +34,7 @@ export default function Profile() {
       } else {
         let { data, error, status } = await supabase
           .from('profiles')
-          .select(`username, industry, avatar_url`)
+          .select(`username, industry, avatar_url, personality`)
           .eq('id', user.id)
           .single();
 
@@ -56,7 +56,7 @@ export default function Profile() {
 
   async function updateProfile(e) {
     e.preventDefault();
-    const { id, username, industry, avatar_url } = user;
+    const { id, username, industry, avatar_url, personality } = user;
 
     try {
       setLoading(true);
@@ -65,6 +65,7 @@ export default function Profile() {
         username,
         industry,
         avatar_url,
+        personality,
         updated_at: new Date(),
       };
 
@@ -86,9 +87,13 @@ export default function Profile() {
     router.push('/login');
   }
 
+  const handleQuiz = (e) => {
+    updateProfile(e).then(() => router.push('/conflict-quiz'));
+  };
+
   if (!user) return null;
   return (
-    <div>
+    <>
       <ButtonStyle className='d-flex justify-content-end'>
         <Button className='btn-danger' onClick={signOut}>
           Sign Out
@@ -136,17 +141,22 @@ export default function Profile() {
             isSearchable={true}
           />
         </SelectStyle>
-
         <ButtonStyle>
-          <Button
-            className='save-change'
-            disabled={loading}
-            type="submit"
-          >
-            {loading ? 'Loading ...' : 'Update Profile'}
-          </Button>
+          {user.personality ? (
+            <Button className='btn-update' disabled={loading} type='submit'>
+              {loading ? 'Loading ...' : 'Update Profile'}
+            </Button>
+          ) : (
+            <Button
+              className='btn-update'
+              disabled={loading}
+              onClick={handleQuiz}
+            >
+              Continue
+            </Button>
+          )}
         </ButtonStyle>
       </Form>
-    </div>
+    </>
   );
 }

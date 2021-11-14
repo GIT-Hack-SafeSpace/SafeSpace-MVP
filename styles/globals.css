@@ -7,3 +7,13 @@
 input, .form-check {
   margin: 10px 0;
 }
+
+h2 {
+  font-weight: 400;
+  padding: 20px 0;
+}
+
+h5 {
+  font-weight: 300;
+  padding: 20px 0;
+}
