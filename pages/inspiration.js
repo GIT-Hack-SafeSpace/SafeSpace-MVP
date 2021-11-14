@@ -2,10 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { supabase } from '../utils/client';
 import { useRouter } from 'next/router';
 import Loader from '../components/Loader';
-import ModalComp from '../components/Modal';
-import CreateInspo from '../components/CreateInspo';
-import Card from 'react-bootstrap/Card';
 import MainLayout from '../layouts/MainLayout';
+import InspirationPost from '../components/InspirationPost';
 
 
 export default function Inspiration() {
@@ -66,27 +64,7 @@ export default function Inspiration() {
       return <Loader />;
     } else {
       return (
-        <>
-          <ModalComp title='Create Inspiration'>
-            <CreateInspo user={user} />
-          </ModalComp>
-          {
-            data.map((d) => (
-                <div key={d.id} className='text-white'>
-                  <div>
-                    <Card className="bg-dark text-white">
-                      <Card.Img src="https://i.pinimg.com/originals/0f/5e/3f/0f5e3ffae68a19be40d3975870be02de.png" alt="_1" height="350px" />
-                      <Card.ImgOverlay>
-                          {/* <Card.Title>Card title</Card.Title>
-                          <Card.Text>Last updated 3 mins ago</Card.Text> */}
-                          <Card.Text className="inspoCardText">{d.content}</Card.Text>
-                      </Card.ImgOverlay>
-                    </Card>
-                  </div>
-                </div>
-            )) 
-        }
-        </>
+        <InspirationPost data={data} user={user}/>
       );
     }
   };
