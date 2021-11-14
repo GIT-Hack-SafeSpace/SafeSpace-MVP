@@ -12,7 +12,6 @@ export default function Mood({ session }) {
 
   useEffect(() => {
     !session && router.push('/login');
-    console.log(session)
   }, [session]);
 
   useEffect(() => {
@@ -43,6 +42,7 @@ export default function Mood({ session }) {
       alert(error.message);
     } finally {
       setLoading(false);
+      router.push('/rant-rave')
     }
   }
 
@@ -74,7 +74,7 @@ export default function Mood({ session }) {
   }
 
   const handleClick = (e) => {
-    addMood(e.target.value).then(() => router.push('/rant-rave'))
+    addMood(e.target.value);
   };
 
   const viewLogic = () => {
