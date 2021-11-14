@@ -51,7 +51,6 @@ export default function Resources() {
       }
       if (data) {
         setData(therapy);
-        console.log(data)
       }
     } catch (error) {
       alert(error.message);
