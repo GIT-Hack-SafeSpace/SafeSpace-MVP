@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import Loader from '../components/Loader';
 import { moods } from '../data/moods';
 import { MoodStyles } from '../styles/ButtonStyle';
+import NoNavigation from '../layouts/NoNavigation';
 
 export default function Mood({ session }) {
   const [firstUse, setFirstUse] = useState(true);
@@ -41,8 +42,7 @@ export default function Mood({ session }) {
     } catch (error) {
       alert(error.message);
     } finally {
-      setLoading(false);
-      router.push('/rant-rave')
+      router.push('/journal')
     }
   }
 
@@ -100,5 +100,5 @@ export default function Mood({ session }) {
     }
   };
 
-  return <>{loading ? <Loader /> : viewLogic()}</>;
+  return <NoNavigation>{loading ? <Loader /> : viewLogic()}</NoNavigation>;
 }

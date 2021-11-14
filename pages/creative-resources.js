@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import Loader from '../components/Loader';
 import ModalComp from '../components/Modal';
 import CreateResource from '../components/CreateResource'
+import MainLayout from '../layouts/MainLayout';
 
 
 export default function Resources() {
@@ -65,7 +66,7 @@ export default function Resources() {
     } else {
       return (
         <>
-          <ModalComp btnText='Create Resource' title='Create Resource'>
+          <ModalComp title='Create Resource'>
             <CreateResource user={user} />
           </ModalComp>
           {data.map((d) => (
@@ -80,5 +81,5 @@ export default function Resources() {
     }
   };
 
-  return <div>{view()}</div>;
+  return <MainLayout>{view()}</MainLayout>;
 }

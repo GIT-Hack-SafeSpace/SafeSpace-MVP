@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import Loader from '../components/Loader';
 import ModalComp from '../components/Modal';
 import CreateCompany from '../components/CreateCompany';
+import MainLayout from '../layouts/MainLayout';
 
 
 export default function Companies() {
@@ -60,7 +61,7 @@ export default function Companies() {
     } else {
       return (
         <>
-          <ModalComp btnText='Create Company' title='Create Company'>
+          <ModalComp title='Submit a Great Company'>
             <CreateCompany user={user} />
           </ModalComp>
           {data.map((d) => (
@@ -74,5 +75,5 @@ export default function Companies() {
       )}
   };
 
-  return <div>{view()}</div>;
+  return <MainLayout>{view()}</MainLayout>;
 }

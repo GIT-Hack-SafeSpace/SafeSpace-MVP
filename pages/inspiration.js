@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import Loader from '../components/Loader';
 import ModalComp from '../components/Modal';
 import CreateInspo from '../components/CreateInspo';
+import MainLayout from '../layouts/MainLayout';
 
 
 export default function Inspiration() {
@@ -65,7 +66,7 @@ export default function Inspiration() {
     } else {
       return (
         <>
-          <ModalComp btnText='Create Inspiration' title='Create Inspiration'>
+          <ModalComp title='Create Inspiration'>
             <CreateInspo user={user} />
           </ModalComp>
           {data.map((d) => (
@@ -80,5 +81,5 @@ export default function Inspiration() {
     }
   };
 
-  return <div>{view()}</div>;
+  return <MainLayout>{view()}</MainLayout>;
 }

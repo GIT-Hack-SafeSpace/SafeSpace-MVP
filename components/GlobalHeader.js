@@ -5,7 +5,7 @@ export default function GlobalHeader() {
   return (
     <nav>
       <p className='menuExample'>=</p>
-      <Link href='/rant-rave'>
+      <Link href='/journal'>
         <h1 className='safespace'>SafeSpace.</h1>
       </Link>
       <p> </p>
