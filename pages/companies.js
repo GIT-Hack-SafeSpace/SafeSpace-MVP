@@ -5,7 +5,7 @@ import Loader from '../components/Loader';
 import ModalComp from '../components/Modal';
 import CreateCompany from '../components/CreateCompany';
 import Card from 'react-bootstrap/Card';
-
+import styled from 'styled-components';
 
 export default function Companies() {
   const [data, setData] = useState([]);
@@ -67,7 +67,8 @@ export default function Companies() {
           {
             data.map((d) => (
               <div key={d.id} className='text-white'>
-                <Card style={{ width: '18rem' }}>
+                <CardStyle>
+                <Card className="companyCard" style={{ width: '23.5rem', height: '12rem'}}>
                   <Card.Body>
                     <Card.Title>{d.name}</Card.Title>
                     <Card.Subtitle className="mb-2 text-muted">{d.industry}</Card.Subtitle>
@@ -76,9 +77,7 @@ export default function Companies() {
                     <Card.Link href="#">Another Link</Card.Link>
                   </Card.Body>
                 </Card>
-                {/* <h1>{d.name}</h1>
-                <h3>{d.industry}</h3>
-                <p>{d.content}</p> */}
+                </CardStyle>
               </div>
           ))
           }
@@ -86,6 +85,12 @@ export default function Companies() {
       );
     }
   };
+
+  const CardStyle = styled.div`
+  .companyCard {
+    color: black;
+  }
+`;
 
   return <div className='text-white'>{view()}</div>;
 }
