@@ -65,7 +65,7 @@ export default function RantRave() {
     } else {
       return (
         <>
-          <ModalComp btnText='Add Log' title='Add Log'>
+          <ModalComp btnText='CREATE' title='Add Rant/Rave'>
             <CreateRantRave user={user} />
           </ModalComp>
           {data.map((d) => (
