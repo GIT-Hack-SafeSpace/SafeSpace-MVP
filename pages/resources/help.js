@@ -7,7 +7,7 @@ import {help} from '../../data/resources'
 import Link from 'next/link'
 
 
-export default function Creative() {
+export default function Help() {
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState({});
   const router = useRouter();

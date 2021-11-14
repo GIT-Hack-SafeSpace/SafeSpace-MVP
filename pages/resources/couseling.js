@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function couseling() {
+export default function Couseling() {
     return (
         <div>
             
