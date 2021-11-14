@@ -7,6 +7,7 @@ import CreateCompany from '../components/CreateCompany';
 import Card from 'react-bootstrap/Card';
 import styled from 'styled-components';
 
+
 export default function Companies() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -68,7 +69,7 @@ export default function Companies() {
             data.map((d) => (
               <div key={d.id} className='text-white'>
                 <CardStyle>
-                <Card className="companyCard" style={{ width: '23.5rem', height: '12rem'}}>
+                <Card className="companyCard" style={{ width: '23rem', height: '12rem'}}>
                   <Card.Body>
                     <Card.Title>{d.name}</Card.Title>
                     <Card.Subtitle className="mb-2 text-muted">{d.industry}</Card.Subtitle>

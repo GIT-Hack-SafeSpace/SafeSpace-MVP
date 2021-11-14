@@ -73,15 +73,16 @@ export default function Inspiration() {
           {
             data.map((d) => (
                 <div key={d.id} className='text-white'>
+                  <div>
                     <Card className="bg-dark text-white">
-                      <Card.Img src="https://parade.com/wp-content/uploads/2019/12/mlk-inspirational-quote.jpg" alt="_1" height="800px" />
+                      <Card.Img src="https://i.pinimg.com/originals/0f/5e/3f/0f5e3ffae68a19be40d3975870be02de.png" alt="_1" height="350px" />
                       <Card.ImgOverlay>
-                          {/* <Card.Title>Card title</Card.Title> */}
-                          {/* <Card.Text>Last updated 3 mins ago</Card.Text> */}
-                          <Card.Text>{d.content}
-                          </Card.Text>
+                          {/* <Card.Title>Card title</Card.Title>
+                          <Card.Text>Last updated 3 mins ago</Card.Text> */}
+                          <Card.Text className="inspoCardText">{d.content}</Card.Text>
                       </Card.ImgOverlay>
-                  </Card>
+                    </Card>
+                  </div>
                 </div>
             )) 
         }
@@ -89,7 +90,6 @@ export default function Inspiration() {
       );
     }
   };
-
   return <div className='text-white'>{view()}
   </div>;
 }
