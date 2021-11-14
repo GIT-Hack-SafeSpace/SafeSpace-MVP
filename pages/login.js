@@ -8,8 +8,7 @@ import Form from 'react-bootstrap/Form';
 import Link from 'next/link';
 
 const SplashStyles = styled.div`
-  padding-top: 100px;
-  padding-bottom: 100px;
+  padding: 100px 30px;
 
   .form {
     text-align: left;
