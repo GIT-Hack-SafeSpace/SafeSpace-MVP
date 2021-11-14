@@ -43,9 +43,8 @@ export default function ResourcePg() {
   return (
     <ResourceLayout>
             <div className="resourceRectangle">
-                <Link href="/resources/creative">
+                <Link href="/resources/help">
                     <a>
-                        {/* <img className="resourceImg" src="https://i.postimg.cc/c4smHwgB/helpimage.png" alt="Help"/> */}
                         <img className="resourceImg" src='images/help.png' alt="Help"/>
                         <div className="bottom-left">Help</div>
                     </a>

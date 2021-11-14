@@ -41,14 +41,24 @@ export default function Creative() {
                 <img src={d.image} alt="colorul icon"/>
               </div>
 
-              <div >
+              <div>
                 <h1 style={{fontSize: '20px'}}>{d.content}</h1>
+
+             
+              <div  className="d-flex" >
                 {
                   d.tags.map((tag,i) => {
-                   return <h3 key={i} style={{color: 'orange', fontSize: '12px'}}>{tag}</h3>
+                    return (
+                      <div key={i}>
+                    <p style={{color: 'orange', fontSize: '12px', marginLeft: '10px'}}>{tag}</p>
+                   </div>
+                   )
                   })
                 }
               </div>
+              </div>
+
+
             </div>
             <hr style={{color: 'lightgray'}} />
             </div>
