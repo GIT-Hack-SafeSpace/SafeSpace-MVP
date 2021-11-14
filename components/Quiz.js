@@ -114,7 +114,7 @@ export default function Quiz() {
     if (user.personality) {
       return (
         <div className='d-flex flex-column text-center'>
-          <h2>Personality Quiz</h2>
+          <h2>Conflict Quiz</h2>
           <h5>
             <b>Your results detail:</b> {style.description}
           </h5>

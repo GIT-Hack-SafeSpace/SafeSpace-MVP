@@ -47,4 +47,27 @@ export const ButtonStyle = styled.div`
       color: white;
     }
   }
+  .create {
+    background-color: #eea127 !important;
+    border-color: #eea127 !important;
+    width: 121px;
+    padding: 8px 15px;
+    margin: -15px 20px 20px;
+    border-style: none;
+    border-radius: 50px;
+    font-weight: 400;
+    box-shadow: 0px 2px 4px 0px rgba(31, 37, 50, 0.2);
+    -webkit-box-shadow: 0px 2px 4px 0px rgba(31, 37, 50, 0.2);
+    -moz-box-shadow: 0px 2px 4px 0px rgba(31, 37, 50, 0.2);
+
+    span {
+      font-size: 24px
+    }
+
+    &:hover {
+      background-color: #eea127 !important;
+      border-color: #eea127 !important;
+      color: white;
+    }
+  }
 `;

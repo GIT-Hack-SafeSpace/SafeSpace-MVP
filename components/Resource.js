@@ -1,8 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 
-// style={{marginTop: '90px', width: '375px', height: '644px', border: '2px solid blue' }}
-
 const ResourceLayout = styled.div`
   display: flex;
   flex-direction: column;
@@ -10,9 +8,7 @@ const ResourceLayout = styled.div`
   height: 644px;
   width: 100vw;
   overflow: hidden;
-  background-color: white;
-  margin-top: 90px;
-  margin-bottom: 78px;
+  margin: -34px -20px;
 
   .arrangeResources {
       display: flex;

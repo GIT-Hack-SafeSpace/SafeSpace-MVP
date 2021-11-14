@@ -1,16 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap');
 
-*, html {
+*,
+html {
   font-family: 'Inter', sans-serif;
 }
 
 .appContainer {
-  min-height: 100vh;
   margin-top: 100px;
   margin-bottom: 100px;
+  padding: 20px;
 }
 
-input, .form-check {
+input,
+.form-check {
   margin: 10px 0;
 }
 
@@ -34,7 +36,8 @@ nav {
   background-color: white;
   position: fixed;
   top: 0;
-  width: 375px;
+  width: 100%;
+  max-width: 450px;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -44,12 +47,13 @@ nav {
 }
 
 .menuExample {
-    font-size: 40px;
-    color: lightgray;
+  font-size: 40px;
+  color: lightgray;
 }
 
 .safespace {
-    color: gray;
+  color: gray;
+  cursor: pointer;
 }
 
 footer {
@@ -57,7 +61,8 @@ footer {
   position: fixed;
   /* left: 0; */
   bottom: 0;
-  width: 375px;
+  width: 100%;
+  max-width: 450px;
   background-color: white;
   color: gray;
   text-align: center;
@@ -73,6 +78,7 @@ footer {
 
 .footerBarOption {
   border: 1px solid white;
+  cursor: pointer;
 }
 
 .footerIcon {
@@ -89,7 +95,7 @@ footer {
 }
 
 .appWrapper {
-  margin: 0 auto; 
-  width: 375px;
-  border: 1px solid black;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 450px;
 }
