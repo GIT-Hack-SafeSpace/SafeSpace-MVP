@@ -69,13 +69,22 @@ export default function Resources() {
           <ModalComp title='Create Resource'>
             <CreateResource user={user} />
           </ModalComp>
+
           {data.map((d) => (
-            <div key={d.id} >
-              <h1 style={{fontSize: '20px'}}>{d.name}</h1>
-              <h3 style={{color: 'slategray', fontSize: '12px'}}>{d.therapy_type}</h3>
-              {/* <p>{d.profile_id}</p> */}
-              <hr style={{color: 'lightgray'}} />
+            <>
+            <div style={{display: 'flex', justifyContent: 'flex-start'}}>
+              <div style={{height: '50px', width: '50px', marginRight: '20px'}}>
+                <img src="https://i.postimg.cc/hjDPVQPq/colorfulicon.png" alt="colorul icon"/>
+              </div>
+
+              <div key={d.id} >
+                <h1 style={{fontSize: '20px'}}>{d.name}</h1>
+                <h3 style={{color: 'orange', fontSize: '12px'}}>{d.therapy_type}</h3>
+                {/* <p>{d.profile_id}</p> */}
+              </div>
             </div>
+            <hr style={{color: 'lightgray'}} />
+            </>
           ))}
                {/* {data.map((d) => (
             <div key={d.id} >
