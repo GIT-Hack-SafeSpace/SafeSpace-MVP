@@ -3,6 +3,7 @@ import { supabase } from '../../utils/client';
 import { useRouter } from 'next/router';
 import Loader from '../../components/Loader';
 import ResourcePg from '../../components/Resource'
+import MainLayout from '../../layouts/MainLayout';
 
 
 export default function Resources() {
@@ -26,11 +27,9 @@ export default function Resources() {
       return <Loader />;
     } else {
       return (
-        <>
          <ResourcePg />
-        </>
       )}
   };
 
-  return <div>{view()}</div>;
+  return <MainLayout>{view()}</MainLayout>;
 }

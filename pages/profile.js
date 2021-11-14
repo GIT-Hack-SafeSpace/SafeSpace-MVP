@@ -7,6 +7,7 @@ import { industries } from '../data/industries';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { ButtonStyle } from '../styles/ButtonStyle';
+import MainLayout from '../layouts/MainLayout';
 
 const SelectStyle = styled.div`
   margin-top: 10px;
@@ -93,7 +94,7 @@ export default function Profile() {
 
   if (!user) return null;
   return (
-    <>
+    <MainLayout>
       <ButtonStyle className='d-flex justify-content-end'>
         <Button className='btn-danger' onClick={signOut}>
           Sign Out
@@ -157,6 +158,6 @@ export default function Profile() {
           )}
         </ButtonStyle>
       </Form>
-    </>
+    </MainLayout>
   );
 }

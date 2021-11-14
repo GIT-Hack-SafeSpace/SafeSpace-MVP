@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import Loader from '../components/Loader';
 import ModalComp from '../components/Modal';
 import CreateRantRave from '../components/CreateRantRave';
+import MainLayout from '../layouts/MainLayout';
 
 
 export default function RantRave() {
@@ -66,14 +67,16 @@ export default function RantRave() {
     } else {
       return (
         <>
-          <ModalComp btnText='CREATE' title='Add Rant/Rave'>
+          <ModalComp title='Add Entry'>
             <CreateRantRave user={user} />
           </ModalComp>
           {data.map((d) => (
             <div key={d.id} >
               <h1>{d.content}</h1>
               <h3>{d.created_at}</h3>
-              <p>{d.profile_id}</p>
+              <h3>{d.type}</h3>
+              <h3>{d.who}</h3>
+              <h3>{d.where}</h3>
               <p>{d.isPersonal}</p>
               <p>{d.isResolved}</p>
             </div>
@@ -83,5 +86,5 @@ export default function RantRave() {
     }
   };
 
-  return <div>{view()}</div>;
+  return <MainLayout>{view()}</MainLayout>;
 }
