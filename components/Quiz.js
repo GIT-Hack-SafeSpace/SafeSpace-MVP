@@ -163,7 +163,7 @@ export default function Quiz() {
                     {a.toUpperCase()}
                   </button>
                 ))
-              : !showStyle && <button onClick={calculate}>Get Score</button>}
+              : !showStyle && <button className='btn-quiz' onClick={calculate}>Get Score</button>}
           </ButtonStyle>
           {showStyle && (
             <>
