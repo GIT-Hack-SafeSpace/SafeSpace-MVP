@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 export const ButtonStyle = styled.div`
   display: flex;
-  justify-content: flex-end;
   margin-top: 15px;
+  justify-content: flex-end;
 
   .save-change {
     background-color: #63988e !important;
@@ -62,12 +62,40 @@ export const ButtonStyle = styled.div`
     -moz-box-shadow: 0px 2px 4px 0px rgba(31, 37, 50, 0.2);
 
     span {
-      font-size: 24px
+      font-size: 24px;
     }
 
     &:hover {
       background-color: #eea127 !important;
       border-color: #eea127 !important;
+    }
+  }
+`;
+
+export const MoodStyles = styled.div`
+  display: flex;
+  margin-top: 15px;
+  justify-content: center;
+
+  .btn-mood {
+    background-color: transparent;
+    outline: none;
+    padding: 5px;
+    margin: 10px;
+    border-radius: 50%;
+    width: 65px;
+    height: 80px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    &.excited,
+    &.happy,
+    &.meh,
+    &.sad,
+    &.mad {
+      
+      border: none;
     }
   }
 `;

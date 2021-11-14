@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { supabase } from '../utils/client';
 import { useRouter } from 'next/router';
 import Loader from '../components/Loader';
-
+import { moods } from '../data/moods';
+import { MoodStyles } from '../styles/ButtonStyle';
 
 export default function Mood({ session }) {
   const [firstUse, setFirstUse] = useState(true);
@@ -11,6 +12,7 @@ export default function Mood({ session }) {
 
   useEffect(() => {
     !session && router.push('/login');
+    console.log(session)
   }, [session]);
 
   useEffect(() => {
@@ -18,9 +20,31 @@ export default function Mood({ session }) {
     if (isMounted) return getProfile();
 
     return () => {
-      isMounted = false
-    }
+      isMounted = false;
+    };
   }, [session]);
+
+  async function addMood(value) {
+    setLoading(true);
+    const updates = {
+      user_id: session.user.id,
+      mood_type: value,
+      created_at: new Date(),
+    };
+    try {
+      const { data, error } = await supabase.from('mood').insert(updates, {
+        returning: 'minimal',
+      });
+
+      if (error) {
+        throw error;
+      }
+    } catch (error) {
+      alert(error.message);
+    } finally {
+      setLoading(false);
+    }
+  }
 
   async function getProfile() {
     try {
@@ -49,17 +73,32 @@ export default function Mood({ session }) {
     }
   }
 
+  const handleClick = (e) => {
+    addMood(e.target.value).then(() => router.push('/rant-rave'))
+  };
+
   const viewLogic = () => {
     if (firstUse) {
-      // show profile with quiz on that page
       router.push('/profile');
     } else {
-      // show mood
-      return <div >MOOD VIEW</div>;
+      return (
+        <div>
+          <h2 className='mood-font'>How are you feeling?</h2>
+          <MoodStyles>
+            {moods.map((mood) => (
+              <button
+                key={mood.value}
+                className={`btn-mood ${mood.value}`}
+                value={mood.value}
+                onClick={handleClick}
+                style={{ backgroundImage: `url(/moods/${mood.value}.png)` }}
+              ></button>
+            ))}
+          </MoodStyles>
+        </div>
+      );
     }
   };
 
-  // getting the value of the personality score (either null or a string)
-  // if null, show onboarding, else show mood component
   return <>{loading ? <Loader /> : viewLogic()}</>;
 }

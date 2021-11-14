@@ -1,8 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&family=Playfair+Display&display=swap');
 
 *,
 html {
   font-family: 'Inter', sans-serif;
+}
+
+.mood-font {
+  font-family: 'Playfair Display', serif;
+  font-size: 40px;
+  text-align: center;
+  color: #ED3457;
 }
 
 .appContainer {
