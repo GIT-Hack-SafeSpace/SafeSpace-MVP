@@ -7,7 +7,8 @@ function SafeSpace({ Component, pageProps }) {
     <div className='appWrapper'>
       <Head>
         <meta name='viewport' content='width=device-width, initial-scale=1' />
-        <title>SafeSpace</title>
+        <link rel="shortcut icon" href="/favicon.png" />
+        <title>SafeSpace.</title>
       </Head>
       <Component {...pageProps} />
     </div>
