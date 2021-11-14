@@ -1,11 +1,15 @@
-import { useState, useEffect } from "react";
-import { supabase } from "../utils/client";
-import { useRouter } from "next/router";
-import Select from "react-select";
-import styled from "styled-components";
-import { industries } from "../data/industries";
+import { useState, useEffect } from 'react';
+import { supabase } from '../utils/client';
+import { useRouter } from 'next/router';
+import Select from 'react-select';
+import styled from 'styled-components';
+import { industries } from '../data/industries';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import { ButtonStyle } from '../styles/ButtonStyle';
 
 const SelectStyle = styled.div`
+  margin-top: 10px;
   .select__option {
     color: black !important;
   }
@@ -26,21 +30,21 @@ export default function Profile() {
       const user = supabase.auth.user();
 
       if (!user) {
-        router.push("/login");
+        router.push('/login');
       } else {
         let { data, error, status } = await supabase
-          .from("profiles")
-          .select(`username, industry, avatar_url`)
-          .eq("id", user.id)
+          .from('profiles')
+          .select(`username, industry, avatar_url, personality`)
+          .eq('id', user.id)
           .single();
 
         if (error && status !== 406) {
           throw error;
         }
         if (data) {
-          setUser({...data, id: user.id});
+          setUser({ ...data, id: user.id });
         } else {
-          setUser({id: user.id})
+          setUser({ id: user.id });
         }
       }
     } catch (error) {
@@ -50,8 +54,9 @@ export default function Profile() {
     }
   }
 
-  async function updateProfile() {
-    const { id, username, industry, avatar_url } = user;
+  async function updateProfile(e) {
+    e.preventDefault();
+    const { id, username, industry, avatar_url, personality } = user;
 
     try {
       setLoading(true);
@@ -60,11 +65,12 @@ export default function Profile() {
         username,
         industry,
         avatar_url,
+        personality,
         updated_at: new Date(),
       };
 
-      let { error } = await supabase.from("profiles").upsert(updates, {
-        returning: "minimal",
+      let { error } = await supabase.from('profiles').upsert(updates, {
+        returning: 'minimal',
       });
 
       if (error) {
@@ -78,19 +84,30 @@ export default function Profile() {
   }
   async function signOut() {
     await supabase.auth.signOut();
-    router.push("/login");
+    router.push('/login');
   }
-  
-  if (!user) return null
+
+  const handleQuiz = (e) => {
+    updateProfile(e).then(() => router.push('/conflict-quiz'));
+  };
+
+  if (!user) return null;
   return (
-    <div style={{ maxWidth: "420px", margin: "96px auto" }}>
-      <div className="form-widget">
+    <>
+      <ButtonStyle className='d-flex justify-content-end'>
+        <Button className='btn-danger' onClick={signOut}>
+          Sign Out
+        </Button>
+      </ButtonStyle>
+      <Form onSubmit={updateProfile}>
         <div>
-          <label htmlFor="username">Username</label>
-          <input
-            id="username"
-            type="text"
-            value={user.username || ""}
+          <label htmlFor='username'>Username</label>
+          <Form.Control
+            type='text'
+            placeholder='Unidentifiable username'
+            id='username'
+            type='text'
+            value={user.username || ''}
             onChange={(e) =>
               setUser((prevState) => ({
                 ...prevState,
@@ -98,49 +115,48 @@ export default function Profile() {
               }))
             }
           />
-          <span className="form-text">
+          <span className='form-text'>
             Please choose a unique username that will not link descriptive words
             to your true identity
           </span>
         </div>
 
         <SelectStyle>
-          <label htmlFor="industry">Industry</label>
+          <label htmlFor='industry'>Industry</label>
           <Select
-            id="industry"
-            name="industry"
-            type="industry"
+            id='industry'
+            name='industry'
+            type='industry'
             options={industries}
-            value={industries.find((i) => i.value === user.industry) || ""}
+            value={industries.find((i) => i.value === user.industry) || ''}
             onChange={(e) =>
               setUser((prevState) => ({
                 ...prevState,
-                industry: e?.value || "",
+                industry: e?.value || '',
               }))
             }
-            className="basic-single"
-            classNamePrefix="select"
+            className='basic-single'
+            classNamePrefix='select'
             isClearable={true}
             isSearchable={true}
           />
         </SelectStyle>
-
-        <div>
-          <button
-            className="button block primary"
-            onClick={updateProfile}
-            disabled={loading}
-          >
-            {loading ? "Loading ..." : "Update"}
-          </button>
-        </div>
-
-        <div>
-          <button className="button block" onClick={signOut}>
-            Sign Out
-          </button>
-        </div>
-      </div>
-    </div>
+        <ButtonStyle>
+          {user.personality ? (
+            <Button className='btn-update' disabled={loading} type='submit'>
+              {loading ? 'Loading ...' : 'Update Profile'}
+            </Button>
+          ) : (
+            <Button
+              className='btn-update'
+              disabled={loading}
+              onClick={handleQuiz}
+            >
+              Continue
+            </Button>
+          )}
+        </ButtonStyle>
+      </Form>
+    </>
   );
 }
