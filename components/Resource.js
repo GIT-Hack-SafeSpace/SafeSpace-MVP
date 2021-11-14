@@ -44,7 +44,7 @@ export default function ResourcePg() {
             <div className="resourceRectangle">
                 <Link href="/creative-resources">
                     <a>
-                        <img className="resourceImg" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKmR73W1iR_RTCb2ZUDnXIOrW487S-54JWxA&usqp=CAU" alt="Happy Black Women"/>
+                        <img className="resourceImg" src="https://i.postimg.cc/CxMX4MHg/colorfulblackwomen.png" alt="Happy Black Women"/>
                         <div className="bottom-left">Creative Solutions</div>
                     </a>
                 </Link>

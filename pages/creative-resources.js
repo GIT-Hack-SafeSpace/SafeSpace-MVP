@@ -70,11 +70,19 @@ export default function Resources() {
           </ModalComp>
           {data.map((d) => (
             <div key={d.id} >
+              <h1 style={{fontSize: '20px'}}>{d.name}</h1>
+              <h3 style={{color: 'slategray', fontSize: '12px'}}>{d.therapy_type}</h3>
+              {/* <p>{d.profile_id}</p> */}
+              <hr style={{color: 'lightgray'}} />
+            </div>
+          ))}
+               {/* {data.map((d) => (
+            <div key={d.id} >
               <h1>{d.name}</h1>
               <h3>{d.therapy_type}</h3>
               <p>{d.profile_id}</p>
             </div>
-          ))}
+          ))} */}
         </>
       );
     }
