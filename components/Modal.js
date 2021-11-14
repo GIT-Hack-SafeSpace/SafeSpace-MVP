@@ -1,8 +1,9 @@
-import {useState} from 'react';
+import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import { ButtonStyle } from '../styles/ButtonStyle';
 
-export default function ModalComp({ btnText, title, children, func }) {
+export default function ModalComp({ title, children, func }) {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -10,10 +11,11 @@ export default function ModalComp({ btnText, title, children, func }) {
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
-        {btnText}
-      </Button>
-
+      <ButtonStyle className='d-flex justify-content-center'>
+        <Button className='create' onClick={handleShow}>
+          <span>&#43;</span> CREATE
+        </Button>
+      </ButtonStyle>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>{title}</Modal.Title>

@@ -6,6 +6,7 @@ import ModalComp from '../components/Modal';
 import CreateCompany from '../components/CreateCompany';
 import Card from 'react-bootstrap/Card';
 import styled from 'styled-components';
+import MainLayout from '../layouts/MainLayout';
 
 
 export default function Companies() {
@@ -62,7 +63,7 @@ export default function Companies() {
     } else {
       return (
         <>
-          <ModalComp btnText='Create Company' title='Create Company'>
+          <ModalComp title='Submit a Great Company'>
             <CreateCompany user={user} />
           </ModalComp>
           {
@@ -83,8 +84,7 @@ export default function Companies() {
           ))
           }
         </>
-      );
-    }
+      )}
   };
 
   const CardStyle = styled.div`
@@ -93,5 +93,5 @@ export default function Companies() {
   }
 `;
 
-  return <div className='text-white'>{view()}</div>;
+  return <MainLayout>{view()}</MainLayout>;
 }

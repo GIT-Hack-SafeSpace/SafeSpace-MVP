@@ -2,6 +2,16 @@ import React, { useEffect, useState } from 'react';
 import { supabase } from '../utils/client';
 import { useRouter } from 'next/router';
 import Loader from '../components/Loader';
+import MainLayout from '../layouts/MainLayout';
+
+import CommunityPost from '../components/CommunityPost';
+
+import styled from 'styled-components';
+
+const CommunityView = styled.div`
+h1{
+  font-size:28px;
+}`
 
 export default function Community() {
   const [data, setData] = useState([]);
@@ -9,7 +19,6 @@ export default function Community() {
   const router = useRouter();
 
   useEffect(() => {
-    // checking if a user is logged in. If not, redirect to login screen
     const user = supabase.auth.user();
 
     if (!user) {
@@ -62,20 +71,13 @@ export default function Community() {
       return <Loader />;
     } else {
       return (
-        <>
-          {data.map((d) => (
-            <div key={d.id} className='text-white'>
-              <h1>{d.content}</h1>
-              <h3>{d.created_at}</h3>
-              <p>{d.profile_id}</p>
-              <p>{d.isPersonal}</p>
-              <p>{d.isResolved}</p>
-            </div>
-          ))}
-        </>
+        <CommunityView>
+          <h1>Community</h1>
+          <CommunityPost data={data}/>
+        </CommunityView>
       );
     }
   };
 
-  return <div>{view()}</div>;
+  return <MainLayout>{view()}</MainLayout>;
 }

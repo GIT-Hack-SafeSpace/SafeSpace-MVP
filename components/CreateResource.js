@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { supabase } from '../utils/client';
 import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 import Select from 'react-select';
 import styled from 'styled-components';
-// TODO: Add resources/therapy data to select
-import { industries } from '../data/industries';
+import { resources } from '../data/resources';
+import { ButtonStyle } from '../styles/ButtonStyle';
 
 const SelectStyle = styled.div`
   .select__option {
@@ -16,7 +17,8 @@ export default function CreateResource({ user }) {
   const [loading, setLoading] = useState(null);
   const [data, setData] = useState({});
 
-  const postResource = async () => {
+  const postResource = async (e) => {
+    e.preventDefault();
     const { id } = user;
     const { name, therapy_type } =
       data;
@@ -47,10 +49,11 @@ export default function CreateResource({ user }) {
   };
 
   return (
-    <Form>
+    <Form onSubmit={postResource}>
       <div>
-        <label htmlFor='username'>Resource Name</label>
-        <input
+        <label htmlFor='name'>Resource Name</label>
+        <Form.Control
+          placeholder='Resource'
           required
           id='name'
           type='text'
@@ -64,15 +67,14 @@ export default function CreateResource({ user }) {
         />
       </div>
       <SelectStyle>
-      {/* // TODO: Add resources/therapy data to select */}
-        <label htmlFor='industry'>Resource Type</label>
+        <label htmlFor='resources'>Resource Type</label>
         <Select
           required
-          id='industry'
-          name='industry'
-          type='industry'
-          options={industries}
-          value={industries.find((i) => i.value === data.therapy_type) || ''}
+          id='resources'
+          name='resources'
+          type='resources'
+          options={resources}
+          value={resources.find((i) => i.value === data.therapy_type) || ''}
           onChange={(e) =>
             setData((prevState) => ({
               ...prevState,
@@ -85,15 +87,15 @@ export default function CreateResource({ user }) {
           isSearchable={true}
         />
       </SelectStyle>
-      <div>
-        <button
-          className='button block primary mt-3'
-          onClick={postResource}
+      <ButtonStyle>
+        <Button
+          className='save-change'
           disabled={loading}
+          type="submit"
         >
-          {loading ? 'Loading ...' : 'Create'}
-        </button>
-      </div>
+          {loading ? 'Loading ...' : 'Save Changes'}
+        </Button>
+      </ButtonStyle>
     </Form>
   );
 }

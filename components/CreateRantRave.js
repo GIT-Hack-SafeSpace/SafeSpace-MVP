@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import { supabase } from '../utils/client';
 import Form from 'react-bootstrap/Form';
 import styled from 'styled-components';
+import { postTypes } from '../data/postTypes';
+import Select from 'react-select';
+import { ButtonStyle } from '../styles/ButtonStyle';
+import Button from 'react-bootstrap/Button';
 
 const SelectStyle = styled.div`
   .select__option {
@@ -16,9 +20,10 @@ export default function CreateRantRave({ user }) {
     isResolved: false,
   });
 
-  const postRantRave = async () => {
+  const postRantRave = async (e) => {
+    e.preventDefault();
     const { id } = user;
-    const { where, who, content, isPersonal, isResolved, rant_rave_type } =
+    const { where, who, content, isPersonal, isResolved, type, title } =
       data;
     try {
       setLoading(true);
@@ -27,9 +32,10 @@ export default function CreateRantRave({ user }) {
         content,
         isPersonal,
         isResolved,
-        rant_rave_type,
+        type,
         where,
         who,
+        title,
         created_at: new Date(),
       };
 
@@ -51,10 +57,29 @@ export default function CreateRantRave({ user }) {
   };
 
   return (
-    <Form>
+    <Form onSubmit={postRantRave}>
+      <SelectStyle>
+        <label htmlFor='postTypes'>Post Type</label>
+        <Select
+          required={true}
+          id='postTypes'
+          name='postTypes'
+          type='postTypes'
+          options={postTypes}
+          value={postTypes.find((i) => i.value === data.type) || 'rant'}
+          onChange={(e) =>
+            setData((prevState) => ({
+              ...prevState,
+              type: e?.value || '',
+            }))
+          }
+          className='basic-single'
+          classNamePrefix='select'
+          isSearchable={true}
+        />
+      </SelectStyle>
       <Form.Check
         type='switch'
-        size='lg'
         id='isPersonal'
         label='Private'
         value={data.isPersonal}
@@ -65,12 +90,29 @@ export default function CreateRantRave({ user }) {
           }))
         }
       />
+        <div>
+        <label htmlFor='name'>Journal Entry</label>
+        <Form.Control
+          required
+          id='title'
+          type='text'
+          placeholder='Title of Entry'
+          value={data.title || ''}
+          onChange={(e) =>
+            setData((prevState) => ({
+              ...prevState,
+              title: e.target.value,
+            }))
+          }
+        />
+      </div>
       <div>
-        <label htmlFor='username'>Who?</label>
-        <input
+        <label htmlFor='name'>Who?</label>
+        <Form.Control
           required
           id='name'
           type='text'
+          placeholder='Who was involved?'
           value={data.who || ''}
           onChange={(e) =>
             setData((prevState) => ({
@@ -81,8 +123,10 @@ export default function CreateRantRave({ user }) {
         />
       </div>
       <div>
-        <label htmlFor='username'>Where?</label>
-        <input
+        <label htmlFor='name'>Where?</label>
+        <Form.Control
+          type='text'
+          placeholder='Location of event'
           required
           id='name'
           type='text'
@@ -98,6 +142,7 @@ export default function CreateRantRave({ user }) {
       <Form.Group className='mb-3'>
         <Form.Label>What happened?</Form.Label>
         <Form.Control
+          required
           as='textarea'
           rows={3}
           id='content'
@@ -114,7 +159,6 @@ export default function CreateRantRave({ user }) {
       </Form.Group>
       <Form.Check
         type='switch'
-        size='lg'
         id='isResolved'
         label='Resolved?'
         value={data.isPersonal}
@@ -125,15 +169,15 @@ export default function CreateRantRave({ user }) {
           }))
         }
       />
-      <div>
-        <button
-          className='button block primary mt-3'
-          onClick={postRantRave}
+      <ButtonStyle>
+        <Button
+          className='save-change'
           disabled={loading}
+          type="submit"
         >
-          {loading ? 'Loading ...' : 'Create'}
-        </button>
-      </div>
+          {loading ? 'Loading ...' : 'Save Changes'}
+        </Button>
+      </ButtonStyle>
     </Form>
   );
 }

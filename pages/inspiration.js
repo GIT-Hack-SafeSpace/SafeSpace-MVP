@@ -5,6 +5,7 @@ import Loader from '../components/Loader';
 import ModalComp from '../components/Modal';
 import CreateInspo from '../components/CreateInspo';
 import Card from 'react-bootstrap/Card';
+import MainLayout from '../layouts/MainLayout';
 
 
 export default function Inspiration() {
@@ -53,7 +54,6 @@ export default function Inspiration() {
       if (data) {
         setData(inspo_post);
       }
-      console.log(data, 'this tha data');
     } catch (error) {
       alert(error.message);
     } finally {
@@ -67,7 +67,7 @@ export default function Inspiration() {
     } else {
       return (
         <>
-          <ModalComp btnText='Create Inspiration' title='Create Inspiration'>
+          <ModalComp title='Create Inspiration'>
             <CreateInspo user={user} />
           </ModalComp>
           {
@@ -90,6 +90,6 @@ export default function Inspiration() {
       );
     }
   };
-  return <div className='text-white'>{view()}
-  </div>;
+
+  return <MainLayout>{view()}</MainLayout>;
 }
