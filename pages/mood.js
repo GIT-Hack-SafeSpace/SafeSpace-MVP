@@ -82,8 +82,8 @@ export default function Mood({ session }) {
       router.push('/profile');
     } else {
       return (
-        <div>
-          <h2 className='mood-font'>How are you feeling?</h2>
+        <main>
+          <h1 className='mood-font'>How are you feeling?</h1>
           <MoodStyles>
             {moods.map((mood) => (
               <button
@@ -92,10 +92,10 @@ export default function Mood({ session }) {
                 value={mood.value}
                 onClick={handleClick}
                 style={{ backgroundImage: `url(/moods/${mood.value}.png)` }}
-              ></button>
+              ><span className='visually-hidden visually-hidden-focusable'>{mood.value}</span></button>
             ))}
           </MoodStyles>
-        </div>
+        </main>
       );
     }
   };
