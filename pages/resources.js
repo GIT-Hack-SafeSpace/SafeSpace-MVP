@@ -67,19 +67,16 @@ export default function Resources() {
     } else {
       return (
         <>
-        <GlobalHeader />
-          <ResourcePg />
-          {/* <div className="viewWrapper" style={{marginTop: '90px', width: '375px', height: '644px', border: '2px solid blue' }}>
-            {data.map((d) => (
-              <div key={d.id} className='text-white'>
-                <h1>{d.name}</h1>
-                <h3>{d.therapy_type}</h3>
-                <p>{d.profile_id}</p>
-              </div>
-            ))}
-          </div> */}
-          <GlobalFooter />
-
+          <ModalComp btnText='Create Resource' title='Create Resource'>
+            <CreateResource user={user} />
+          </ModalComp>
+          {data.map((d) => (
+            <div key={d.id} >
+              <h1>{d.name}</h1>
+              <h3>{d.therapy_type}</h3>
+              <p>{d.profile_id}</p>
+            </div>
+          ))}
         </>
       );
     }

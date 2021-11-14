@@ -56,17 +56,7 @@ export default function Mood({ session }) {
       router.push('/profile');
     } else {
       // show mood
-      return (
-      <>
-      <GlobalHeader />
-        <div className="viewWrapper" style={{marginTop: '90px', width: '375px', height: '644px', border: '2px solid blue' }}>
-          <div className="text-white">
-            MOOD VIEW
-          </div>
-        </div>
-      <GlobalFooter />
-      </>
-      );
+      return <div >MOOD VIEW</div>;
     }
   };
 

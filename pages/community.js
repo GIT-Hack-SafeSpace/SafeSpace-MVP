@@ -68,7 +68,7 @@ export default function Community() {
         <GlobalHeader />
         <div className="viewWrapper" style={{marginTop: '90px', width: '375px', height: '644px', border: '2px solid blue' }}>
           {data.map((d) => (
-            <div key={d.id} className='text-white'>
+            <div key={d.id}>
               <h1>{d.content}</h1>
               <h3>{d.created_at}</h3>
               <p>{d.profile_id}</p>

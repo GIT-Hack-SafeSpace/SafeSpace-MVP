@@ -61,25 +61,21 @@ export default function Companies() {
     } else {
       return (
         <>
-        <GlobalHeader />
-          <div className="viewWrapper" style={{marginTop: '90px', width: '375px', height: '644px', border: '2px solid blue' }}>
-
-            <ModalComp btnText='Create Company' title='Create Company'>
-              <CreateCompany user={user} />
-            </ModalComp>
-            {data.map((d) => (
-              <div key={d.id} className='text-white'>
-                <h1>{d.name}</h1>
-                <h3>{d.industry}</h3>
-                <p>{d.content}</p>
-              </div>
-            ))}
+          <ModalComp btnText='Create Company' title='Create Company'>
+            <CreateCompany user={user} />
+          </ModalComp>
+          {data.map((d) => (
+            <div key={d.id}>
+              <h1>{d.name}</h1>
+              <h3>{d.industry}</h3>
+              <p>{d.content}</p>
             </div>
-          <GlobalFooter />
+          
+          ))
+        }
         </>
-      );
-    }
+      )}
   };
 
-  return <div className='text-white'>{view()}</div>;
+  return <div>{view()}</div>;
 }

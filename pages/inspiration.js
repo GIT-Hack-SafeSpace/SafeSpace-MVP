@@ -67,25 +67,20 @@ export default function Inspiration() {
     } else {
       return (
         <>
-        <GlobalHeader />
-          <div className="viewWrapper" style={{marginTop: '90px', width: '375px', height: '644px', border: '2px solid blue' }}>
-
-            <ModalComp btnText='Create Inspiration' title='Create Inspiration'>
-              <CreateInspo user={user} />
-            </ModalComp>
-            {data.map((d) => (
-              <div key={d.id} className='text-white'>
-                <h1>{d.name}</h1>
-                <h3>{d.industry}</h3>
-                <p>{d.content}</p>
-              </div>
-            ))}
-          </div>
-        <GlobalFooter />
+          <ModalComp btnText='Create Inspiration' title='Create Inspiration'>
+            <CreateInspo user={user} />
+          </ModalComp>
+          {data.map((d) => (
+            <div key={d.id}>
+              <h1>{d.name}</h1>
+              <h3>{d.industry}</h3>
+              <p>{d.content}</p>
+            </div>
+          ))}
         </>
       );
     }
   };
 
-  return <div className='text-white'>{view()}</div>;
+  return <div>{view()}</div>;
 }

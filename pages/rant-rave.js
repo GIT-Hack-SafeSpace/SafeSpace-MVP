@@ -74,7 +74,7 @@ export default function RantRave() {
             <CreateRantRave user={user} />
           </ModalComp>
           {data.map((d) => (
-            <div key={d.id} className='text-white'>
+            <div key={d.id} >
               <h1>{d.content}</h1>
               <h3>{d.created_at}</h3>
               <p>{d.profile_id}</p>
