@@ -12,7 +12,9 @@ function SafeSpace({ Component, pageProps }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
         <GlobalHeader />
+        <div className="appContainer">
           <Component {...pageProps} />
+        </div>
         <GlobalFooter />
       </div>
     </>
