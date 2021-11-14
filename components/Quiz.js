@@ -128,7 +128,7 @@ export default function Quiz() {
           <ButtonStyle className='d-flex justify-content-center'>
             <Button
               className='btn-update danger'
-              onClick={() => router.push('/')}
+              onClick={() => router.push('/rant-rave')}
             >
               BACK TO APP
             </Button>
@@ -140,16 +140,18 @@ export default function Quiz() {
         <div className='d-flex flex-column justify-content-center text-center m-auto'>
           <h2>Personality Quiz</h2>
           {current < questions.length && (
-            <div className='question-count'>
-              <span>Question {current + 1}</span>/{questions.length}
-            </div>
+            <>
+              <div className='question-count'>
+                <span>Question {current + 1}</span>/{questions.length}
+              </div>
+              <p>
+                Listed below are {questions.length} statements. Each strategy
+                provides a possible strategy for dealing with a conflict.
+                Knowing your primary styles will help you learn about how you
+                deal with conflict.
+              </p>
+            </>
           )}
-          <p>
-            Listed below are {questions.length} statements. Each strategy
-            provides a possible strategy for dealing with a conflict. Knowing
-            your primary styles will help you learn about how you deal with
-            conflict.
-          </p>
           <p>{questions[current]}</p>
           {current < questions.length
             ? options.map((a, i) => (
@@ -160,11 +162,24 @@ export default function Quiz() {
             : !showStyle && <button onClick={calculate}>Get Score</button>}
           {showStyle && (
             <>
-              <h3>Your style is {style.name}</h3>
-              <p>{style.description}</p>
-
-              <button onClick={updateProfile}>Go to App</button>
-              <button onClick={updateProfile}>See all types</button>
+              <h5>
+                <b>Your results detail:</b> {style.description}
+              </h5>
+              <h5>{style.name}</h5>
+              <div>
+                <img
+                  src='https://via.placeholder.com/150'
+                  style={{ width: '134px', borderRadius: '50%' }}
+                />
+              </div>
+              <ButtonStyle className='d-flex justify-content-center'>
+                <Button
+                  className='btn-update danger'
+                  onClick={() => router.push('/rant-rave')}
+                >
+                  BACK TO APP
+                </Button>
+              </ButtonStyle>
             </>
           )}
         </div>
