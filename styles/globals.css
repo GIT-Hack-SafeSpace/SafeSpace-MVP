@@ -53,6 +53,7 @@ nav {
 
 .safespace {
   color: gray;
+  cursor: pointer;
 }
 
 footer {
@@ -77,6 +78,7 @@ footer {
 
 .footerBarOption {
   border: 1px solid white;
+  cursor: pointer;
 }
 
 .footerIcon {
