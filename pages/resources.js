@@ -2,10 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { supabase } from '../utils/client';
 import { useRouter } from 'next/router';
 import Loader from '../components/Loader';
-import ResourcePg from '../components/Resource';
 import ModalComp from '../components/Modal';
-import GlobalHeader from '../components/GlobalHeader';
-import GlobalFooter from '../components/GlobalFooter';
+
 
 export default function Resources() {
   const [data, setData] = useState([]);

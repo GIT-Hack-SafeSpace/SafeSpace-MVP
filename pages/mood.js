@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { supabase } from '../utils/client';
 import { useRouter } from 'next/router';
 import Loader from '../components/Loader';
-import GlobalHeader from '../components/GlobalHeader';
-import GlobalFooter from '../components/GlobalFooter';
+
 
 export default function Mood({ session }) {
   const [firstUse, setFirstUse] = useState(true);

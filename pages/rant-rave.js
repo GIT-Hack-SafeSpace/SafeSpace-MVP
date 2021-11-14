@@ -4,8 +4,7 @@ import { useRouter } from 'next/router';
 import Loader from '../components/Loader';
 import ModalComp from '../components/Modal';
 import CreateRantRave from '../components/CreateRantRave';
-import GlobalHeader from '../components/GlobalHeader';
-import GlobalFooter from '../components/GlobalFooter';
+
 
 export default function RantRave() {
   const [data, setData] = useState([]);
@@ -67,9 +66,6 @@ export default function RantRave() {
     } else {
       return (
         <>
-        <GlobalHeader />
-        <div className="viewWrapper" style={{marginTop: '90px', width: '375px', height: '644px', border: '2px solid blue' }}>
-
           <ModalComp btnText='Add Log' title='Add Log'>
             <CreateRantRave user={user} />
           </ModalComp>
@@ -82,9 +78,6 @@ export default function RantRave() {
               <p>{d.isResolved}</p>
             </div>
           ))}
-          
-          </div>
-          <GlobalFooter />
         </>
       );
     }

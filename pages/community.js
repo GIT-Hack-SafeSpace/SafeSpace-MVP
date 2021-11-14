@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { supabase } from '../utils/client';
 import { useRouter } from 'next/router';
 import Loader from '../components/Loader';
-import GlobalHeader from '../components/GlobalHeader';
-import GlobalFooter from '../components/GlobalFooter';
+
 
 export default function Community() {
   const [data, setData] = useState([]);
@@ -65,8 +64,6 @@ export default function Community() {
     } else {
       return (
         <>
-        <GlobalHeader />
-        <div className="viewWrapper" style={{marginTop: '90px', width: '375px', height: '644px', border: '2px solid blue' }}>
           {data.map((d) => (
             <div key={d.id}>
               <h1>{d.content}</h1>
@@ -76,8 +73,6 @@ export default function Community() {
               <p>{d.isResolved}</p>
             </div>
           ))}
-        </div>
-        <GlobalFooter />
         </>
       );
     }

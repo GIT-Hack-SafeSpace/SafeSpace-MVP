@@ -4,8 +4,7 @@ import { useRouter } from 'next/router';
 import Loader from '../components/Loader';
 import ModalComp from '../components/Modal';
 import CreateInspo from '../components/CreateInspo';
-import GlobalHeader from '../components/GlobalHeader';
-import GlobalFooter from '../components/GlobalFooter';
+
 
 export default function Inspiration() {
   const [data, setData] = useState([]);
