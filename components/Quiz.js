@@ -137,7 +137,7 @@ export default function Quiz() {
       );
     } else {
       return (
-        <div className='d-flex flex-column justify-content-center text-center m-auto'>
+        <div className='d-flex flex-column justify-content-center text-center'>
           <h2>Personality Quiz</h2>
           {current < questions.length && (
             <>
@@ -163,7 +163,7 @@ export default function Quiz() {
                     {a.toUpperCase()}
                   </button>
                 ))
-              : !showStyle && <button className='btn-quiz' onClick={calculate}>Get Score</button>}
+              : !showStyle && <button className='create' onClick={calculate}>Get Score</button>}
           </ButtonStyle>
           {showStyle && (
             <>

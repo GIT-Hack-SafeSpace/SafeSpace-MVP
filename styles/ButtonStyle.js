@@ -34,7 +34,7 @@ export const ButtonStyle = styled.div`
     background-color: #fff0e8 !important;
     border-color: #fff0e8 !important;
     color: black;
-    width: 343px;
+    width: 330px;
     padding: 15px 0;
     margin: 5px;
     border-style: none;
@@ -50,6 +50,7 @@ export const ButtonStyle = styled.div`
   .create {
     background-color: #eea127 !important;
     border-color: #eea127 !important;
+    color: white;
     width: 121px;
     padding: 8px 15px;
     margin: -15px 20px 20px;
@@ -67,7 +68,6 @@ export const ButtonStyle = styled.div`
     &:hover {
       background-color: #eea127 !important;
       border-color: #eea127 !important;
-      color: white;
     }
   }
 `;
