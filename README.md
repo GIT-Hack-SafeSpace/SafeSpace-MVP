@@ -52,3 +52,5 @@ As a team of fullstack software engineers, our team decided on technologies that
 ## Design Tools
 - [Figma](https://www.figma.com/)
 - [Bootstrap UI Kit](https://www.figma.com/file/b7uhIbsiy3tTGFJbDzKcWg/Bootstrap-UI-Kit-Community)
+- [WAVE Web Accessibility Evaluation Tool Chrome Extension](https://webaim.org/)
+- [Web a11y guidelines - design and color](http://web-accessibility.carnegiemuseums.org/design/color/)
