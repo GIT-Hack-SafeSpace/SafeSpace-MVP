@@ -141,25 +141,30 @@ export default function Quiz() {
           <h2>Personality Quiz</h2>
           {current < questions.length && (
             <>
-              <div className='question-count'>
-                <span>Question {current + 1}</span>/{questions.length}
-              </div>
-              <p>
+              <h6>
                 Listed below are {questions.length} statements. Each strategy
                 provides a possible strategy for dealing with a conflict.
                 Knowing your primary styles will help you learn about how you
                 deal with conflict.
-              </p>
+              </h6>
+              <h4>Question {current + 1}/{questions.length}</h4>
             </>
           )}
-          <p>{questions[current]}</p>
-          {current < questions.length
-            ? options.map((a, i) => (
-                <button key={i} value={i + 1} onClick={handleClick}>
-                  {a}
-                </button>
-              ))
-            : !showStyle && <button onClick={calculate}>Get Score</button>}
+          <h5>{questions[current]}</h5>
+          <ButtonStyle className='d-flex flex-column m-auto'>
+            {current < questions.length
+              ? options.map((a, i) => (
+                  <button
+                    className='btn-quiz'
+                    key={i}
+                    value={i + 1}
+                    onClick={handleClick}
+                  >
+                    {a.toUpperCase()}
+                  </button>
+                ))
+              : !showStyle && <button onClick={calculate}>Get Score</button>}
+          </ButtonStyle>
           {showStyle && (
             <>
               <h5>
