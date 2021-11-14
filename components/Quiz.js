@@ -128,7 +128,7 @@ export default function Quiz() {
           <ButtonStyle className='d-flex justify-content-center'>
             <Button
               className='btn-update danger'
-              onClick={() => router.push('/rant-rave')}
+              onClick={() => router.push('/')}
             >
               BACK TO APP
             </Button>
@@ -180,7 +180,7 @@ export default function Quiz() {
               <ButtonStyle className='d-flex justify-content-center'>
                 <Button
                   className='btn-update danger'
-                  onClick={() => router.push('/rant-rave')}
+                  onClick={() => router.push('/')}
                 >
                   BACK TO APP
                 </Button>

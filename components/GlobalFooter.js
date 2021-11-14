@@ -17,10 +17,10 @@ export default function GlobalFooter() {
             <p className='optionTitle'>Companies</p>
           </div>
         </Link>
-        <Link href='/rant-rave'>
+        <Link href='/journal'>
           <div className='footerBarOption'>
             <p className='footerIcon'>➕</p>
-            <p className='optionTitle'>Rant/Rave</p>
+            <p className='optionTitle'>Journal</p>
           </div>
         </Link>
         <Link href='/inspiration'>

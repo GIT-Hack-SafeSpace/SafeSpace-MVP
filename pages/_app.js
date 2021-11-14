@@ -1,23 +1,16 @@
-import Head from "next/head";
+import Head from 'next/head';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import "../styles/globals.css";
-import GlobalHeader from "../components/GlobalHeader"
-import GlobalFooter from "../components/GlobalFooter"
+import '../styles/globals.css';
 
 function SafeSpace({ Component, pageProps }) {
   return (
-    <>
-      <div className="appWrapper">
+    <div className='appWrapper'>
       <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name='viewport' content='width=device-width, initial-scale=1' />
+        <title>SafeSpace</title>
       </Head>
-        <GlobalHeader />
-        <div className="appContainer">
-          <Component {...pageProps} />
-        </div>
-        <GlobalFooter />
-      </div>
-    </>
+      <Component {...pageProps} />
+    </div>
   );
 }
 
