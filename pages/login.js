@@ -2,7 +2,20 @@ import { useState, useEffect } from 'react';
 import { supabase } from '../utils/client';
 import { useRouter } from 'next/router';
 import Loader from '../components/Loader';
-import NoNavigation from '../layouts/NoNavigation';
+import styled from 'styled-components';
+import { MainButton } from '../styles/ButtonStyle';
+import Form from 'react-bootstrap/Form';
+import Link from 'next/link';
+
+const SplashStyles = styled.div`
+  padding-top: 100px;
+  padding-bottom: 100px;
+
+  .form {
+    text-align: left;
+    margin-top: 100px;
+  }
+`;
 
 export default function Login() {
   const [loading, setLoading] = useState(true);
@@ -25,9 +38,9 @@ export default function Login() {
       setLoading(true);
       const { error } = await supabase.auth.signIn({ email });
       if (error) throw error;
-      alert('Check your email for the login link!');
+      alert('Check your email to confirm login');
     } catch (error) {
-      alert(error.error_description || error.message);
+      alert('Please provide an email address');
     } finally {
       setLoading(false);
     }
@@ -38,38 +51,41 @@ export default function Login() {
       return <Loader />;
     } else {
       return (
-        <div className='row flex flex-center'>
-          <div className='col-6 form-widget'>
-            <h1 className='header'>SafeSpace</h1>
-            <p className='description'>
-              Sign in via magic link with your email below
-            </p>
-            <div>
-              <input
-                className='inputField'
-                type='email'
-                placeholder='Your email'
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </div>
-            <div>
-              <button
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleLogin(email);
-                }}
-                className='button block'
-                disabled={loading}
-              >
-                <span>{loading ? 'Loading' : 'Send secure link to email'}</span>
-              </button>
-            </div>
-          </div>
+        <div className='d-flex flex-column text-center'>
+          <h1 className='header'>SafeSpace.</h1>
+          <hr />
+          <p className='description'>
+            A place where Black women can support each other, manage their
+            mental health, and work related trauma.
+          </p>
+          <Form.Group className='form'>
+            <Form.Text className='text-muted'>
+              We'll never share your email with anyone else.
+            </Form.Text>
+            <Form.Control
+              type='email'
+              placeholder='Your email address'
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </Form.Group>
+          <MainButton
+            onClick={(e) => {
+              e.preventDefault();
+              handleLogin(email);
+            }}
+            disabled={loading}
+          >
+            <span>{loading ? 'Loading' : 'Get Your Secure Link'}</span>
+          </MainButton>
+
+          <Form.Text className='text-muted mt-3'>
+            <Link href='/about'>Learn more</Link> about SafeSpace.
+          </Form.Text>
         </div>
       );
     }
   };
 
-  return <NoNavigation>{view()}</NoNavigation>;
+  return <SplashStyles>{view()}</SplashStyles>;
 }

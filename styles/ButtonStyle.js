@@ -91,3 +91,23 @@ export const MoodStyles = styled.div`
     border: none;
   }
 `;
+
+export const MainButton = styled.button`
+  background-color: #eea127 !important;
+  border-color: #eea127 !important;
+  color: white;
+  width: 100%;
+  padding: 10px 15px;
+  border-style: none;
+  border-radius: 5px;
+  font-weight: 500;
+  box-shadow: 0px 2px 4px 0px rgba(31, 37, 50, 0.2);
+  -webkit-box-shadow: 0px 2px 4px 0px rgba(31, 37, 50, 0.2);
+  -moz-box-shadow: 0px 2px 4px 0px rgba(31, 37, 50, 0.2);
+
+  &:hover {
+    background-color: #FFF0E8 !important;
+    border-color: #FFF0E8 !important;
+    color: black;
+  }
+`;
