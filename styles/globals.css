@@ -23,7 +23,7 @@ input,
   margin: 10px 0;
 }
 
-h1 {
+h1.splash-title {
   font-family: 'Poppins', sans-serif;
   font-size: 2.5rem;
 }

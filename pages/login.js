@@ -8,11 +8,23 @@ import Form from 'react-bootstrap/Form';
 import Link from 'next/link';
 
 const SplashStyles = styled.div`
-  padding: 100px 30px;
+  padding: 300px 30px 50px;
+  color: white;
+  background-color: darkblue;
+  min-height: 820px;
+
+  a {
+    color: yellow !important;
+  }
 
   .form {
     text-align: left;
     margin-top: 100px;
+  }
+
+  .text-muted,
+  .form-text {
+    color: white !important;
   }
 `;
 
@@ -50,14 +62,17 @@ export default function Login() {
       return <Loader />;
     } else {
       return (
-        <div className='d-flex flex-column text-center'>
-          <h1>SafeSpace.</h1>
+        <main className='d-flex flex-column text-center'>
+          <h1 className="splash-title">SafeSpace. </h1>
           <hr />
           <p className='description'>
-            A place where Black women can support each other, manage their
+            A place where Black women can support each other, manage our
             mental health, and work related trauma.
           </p>
-          <Form.Group className='form'>
+          <Form.Group className='form' controlId='formBasicEmail'>
+            <Form.Label className='visually-hidden visually-hidden-focusable'>
+              Email address
+            </Form.Label>
             <Form.Text className='text-muted'>
               We'll never share your email with anyone else.
             </Form.Text>
@@ -79,9 +94,12 @@ export default function Login() {
           </MainButton>
 
           <Form.Text className='text-muted mt-3'>
+            <Form.Label className='visually-hidden visually-hidden-focusable'>
+              Learn More
+            </Form.Label>
             <Link href='/about'>Learn more</Link> about SafeSpace.
           </Form.Text>
-        </div>
+        </main>
       );
     }
   };

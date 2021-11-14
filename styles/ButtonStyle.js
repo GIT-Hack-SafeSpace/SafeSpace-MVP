@@ -95,7 +95,7 @@ export const MoodStyles = styled.div`
 export const MainButton = styled.button`
   background-color: #eea127 !important;
   border-color: #eea127 !important;
-  color: white;
+  color: black;
   width: 100%;
   padding: 10px 15px;
   border-style: none;
