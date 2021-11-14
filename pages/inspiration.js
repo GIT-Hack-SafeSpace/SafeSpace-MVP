@@ -69,7 +69,7 @@ export default function Inspiration() {
             <CreateInspo user={user} />
           </ModalComp>
           {data.map((d) => (
-            <div key={d.id} className='text-white'>
+            <div key={d.id}>
               <h1>{d.name}</h1>
               <h3>{d.industry}</h3>
               <p>{d.content}</p>
@@ -80,5 +80,5 @@ export default function Inspiration() {
     }
   };
 
-  return <div className='text-white'>{view()}</div>;
+  return <div>{view()}</div>;
 }

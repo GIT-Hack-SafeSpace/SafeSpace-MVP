@@ -7,5 +7,5 @@ export default function SingleEntry() {
 
   // call to the DB with the id of the item we want to get
 
-  return <p className="text-white">ID: {id}</p>;
+  return <p >ID: {id}</p>;
 }
