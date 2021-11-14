@@ -51,7 +51,6 @@ export default function Inspiration() {
       if (data) {
         setData(inspo_post);
       }
-      console.log(data, 'this tha data');
     } catch (error) {
       alert(error.message);
     } finally {
