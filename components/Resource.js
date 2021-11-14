@@ -42,7 +42,7 @@ export default function ResourcePg() {
   return (
     <ResourceLayout>
             <div className="resourceRectangle">
-                <Link href="/resources/creative-solutions">
+                <Link href="/creative-resources">
                     <a>
                         <img className="resourceImg" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKmR73W1iR_RTCb2ZUDnXIOrW487S-54JWxA&usqp=CAU" alt="Happy Black Women"/>
                         <div className="bottom-left">Creative Solutions</div>
@@ -51,7 +51,7 @@ export default function ResourcePg() {
             </div>
 
             <div className="resourceRectangle">
-                <Link href="/resources/creative-solutions">
+                <Link href="/resources/seeking-counseling">
                     <a>
                         <img className="resourceImg" src="https://www.thetemper.com/wp-content/uploads/2020/06/Black-Therapist.png-e1516484163919.jpg" alt="Black women counseling"/>
                         <div className="bottom-left">Seek Counseling</div>
@@ -60,7 +60,7 @@ export default function ResourcePg() {
             </div>
 
             <div className="resourceRectangle">
-                <Link href="/resources/creative-solutions">
+                <Link href="/resources/exercise-meditation">
                     <a>
                         <img className="resourceImg" src="https://templebethmiriam.org/wp-content/uploads/2010/01/o-BLACK-WOMAN-HAPPY-OUTSIDE-facebook.jpg" alt="Exercise & Mediation"/>
                         <div className="bottom-left">Exercise & Meditation</div>
