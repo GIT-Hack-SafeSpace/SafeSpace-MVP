@@ -1,11 +1,14 @@
-import React from 'react'
+import React from 'react';
+import Link from 'next/link';
 
 export default function GlobalHeader() {
-    return (
-        <nav>
-            <p className="menuExample">=</p>
-            <h1 className="safespace">SafeSpace.</h1>     
-            <p> </p>
-        </nav>
-    )
+  return (
+    <nav>
+      <p className='menuExample'>=</p>
+      <Link href='/rant-rave'>
+        <h1 className='safespace'>SafeSpace.</h1>
+      </Link>
+      <p> </p>
+    </nav>
+  );
 }
