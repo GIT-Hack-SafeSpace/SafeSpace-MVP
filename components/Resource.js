@@ -6,7 +6,6 @@ const ResourceLayout = styled.div`
   flex-direction: column;
   align-items: center;
   height: 644px;
-  width: 100vw;
   overflow: hidden;
   margin: -34px -20px;
 
