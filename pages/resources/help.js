@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import Loader from '../../components/Loader';
 import MainLayout from '../../layouts/MainLayout';
 import {help} from '../../data/resources'
+import Link from 'next/link'
 
 
 export default function Creative() {
@@ -35,30 +36,20 @@ export default function Creative() {
 
           {help.map((d, i) => (
             <div key={i}>
-            <div style={{display: 'flex', justifyContent: 'flex-start'}}>
-              <div style={{height: '50px', width: '50px', marginRight: '20px'}}>
-                <img src={d.image} alt="colorul icon"/>
-              </div>
-
-              <div>
-                <h1 style={{fontSize: '20px'}}>{d.content}</h1>
-             
-              <div  className="d-flex" >
-                {
-                  d.tags.map((tag,i) => {
-                    return (
-                      <div key={i}>
-                    <p style={{color: 'orange', fontSize: '12px', marginLeft: '10px'}}>{tag}</p>
-                   </div>
-                   )
-                  })
-                }
-              </div>
-              </div>
-
-
-            </div>
-            <hr style={{color: 'lightgray'}} />
+                <div style={{display: 'flex', justifyContent: 'flex-start', marginBottom: '-10px'}}>
+                    <div>
+                        <h1 style={{fontSize: '20px', color: 'darkblue'}}>{d.content}</h1>
+                       { d.address ? <p style={{color: 'gray'}}>📍 {d.address}</p> : <p></p>}
+                        <div style={{marginTop: '-10px', color: 'gray'}} className="d-flex">
+                            <p>📞 {d.phone}</p>
+                            <p style={{margin: '0 10px'}}>|</p>
+                            <Link  href={`${d.link}`}>
+                                <a style={{color: 'blue', fontSize: '15px', textDecoration: 'None'}}>{d.link}</a>
+                            </Link>
+                        </div>
+                    </div>
+                </div>
+                <hr style={{color: 'gray'}} />
             </div>
           ))}
     

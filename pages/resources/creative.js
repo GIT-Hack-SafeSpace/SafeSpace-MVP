@@ -34,36 +34,31 @@ export default function Creative() {
           <h2><b>Creative Solutions</b></h2>
         </div>
 
-          {creative.map((d, i) => (
-            <div key={i}>
-            <div style={{display: 'flex', justifyContent: 'flex-start'}}>
-              <div style={{height: '50px', width: '50px', marginRight: '20px'}}>
-                <img src={d.image} alt="colorul icon"/>
-              </div>
+        {creative.map((d, i) => (
+          <div key={i}>
+          <div style={{display: 'flex', justifyContent: 'flex-start'}}>
+            <div style={{height: '50px', width: '50px', marginRight: '20px'}}>
+              <img src={d.image} alt="colorul icon"/>
+            </div>
 
-              <div>
-                <h1 style={{fontSize: '20px'}}>{d.content}</h1>
-
-             
+            <div style={{marginBottom: '-15px'}}>
+              <h1 style={{fontSize: '20px'}}>{d.content}</h1>
               <div  className="d-flex" >
                 {
                   d.tags.map((tag,i) => {
                     return (
                       <div key={i}>
                     <p style={{color: 'orange', fontSize: '12px', marginLeft: '10px'}}>{tag}</p>
-                   </div>
-                   )
+                  </div>
+                  )
                   })
                 }
               </div>
-              </div>
-
-
-            </div>
-            <hr style={{color: 'lightgray'}} />
-            </div>
-          ))}
-    
+            </div>                    
+          </div>
+          <hr style={{color: 'lightgray'}} />
+          </div>
+        ))}
         </>
       );
     }
