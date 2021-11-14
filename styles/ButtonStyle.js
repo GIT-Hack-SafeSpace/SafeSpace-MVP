@@ -29,4 +29,22 @@ export const ButtonStyle = styled.div`
       padding: 15px;
     }
   }
+
+  .btn-quiz {
+    background-color: #fff0e8 !important;
+    border-color: #fff0e8 !important;
+    color: black;
+    width: 343px;
+    padding: 15px 0;
+    margin: 5px;
+    border-style: none;
+    border-radius: 5px;
+    font-weight: 500;
+
+    &:hover {
+      background-color: #eea127 !important;
+      border-color: #eea127 !important;
+      color: white;
+    }
+  }
 `;
