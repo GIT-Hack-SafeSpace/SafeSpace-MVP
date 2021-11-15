@@ -1,4 +1,4 @@
-export const tagData = [
+export const communityTagData = [
   { id: '1', tagName:'PTO', tagColor:'#ED3457' },
   { id: '2', tagName:'Work culture', tagColor:'#EEA127' },
   { id: '3', tagName:'Bias', tagColor:'#493843' },
@@ -9,4 +9,8 @@ export const tagData = [
   { id: '8', tagName:'Promotion', tagColor:'#493843' },
   { id: '9', tagName:'Microagression', tagColor:'#63988E' },
   { id: '10', tagName:'Management', tagColor:'#000000' },
+]
+
+export const resourceTagData = [
+
 ]

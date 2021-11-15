@@ -5,13 +5,12 @@ import styled from 'styled-components';
 
 import { profilePictures } from '../data/profilePictures';
 import { reactions } from '../data/reactions';
-import { tagData } from '../data/tagData';
+import {communityTagData} from '../data/tagData';
 import Tags from './Tags';
 
 
 const imageSrcs = profilePictures.map((p) => p.url);
 const reactionIcons = reactions.map((r) => r.url);
-const communityTagInfo = tagData;
 
 const CommunityPostStyles = styled.div`
   display: flex;
@@ -56,23 +55,6 @@ const CommunityPostStyles = styled.div`
       .content{
         font-size:14px;
       }
-
-      .comment-tags{
-        display:flex;
-        justify-content: flex-end;
-
-        .tag{
-          margin: 0 5px;
-          border-radius: 10px;
-          padding: 2px 15px;
-          color: white;
-          font-size: 12px;
-        }
-
-        .tag:last-child{
-          margin: 0;
-        }
-      }
     }
   }
 }
@@ -93,19 +75,6 @@ export default function CommunityPost({ data }) {
   const randomImage = () => imageSrcs[Math.floor(Math.random() * imageSrcs.length)];
   const randomNumber = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
 
-  const tagColorRandomizer = () => {
-    const shuffledArray = communityTagInfo.sort((a, b) => 0.5 - Math.random());
-    const selected = () => shuffledArray.slice(0, randomNumber(1, 3));
-
-    return selected();
-  
-  }
-
-  const tagMaker = () => {
-    let tagColors = tagColorRandomizer();
-    return tagColors;
-  }
-
   return (
     <>
       {data?.map((d) => (
@@ -125,8 +94,7 @@ export default function CommunityPost({ data }) {
               <div className="commBody">
                 <p className="content">{d.content}</p>
                 <div className="comment-tags">
-                  {tagMaker().map((i) => <div className="tag" key={i.id} style={{ backgroundColor: `${i.tagColor}` }}>{i.tagName}</div>)}
-                  <Tags/>
+                  <Tags data={communityTagData} randomNumber={randomNumber}/>
                 </div>
                 <p>{randomNumber(1, 9)} Likes</p>
               </div>
