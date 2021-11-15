@@ -24,10 +24,26 @@ export const options = [
   'Rarely, if ever',
 ];
 
+const competingDescription = () => {
+  let description = 'Competing Sharks';
+  description += '<ul>';
+  description += '<li>Sharks use a forcing or competing conflict management style</li>';
+  description += '<li>Sharks are highly goal-oriented</li>';
+  description += '<li>Relationships take on a lower priority</li>';
+  description += '<li>Sharks do not hesitate to use aggressive behavior to resolve conflicts</li>';
+  description += '<li>Sharks can be autocratic, authoritative, and uncooperative; threatening and intimidating</li>';
+  description += '<li>Sharks have a need to win; therefore others must lose, creating win-lose situations</li>';
+  description += '</ul>';
+  description += '<p>Advantage: If the shark\'s decision is correct, a better decision without compromise can result</p>';
+  description += '<p>Disadvantage: May breed hostility and resentment toward the person using it</p>';
+
+  return description;
+}
+
 export const styles = {
-  competing: 'competing description',
-  collaborating: 'collaborating description',
-  avoiding: 'avoiding description',
-  accomodating: 'accomodating description',
-  compromising: 'compromising description',
+  competing: competingDescription,
+  collaborating: competingDescription,
+  avoiding: competingDescription,
+  accomodating: competingDescription,
+  compromising: competingDescription,
 };
