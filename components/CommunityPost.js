@@ -6,11 +6,12 @@ import styled from 'styled-components';
 import { profilePictures } from '../data/profilePictures';
 import { reactions } from '../data/reactions';
 import { tagData } from '../data/tagData';
+import Tags from './Tags';
 
 
 const imageSrcs = profilePictures.map((p) => p.url);
 const reactionIcons = reactions.map((r) => r.url);
-const tagInfo = tagData;
+const communityTagInfo = tagData;
 
 const CommunityPostStyles = styled.div`
   display: flex;
@@ -93,7 +94,7 @@ export default function CommunityPost({ data }) {
   const randomNumber = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
 
   const tagColorRandomizer = () => {
-    const shuffledArray = tagInfo.sort((a, b) => 0.5 - Math.random());
+    const shuffledArray = communityTagInfo.sort((a, b) => 0.5 - Math.random());
     const selected = () => shuffledArray.slice(0, randomNumber(1, 3));
 
     return selected();
@@ -102,11 +103,8 @@ export default function CommunityPost({ data }) {
 
   const tagMaker = () => {
     let tagColors = tagColorRandomizer();
-    console.log(tagColors,'tagColors');
     return tagColors;
   }
-
-  tagMaker();
 
   return (
     <>
@@ -128,6 +126,7 @@ export default function CommunityPost({ data }) {
                 <p className="content">{d.content}</p>
                 <div className="comment-tags">
                   {tagMaker().map((i) => <div className="tag" key={i.id} style={{ backgroundColor: `${i.tagColor}` }}>{i.tagName}</div>)}
+                  <Tags/>
                 </div>
                 <p>{randomNumber(1, 9)} Likes</p>
               </div>
