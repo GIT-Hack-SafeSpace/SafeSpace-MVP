@@ -2,11 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { supabase } from '../utils/client';
 import { useRouter } from 'next/router';
 import Loader from '../components/Loader';
-import ModalComp from '../components/Modal';
-import CreateCompany from '../components/CreateCompany';
-import Card from 'react-bootstrap/Card';
-import styled from 'styled-components';
 import MainLayout from '../layouts/MainLayout';
+import CompanyReview from '../components/CompanyReview';
 
 
 export default function Companies() {
@@ -62,36 +59,10 @@ export default function Companies() {
       return <Loader />;
     } else {
       return (
-        <>
-          <ModalComp title='Submit a Great Company'>
-            <CreateCompany user={user} />
-          </ModalComp>
-          {
-            data.map((d) => (
-              <div key={d.id} className='text-white'>
-                <CardStyle>
-                <Card className="companyCard" style={{ width: '26rem', height: '12rem'}}>
-                  <Card.Body>
-                    <Card.Title>{d.name}</Card.Title>
-                    <Card.Subtitle className="mb-2 text-muted">{d.industry}</Card.Subtitle>
-                    <Card.Text>{d.content}</Card.Text>
-                    <Card.Link href="#">Card Link</Card.Link>
-                    <Card.Link href="#">Another Link</Card.Link>
-                  </Card.Body>
-                </Card>
-                </CardStyle>
-              </div>
-          ))
-          }
-        </>
-      )}
+        <CompanyReview data={data} user={user}/>
+      );
+    }
   };
-
-  const CardStyle = styled.div`
-  .companyCard {
-    color: black;
-  }
-`;
 
   return <MainLayout>{view()}</MainLayout>;
 }
