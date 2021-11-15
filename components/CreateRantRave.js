@@ -58,6 +58,22 @@ export default function CreateRantRave({ user }) {
 
   return (
     <Form onSubmit={postRantRave}>
+      <div>
+        <label htmlFor='name'>Title</label>
+        <Form.Control
+          required
+          id='title'
+          type='text'
+          placeholder='Title of Entry'
+          value={data.title || ''}
+          onChange={(e) =>
+            setData((prevState) => ({
+              ...prevState,
+              title: e.target.value,
+            }))
+          }
+        />
+      </div>
       <SelectStyle>
         <label htmlFor='postTypes'>Post Type</label>
         <Select
@@ -90,22 +106,6 @@ export default function CreateRantRave({ user }) {
           }))
         }
       />
-        <div>
-        <label htmlFor='name'>Journal Entry</label>
-        <Form.Control
-          required
-          id='title'
-          type='text'
-          placeholder='Title of Entry'
-          value={data.title || ''}
-          onChange={(e) =>
-            setData((prevState) => ({
-              ...prevState,
-              title: e.target.value,
-            }))
-          }
-        />
-      </div>
       <div>
         <label htmlFor='name'>Who?</label>
         <Form.Control
