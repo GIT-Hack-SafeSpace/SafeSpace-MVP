@@ -3,8 +3,12 @@ import moment from 'moment';
 
 import styled from 'styled-components';
 
-const imageSrcs = ['profileimages/fox.png', 'profileimages/owl.png', 'profileimages/shark.png', 'profileimages/teddy-bear.png', 'profileimages/turtle.png'];
-const reactions = ['reactions/heart.png', 'reactions/laughing.png', 'reactions/angry.png', 'reactions/comment.png'];
+import {profilePictures} from '../data/profilePictures';
+import {reactions} from '../data/reactions';
+
+
+const imageSrcs = profilePictures.map((p) => p.url);
+const reactionIcons = reactions.map((r) => r.url);
 
 const CommunityPostStyles = styled.div`
   display: flex;
@@ -65,14 +69,6 @@ const CommunityPostStyles = styled.div`
         .tag:last-child{
           margin: 0;
         }
-
-        .tag1{
-          background-color: #ED3457;
-        }
-
-        .tag2{
-          background-color: #493843;
-        }
       }
     }
   }
@@ -94,6 +90,27 @@ export default function CommunityPost({ data }) {
   const randomImage = () => imageSrcs[Math.floor(Math.random() * imageSrcs.length)];
   const numOfLikes = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
 
+  const tagColorRandomizer = () => {
+    const colors = [];
+
+    colors.push('#ED3457','#EEA127','#493843','#63988E','#000000');
+    
+    const shuffledArray = colors.sort((a, b) => 0.5 - Math.random());
+    
+    const numOfTags = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
+    
+    const selected = () => shuffledArray.slice(0,numOfTags(2,4));
+
+    return selected();
+  }
+
+  const tagMaker = () => {
+    let tagColors = tagColorRandomizer();
+    return tagColors;
+  }
+
+  tagMaker();
+
   return (
     <>
       {data?.map((d) => (
@@ -113,8 +130,7 @@ export default function CommunityPost({ data }) {
             <div className="commBody">
               <p className="content">{d.content}</p>
               <div className="comment-tags">
-                <p className="tag tag1">Tag 1</p>
-                <p className="tag tag2">Tag 2</p>
+                {tagMaker().map((i)=> <div className="tag" key={i} style={{backgroundColor: `${i}`}}>Tag</div>)}
               </div>
               <p>{numOfLikes(1,9)} Likes</p>
             </div>
@@ -122,8 +138,8 @@ export default function CommunityPost({ data }) {
           </div>
           <div className="comm-footer">
             <div className="reactions">
-              {reactions?.map((r) => (
-                <img className="reactionIcon" src={r} />
+              {reactionIcons?.map((r) => (
+                <img key={r} className="reactionIcon" src={r} />
               ))}
             </div>
           </div>
