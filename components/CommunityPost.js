@@ -122,8 +122,8 @@ export default function CommunityPost({ data }) {
           </div>
           <div className="comm-footer">
             <div className="reactions">
-              {reactions?.map((r) => (
-                <img className="reactionIcon" src={r} />
+              {reactions?.map((r, i) => (
+                <img key={i} className="reactionIcon" src={r} />
               ))}
             </div>
           </div>

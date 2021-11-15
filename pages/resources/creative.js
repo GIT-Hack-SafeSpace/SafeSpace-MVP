@@ -20,7 +20,6 @@ export default function Creative() {
     } else {
       setUser(user);
       setLoading(false)
-      console.log(creative[0].tags)
     }
   }, []);
 
