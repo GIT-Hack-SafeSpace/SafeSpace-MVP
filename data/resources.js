@@ -3,6 +3,14 @@ export const resources = [
   { value: 'seeking_counseling', label: 'Seeking Counseling'},
   { value: 'exercise_release', label: 'Exercise & Release'},
 ];
+
+export const creativeIconPics = [
+  { url: '/creativeicons/3.png'},
+  { url: '/creativeicons/4.png'},
+  { url: '/creativeicons/5.png'},
+  { url: '/creativeicons/6.png'},
+  { url: '/creativeicons/7.png'}
+];
   
 export const help = [
   { 
