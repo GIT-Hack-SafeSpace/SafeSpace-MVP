@@ -18,7 +18,7 @@ export default function CreateRantRave({ user }) {
   const [loading, setLoading] = useState(null);
   const [conflict_type, setConflictType] = useState('');
   const [data, setData] = useState({
-    isPersonal: true,
+    share: false,
     isResolved: false,
   });
 
@@ -54,7 +54,7 @@ export default function CreateRantRave({ user }) {
       where,
       who,
       content,
-      isPersonal,
+      share,
       isResolved,
       title,
       tag_1,
@@ -66,7 +66,7 @@ export default function CreateRantRave({ user }) {
       const updates = {
         profile_id: id,
         content,
-        isPersonal,
+        share,
         isResolved,
         where,
         who,
@@ -173,13 +173,13 @@ export default function CreateRantRave({ user }) {
       </SelectStyle>
       <Form.Check
         type='switch'
-        id='isPersonal'
-        label='Private'
-        checked={data.isPersonal}
+        id='share'
+        label='Share in Community?'
+        checked={data.share}
         onChange={(e) =>
           setData((prevState) => ({
             ...prevState,
-            isPersonal: e.target.checked,
+            share: e.target.checked,
           }))
         }
       />
