@@ -37,8 +37,15 @@ const CommunityPostStyles = styled.div`
           letter-spacing: 1px;
         }
 
-        .resolvedTag {
+        .resolvedTags {
           align-items: flex-end;
+          text-transform: uppercase;
+          font-size: 12px;
+          color: #ED3457;
+
+          .resolved{
+            color:#000;
+          }
         }
       }
       .date {
@@ -85,11 +92,11 @@ export default function CommunityPost({ data }) {
                 />
               </Link>
             </div>
-            <div className="card-wrapper">
-              <div className="commTitleWrapper">
-                <span className="title">{d.title}</span>
-                <span className="resolvedTag">
-                  {d.isResolved ? "Resolved" : "Unresolved"}
+            <div className='card-wrapper'>
+              <div className='commTitleWrapper'>
+                <span className='title'>{d.title}</span>
+                <span className='resolvedTags'>
+                  {d.isResolved ? <div className="resolved">Resolved</div> : 'Unresolved'}
                 </span>
               </div>
               <p className="date">
