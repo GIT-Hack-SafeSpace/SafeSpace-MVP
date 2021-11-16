@@ -43,7 +43,7 @@ export default function Creative() {
             <div key={i}>
               <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
                 <div style={{ height: '50px', width: '50px', marginRight: '20px' }}>
-                  <img src={randomImage()} alt="colorul icon" />
+                  <img src={randomImage()} alt="colorful icon" />
                 </div>
                 <div style={{ marginBottom: '-15px' }}>
                   <h1 style={{ fontSize: '20px' }}>{d.content}</h1>
