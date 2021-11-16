@@ -49,7 +49,7 @@ export default function Creative() {
                 <div style={{ marginBottom: '-15px' }}>
                   <h1 style={{ fontSize: '20px' }}>{d.content}</h1>
                   <div className="d-flex" >
-                    <Tags data={resourceTagData} tags={resourceTagData}/>
+                    <Tags tags={d.tags} data={resourceTagData} />
                   </div>
                 </div>
               </div>

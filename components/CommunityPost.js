@@ -1,9 +1,10 @@
-import React from 'react';
-import moment from 'moment';
-import styled from 'styled-components';
-import { reactions } from '../data/reactions';
-import { communityTagData } from '../data/tagData';
-import Tags from './Tags';
+import React from "react";
+import moment from "moment";
+import styled from "styled-components";
+import Link from "next/link";
+import { reactions } from "../data/reactions";
+import { communityTagData } from "../data/tagData";
+import Tags from "./Tags";
 
 const reactionIcons = reactions.map((r) => r.url);
 
@@ -80,13 +81,15 @@ export default function CommunityPost({ data }) {
     <>
       {data?.map((d) => (
         <CommunityPostStyles key={d.id}>
-          <div className='main-card-body'>
-            <div className='commImgWrapper'>
-              <img
-                src={`profileimages/${d.conflict_type || 'user'}.png`}
-                className='profileImage'
-                alt='image'
-              />
+          <div className="main-card-body">
+            <div className="commImgWrapper">
+              <Link href="/conflict-styles">
+                <img
+                  src={`profileimages/${d.conflict_type || "user"}.png`}
+                  className="profileImage"
+                  alt="image"
+                />
+              </Link>
             </div>
             <div className='card-wrapper'>
               <div className='commTitleWrapper'>
@@ -95,12 +98,12 @@ export default function CommunityPost({ data }) {
                   {d.isResolved ? <div className="resolved">Resolved</div> : 'Unresolved'}
                 </span>
               </div>
-              <p className='date'>
-                {moment(d.created_at).format('MMM DD, YYYY')}
+              <p className="date">
+                {moment(d.created_at).format("MMM DD, YYYY")}
               </p>
-              <div className='commBody'>
-                <p className='content'>{d.content}</p>
-                <div className='comment-tags'>
+              <div className="commBody">
+                <p className="content">{d.content}</p>
+                <div className="comment-tags">
                   <Tags
                     tags={[d.tag_1, d.tag_2, d.tag_3]}
                     data={communityTagData}
@@ -110,10 +113,10 @@ export default function CommunityPost({ data }) {
               </div>
             </div>
           </div>
-          <div className='comm-footer'>
-            <div className='reactions'>
+          <div className="comm-footer">
+            <div className="reactions">
               {reactionIcons?.map((r, i) => (
-                <img key={i} className='reactionIcon' src={r} />
+                <img key={i} className="reactionIcon" src={r} />
               ))}
             </div>
           </div>

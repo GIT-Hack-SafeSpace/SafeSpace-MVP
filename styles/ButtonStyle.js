@@ -70,6 +70,23 @@ export const ButtonStyle = styled.div`
       border-color: #eea127 !important;
     }
   }
+
+  .orange {
+    background-color: #eea127 !important;
+    border-color: #eea127 !important;
+    color: black;
+    width: 330px;
+    padding: 15px 0;
+    margin: 5px;
+    border-style: none;
+    border-radius: 5px;
+    font-weight: 500;
+    align-self: center;
+    &:hover {
+      background-color: #fff0e8 !important;
+      border-color: #fff0e8 !important;
+    }
+  }
 `;
 
 export const MoodStyles = styled.div`
