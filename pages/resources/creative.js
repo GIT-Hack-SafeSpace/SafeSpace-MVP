@@ -48,8 +48,7 @@ export default function Creative() {
                 <div style={{ marginBottom: '-15px' }}>
                   <h1 style={{ fontSize: '20px' }}>{d.content}</h1>
                   <div className="d-flex" >
-                    {/* TODO: NEED TO UPDATE THESE WITH REAL TAGS  */}
-                    <Tags tags={resourceTagData} data={resourceTagData} />
+                    <Tags tags={resourceTagData.map((rd) => rd.tagName)} data={resourceTagData} />
                   </div>
                 </div>
               </div>
