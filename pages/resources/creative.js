@@ -43,9 +43,9 @@ export default function Creative() {
             <div key={i}>
               <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
                 <div style={{ height: '50px', width: '50px', marginRight: '20px' }}>
-                  <img src={randomImage()} alt="colorful icon" />
+                  <img style={{filter: 'drop-shadow(1px 1px 1px gray)'}} src={randomImage()} alt="colorful icon" />
                 </div>
-                <div style={{ marginBottom: '-15px' }}>
+                <div>
                   <h1 style={{ fontSize: '20px' }}>{d.content}</h1>
                   <div className="d-flex" >
                     <Tags tags={d.tags} data={resourceTagData} />
