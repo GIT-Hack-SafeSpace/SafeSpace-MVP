@@ -71,43 +71,60 @@ nav {
 footer {
   border-top: 1px solid lightgray;
   position: fixed;
-  /* left: 0; */
   bottom: 0;
   width: 100%;
   max-width: 450px;
-  background-color: white;
-  color: gray;
+  background-color: #fbfbfb;
   text-align: center;
+  color: #808080
 }
 
-.orderFooterOptions {
+.allFooterButtons{
   display: flex;
-  flex-direction: row;
+  list-style: none;
   justify-content: space-between;
-  padding-left: 5px;
-  padding-right: 5px;
+  padding-left: 0;
+  margin-bottom: 0;
+
 }
 
-.footerBarOption {
-  border: 1px solid white;
-  cursor: pointer;
-}
-
-.footerIcon {
+p.footerIcon {
+  display: flex;
+  justify-content: center;
   font-size: 29px;
   margin: 0;
   padding-top: 5px;
+  /* filter: invert(29%) sepia(72%) saturate(3701%) hue-rotate(332deg) brightness(98%) contrast(89%); */
 }
 
-img.footerIcon{
+.activeFooter > .footerBarOption > .footerIcon > .footerSvg {
+  filter: invert(30%) sepia(83%) saturate(4273%) hue-rotate(333deg) brightness(99%) contrast(87%);
+}
+
+.activeFooter > .footerBarOption > .optionTitle {
+  color: #ED3457;
+}
+
+.footerBarOption {
+  padding: 0 20px;
+  width: 90px;
+} 
+
+.footerBarOption{
+  padding: 0 20px;
+  padding-left: 10px;
+  width: 90px;
+} 
+
+.footerSvg{
   height: 45px;
+  margin:15px;
 }
 
 .optionTitle {
   margin: 0;
   padding-bottom: 10px;
   font-size: 12px;
-  color: gray;
 }
 
 .appWrapper {
