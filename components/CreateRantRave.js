@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { supabase } from '../utils/client';
 import Form from 'react-bootstrap/Form';
 import styled from 'styled-components';
@@ -6,8 +6,10 @@ import { postTypes } from '../data/postTypes';
 import Select from 'react-select';
 import { ButtonStyle } from '../styles/ButtonStyle';
 import Button from 'react-bootstrap/Button';
+import { communityTagOptions } from '../data/tagData';
 
 const SelectStyle = styled.div`
+  margin-top: 5px;
   .select__option {
     color: black !important;
   }
@@ -15,16 +17,52 @@ const SelectStyle = styled.div`
 
 export default function CreateRantRave({ user }) {
   const [loading, setLoading] = useState(null);
+  const [conflict_type, setConflictType] = useState('');
   const [data, setData] = useState({
     isPersonal: false,
     isResolved: false,
   });
 
+  useEffect(async () => {
+    try {
+      setLoading(true);
+      const user = supabase.auth.user();
+
+      let { data, error, status } = await supabase
+        .from('profiles')
+        .select(`personality`)
+        .eq('id', user.id)
+        .single();
+
+      if (error && status !== 406) {
+        throw error;
+      }
+
+      if (data) {
+        setConflictType(data.personality);
+      }
+    } catch (error) {
+      alert(error.message);
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+
   const postRantRave = async (e) => {
     e.preventDefault();
     const { id } = user;
-    const { where, who, content, isPersonal, isResolved, type, title } =
-      data;
+    const {
+      where,
+      who,
+      content,
+      isPersonal,
+      isResolved,
+      type,
+      title,
+      tag_1,
+      tag_2,
+      tag_3,
+    } = data;
     try {
       setLoading(true);
       const updates = {
@@ -36,6 +74,10 @@ export default function CreateRantRave({ user }) {
         where,
         who,
         title,
+        tag_1,
+        tag_2,
+        tag_3,
+        conflict_type,
         created_at: new Date(),
       };
 
@@ -87,6 +129,64 @@ export default function CreateRantRave({ user }) {
             setData((prevState) => ({
               ...prevState,
               type: e?.value || '',
+            }))
+          }
+          className='basic-single'
+          classNamePrefix='select'
+          isSearchable={true}
+        />
+      </SelectStyle>
+      <SelectStyle>
+        <label className="mt-3" htmlFor='postTypes'>Tags (Select up to 3 tags)</label>
+        <Select
+          required={true}
+          id='tag_1'
+          name='tag_1'
+          type='tag_1'
+          options={communityTagOptions}
+          value={communityTagOptions.find((i) => i.value === data.tag_1) || ''}
+          onChange={(e) =>
+            setData((prevState) => ({
+              ...prevState,
+              tag_1: e?.value || '',
+            }))
+          }
+          className='basic-single'
+          classNamePrefix='select'
+          isSearchable={true}
+        />
+      </SelectStyle>
+      <SelectStyle>
+        <Select
+          required={true}
+          id='tag_2'
+          name='tag_2'
+          type='tag_2'
+          options={communityTagOptions}
+          value={communityTagOptions.find((i) => i.value === data.tag_2) || ''}
+          onChange={(e) =>
+            setData((prevState) => ({
+              ...prevState,
+              tag_2: e?.value || '',
+            }))
+          }
+          className='basic-single'
+          classNamePrefix='select'
+          isSearchable={true}
+        />
+      </SelectStyle>
+      <SelectStyle>
+        <Select
+          required={true}
+          id='tag_3'
+          name='tag_3'
+          type='tag_3'
+          options={communityTagOptions}
+          value={communityTagOptions.find((i) => i.value === data.tag_3) || ''}
+          onChange={(e) =>
+            setData((prevState) => ({
+              ...prevState,
+              tag_3: e?.value || '',
             }))
           }
           className='basic-single'
@@ -170,11 +270,7 @@ export default function CreateRantRave({ user }) {
         }
       />
       <ButtonStyle>
-        <Button
-          className='save-change'
-          disabled={loading}
-          type="submit"
-        >
+        <Button className='save-change' disabled={loading} type='submit'>
           {loading ? 'Loading ...' : 'Save Changes'}
         </Button>
       </ButtonStyle>
