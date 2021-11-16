@@ -98,7 +98,7 @@ export default function CommunityPost({ data }) {
                 <p className="content">{d.content}</p>
                 <div className="comment-tags">
                   <Tags
-                    tags={[d.tag_1, d.tag_2, d.tag_3]}
+                    tags={[d.tag_1, d.tag_2, d.tag_3].filter(Boolean)}
                     data={communityTagData}
                   />
                 </div>
