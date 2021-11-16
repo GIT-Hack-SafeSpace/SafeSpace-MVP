@@ -37,8 +37,15 @@ const CommunityPostStyles = styled.div`
           letter-spacing: 1px;
         }
 
-        .resolvedTag {
+        .resolvedTags {
           align-items: flex-end;
+          text-transform: uppercase;
+          font-size: 12px;
+          color: #ED3457;
+
+          .resolved{
+            color:#000;
+          }
         }
       }
       .date {
@@ -54,14 +61,15 @@ const CommunityPostStyles = styled.div`
     }
   }
   .comm-footer {
-    display: flex;
     border-top: 1px solid #e8e8e8;
-    justify-content: center;
-
-    .reactionIcon {
-      width: 35px;
-      height: 35px;
-      margin: 15px 28px;
+    .reactions{
+      display: flex;
+      justify-content: space-evenly;
+      width: 100%;
+      .reactionIcon {
+        width: 27px;
+        margin: 15px 28px;
+      }
     }
   }
 `;
@@ -84,11 +92,11 @@ export default function CommunityPost({ data }) {
                 />
               </Link>
             </div>
-            <div className="card-wrapper">
-              <div className="commTitleWrapper">
-                <span className="title">{d.title}</span>
-                <span className="resolvedTag">
-                  {d.isResolved ? "Resolved" : "Unresolved"}
+            <div className='card-wrapper'>
+              <div className='commTitleWrapper'>
+                <span className='title'>{d.title}</span>
+                <span className='resolvedTags'>
+                  {d.isResolved ? <div className="resolved">Resolved</div> : 'Unresolved'}
                 </span>
               </div>
               <p className="date">
