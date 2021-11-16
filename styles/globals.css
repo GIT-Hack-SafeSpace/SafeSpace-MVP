@@ -78,20 +78,21 @@ footer {
   position: fixed;
   bottom: 0;
   width: 100%;
-  width: 450px;
-  background-color: #ffffff;
+  max-width: 450px;
+  background-color: white;
+  color: gray;
   text-align: center;
-  color: #808080;
 }
 
 .allFooterButtons{
   display: flex;
+  max-width:100%;
   list-style: none;
   justify-content: space-between;
   padding-left: 0;
   margin-bottom: 0;
   cursor: pointer;
-
+  padding: 0 5px;
 }
 
 p.footerIcon {
@@ -110,14 +111,8 @@ p.footerIcon {
   font-weight: bold;
 }
 
-.footerBarOption {
-  padding: 0 20px;
-  padding-left: 6px;
-  width: 84px;
-}
-
 .footerSvg {
-  height: 35px;
+  height: 25px;
   margin: 13px;
 }
 
