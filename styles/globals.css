@@ -78,10 +78,10 @@ footer {
   position: fixed;
   bottom: 0;
   width: 100%;
-  max-width: 450px;
+  width: 450px;
   background-color: #ffffff;
   text-align: center;
-  color: #bbbbbb
+  color: #808080;
 }
 
 .allFooterButtons{
@@ -97,7 +97,6 @@ footer {
 p.footerIcon {
   display: flex;
   justify-content: center;
-  font-size: 29px;
   margin: 0;
 }
 
@@ -113,18 +112,13 @@ p.footerIcon {
 
 .footerBarOption {
   padding: 0 20px;
-  width: 90px;
-} 
+  padding-left: 6px;
+  width: 84px;
+}
 
-.footerBarOption{
-  padding: 0 20px;
-  padding-left: 10px;
-  width: 90px;
-} 
-
-.footerSvg{
-  height: 45px;
-  margin:15px;
+.footerSvg {
+  height: 35px;
+  margin: 13px;
 }
 
 .optionTitle {

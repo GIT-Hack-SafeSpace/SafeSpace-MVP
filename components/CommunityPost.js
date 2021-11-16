@@ -54,14 +54,15 @@ const CommunityPostStyles = styled.div`
     }
   }
   .comm-footer {
-    display: flex;
     border-top: 1px solid #e8e8e8;
-    justify-content: center;
-
-    .reactionIcon {
-      width: 35px;
-      height: 35px;
-      margin: 15px 28px;
+    .reactions{
+      display: flex;
+      justify-content: space-evenly;
+      width: 100%;
+      .reactionIcon {
+        width: 27px;
+        margin: 15px 28px;
+      }
     }
   }
 `;
