@@ -90,6 +90,8 @@ export default function Journal({ data }) {
                 {moment(d.created_at).format('MMM DD, YYYY')}
               </p>
               <div className='commBody'>
+                <p className="type">{d.type}</p>
+                <p className="card-bold">Who?:<span>{d.who}</span></p>
                 <p className='content'>{d.content}</p>
                 <div className='comment-tags'>
                   <Tags
@@ -105,7 +107,7 @@ export default function Journal({ data }) {
             <div className='reactions'>
               Edit / Delete
             </div>
-              <h3>{d.type}</h3>
+              
               <h3>{d.who}</h3>
               <h3>{d.where}</h3>
               <p>{d.share}</p>
