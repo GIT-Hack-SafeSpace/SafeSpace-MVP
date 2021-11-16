@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import Loader from '../components/Loader';
 import ModalComp from '../components/Modal';
 import CreateRantRave from '../components/CreateRantRave';
+import Journal from '../components/Journal';
 import MainLayout from '../layouts/MainLayout';
 
 
@@ -70,17 +71,7 @@ export default function RantRave() {
           <ModalComp title='Add Entry'>
             <CreateRantRave user={user} />
           </ModalComp>
-          {data.map((d) => (
-            <div key={d.id} >
-              <h1>{d.content}</h1>
-              <h3>{d.created_at}</h3>
-              <h3>{d.type}</h3>
-              <h3>{d.who}</h3>
-              <h3>{d.where}</h3>
-              <p>{d.share}</p>
-              <p>{d.isResolved}</p>
-            </div>
-          ))}
+            <Journal data={data}/>
         </>
       );
     }
