@@ -98,6 +98,12 @@ export default function JournalEntry({ data }) {
     isResolved: false,
   });
 
+  const [checked, setChecked] = useState(true);
+
+  const handleChange = e => {
+    e.persist();
+    setChecked(prevState => !prevState);
+ };
 
   return (
     <>
@@ -120,12 +126,7 @@ export default function JournalEntry({ data }) {
                     id='isResolved'
                     label='Resolved'
                     checked={d.isResolved}
-                    onChange={(e) =>
-                      setValue((prevState) => ({
-                        ...prevState,
-                        isResolved: e.target.checked,
-                      }))
-                    }
+                    onChange={handleChange}
                   />) : (<Form.Check
                     type='switch'
                     id='isResolved'
