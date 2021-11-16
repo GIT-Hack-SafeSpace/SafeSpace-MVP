@@ -77,7 +77,7 @@ export default function RantRave() {
               <h3>{d.type}</h3>
               <h3>{d.who}</h3>
               <h3>{d.where}</h3>
-              <p>{d.isPersonal}</p>
+              <p>{d.share}</p>
               <p>{d.isResolved}</p>
             </div>
           ))}
