@@ -60,7 +60,7 @@ export default function ResourcePg() {
             </div>
 
             <div className="resourceRectangle">
-                <Link href="/resources/seeking-counseling">
+                <Link href="/resources/counseling">
                     <a>
                         <img className="resourceImg" src='images/seekingcounseling.png' alt="Black women counseling"/>
                         <div className="bottom-left">Seek Counseling</div>
@@ -69,7 +69,7 @@ export default function ResourcePg() {
             </div>
 
             <div className="resourceRectangle">
-                <Link href="/resources/exercise-meditation">
+                <Link href="/resources/exercise">
                     <a>
                         <img className="resourceImg" src='images/exercise.png' alt="Exercise & Mediation"/>
                         <div className="bottom-left">Exercise & Meditation</div>
