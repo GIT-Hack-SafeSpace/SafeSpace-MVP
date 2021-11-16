@@ -7,11 +7,10 @@ import { counselors } from '../../data/resources';
 import Link from 'next/link'
 
 
-export default function Couseling() {
+export default function Counseling() {
     const [loading, setLoading] = useState(true);
     const [user, setUser] = useState({});
     const router = useRouter();
-    const randomImage = () => icons[Math.floor(Math.random() * icons.length)];
   
     useEffect(() => {
       // checking if a user is logged in. If not, redirect to login screen
