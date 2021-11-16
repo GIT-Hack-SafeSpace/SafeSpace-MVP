@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { supabase } from '../utils/client';
 import Form from 'react-bootstrap/Form';
 import styled from 'styled-components';
-import { postTypes } from '../data/postTypes';
 import Select from 'react-select';
 import { ButtonStyle } from '../styles/ButtonStyle';
 import Button from 'react-bootstrap/Button';
@@ -19,7 +18,7 @@ export default function CreateRantRave({ user }) {
   const [loading, setLoading] = useState(null);
   const [conflict_type, setConflictType] = useState('');
   const [data, setData] = useState({
-    isPersonal: false,
+    isPersonal: true,
     isResolved: false,
   });
 
@@ -57,7 +56,6 @@ export default function CreateRantRave({ user }) {
       content,
       isPersonal,
       isResolved,
-      type,
       title,
       tag_1,
       tag_2,
@@ -70,7 +68,6 @@ export default function CreateRantRave({ user }) {
         content,
         isPersonal,
         isResolved,
-        type,
         where,
         who,
         title,
@@ -116,26 +113,6 @@ export default function CreateRantRave({ user }) {
           }
         />
       </div>
-      <SelectStyle>
-        <label htmlFor='postTypes'>Post Type</label>
-        <Select
-          required={true}
-          id='postTypes'
-          name='postTypes'
-          type='postTypes'
-          options={postTypes}
-          value={postTypes.find((i) => i.value === data.type) || 'rant'}
-          onChange={(e) =>
-            setData((prevState) => ({
-              ...prevState,
-              type: e?.value || '',
-            }))
-          }
-          className='basic-single'
-          classNamePrefix='select'
-          isSearchable={true}
-        />
-      </SelectStyle>
       <SelectStyle>
         <label className="mt-3" htmlFor='postTypes'>Tags (Select up to 3 tags)</label>
         <Select
@@ -198,7 +175,7 @@ export default function CreateRantRave({ user }) {
         type='switch'
         id='isPersonal'
         label='Private'
-        value={data.isPersonal}
+        checked={data.isPersonal}
         onChange={(e) =>
           setData((prevState) => ({
             ...prevState,
@@ -261,7 +238,7 @@ export default function CreateRantRave({ user }) {
         type='switch'
         id='isResolved'
         label='Resolved?'
-        value={data.isPersonal}
+        checked={data.isResolved}
         onChange={(e) =>
           setData((prevState) => ({
             ...prevState,
