@@ -4,9 +4,14 @@ import { useRouter } from 'next/router';
 import Loader from '../components/Loader';
 import ModalComp from '../components/Modal';
 import CreateRantRave from '../components/CreateRantRave';
-import Journal from '../components/Journal';
+import JournalEntry from '../components/JournalEntry';
 import MainLayout from '../layouts/MainLayout';
 
+import styled from 'styled-components';
+
+const JournalStyles = styled.div`
+  background-color: #fefefe;
+  `;
 
 export default function RantRave() {
   const [data, setData] = useState([]);
@@ -67,12 +72,12 @@ export default function RantRave() {
       return <Loader />;
     } else {
       return (
-        <>
+        <JournalStyles>
           <ModalComp title='Add Entry'>
             <CreateRantRave user={user} />
           </ModalComp>
-            <Journal data={data}/>
-        </>
+            <JournalEntry data={data}/>
+        </JournalStyles>
       );
     }
   };
