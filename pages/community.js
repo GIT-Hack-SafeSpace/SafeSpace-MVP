@@ -51,7 +51,7 @@ export default function Community() {
       } = await supabase
         .from('rave_rant_post')
         .select('*')
-        .eq('isPersonal', false);
+        .eq('share', true);
 
       if (error && status !== 406) {
         throw error;
