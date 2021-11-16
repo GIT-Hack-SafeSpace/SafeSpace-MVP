@@ -3,15 +3,37 @@ import Link from 'next/link';
 import { useRouter } from "next/router";
 
 
-const community = 'footer/community.svg';
-const companies = 'footer/companies.svg';
-const addentry = 'footer/addentry.svg';
-const inspiration = 'footer/inspiration.svg';
-const resources = 'footer/resources.svg';
+const community = '/footer/community.svg';
+const companies = '/footer/companies.svg';
+const addentry = '/footer/addentry.svg';
+const inspiration = '/footer/inspiration.svg';
+const resources = '/footer/resources.svg';
 
 
 export default function GlobalFooter() {
   const router = useRouter();
+
+  const resourcePageConditions = () => {
+    switch (router.pathname) {
+      case "/resources":
+      return "activeFooter"
+        break;
+      case "/resources/help":
+        return "activeFooter"
+        break;
+      case "/resources/creative":
+        return "activeFooter"
+        break;
+      case "/resources/counseling":
+        return "activeFooter"
+      case "/resources/exercise":
+        return "activeFooter"
+        break;
+
+      default:
+      return ''
+    }
+  }
 
   return (
     <footer>
@@ -50,15 +72,15 @@ export default function GlobalFooter() {
             </div>
           </Link>
         </li>
-        <li className={router.pathname == "/resources" ? "activeFooter" : ""}>
-          <Link href='/resources'>
-            <div className='footerBarOption'>
-              <p className='footerIcon'><img className='footerSvg' src={resources} alt='resources link' /></p>
-              <p className='optionTitle'>Resources</p>
-            </div>
-          </Link>
-        </li>
-      </ul>
-    </footer>
+        <li className={resourcePageConditions()}>
+        <Link href='/resources'>
+          <div className='footerBarOption'>
+            <p className='footerIcon'><img className='footerSvg' src={resources} alt='resources link' /></p>
+            <p className='optionTitle'>Resources</p>
+          </div>
+        </Link>
+      </li>
+    </ul>
+    </footer >
   );
 }

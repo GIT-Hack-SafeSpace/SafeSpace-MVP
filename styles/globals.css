@@ -74,7 +74,7 @@ footer {
   bottom: 0;
   width: 100%;
   max-width: 450px;
-  background-color: #fbfbfb;
+  background-color: #ffffff;
   text-align: center;
   color: #808080
 }
@@ -85,6 +85,7 @@ footer {
   justify-content: space-between;
   padding-left: 0;
   margin-bottom: 0;
+  cursor: pointer;
 
 }
 
