@@ -114,7 +114,7 @@ export default function Quiz() {
     if (user.personality) {
       return (
         <div className='d-flex flex-column text-center'>
-          <h2>Conflict Quiz</h2>
+          <h2>Conflict Styles Quiz</h2>
           <h5>
             Your primary conflict style is <br />
             <b>{style.description.animal}</b>
@@ -155,7 +155,7 @@ export default function Quiz() {
     } else {
       return (
         <div className='d-flex flex-column justify-content-center text-center'>
-          <h2>Conflict Quiz</h2>
+          <h2>Conflict Styles Quiz</h2>
           {current < questions.length && (
             <>
               <h6>
