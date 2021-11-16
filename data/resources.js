@@ -187,54 +187,55 @@ export const gyms = [
   }
 ];
   
+// TODO: UPDATE THE TAGS FOR EACH ITEM
 export const creative = [
   { 
-    tags: ['#exercise', '#meditation', '#cooldown'],
+    tags: ['Exercise', 'Meditation'],
     content: 'Taking a walk in a nearby park',
     image: 'https://i.postimg.cc/hjDPVQPq/colorfulicon.png'
   },
   { 
-    tags: ['#exercise', '#meditation', '#cooldown'],
+    tags: ['Cooldown'],
     content: 'Try out a new food venue in neighborhood',
     image: 'https://i.postimg.cc/hjDPVQPq/colorfulicon.png'
   },
   { 
-    tags: ['#exercise', '#meditation', '#cooldown'],
+    tags: ['Exercise', 'Social'],
     content: 'A jam session to your favorite songs',
     image: 'https://i.postimg.cc/hjDPVQPq/colorfulicon.png'
   },
   { 
-    tags: ['#exercise', '#meditation', '#cooldown'],
+    tags: ['Social', 'Cooldown'],
     content: 'Try a pottery making class',
     image: 'https://i.postimg.cc/hjDPVQPq/colorfulicon.png'
   },
   { 
-    tags: ['#exercise', '#meditation', '#cooldown'],
+    tags: ['Social'],
     content: 'Join a meetup group that share a favorite interest',
     image: 'https://i.postimg.cc/hjDPVQPq/colorfulicon.png'
   },
   { 
-    tags: ['#exercise', '#meditation', '#cooldown'],
+    tags: ['Exercise', 'Cooldown'],
     content: 'Taking a walk in a nearby park',
     image: 'https://i.postimg.cc/hjDPVQPq/colorfulicon.png'
   },
   { 
-    tags: ['#exercise', '#meditation', '#cooldown'],
+    tags: ['Cooldown'],
     content: 'Try out a new food venue in neighborhood',
     image: 'https://i.postimg.cc/hjDPVQPq/colorfulicon.png'
   },
   { 
-    tags: ['#exercise', '#meditation', '#cooldown'],
+    tags: ['Exercise'],
     content: 'A jam session to your favorite songs',
     image: 'https://i.postimg.cc/hjDPVQPq/colorfulicon.png'
   },
   { 
-    tags: ['#exercise', '#meditation', '#cooldown'],
+    tags: ['Cooldown'],
     content: 'Try a pottery making class',
     image: 'https://i.postimg.cc/hjDPVQPq/colorfulicon.png'
   },
   { 
-    tags: ['#exercise', '#meditation', '#cooldown'],
+    tags: ['Exercise', 'Meditation', 'Cooldown'],
     content: 'Join a meetup group that share a favorite interest',
     image: 'https://i.postimg.cc/hjDPVQPq/colorfulicon.png'
   }
