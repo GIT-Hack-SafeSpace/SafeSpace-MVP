@@ -12,6 +12,18 @@ export const creativeIconPics = [
   { url: '/creativeicons/7.png'}
 ];
   
+export const exerciseIconPics = [
+  { url: '/exerciseicons/1.png'},
+  { url: '/exerciseicons/2.png'},
+  { url: '/exerciseicons/3.png'},
+  { url: '/exerciseicons/4.png'},
+  { url: '/exerciseicons/5.png'},
+  { url: '/exerciseicons/6.png'},
+  { url: '/exerciseicons/7.png'},
+  { url: '/exerciseicons/8.png'},
+  { url: '/exerciseicons/9.png'}
+];
+  
 export const help = [
   { 
     content: 'U.S. Equal Employment Opportunity Comm',
@@ -114,6 +126,64 @@ export const counselors = [
     address: '820 Ford Island Ave. N.W. Alexandria, DC 20036',
     phone: '800-873-0282',
     specialty: ['Womens Issues', 'Trauma', 'Stress']
+  }
+];
+  
+  
+export const gyms = [
+  { 
+    content: 'Name of Gym Here',
+    link: 'www.gymwebsite.com',
+    address: '1136 South Delano Ct Chicago, IL 60605',
+    phone: '312-300-2023'
+  },
+  { 
+    content: 'Name of Gym Here',
+    link: 'www.gymwebsite.com',
+    address: '1200 N Sparks Blvd Phoenix, AZ 85005',
+    phone: '800-796-9706'
+  },
+  { 
+    content: 'Name of Gym Here',
+    link: 'www.gymwebsite.com',
+    address: '820 Ford Island St Alexandria, DC 20036',
+    phone: '800-873-0282'
+  },
+  { 
+    content: 'Name of Gym Here',
+    link: 'www.gymwebsite.com',
+    address: '1490 Wirving Blvd Nashville, TN 37026',
+    phone: '800-739-7269'
+  },
+  { 
+    content: 'Name of Gym Here',
+    link: 'www.gymwebsite.com',
+    address: '190 Schelter Rd, Linconshire, IL 60069',
+    phone: '800-726-7395'
+  },
+  { 
+    content: 'Name of Gym Here',
+    link: 'www.gymwebsite.com',
+    address: '2835 N. Sheffield Ave. Hollywood, CA 90011',
+    phone: '920-623-2009'
+  },
+  { 
+    content: 'Name of Gym Here',
+    link: 'www.gymwebsite.com',
+    address: '1136 South Delano Ct Chicago, IL 60605',
+    phone: '312-300-2023'
+  },
+  { 
+    content: 'Name of Gym Here',
+    link: 'www.gymwebsite.com',
+    address: '1200 N Sparks Blvd Phoenix, AZ 85005',
+    phone: '800-796-9706'
+  },
+  { 
+    content: 'Name of Gym Here',
+    link: 'www.gymwebsite.com',
+    address: '820 Ford Island Alexandria, DC 20036',
+    phone: '800-873-0282'
   }
 ];
   

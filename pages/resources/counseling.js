@@ -3,15 +3,9 @@ import { supabase } from '../../utils/client';
 import { useRouter } from 'next/router';
 import Loader from '../../components/Loader';
 import MainLayout from '../../layouts/MainLayout';
-import { creative } from '../../data/resources';
 import { counselors } from '../../data/resources';
-import { creativeIconPics } from '../../data/resources';
 import Link from 'next/link'
-import { resourceTagData } from '../../data/tagData';
-import Tags from '../../components/Tags';
 
-
-const icons = creativeIconPics.map(icon => icon.url);
 
 export default function Couseling() {
     const [loading, setLoading] = useState(true);
