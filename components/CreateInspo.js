@@ -13,10 +13,7 @@ const SelectStyle = styled.div`
 
 export default function CreateInspo({ user }) {
   const [loading, setLoading] = useState(null);
-  const [data, setData] = useState({
-    isPersonal: false,
-    isResolved: false,
-  });
+  const [data, setData] = useState({});
 
   const postInspo = async (e) => {
     e.preventDefault();
