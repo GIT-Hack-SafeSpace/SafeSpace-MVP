@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { supabase } from '../utils/client';
 import Loader from './Loader';
 import { useRouter } from 'next/router';
-import { questions, options, styles } from '../data/quizData';
+import { questions, options, results } from '../data/quizData';
 import { ButtonStyle } from '../styles/ButtonStyle';
 import Button from 'react-bootstrap/Button';
 
@@ -15,7 +15,7 @@ export default function Quiz() {
   const router = useRouter();
   const [style, setStyle] = useState({
     name: '',
-    description: '',
+    description: {},
   });
 
   useEffect(() => {
@@ -43,7 +43,7 @@ export default function Quiz() {
           setUser({ ...data, id: user.id });
           setStyle({
             name: data.personality,
-            description: styles[data.personality],
+            description: results[data.personality],
           });
         } else {
           setUser({ id: user.id });
@@ -79,7 +79,7 @@ export default function Quiz() {
     updateProfile(getType()[0]).then(() => {
       setStyle({
         name: getType()[0],
-        description: styles[getType()[0]],
+        description: results[getType()[0]],
       });
 
       setShowStyle(true);
@@ -116,29 +116,46 @@ export default function Quiz() {
         <div className='d-flex flex-column text-center'>
           <h2>Conflict Quiz</h2>
           <h5>
-            <b>Your results detail:</b> {style.description}
+            Your primary conflict style is <br />
+            <b>{style.description.animal}</b>
           </h5>
-          <h5>{user.personality}</h5>
           <div>
             <img
-              src='https://via.placeholder.com/150'
-              style={{ width: '134px', borderRadius: '50%' }}
+              src={`/profileImages/${user.personality}.png`}
+              style={{ width: '134px' }}
             />
           </div>
-          <ButtonStyle className='d-flex justify-content-center'>
-            <Button
-              className='btn-update danger'
-              onClick={() => router.push('/')}
-            >
-              BACK TO APP
-            </Button>
-          </ButtonStyle>
+          <hr />
+          <span className='mb-3 line-break'>
+            <b>Your results detail:</b> <br />
+            {style.description.notes}
+          </span>
+          <span className='mb-3'>
+            <b>Advantage:</b> {style.description.advantage}
+          </span>
+          <span className='mb-3'>
+            <b>Disadvantage:</b> {style.description.disadvantage}
+          </span>
+          <span className='mb-3'>
+            <b>Appropriate times to use:</b> <br />
+            {style.description.appropriate}
+          </span>
+          <hr />
+          <button
+            className='btn btn-success mb-3 text-white'
+            onClick={() => router.push('/conflict-modes')}
+          >
+            SEE ALL STYLES
+          </button>
+          <button className='btn btn-danger' onClick={() => router.push('/')}>
+            BACK TO APP
+          </button>
         </div>
       );
     } else {
       return (
         <div className='d-flex flex-column justify-content-center text-center'>
-          <h2>Personality Quiz</h2>
+          <h2>Conflict Quiz</h2>
           {current < questions.length && (
             <>
               <h6>
@@ -147,7 +164,9 @@ export default function Quiz() {
                 Knowing your primary styles will help you learn about how you
                 deal with conflict.
               </h6>
-              <h4>Question {current + 1}/{questions.length}</h4>
+              <h4>
+                Question {current + 1}/{questions.length}
+              </h4>
             </>
           )}
           <h5>{questions[current]}</h5>
@@ -163,20 +182,39 @@ export default function Quiz() {
                     {a.toUpperCase()}
                   </button>
                 ))
-              : !showStyle && <button className='create' onClick={calculate}>Get Score</button>}
+              : !showStyle && (
+                  <button className='create' onClick={calculate}>
+                    Get Score
+                  </button>
+                )}
           </ButtonStyle>
           {showStyle && (
             <>
               <h5>
-                <b>Your results detail:</b> {style.description}
+                Your primary conflict style is <br />
+                <b>{style.name}</b>
               </h5>
-              <h5>{style.name}</h5>
               <div>
                 <img
-                  src='https://via.placeholder.com/150'
-                  style={{ width: '134px', borderRadius: '50%' }}
+                  src={`/profileImages/${style.name}.png`}
+                  style={{ width: '134px' }}
                 />
               </div>
+              <hr />
+              <span className='mb-3 line-break'>
+                <b>Your results detail:</b> <br />
+                {style.description.notes}
+              </span>
+              <span className='mb-3'>
+                <b>Advantage:</b> {style.description.advantage}
+              </span>
+              <span className='mb-3'>
+                <b>Disadvantage:</b> {style.description.disadvantage}
+              </span>
+              <span className='mb-3'>
+                <b>Appropriate times to use this style:</b> <br />
+                {style.description.appropriate}
+              </span>
               <ButtonStyle className='d-flex justify-content-center'>
                 <Button
                   className='btn-update danger'
@@ -199,7 +237,7 @@ export default function Quiz() {
       return quizView();
     }
   };
-  
+
   if (!user) return null;
   return <div>{view()}</div>;
 }
