@@ -94,7 +94,7 @@ export default function CommunityPost({ data }) {
               <div className="commBody">
                 <p className="content">{d.content}</p>
                 <div className="comment-tags">
-                  <Tags data={communityTagData} randomNumber={randomNumber}/>
+                  <Tags tags={[d.tag_1, d.tag_2, d.tag_3]} data={communityTagData}/>
                 </div>
                 <p>{randomNumber(1, 9)} Likes</p>
               </div>

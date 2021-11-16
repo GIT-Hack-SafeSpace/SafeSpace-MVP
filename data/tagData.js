@@ -9,6 +9,7 @@ export const communityTagData = [
   { id: '8', tagName: 'Promotion', tagColor: '#493843' },
   { id: '9', tagName: 'Microagression', tagColor: '#63988E' },
   { id: '10', tagName: 'Management', tagColor: '#000000' },
+  { id: '10', tagName: 'General', tagColor: '#123456' },
 ];
 
 export const communityTagOptions = [
