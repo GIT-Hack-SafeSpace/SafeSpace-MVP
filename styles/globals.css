@@ -81,7 +81,7 @@ footer {
   max-width: 450px;
   background-color: #ffffff;
   text-align: center;
-  color: #808080
+  color: #bbbbbb
 }
 
 .allFooterButtons{
@@ -99,16 +99,16 @@ p.footerIcon {
   justify-content: center;
   font-size: 29px;
   margin: 0;
-  padding-top: 5px;
-  /* filter: invert(29%) sepia(72%) saturate(3701%) hue-rotate(332deg) brightness(98%) contrast(89%); */
 }
 
 .activeFooter > .footerBarOption > .footerIcon > .footerSvg {
   filter: invert(30%) sepia(83%) saturate(4273%) hue-rotate(333deg) brightness(99%) contrast(87%);
+  font-weight: bold;
 }
 
 .activeFooter > .footerBarOption > .optionTitle {
-  color: #ED3457;
+  color: #ec5c44;
+  font-weight: bold;
 }
 
 .footerBarOption {
