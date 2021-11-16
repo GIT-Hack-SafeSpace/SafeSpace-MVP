@@ -81,7 +81,7 @@ export default function CommunityPost({ data }) {
         <CommunityPostStyles key={d.id}>
           <div className="main-card-body">
             <div className="commImgWrapper">
-              <img src={randomImage()} className="profileImage" alt="image" />
+              <img src={d.conflict_type ? `profileimages/${d.conflict_type}.png` : randomImage()} className="profileImage" alt="image" />
             </div>
             <div className="card-wrapper">
               <div className="commTitleWrapper">
