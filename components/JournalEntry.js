@@ -98,12 +98,11 @@ export default function JournalEntry({ data }) {
     isResolved: false,
   });
 
-  const [checked, setChecked] = useState(true);
+  const [checked, setChecked] = useState(false);
 
-  const handleChange = e => {
-    e.persist();
-    setChecked(prevState => !prevState);
- };
+  function toggle(value) {
+    return !value;
+  }
 
   return (
     <>
@@ -120,25 +119,18 @@ export default function JournalEntry({ data }) {
             <div className='card-wrapper'>
               <div className='commTitleWrapper'>
                 <span className='title'>{d.title}</span>
-                <span className='resolvedTag'>
-                  {d.isResolved ? (<Form.Check
-                    type='switch'
-                    id='isResolved'
-                    label='Resolved'
-                    checked={d.isResolved}
-                    onChange={handleChange}
-                  />) : (<Form.Check
-                    type='switch'
-                    id='isResolved'
-                    label='Resolved?'
-                    checked={d.isResolved}
-                    onChange={(e) =>
-                      setValue((prevState) => ({
-                        ...prevState,
-                        isResolved: e.target.checked,
-                      }))
-                    }
-                  />)}
+                <span className='resolvedTag'><Form.Check
+                  type='switch'
+                  id='isResolved'
+                  label='Resolved?'
+                  checked={d.isResolved}
+                  onChange={(e) =>
+                    setValue((prevState) => ({
+                      ...prevState,
+                      isResolved: e.target.checked,
+                    }))
+                  }
+                />
                 </span>
               </div>
               <p className='date'>
@@ -159,33 +151,18 @@ export default function JournalEntry({ data }) {
             </div>
           </div>
           <div className='comm-footer'>
-            {d.share ? (<Form.Check
+            <Form>
+            <Form.Check
               type='checkbox'
               id='share'
               className='share'
               label='Share?'
               checked={d.share}
-              onChange={(e) =>
-                setValue((prevState) => ({
-                  ...prevState,
-                  share: e.target.checked,
-                }))
-              }
-            />) : (<Form.Check
-              type='checkbox'
-              id='share'
-              className='share'
-              label='Share?'
-              checked={d.share}
-              onChange={(e) =>
-                setValue((prevState) => ({
-                  ...prevState,
-                  share: e.target.checked,
-                }))
-              }
-            />)}
-            <p className='footer-action edit'><img src={editIcon}/></p>
-            <p className='footer-action'><img src={trashIcon}/></p>
+              onChange={() => setChecked(toggle)}
+            />
+            </Form>
+            <p className='footer-action edit'><img src={editIcon} /></p>
+            <p className='footer-action'><img src={trashIcon} /></p>
           </div>
         </JournalStyles>
       ))}
