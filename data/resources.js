@@ -51,6 +51,72 @@ export const help = [
   }
 ];
   
+export const counselors = [
+  { 
+    content: 'Tasha Jackson, LPC',
+    link: 'www.cultivateyouressence.com',
+    address: '1136 South Delano Ct Chicago, IL 60605',
+    phone: '312-300-2023',
+    specialty: ['Womens Issues', 'Anxiety', 'Stress']
+  },
+  { 
+    content: 'Christine Webster, LMFT',
+    link: 'www.christinewebstermft.com',
+    address: '1200 N Sparks Blvd Phoenix, AZ 85005',
+    phone: '800-796-9706',
+    specialty: ['Womens Issues', 'Anxiety', 'Workplace Stress']
+  },
+  { 
+    content: 'James Westly, MC, LPC',
+    link: 'www.jameswestly.com',
+    address: '820 Ford Island Ave. N.W. Alexandria, DC 20036',
+    phone: '800-873-0282',
+    specialty: ['Womens Issues', 'Trauma', 'Stress']
+  },
+  { 
+    content: 'Jordyn Markie Toiane, MA, LPC, NCC',
+    link: 'www.artofbalance.com',
+    address: '1490 Wirving Blvd Nashville, TN 37026',
+    phone: '800-739-7269',
+    specialty: ['Womens Issues', 'Anxiety', 'Stress']
+  },
+  { 
+    content: 'Aaron Battle, MA, LPC',
+    link: 'www.themiccenter.com',
+    address: '190 Schelter Rd, Linconshire, IL 60069',
+    phone: '800-726-7395',
+    specialty: ['Womens Issues', 'Anxiety', 'Workplace Stress', 'Trauma']
+  },
+  { 
+    content: 'Michal Rosenberg, PsyD',
+    link: 'www.licolnparkpsych.com',
+    address: '2835 N. Sheffield Ave. Hollywood, CA 90011',
+    phone: '920-623-2009',
+    specialty: ['Womens Issues', 'Trauma', 'Stress']
+  },
+  { 
+    content: 'Truine E. Ipinly, LPC',
+    link: 'www.truinipinly.com',
+    address: '1136 South Delano Ct Chicago, IL 60605',
+    phone: '312-300-2023',
+    specialty: ['Womens Issues', 'Anxiety', 'Stress']
+  },
+  { 
+    content: 'Chase Washington, LMFT',
+    link: 'www.washingtonlmft.com',
+    address: '1200 N Sparks Blvd Phoenix, AZ 85005',
+    phone: '800-796-9706',
+    specialty: ['Womens Issues', 'Anxiety', 'Workplace Stress', 'Trauma']
+  },
+  { 
+    content: 'Jonathon Crumble, MC, LPC',
+    link: 'www.johnathoncrumble.com',
+    address: '820 Ford Island Ave. N.W. Alexandria, DC 20036',
+    phone: '800-873-0282',
+    specialty: ['Womens Issues', 'Trauma', 'Stress']
+  }
+];
+  
 export const creative = [
   { 
     tags: ['#exercise', '#meditation', '#cooldown'],

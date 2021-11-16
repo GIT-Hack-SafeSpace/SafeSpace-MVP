@@ -9,11 +9,16 @@ html {
   font-family: 'Playfair Display', serif;
   font-size: 40px;
   text-align: center;
-  /* color: $pink; */
 }
 
 .appContainer {
   margin-top: 100px;
+  margin-bottom: 100px;
+  padding: 20px;
+}
+
+.nnAppContainer {
+  margin-top: 50px;
   margin-bottom: 100px;
   padding: 20px;
 }
@@ -132,4 +137,8 @@ p.footerIcon {
   margin: 0 auto;
   width: 100%;
   max-width: 450px;
+}
+
+.line-break {
+  white-space: pre-line;
 }
