@@ -1,6 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 import styled from 'styled-components';
+import Link from 'next/link';
 import { reactions } from '../data/reactions';
 import { communityTagData } from '../data/tagData';
 import Tags from './Tags';
@@ -75,11 +76,13 @@ export default function CommunityPost({ data }) {
         <CommunityPostStyles key={d.id}>
           <div className='main-card-body'>
             <div className='commImgWrapper'>
+              <Link href='/conflict-styles'>
               <img
                 src={`profileimages/${d.conflict_type || 'user'}.png`}
                 className='profileImage'
                 alt='image'
               />
+              </Link>
             </div>
             <div className='card-wrapper'>
               <div className='commTitleWrapper'>
