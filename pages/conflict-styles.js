@@ -38,14 +38,12 @@ export default function ConflictStyles() {
           </div>
         );
       })}
-      <ButtonStyle className='d-flex flex-column m-auto'>
         <button
-          className='orange'
+          className='btn-warning btn'
           onClick={() => router.push('/conflict-quiz')}
         >
           Get Your Default Style
         </button>
-      </ButtonStyle>
     </NoNavigation>
   );
 }

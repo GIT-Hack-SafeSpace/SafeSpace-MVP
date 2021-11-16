@@ -12,7 +12,7 @@ export default function ConflictModes() {
       <h1 className="splash-title text-center">Conflict Modes</h1>
       <hr />
       <div className="d-flex justify-content-between mb-3">
-        {profilePictures.map((pic) => <img style={{width: '60px'}} src={pic.url} />)}
+        {profilePictures.map((pic, i) => <img key={i} style={{width: '60px'}} src={pic.url} />)}
       </div>
       <hr />
       <p>
@@ -31,20 +31,16 @@ export default function ConflictModes() {
         style when needed.
       </p>
 
-      <ButtonStyle className='d-flex flex-column m-auto'>
         <button
-          className='orange'
+          className='btn-warning btn'
           onClick={() => router.push('/conflict-quiz')}
         >
           Get Your Default Style
         </button>
-      </ButtonStyle>
-      <ButtonStyle className='d-flex flex-column m-auto'>
         <button
-          className='orange'
+          className='btn-success mx-3 btn'
           onClick={() => router.push('/conflict-styles')}>See All Styles
         </button>
-      </ButtonStyle>
     </NoNavigation>
   );
 }

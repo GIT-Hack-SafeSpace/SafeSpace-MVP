@@ -140,7 +140,7 @@ export default function Quiz() {
             <b>Appropriate times to use:</b> <br />
             {style.description.appropriate}
           </span>
-        <hr />
+          <hr />
           <button
             className='btn btn-success mb-3 text-white'
             onClick={() => router.push('/conflict-modes')}
