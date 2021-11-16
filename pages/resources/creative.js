@@ -10,6 +10,7 @@ import Tags from '../../components/Tags';
 
 
 const icons = creativeIconPics.map(icon => icon.url);
+console.log(resourceTagData[0])
 
 export default function Creative() {
   const [loading, setLoading] = useState(true);
@@ -48,7 +49,7 @@ export default function Creative() {
                 <div style={{ marginBottom: '-15px' }}>
                   <h1 style={{ fontSize: '20px' }}>{d.content}</h1>
                   <div className="d-flex" >
-                    <Tags data={resourceTagData} />
+                    <Tags data={resourceTagData} tags={resourceTagData}/>
                   </div>
                 </div>
               </div>
