@@ -29,4 +29,5 @@ export const resourceTagData = [
   { id: '1', tagName: 'Exercise', tagColor: '#ED3457' },
   { id: '2', tagName: 'Meditation', tagColor: '#EEA127' },
   { id: '3', tagName: 'Cooldown', tagColor: '#493843' },
+  { id: '3', tagName: 'Social', tagColor: '#000444' },
 ];
