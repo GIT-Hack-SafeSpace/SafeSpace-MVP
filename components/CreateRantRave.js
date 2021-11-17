@@ -14,7 +14,7 @@ const SelectStyle = styled.div`
   }
 `;
 
-export default function CreateRantRave({ user }) {
+export default function CreateRantRave({ user, handleClose }) {
   const [loading, setLoading] = useState(null);
   const [conflict_type, setConflictType] = useState('');
   const [data, setData] = useState({
@@ -92,6 +92,7 @@ export default function CreateRantRave({ user }) {
     } finally {
       setLoading(false);
       setData({});
+      handleClose();
     }
   };
 

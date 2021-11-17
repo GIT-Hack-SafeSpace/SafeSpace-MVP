@@ -5,6 +5,7 @@ Built in conjunction with the **Girls in Tech Mental Health for All Hackathon**:
 Building an inclusive future requires mental health and wellbeing technologies that cater to all
 
 [Deployed App](https://safespacemvp.netlify.app/)
+[Project Board](https://github.com/GIT-Hack-SafeSpace/SafeSpace-MVP/projects/1)
 
 ---
 ## Getting Started
