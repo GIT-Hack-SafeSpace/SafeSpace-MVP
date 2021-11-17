@@ -10,7 +10,6 @@ import Tags from '../../components/Tags';
 
 
 const icons = creativeIconPics.map(icon => icon.url);
-console.log(resourceTagData[0])
 
 export default function Creative() {
   const [loading, setLoading] = useState(true);
