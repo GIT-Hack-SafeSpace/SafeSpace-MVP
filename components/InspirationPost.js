@@ -16,7 +16,7 @@ export default function InspirationPost({data, user}) {
                 <div key={d.id} className='text-white'>
                     <ImageCardStyle>
                         <Card className="imageCard">
-                            <Card.Img class="cardImage" src={d.image} alt="_1" height="100%" width="100%"/>
+                            <Card.Img className="cardImage" src={d.image} alt="_1" height="100%" width="100%"/>
                             <Card.ImgOverlay>
                                 <Card.Text className="inspoCardText">{d.content}</Card.Text>
                             </Card.ImgOverlay>
@@ -30,6 +30,8 @@ export default function InspirationPost({data, user}) {
 }
 
 const ImageCardStyle = styled.div`
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&family=Poppins:wght@200&display=swap');
+
 .inspoCardText {
     text-align: center;
     margin-top: 5rem;

@@ -22,8 +22,6 @@ export default function CompanyReview({data, user}) {
                         <Card.Subtitle className="mb-2 text-muted industry-title">{d.industry}</Card.Subtitle>
                         <p className="date">{moment(d.created_at).format("MMM DD, YYYY")}</p>
                         <Card.Text>{d.content}</Card.Text>
-                        {/* <Card.Link href="#">See More</Card.Link> */}
-                        {/* <Card.Link href="#">Another Link</Card.Link> */}
                         </Card.Body>
                     </Card>
                     </CardStyle>
