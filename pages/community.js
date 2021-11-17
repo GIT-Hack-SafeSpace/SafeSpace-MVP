@@ -73,7 +73,11 @@ export default function Community() {
       return (
         <CommunityView>
           <h1>Community</h1>
-          <CommunityPost data={data}/>
+          {
+            data.map((item) => (
+              <CommunityPost data={item}/>
+            ))
+          }
         </CommunityView>
       );
     }
