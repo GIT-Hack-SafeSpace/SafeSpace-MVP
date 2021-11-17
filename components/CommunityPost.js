@@ -185,8 +185,8 @@ function ModalMock({ handleClose, showModal, addComment, comments }) {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          {comments.map((com) => (
-            <p>{com}</p>
+          {comments.map((com, i) => (
+            <p key={i}>{com}</p>
           ))}
 
           <Form onSubmit={pushComment}>
