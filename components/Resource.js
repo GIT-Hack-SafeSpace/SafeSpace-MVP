@@ -6,7 +6,8 @@ const ResourceLayout = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 644px;
+  //   height: 644px;
+  height: 570px;  
   overflow: hidden;
   margin: -34px -20px;
 
@@ -18,7 +19,8 @@ const ResourceLayout = styled.div`
 
   .resourceRectangle {
       width: 100%;
-      height: 158px;
+      //   height: 158px;
+      height: 141px;      
       position: relative;
       text-align: center;
       border-top: 2px solid white;
