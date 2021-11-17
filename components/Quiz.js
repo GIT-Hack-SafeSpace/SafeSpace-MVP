@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
-import { supabase } from "../utils/client";
-import Loader from "./Loader";
-import { useRouter } from "next/router";
-import { questions, options, results } from "../data/quizData";
-import { ButtonStyle } from "../styles/ButtonStyle";
-import Button from "react-bootstrap/Button";
-import Results from "./Results";
+import React, { useState, useEffect } from 'react';
+import { supabase } from '../utils/client';
+import Loader from './Loader';
+import { useRouter } from 'next/router';
+import { questions, options, results } from '../data/quizData';
+import { ButtonStyle } from '../styles/ButtonStyle';
+import Button from 'react-bootstrap/Button';
+import Results from './Results';
 
 export default function Quiz() {
   const [user, setUser] = useState(null);
@@ -15,7 +15,7 @@ export default function Quiz() {
   const [showStyle, setShowStyle] = useState(false);
   const router = useRouter();
   const [style, setStyle] = useState({
-    name: "",
+    name: '',
     description: {},
   });
 
@@ -29,12 +29,12 @@ export default function Quiz() {
       const user = supabase.auth.user();
 
       if (!user) {
-        router.push("/login");
+        router.push('/login');
       } else {
         let { data, error, status } = await supabase
-          .from("profiles")
+          .from('profiles')
           .select(`personality`)
-          .eq("id", user.id)
+          .eq('id', user.id)
           .single();
 
         if (error && status !== 406) {
@@ -97,8 +97,8 @@ export default function Quiz() {
         updated_at: new Date(),
       };
 
-      let { error } = await supabase.from("profiles").upsert(updates, {
-        returning: "minimal",
+      let { error } = await supabase.from('profiles').upsert(updates, {
+        returning: 'minimal',
       });
 
       if (error) {
@@ -114,7 +114,7 @@ export default function Quiz() {
   const quizView = () => {
     if (user.personality) {
       return (
-        <div className="d-flex flex-column text-center">
+        <div className='d-flex flex-column text-center'>
           <h2>Conflict Styles Quiz</h2>
           <Results
             style={style.description.animal}
@@ -126,19 +126,19 @@ export default function Quiz() {
           />
           <hr />
           <button
-            className="btn btn-success mb-3 text-white"
-            onClick={() => router.push("/conflict-modes")}
+            className='btn btn-success mb-3 text-white'
+            onClick={() => router.push('/conflict-modes')}
           >
             SEE ALL STYLES
           </button>
-          <button className="btn btn-danger" onClick={() => router.push("/")}>
+          <button className='btn btn-danger' onClick={() => router.push('/')}>
             BACK TO APP
           </button>
         </div>
       );
     } else {
       return (
-        <div className="d-flex flex-column justify-content-center text-center">
+        <div className='d-flex flex-column justify-content-center text-center'>
           <h2>Conflict Styles Quiz</h2>
           {current < questions.length && (
             <>
@@ -154,11 +154,11 @@ export default function Quiz() {
             </>
           )}
           <h5>{questions[current]}</h5>
-          <ButtonStyle className="d-flex flex-column m-auto">
+          <ButtonStyle className='d-flex flex-column m-auto'>
             {current < questions.length
               ? options.map((a, i) => (
                   <button
-                    className="btn-quiz"
+                    className='btn-quiz'
                     key={i}
                     value={i + 1}
                     onClick={handleClick}
@@ -167,7 +167,7 @@ export default function Quiz() {
                   </button>
                 ))
               : !showStyle && (
-                  <button className="create" onClick={calculate}>
+                  <button className='create' onClick={calculate}>
                     Get Score
                   </button>
                 )}
@@ -182,10 +182,10 @@ export default function Quiz() {
                 dis={style.description.disadvantage}
                 appro={style.description.appropriate}
               />
-              <ButtonStyle className="d-flex justify-content-center">
+              <ButtonStyle className='d-flex justify-content-center'>
                 <Button
-                  className="btn-update danger"
-                  onClick={() => router.push("/")}
+                  className='btn-update danger'
+                  onClick={() => router.push('/')}
                 >
                   BACK TO APP
                 </Button>

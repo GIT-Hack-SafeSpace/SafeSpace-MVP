@@ -1,8 +1,7 @@
 export const reactions = [
-  { url: 'reactions/heart.png' },
-  { url: 'reactions/laughing.png'},
-  { url: 'reactions/angry.png'},
-  { url: 'reactions/comment.png'},
-]
+  { url: 'reactions/heart.svg' },
+  { url: 'reactions/laughing.svg' },
+  { url: 'reactions/angry.svg' },
+];
 
-
+// { url: 'reactions/comment.svg'},

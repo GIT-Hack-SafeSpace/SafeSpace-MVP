@@ -123,8 +123,8 @@ export const MainButton = styled.button`
   -moz-box-shadow: 0px 2px 4px 0px rgba(31, 37, 50, 0.2);
 
   &:hover {
-    background-color: #FFF0E8 !important;
-    border-color: #FFF0E8 !important;
+    background-color: #fff0e8 !important;
+    border-color: #fff0e8 !important;
     color: black;
   }
 `;
