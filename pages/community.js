@@ -51,7 +51,8 @@ export default function Community() {
       } = await supabase
         .from('rave_rant_post')
         .select('*')
-        .eq('share', true);
+        .eq('share', true)
+        .order('created_at', { ascending: false });
 
       if (error && status !== 406) {
         throw error;
