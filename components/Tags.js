@@ -1,5 +1,4 @@
 import React from 'react';
-
 import styled from 'styled-components';
 
 const TagStyles = styled.div`
@@ -32,7 +31,7 @@ export default function Tags({ tags, data }) {
       {[...new Set(tagArray)].map((tag, i) => (
         <div
           className='tag'
-          key={tag?.id || i + randomNumber}
+          key={i + randomNumber(1, 99)}
           style={{ backgroundColor: `${tag?.tagColor}` }}
         >
           {tag?.tagName}

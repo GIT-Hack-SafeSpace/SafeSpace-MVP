@@ -11,7 +11,11 @@ export default function Inspiration() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState({});
+  const [showModal, setShow] = useState(false);
   const router = useRouter();
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   useEffect(() => {
     // checking if a user is logged in. If not, redirect to login screen
@@ -66,8 +70,11 @@ export default function Inspiration() {
     } else {
       return (
         <>
-          <ModalComp title='Create Inspiration'>
-            <CreateInspo user={user} />
+          <ModalComp showModal={showModal}
+            handleClose={handleClose}
+            handleShow={handleShow}
+            title='Create Inspiration'>
+            <CreateInspo handleClose={handleClose} user={user} />
           </ModalComp>
           {data.map((d) => (
             <div key={d.id}>
