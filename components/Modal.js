@@ -1,9 +1,14 @@
-import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import { ButtonStyle } from '../styles/ButtonStyle';
 import Modal from 'react-bootstrap/Modal';
 
-export default function ModalComp({ title, children, handleShow, handleClose, showModal }) {
+export default function ModalComp({
+  title,
+  children,
+  handleShow,
+  handleClose,
+  showModal,
+}) {
   return (
     <>
       <ButtonStyle className='d-flex justify-content-center'>

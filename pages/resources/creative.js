@@ -8,8 +8,7 @@ import { creativeIconPics } from '../../data/resources';
 import { resourceTagData } from '../../data/tagData';
 import Tags from '../../components/Tags';
 
-
-const icons = creativeIconPics.map(icon => icon.url);
+const icons = creativeIconPics.map((icon) => icon.url);
 
 export default function Creative() {
   const [loading, setLoading] = useState(true);
@@ -25,7 +24,7 @@ export default function Creative() {
       router.push('/login');
     } else {
       setUser(user);
-      setLoading(false)
+      setLoading(false);
     }
   }, []);
 
@@ -35,19 +34,30 @@ export default function Creative() {
     } else {
       return (
         <>
-          <div className="titleWrap" style={{ display: 'flex', justifyContent: 'space-between' }}>
-            <h2><b>Creative Solutions</b></h2>
+          <div
+            className='titleWrap'
+            style={{ display: 'flex', justifyContent: 'space-between' }}
+          >
+            <h2>
+              <b>Creative Solutions</b>
+            </h2>
           </div>
 
           {creative.map((d, i) => (
             <div key={i}>
               <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
-                <div style={{ height: '50px', width: '50px', marginRight: '20px' }}>
-                  <img style={{filter: 'drop-shadow(1px 1px 1px gray)'}} src={randomImage()} alt="colorful icon" />
+                <div
+                  style={{ height: '50px', width: '50px', marginRight: '20px' }}
+                >
+                  <img
+                    style={{ filter: 'drop-shadow(1px 1px 1px gray)' }}
+                    src={randomImage()}
+                    alt='colorful icon'
+                  />
                 </div>
                 <div>
                   <h1 style={{ fontSize: '20px' }}>{d.content}</h1>
-                  <div className="d-flex" >
+                  <div className='d-flex'>
                     <Tags tags={d.tags} data={resourceTagData} />
                   </div>
                 </div>
