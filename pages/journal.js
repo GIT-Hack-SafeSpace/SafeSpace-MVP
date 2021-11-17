@@ -72,12 +72,6 @@ export default function RantRave() {
     }
   };
 
-  const sortedPostArray = () => {
-    return data.sort((a, b) => b.created_at.localeCompare(a.created_at));
-  }
-
-    console.log(sortedPostArray());
-
   const view = () => {
     if (loading) {
       return <Loader />;
