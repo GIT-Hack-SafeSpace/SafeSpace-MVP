@@ -26,7 +26,7 @@ export const exerciseIconPics = [
   
 export const help = [
   { 
-    content: 'U.S. Equal Employment Opportunity Comm',
+    content: 'U.S. Equal Employment Opportunity Commission',
     link: 'https://www.eeoc.gov/',
     address: '131 M Street, NE Washington, DC 20507',
     phone: '202-921-3191'
@@ -40,7 +40,7 @@ export const help = [
   { 
     content: 'Human Rights Campaign',
     link: 'https://www.hrc.org/',
-    address: '1640 Rhode Island Ave. N.W. Washinton, DC 20036',
+    address: '1640 Rhode Island Ave Washinton, DC 20036',
     phone: '800-777-4723'
   },
   { 
@@ -97,7 +97,7 @@ export const counselors = [
     link: 'www.themiccenter.com',
     address: '190 Schelter Rd, Linconshire, IL 60069',
     phone: '800-726-7395',
-    specialty: ['Womens Issues', 'Anxiety', 'Workplace Stress', 'Trauma']
+    specialty: ['Womens Issues', 'Anxiety', 'Workplace Stress']
   },
   { 
     content: 'Michal Rosenberg, PsyD',
@@ -118,12 +118,12 @@ export const counselors = [
     link: 'www.washingtonlmft.com',
     address: '1200 N Sparks Blvd Phoenix, AZ 85005',
     phone: '800-796-9706',
-    specialty: ['Womens Issues', 'Anxiety', 'Workplace Stress', 'Trauma']
+    specialty: ['Womens Issues', 'Anxiety', 'Workplace Stress']
   },
   { 
-    content: 'Jonathon Crumble, MC, LPC',
-    link: 'www.johnathoncrumble.com',
-    address: '820 Ford Island Ave. N.W. Alexandria, DC 20036',
+    content: 'Jonathon Crumbly, MC, LPC',
+    link: 'www.johnathoncrumblylpc.com',
+    address: '820 Ford Island Ave. Alexandria, DC 20036',
     phone: '800-873-0282',
     specialty: ['Womens Issues', 'Trauma', 'Stress']
   }
@@ -134,55 +134,55 @@ export const gyms = [
   { 
     content: 'Name of Gym Here',
     link: 'www.gymwebsite.com',
-    address: '1136 South Delano Ct Chicago, IL 60605',
+    address: '1136 South Delano Ct Chicago, IL',
     phone: '312-300-2023'
   },
   { 
     content: 'Name of Gym Here',
     link: 'www.gymwebsite.com',
-    address: '1200 N Sparks Blvd Phoenix, AZ 85005',
+    address: '1200 N Sparks Blvd Phoenix, AZ ',
     phone: '800-796-9706'
   },
   { 
     content: 'Name of Gym Here',
     link: 'www.gymwebsite.com',
-    address: '820 Ford Island St Alexandria, DC 20036',
+    address: '820 Ford Island St Alexandria, DC ',
     phone: '800-873-0282'
   },
   { 
     content: 'Name of Gym Here',
     link: 'www.gymwebsite.com',
-    address: '1490 Wirving Blvd Nashville, TN 37026',
+    address: '1490 Wirving Blvd Nashville, TN ',
     phone: '800-739-7269'
   },
   { 
     content: 'Name of Gym Here',
     link: 'www.gymwebsite.com',
-    address: '190 Schelter Rd, Linconshire, IL 60069',
+    address: '190 Schelter Rd, Linconshire, IL ',
     phone: '800-726-7395'
   },
   { 
     content: 'Name of Gym Here',
     link: 'www.gymwebsite.com',
-    address: '2835 N. Sheffield Ave. Hollywood, CA 90011',
+    address: '2835 N. Sheffield Ave. Hollywood, CA ',
     phone: '920-623-2009'
   },
   { 
     content: 'Name of Gym Here',
     link: 'www.gymwebsite.com',
-    address: '1136 South Delano Ct Chicago, IL 60605',
+    address: '1136 South Delano Ct Chicago, IL ',
     phone: '312-300-2023'
   },
   { 
     content: 'Name of Gym Here',
     link: 'www.gymwebsite.com',
-    address: '1200 N Sparks Blvd Phoenix, AZ 85005',
+    address: '1200 N Sparks Blvd Phoenix, AZ ',
     phone: '800-796-9706'
   },
   { 
     content: 'Name of Gym Here',
     link: 'www.gymwebsite.com',
-    address: '820 Ford Island Alexandria, DC 20036',
+    address: '820 Ford Island Alexandria, DC ',
     phone: '800-873-0282'
   }
 ];
