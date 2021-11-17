@@ -71,23 +71,34 @@ export default function RantRave() {
       setLoading(false);
     }
   };
+
+  const sortedPostArray = () => {
+    return data.sort((a, b) => b.created_at.localeCompare(a.created_at));
+  }
+
+    console.log(sortedPostArray());
+
   const view = () => {
     if (loading) {
       return <Loader />;
     } else {
       return (
-        <>
+        <JournalStyles>
           <ModalComp showModal={showModal}
             handleClose={handleClose}
             handleShow={handleShow}
             title='Add Entry'>
             <CreateRantRave handleClose={handleClose} user={user} />
           </ModalComp>
-            <JournalEntry data={data}/>
+          {
+            data.map((item, i) => (
+              <JournalEntry key={i} data={item}/>
+            ))
+          }
         </JournalStyles>
       );
-    }
+}
   };
 
-  return <MainLayout>{view()}</MainLayout>;
+return <MainLayout>{view()}</MainLayout>;
 }

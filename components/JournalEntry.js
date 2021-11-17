@@ -108,40 +108,38 @@ export default function JournalEntry({ data }) {
     ))}
 
   return (
-    <>
-      {data?.map((d) => (
-        <JournalStyles key={d.id}>
+        <JournalStyles key={data.id}>
           <div className='main-card-body'>
             <div className='commImgWrapper'>
               <img
-                src={`profileimages/${d.conflict_type || 'user'}.png`}
+                src={`profileimages/${data.conflict_type || 'user'}.png`}
                 className='profileImage'
                 alt='image'
               />
             </div>
             <div className='card-wrapper'>
               <div className='commTitleWrapper'>
-                <span className='title'>{d.title}</span>
+                <span className='title'>{data.title}</span>
                 <span className='resolvedTag'><Form.Check
                   type='switch'
                   id='isResolved'
                   label='Resolved?'
-                  checked={d.isResolved}
+                  checked={data.isResolved}
                   onChange={handleClick}
                 />
                 </span>
               </div>
               <p className='date'>
-                {moment(d.created_at).format('MMM DD, YYYY')}
+                {moment(data.created_at).format('MMM DD, YYYY')}
               </p>
               <div className='commBody'>
-                <p className="type">{d.type}</p>
-                <p className="card-bold"><strong>Who:</strong><span> {d.who}</span></p>
-                <p className="card-bold"><strong>Where:</strong><span> {d.where}</span></p>
-                <p className='content'>{d.content}</p>
+                <p className="type">{data.type}</p>
+                <p className="card-bold"><strong>Who:</strong><span> {data.who}</span></p>
+                <p className="card-bold"><strong>Where:</strong><span> {data.where}</span></p>
+                <p className='content'>{data.content}</p>
                 <div className='comment-tags'>
                   <Tags
-                    tags={[d.tag_1, d.tag_2, d.tag_3]}
+                    tags={[data.tag_1, data.tag_2, data.tag_3]}
                     data={communityTagData}
                   />
                 </div>
@@ -155,7 +153,7 @@ export default function JournalEntry({ data }) {
               id='share'
               className='share'
               label='Share?'
-              checked={d.share}
+              checked={data.share}
               onChange={() => setChecked(toggle)}
             />
             </Form>
@@ -163,7 +161,5 @@ export default function JournalEntry({ data }) {
             <p className='footer-action'><img src={trashIcon} /></p>
           </div>
         </JournalStyles>
-      ))}
-    </>
   );
 }
