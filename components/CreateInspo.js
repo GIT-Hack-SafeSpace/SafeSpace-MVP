@@ -19,11 +19,14 @@ export default function CreateInspo({ user }) {
     e.preventDefault();
     const { id } = user;
     const { content } = data;
+    const { image } = data;
+
     try {
       setLoading(true);
       const updates = {
         profile_id: id,
         content,
+        image,
         created_at: new Date(),
       };
 
@@ -47,9 +50,26 @@ export default function CreateInspo({ user }) {
   return (
     <Form onSubmit={postInspo}>
       <Form.Group className='mb-3'>
-        <Form.Label>Message</Form.Label>
+        <Form.Label htmlFor="url">Image</Form.Label>
         <Form.Control
           required
+          as='input'
+          id='image'
+          name='image'
+          type='url'
+          placeholder="https://example.com"
+          autoFocus
+          pattern="https://.*" 
+          value={data.image || ''}
+          onChange={(e) =>
+            setData((prevState) => ({
+              ...prevState,
+              image: e.target.value,
+            }))
+          }
+        />
+        <Form.Label>Message</Form.Label>
+        <Form.Control
           as='textarea'
           rows={3}
           id='content'
