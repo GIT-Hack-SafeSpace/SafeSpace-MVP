@@ -41,7 +41,7 @@ export default function Help() {
                         <h1 style={{fontSize: '20px', color: 'darkblue'}}>{d.content}</h1>
                        { d.address ? <p style={{color: 'gray'}}>📍 {d.address}</p> : <p></p>}
                         <div style={{marginTop: '-10px', color: 'gray'}} className="d-flex">
-                            <p><a style={{textDecoration:'none', color: 'blue'}} href={`tel:+${d.phone}`}>📞 {d.phone}</a></p>
+                            <p><a style={{textDecoration:'none', color: 'blue'}} href={`tel:+${d.phone}`}>📞 </a></p>
                             <p style={{margin: '0 10px'}}>|</p>
                             <Link  href={`${d.link}`}>
                                 <a style={{color: 'blue', fontSize: '15px', textDecoration: 'None'}}>{d.link}</a>
