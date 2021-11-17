@@ -93,16 +93,19 @@ const JournalStyles = styled.div`
 `;
 
 export default function JournalEntry({ data }) {
-  const [value, setValue] = useState({
-    share: false,
-    isResolved: false,
-  });
-
-  const [checked, setChecked] = useState(false);
+  const [isResolved, setIsResolved] = useState(false);
+  const [share, setShare] = useState(false);
 
   function toggle(value) {
     return !value;
   }
+
+  const handleClick = () => {
+    setIsResolved((prevState) => ({
+      ...prevState,
+      isResolved: !prevState,
+    }
+    ))}
 
   return (
     <>
@@ -124,12 +127,7 @@ export default function JournalEntry({ data }) {
                   id='isResolved'
                   label='Resolved?'
                   checked={d.isResolved}
-                  onChange={(e) =>
-                    setValue((prevState) => ({
-                      ...prevState,
-                      isResolved: e.target.checked,
-                    }))
-                  }
+                  onChange={handleClick}
                 />
                 </span>
               </div>
