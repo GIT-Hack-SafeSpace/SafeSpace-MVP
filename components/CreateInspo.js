@@ -11,7 +11,7 @@ const SelectStyle = styled.div`
   }
 `;
 
-export default function CreateInspo({ user }) {
+export default function CreateInspo({ user, handleClose }) {
   const [loading, setLoading] = useState(null);
   const [data, setData] = useState({});
 
@@ -41,6 +41,7 @@ export default function CreateInspo({ user }) {
     } finally {
       setLoading(false);
       setData({});
+      handleClose();
     }
   };
 
