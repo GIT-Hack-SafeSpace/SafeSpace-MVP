@@ -13,7 +13,7 @@ const SelectStyle = styled.div`
   }
 `;
 
-export default function CreateCompany({ user }) {
+export default function CreateCompany({ user, handleClose }) {
   const [loading, setLoading] = useState(null);
   const [company, setCompany] = useState({});
 
@@ -45,6 +45,7 @@ export default function CreateCompany({ user }) {
     } finally {
       setLoading(false);
       setCompany({});
+      handleClose();
     }
   };
 
