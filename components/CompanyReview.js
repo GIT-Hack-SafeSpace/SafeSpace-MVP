@@ -34,9 +34,12 @@ export default function CompanyReview({data, user}) {
 }
 
 const CardStyle = styled.div`
+border-bottom: 1px solid #e8e8e8;
+
 .companyCard {
     color: black;
     margin: 2px;
+    border: none;
 }
 
 .industry-title {

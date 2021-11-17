@@ -30,7 +30,8 @@ export default function InspirationPost({data, user}) {
 }
 
 const ImageCardStyle = styled.div`
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&family=Poppins:wght@200&display=swap');
+border-bottom: 1px solid #e8e8e8;
+
 
 .inspoCardText {
     text-align: center;
@@ -39,11 +40,14 @@ const ImageCardStyle = styled.div`
 }
 
 .imageCard {
-    margin: 2px;
+    margin: 1px;
+    border: none;
 }
 
 .cardImage {
     max-width: 100%;
+    border-radius: 0px;
+
 }
 
 `;
