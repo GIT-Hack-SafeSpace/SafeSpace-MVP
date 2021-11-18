@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { supabase } from '../utils/client';
 import { useRouter } from 'next/router';
+import ReactPlayer from 'react-player/lazy'
 import Loader from '../components/Loader';
 import MainLayout from '../layouts/MainLayout';
 import InspirationImage from '../components/InspirationImage';
@@ -85,11 +86,7 @@ export default function Inspiration() {
             return media.type === 'image' ? (
               <InspirationImage image={media} />
             ) : (
-              <>
-                <video width='320' height='240' controls>
-                  <source src={media.media_url} type='video/mp4' />
-                </video>
-              </>
+              <ReactPlayer url={media.media_url} controls={true} pip={true} width='100%'/>
             );
           })}
         </>
