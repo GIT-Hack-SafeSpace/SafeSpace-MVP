@@ -11,6 +11,8 @@ import styled from 'styled-components';
 const CommunityView = styled.div`
 h1{
   font-size:28px;
+  border-bottom: 1px solid #e8e8e8;
+  padding-bottom: 15px;
 }`
 
 export default function Community() {
