@@ -50,7 +50,10 @@ export default function Inspiration() {
         data: inspo_post,
         error,
         status,
-      } = await supabase.from('inspo_post').select('*');
+      } = await supabase
+        .from('inspo_post')
+        .select('*')
+        .order('created_at', { ascending: false });
 
       if (error && status !== 406) {
         throw error;

@@ -48,7 +48,10 @@ export default function Companies() {
         data: company_post,
         error,
         status,
-      } = await supabase.from('company_post').select('*');
+      } = await supabase
+        .from('company_post')
+        .select('*')
+        .order('created_at', { ascending: false });
 
       if (error && status !== 406) throw error;
       if (data) setData(company_post);
