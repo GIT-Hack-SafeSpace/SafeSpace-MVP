@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { supabase } from '../utils/client';
 import { useRouter } from 'next/router';
 import Loader from '../components/Loader';
+import MainLayout from '../layouts/MainLayout';
+import CompanyReview from '../components/CompanyReview';
 import ModalComp from '../components/Modal';
 import CreateCompany from '../components/CreateCompany';
-import MainLayout from '../layouts/MainLayout';
 
 export default function Companies() {
   const [data, setData] = useState([]);
@@ -47,7 +48,10 @@ export default function Companies() {
         data: company_post,
         error,
         status,
-      } = await supabase.from('company_post').select('*');
+      } = await supabase
+        .from('company_post')
+        .select('*')
+        .order('created_at', { ascending: false });
 
       if (error && status !== 406) throw error;
       if (data) setData(company_post);
@@ -72,13 +76,7 @@ export default function Companies() {
           >
             <CreateCompany handleClose={handleClose} user={user} />
           </ModalComp>
-          {data.map((d) => (
-            <div key={d.id}>
-              <h1>{d.name}</h1>
-              <h3>{d.industry}</h3>
-              <p>{d.content}</p>
-            </div>
-          ))}
+          <CompanyReview data={data} user={user}/>
         </>
       );
     }
