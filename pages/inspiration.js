@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { supabase } from '../utils/client';
 import { useRouter } from 'next/router';
 import Loader from '../components/Loader';
-import ModalComp from '../components/Modal';
-import CreateInspo from '../components/CreateInspo';
 import MainLayout from '../layouts/MainLayout';
-
+import InspirationImage from '../components/InspirationImage';
+import CreateInspo from '../components/CreateInspo';
+import ModalComp from '../components/Modal';
 
 export default function Inspiration() {
   const [data, setData] = useState([]);
@@ -49,7 +49,10 @@ export default function Inspiration() {
         data: inspo_post,
         error,
         status,
-      } = await supabase.from('inspo_post').select('*');
+      } = await supabase
+        .from('inspo_post')
+        .select('*')
+        .order('created_at', { ascending: false });
 
       if (error && status !== 406) {
         throw error;
@@ -70,19 +73,25 @@ export default function Inspiration() {
     } else {
       return (
         <>
-          <ModalComp showModal={showModal}
+          <ModalComp
+            showModal={showModal}
             handleClose={handleClose}
             handleShow={handleShow}
-            title='Create Inspiration'>
+            title='Create Inspiration'
+          >
             <CreateInspo handleClose={handleClose} user={user} />
           </ModalComp>
-          {data.map((d) => (
-            <div key={d.id}>
-              <h1>{d.name}</h1>
-              <h3>{d.industry}</h3>
-              <p>{d.content}</p>
-            </div>
-          ))}
+          {data.map((media) => {
+            return media.type === 'image' ? (
+              <InspirationImage image={media} />
+            ) : (
+              <>
+                <video width='320' height='240' controls>
+                  <source src={media.media_url} type='video/mp4' />
+                </video>
+              </>
+            );
+          })}
         </>
       );
     }
