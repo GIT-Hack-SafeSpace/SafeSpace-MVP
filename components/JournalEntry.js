@@ -51,7 +51,6 @@ const JournalStyles = styled.div`
       .date {
         font-size: 12px;
         color: #9597a1;
-        margin-top: -10px;
       }
 
       .type{
@@ -73,7 +72,7 @@ const JournalStyles = styled.div`
   .comm-footer {
     display: flex;
     border-top: 1px solid #e8e8e8;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: self-end;
     padding: 0 10px;
 
@@ -111,20 +110,6 @@ export default function JournalEntry({ data }) {
         <div className='card-wrapper'>
           <div className='commTitleWrapper'>
             <span className='title'>{data.title}</span>
-            <span className='resolvedTag'>
-              <Form.Check
-                type='switch'
-                id='isResolved'
-                label='Resolved?'
-                checked={data.isResolved}
-                onChange={(e) =>
-                  setToggles((prevState) => ({
-                    ...prevState,
-                    isResolved: e.target.checked,
-                  }))
-                }
-              />
-            </span>
           </div>
           <p className='date'>
             {moment(data.created_at).format('MMM DD, YYYY')}
@@ -144,20 +129,8 @@ export default function JournalEntry({ data }) {
         </div>
       </div>
       <div className='comm-footer'>
-        <Form.Check
-          type='switch'
-          id='share'
-          label='Share in Community?'
-          checked={data.share}
-          onChange={(e) =>
-            setToggles((prevState) => ({
-              ...prevState,
-              share: e.target.checked,
-            }))
-          }
-        />
-        <p className='footer-action edit'><img src={editIcon} /></p>
-        <p className='footer-action'><img src={trashIcon} /></p>
+        <p className='footer-action edit'><img src={editIcon} alt="edit post"/></p>
+        <p className='footer-action'><img src={trashIcon} alt="delete post"/></p>
       </div>
     </JournalStyles>
   );
