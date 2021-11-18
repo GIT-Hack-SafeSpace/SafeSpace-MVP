@@ -46,17 +46,10 @@ export default function RantRave() {
     // subscribe to all inserts (post)
     const rave_rant_post = supabase
       .from("rave_rant_post")
-      .on("*", (payload) => {
+      .on("INSERT", (payload) => {
         handleInsert(payload);
       })
       .subscribe();
-
-    // const rave_rant_post_update = supabase
-    // .from('rave_rant_post')
-    // .on('*', payload => {
-    //   handleInsert(payload);
-    // })
-    // .subscribe();
 
     return () => supabase.removeSubscription(rave_rant_post);
   }, []);
