@@ -38,7 +38,7 @@ export default function Counseling() {
               <div key={i}>
                 <div style={{display: 'flex', justifyContent: 'flex-start', marginBottom: '-10px'}}>
                     <div>
-                        <h1 style={{fontSize: '20px', color: '#EEA129'}}>{d.content}</h1>
+                        <h1 style={{fontSize: '20px', color: '#63988E'}}>{d.content}</h1>
                       { d.address ? <p style={{color: '#123456'}}>📍 {d.address}</p> : <p></p>}
                         <div style={{marginTop: '-10px', color: 'gray'}} className="d-flex">
                             <p><a style={{textDecoration:'none', fontSize: '18px'}} href={`tel:+${d.phone}`}>📞 </a></p>
