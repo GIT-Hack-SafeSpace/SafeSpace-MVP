@@ -38,10 +38,10 @@ export default function Counseling() {
               <div key={i}>
                 <div style={{display: 'flex', justifyContent: 'flex-start', marginBottom: '-10px'}}>
                     <div>
-                        <h1 style={{fontSize: '20px', color: 'darkblue'}}>{d.content}</h1>
-                      { d.address ? <p style={{color: 'gray'}}>📍 {d.address}</p> : <p></p>}
+                        <h1 style={{fontSize: '20px', color: '#EEA129'}}>{d.content}</h1>
+                      { d.address ? <p style={{color: '#123456'}}>📍 {d.address}</p> : <p></p>}
                         <div style={{marginTop: '-10px', color: 'gray'}} className="d-flex">
-                            <p><a style={{textDecoration:'none', color: 'blue'}} href={`tel:+${d.phone}`}>📞 </a></p>
+                            <p><a style={{textDecoration:'none', fontSize: '18px'}} href={`tel:+${d.phone}`}>📞 </a></p>
                             <p style={{margin: '0 10px'}}>|</p>
                             <Link  href={`${d.link}`}>
                                 <a style={{color: 'blue', fontSize: '15px', textDecoration: 'None'}}>{d.link}</a>
@@ -49,7 +49,7 @@ export default function Counseling() {
                         </div>
                         <div className="d-flex" style={{marginTop: '-10px', marginBottom: '15px'}}>
                             {d.specialty.map(specialty => {
-                              return <p style={{filter: 'drop-shadow(1px 1px 1px gray)', padding: '2px 10px', color: 'white', border: '1px solid gray', margin: '0px 5px', backgroundColor: 'gray', borderRadius: '20px', fontSize: '12px'}}>{specialty}</p>
+                              return <p style={{filter: 'drop-shadow(1px 1px 1px gray)', padding: '2px 10px', color: 'gray', border: '1px solid gray', margin: '0px 5px', backgroundColor: 'white', borderRadius: '20px', fontSize: '12px'}}>{specialty}</p>
                             })}
                         </div>
                     </div>

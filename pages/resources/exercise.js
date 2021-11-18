@@ -46,13 +46,13 @@ export default function Exercise() {
                 </div>
 
                     <div>
-                        <h1 style={{fontSize: '20px', color: 'darkblue'}}>{d.content}</h1>
-                      { d.address ? <p style={{color: 'gray'}}>📍 {d.address}</p> : <p></p>}
+                        <h1 style={{fontSize: '20px', color: '#ED3457'}}>{d.content}</h1>
+                      { d.address ? <p style={{color: '123456', fontSize: '17px'}}>📍 {d.address}</p> : <p></p>}
                         <div style={{marginTop: '-15px', color: 'gray'}}>
                             <Link  href={`${d.link}`}>
-                                <a style={{color: 'blue', fontSize: '15px', textDecoration: 'None'}}>🌎 {d.link}</a>
+                                <a style={{color: 'blue', fontSize: '17px', textDecoration: 'None'}}>🌎 {d.link}</a>
                             </Link>
-                            <p style={{marginTop: '5px'}}><a style={{textDecoration:'none', color: 'blue'}} href={`tel:+${d.phone}`}>📞 {d.phone}</a></p>
+                            <p style={{marginTop: '5px'}}><a style={{textDecoration:'none', color: 'blue', fontSize: '17px'}} href={`tel:+${d.phone}`}>📞 {d.phone}</a></p>
                         </div>
                        
                     </div>

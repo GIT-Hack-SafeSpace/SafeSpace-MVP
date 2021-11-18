@@ -38,13 +38,13 @@ export default function Help() {
             <div key={i}>
                 <div style={{display: 'flex', justifyContent: 'flex-start', marginBottom: '-10px'}}>
                     <div>
-                        <h1 style={{fontSize: '20px', color: 'darkblue'}}>{d.content}</h1>
-                       { d.address ? <p style={{color: 'gray'}}>📍 {d.address}</p> : <p></p>}
+                        <h1 style={{fontSize: '20px', color: '#63988E'}}>{d.content}</h1>
+                       { d.address ? <p style={{color: '#000000'}}>📍 {d.address}</p> : <p></p>}
                         <div style={{marginTop: '-10px', color: 'gray'}} className="d-flex">
-                            <p><a style={{textDecoration:'none', color: 'blue'}} href={`tel:+${d.phone}`}>📞 </a></p>
+                            <p><a style={{textDecoration:'none', color: 'blue', fontSize: '18px'}} href={`tel:+${d.phone}`}>📞 </a></p>
                             <p style={{margin: '0 10px'}}>|</p>
                             <Link  href={`${d.link}`}>
-                                <a style={{color: 'blue', fontSize: '15px', textDecoration: 'None'}}>{d.link}</a>
+                                <a style={{color: 'blue', fontSize: '17px', textDecoration: 'None'}}>{d.link}</a>
                             </Link>
                         </div>
                     </div>

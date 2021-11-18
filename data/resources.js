@@ -192,58 +192,58 @@ export const counselors = [
   
 export const gyms = [
   { 
-    content: 'Name of Gym Here',
-    link: 'www.gymwebsite.com',
-    address: '1136 South Delano Ct Chicago, IL',
-    phone: '312-300-2023'
+    content: 'Planet Fitness Gym',
+    link: 'www.planetfitness.com',
+    address: '6273 N. Treetop St Charleston, IL',
+    phone: '800-728-6258'
   },
   { 
-    content: 'Name of Gym Here',
-    link: 'www.gymwebsite.com',
-    address: '1200 N Sparks Blvd Phoenix, AZ ',
-    phone: '800-796-9706'
+    content: 'Lifetime Gym & Fitness',
+    link: 'www.lifetime.com',
+    address: '12830 N Faja Rd Phoenix, AZ ',
+    phone: '800-379-2493'
   },
   { 
-    content: 'Name of Gym Here',
-    link: 'www.gymwebsite.com',
-    address: '820 Ford Island St Alexandria, DC ',
-    phone: '800-873-0282'
+    content: 'Orange Theory Athletics',
+    link: 'www.orangetheory.com',
+    address: '328 Kielin Rd Cherryhill, DC ',
+    phone: '800-390-6257'
   },
   { 
-    content: 'Name of Gym Here',
-    link: 'www.gymwebsite.com',
-    address: '1490 Wirving Blvd Nashville, TN ',
-    phone: '800-739-7269'
+    content: 'Fitness 45 Gym',
+    link: 'www.f45.com',
+    address: '739 Irving Rd Nashville, TN ',
+    phone: '800-839-9000'
   },
   { 
-    content: 'Name of Gym Here',
-    link: 'www.gymwebsite.com',
-    address: '190 Schelter Rd, Linconshire, IL ',
-    phone: '800-726-7395'
+    content: 'D1 Athletics',
+    link: 'www.d1athletics.com',
+    address: '829 School Rd, Lane, IL ',
+    phone: '800-784-0372'
   },
   { 
-    content: 'Name of Gym Here',
-    link: 'www.gymwebsite.com',
-    address: '2835 N. Sheffield Hollywood, CA ',
-    phone: '920-623-2009'
+    content: 'Press & Release',
+    link: 'www.pressrelease.com',
+    address: '7389 N. Scient St, CA ',
+    phone: '920-999-7284'
   },
   { 
-    content: 'Name of Gym Here',
-    link: 'www.gymwebsite.com',
-    address: '1136 South Delano Ct Chicago, IL ',
-    phone: '312-300-2023'
+    content: 'Golds Gym',
+    link: 'www.goldsgym.com',
+    address: '6274 S. Division St Chicago, IL ',
+    phone: '800-928-0383'
   },
   { 
-    content: 'Name of Gym Here',
-    link: 'www.gymwebsite.com',
-    address: '1200 N Sparks Blvd Phoenix, AZ ',
-    phone: '800-796-9706'
+    content: 'Stretch & Meditate Arena',
+    link: 'www.stretchandmeditate.com',
+    address: '230 N Santa Ct. Phoenix, AZ ',
+    phone: '800-983-5372'
   },
   { 
-    content: 'Name of Gym Here',
-    link: 'www.gymwebsite.com',
-    address: '820 Ford Island Alexandria, DC ',
-    phone: '800-873-0282'
+    content: 'Pep\'n Your Step Body Works',
+    link: 'www.pepnyourstep.com',
+    address: '634 Finite Drive Drury, DC ',
+    phone: '800-324-5394'
   }
 ];
   
