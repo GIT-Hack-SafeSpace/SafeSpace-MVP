@@ -78,6 +78,7 @@ export default function RantRave() {
     } else {
       return (
         <JournalStyles>
+          <h1>Journal</h1>
           <ModalComp showModal={showModal}
             handleClose={handleClose}
             handleShow={handleShow}

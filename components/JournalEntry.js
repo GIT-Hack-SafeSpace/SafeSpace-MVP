@@ -51,6 +51,7 @@ const JournalStyles = styled.div`
       .date {
         font-size: 12px;
         color: #9597a1;
+        margin-bottom: 7px;
       }
 
       .type{
@@ -64,7 +65,10 @@ const JournalStyles = styled.div`
         padding-bottom: 10px;
         .content {
           font-size: 14px;
-          text-align: justify;
+          margin-top: 10px;
+        }
+        .card-bold{
+          margin-bottom: 0;
         }
       }
     }
@@ -92,11 +96,6 @@ const JournalStyles = styled.div`
 `;
 
 export default function JournalEntry({ data }) {
-  const [toggles, setToggles] = useState({
-    share: false,
-    isResolved: false,
-  });
-
   return (
     <JournalStyles key={data.id}>
       <div className='main-card-body'>
@@ -115,7 +114,6 @@ export default function JournalEntry({ data }) {
             {moment(data.created_at).format('MMM DD, YYYY')}
           </p>
           <div className='commBody'>
-            <p className="type">{data.type}</p>
             <p className="card-bold"><strong>Who:</strong><span> {data.who}</span></p>
             <p className="card-bold"><strong>Where:</strong><span> {data.where}</span></p>
             <p className='content'>{data.content}</p>
