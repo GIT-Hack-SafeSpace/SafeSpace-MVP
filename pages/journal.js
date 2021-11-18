@@ -14,7 +14,8 @@ const JournalStyles = styled.div`
 
   h1{
     border-bottom: 1px solid #e8e8e8;
-    padding-bottom: 5px;
+    padding-bottom: 15px;
+    font-size: 28px;
   }
   `;
 
