@@ -93,73 +93,72 @@ const JournalStyles = styled.div`
 `;
 
 export default function JournalEntry({ data }) {
-  const [isResolved, setIsResolved] = useState(false);
-  const [share, setShare] = useState(false);
-
-  function toggle(value) {
-    return !value;
-  }
-
-  const handleClick = () => {
-    setIsResolved((prevState) => ({
-      ...prevState,
-      isResolved: !prevState,
-    }
-    ))}
+  const [toggles, setToggles] = useState({
+    share: false,
+    isResolved: false,
+  });
 
   return (
-        <JournalStyles key={data.id}>
-          <div className='main-card-body'>
-            <div className='commImgWrapper'>
-              <img
-                src={`profileimages/${data.conflict_type || 'user'}.png`}
-                className='profileImage'
-                alt='image'
+    <JournalStyles key={data.id}>
+      <div className='main-card-body'>
+        <div className='commImgWrapper'>
+          <img
+            src={`profileimages/${data.conflict_type || 'user'}.png`}
+            className='profileImage'
+            alt='image'
+          />
+        </div>
+        <div className='card-wrapper'>
+          <div className='commTitleWrapper'>
+            <span className='title'>{data.title}</span>
+            <span className='resolvedTag'>
+              <Form.Check
+                type='switch'
+                id='isResolved'
+                label='Resolved?'
+                checked={data.isResolved}
+                onChange={(e) =>
+                  setToggles((prevState) => ({
+                    ...prevState,
+                    isResolved: e.target.checked,
+                  }))
+                }
+              />
+            </span>
+          </div>
+          <p className='date'>
+            {moment(data.created_at).format('MMM DD, YYYY')}
+          </p>
+          <div className='commBody'>
+            <p className="type">{data.type}</p>
+            <p className="card-bold"><strong>Who:</strong><span> {data.who}</span></p>
+            <p className="card-bold"><strong>Where:</strong><span> {data.where}</span></p>
+            <p className='content'>{data.content}</p>
+            <div className='comment-tags'>
+              <Tags
+                tags={[data.tag_1, data.tag_2, data.tag_3]}
+                data={communityTagData}
               />
             </div>
-            <div className='card-wrapper'>
-              <div className='commTitleWrapper'>
-                <span className='title'>{data.title}</span>
-                <span className='resolvedTag'><Form.Check
-                  type='switch'
-                  id='isResolved'
-                  label='Resolved?'
-                  checked={data.isResolved}
-                  onChange={handleClick}
-                />
-                </span>
-              </div>
-              <p className='date'>
-                {moment(data.created_at).format('MMM DD, YYYY')}
-              </p>
-              <div className='commBody'>
-                <p className="type">{data.type}</p>
-                <p className="card-bold"><strong>Who:</strong><span> {data.who}</span></p>
-                <p className="card-bold"><strong>Where:</strong><span> {data.where}</span></p>
-                <p className='content'>{data.content}</p>
-                <div className='comment-tags'>
-                  <Tags
-                    tags={[data.tag_1, data.tag_2, data.tag_3]}
-                    data={communityTagData}
-                  />
-                </div>
-              </div>
-            </div>
           </div>
-          <div className='comm-footer'>
-            <Form>
-            <Form.Check
-              type='checkbox'
-              id='share'
-              className='share'
-              label='Share?'
-              checked={data.share}
-              onChange={() => setChecked(toggle)}
-            />
-            </Form>
-            <p className='footer-action edit'><img src={editIcon} /></p>
-            <p className='footer-action'><img src={trashIcon} /></p>
-          </div>
-        </JournalStyles>
+        </div>
+      </div>
+      <div className='comm-footer'>
+        <Form.Check
+          type='switch'
+          id='share'
+          label='Share in Community?'
+          checked={data.share}
+          onChange={(e) =>
+            setToggles((prevState) => ({
+              ...prevState,
+              share: e.target.checked,
+            }))
+          }
+        />
+        <p className='footer-action edit'><img src={editIcon} /></p>
+        <p className='footer-action'><img src={trashIcon} /></p>
+      </div>
+    </JournalStyles>
   );
 }
