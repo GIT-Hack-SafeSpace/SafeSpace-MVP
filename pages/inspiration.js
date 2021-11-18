@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { supabase } from '../utils/client';
 import { useRouter } from 'next/router';
-import ReactPlayer from 'react-player/lazy'
+import ReactPlayer from 'react-player/lazy';
 import Loader from '../components/Loader';
 import MainLayout from '../layouts/MainLayout';
 import InspirationImage from '../components/InspirationImage';
@@ -41,7 +41,7 @@ export default function Inspiration() {
   }, []);
 
   const handleInsert = (payload) => {
-    setData((prevPosts) => [...prevPosts, payload.new]);
+    setData((prevPosts) => [payload.new, ...prevPosts]);
   };
 
   const getAllInspoPosts = async () => {
@@ -86,7 +86,14 @@ export default function Inspiration() {
             return media.type === 'image' ? (
               <InspirationImage image={media} />
             ) : (
-              <ReactPlayer url={media.media_url} controls={true} pip={true} width='100%'/>
+              <ReactPlayer
+                url={media.media_url}
+                controls={true}
+                pip={true}
+                width='100%'
+                height='200px'
+                style={{ backgroundColor: 'black', margin: '5px 0' }}
+              />
             );
           })}
         </>
