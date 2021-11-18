@@ -1,9 +1,10 @@
 import { React } from "react";
-import { supabase } from '../utils/client';
+import { supabase } from "../utils/client";
 import moment from "moment";
 import styled from "styled-components";
 import { communityTagData } from "../data/tagData";
 import Tags from "./Tags";
+import { deletePost, getPosts } from "../api/journalData";
 
 const editIcon = "icons/edit-icon.svg";
 const trashIcon = "icons/trash-icon.svg";
@@ -94,23 +95,17 @@ const JournalStyles = styled.div`
   }
 `;
 
-const deletePost = async (postId) => {
-  try {
-    const { data, error } = await supabase
-      .from("rave_rant_post")
-      .delete()
-      .match({id: postId});
+export default function JournalEntry({ data, setData }) {
+  const deleteJournal = async (id) => {
+    try {
+      deletePost(id)
+    } catch (error) {
+      alert(error.message);
+    } finally {
+      getPosts(data.profile_id).then(setData);
+    }
+  };
 
-      console.log(postId)
-  } catch (error) {
-    alert(error.message);
-  } 
-  // finally {
-  //   setLoading(false);
-  // }
-};
-
-export default function JournalEntry({ data }) {
   return (
     <JournalStyles key={data.id}>
       <div className="main-card-body">
@@ -152,7 +147,11 @@ export default function JournalEntry({ data }) {
           <img src={editIcon} alt="edit post" />
         </p>
         <p className="footer-action">
-          <img src={trashIcon} alt="delete post" onClick={() => deletePost(data.id)} />
+          <img
+            src={trashIcon}
+            alt="delete post"
+            onClick={() => deleteJournal(data.id)}
+          />
         </p>
       </div>
     </JournalStyles>

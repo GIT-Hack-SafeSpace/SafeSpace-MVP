@@ -23,28 +23,35 @@ export default function CreateRantRave({ user, handleClose }) {
   });
 
   useEffect(async () => {
-    try {
-      setLoading(true);
-      const user = supabase.auth.user();
 
-      let { data, error, status } = await supabase
-        .from('profiles')
-        .select(`personality`)
-        .eq('id', user.id)
-        .single();
-
-      if (error && status !== 406) {
-        throw error;
+    let isMounted = true;
+    if (isMounted) {
+      try {
+        setLoading(true);
+        const user = supabase.auth.user();
+  
+        let { data, error, status } = await supabase
+          .from('profiles')
+          .select(`personality`)
+          .eq('id', user.id)
+          .single();
+  
+        if (error && status !== 406) {
+          throw error;
+        }
+  
+        if (data) {
+          setConflictType(data.personality);
+        }
+      } catch (error) {
+        alert(error.message);
+      } finally {
+        setLoading(false);
       }
-
-      if (data) {
-        setConflictType(data.personality);
-      }
-    } catch (error) {
-      alert(error.message);
-    } finally {
-      setLoading(false);
     }
+
+    return () => isMounted = false;
+    
   }, []);
 
   const postRantRave = async (e) => {

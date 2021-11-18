@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import moment from "moment";
+import { supabase } from '../utils/client';
 import styled from "styled-components";
 import Link from "next/link";
 import { reactions } from "../data/reactions";
@@ -12,78 +13,6 @@ import { ButtonStyle } from "../styles/ButtonStyle";
 import ReactionIcon from "./ReactionIcon";
 
 const reactionIcons = reactions.map((r) => r.url);
-
-const CommunityPostStyles = styled.div`
-  display: flex;
-  flex-direction: column;
-  border-bottom: 1px solid #e8e8e8;
-
-  .main-card-body {
-    display: flex;
-    padding-top: 20px;
-
-    .commImgWrapper {
-      flex: 1;
-
-      .profileImage {
-        width: 30px;
-        height: 30px;
-      }
-    }
-    .card-wrapper {
-      flex: 8;
-
-      .commTitleWrapper {
-        display: flex;
-        justify-content: space-between;
-
-        .title {
-          font-weight: bold;
-          letter-spacing: 1px;
-        }
-
-        .resolvedTags {
-          align-items: flex-end;
-          text-transform: uppercase;
-          font-size: 12px;
-          color: #ed3457;
-
-          .resolved {
-            color: #000;
-          }
-        }
-      }
-      .date {
-        font-size: 12px;
-        color: #9597a1;
-      }
-
-      .commBody {
-        .content {
-          font-size: 14px;
-        }
-      }
-    }
-  }
-  .comm-footer {
-    border-top: 1px solid #e8e8e8;
-    .reactions {
-      display: flex;
-      justify-content: space-evenly;
-      width: 100%;
-      .reactionIcon {
-        width: 27px;
-        margin: 15px 28px;
-
-        &.disabled {
-          -webkit-filter: hue-rotate(-32deg) brightness(106%) grayscale(95%);
-          filter: hue-rotate(-32deg) brightness(106%) grayscale(95%);
-        }
-      }
-    }
-  }
-`;
-
 const randomNumber = (min, max) =>
   Math.floor(Math.random() * (max - min + 1) + min);
 
@@ -225,3 +154,74 @@ function ModalMock({ handleClose, showModal, addComment, comments }) {
     </>
   );
 }
+
+const CommunityPostStyles = styled.div`
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid #e8e8e8;
+
+  .main-card-body {
+    display: flex;
+    padding-top: 20px;
+
+    .commImgWrapper {
+      flex: 1;
+
+      .profileImage {
+        width: 30px;
+        height: 30px;
+      }
+    }
+    .card-wrapper {
+      flex: 8;
+
+      .commTitleWrapper {
+        display: flex;
+        justify-content: space-between;
+
+        .title {
+          font-weight: bold;
+          letter-spacing: 1px;
+        }
+
+        .resolvedTags {
+          align-items: flex-end;
+          text-transform: uppercase;
+          font-size: 12px;
+          color: #ed3457;
+
+          .resolved {
+            color: #000;
+          }
+        }
+      }
+      .date {
+        font-size: 12px;
+        color: #9597a1;
+      }
+
+      .commBody {
+        .content {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+  .comm-footer {
+    border-top: 1px solid #e8e8e8;
+    .reactions {
+      display: flex;
+      justify-content: space-evenly;
+      width: 100%;
+      .reactionIcon {
+        width: 27px;
+        margin: 15px 28px;
+
+        &.disabled {
+          -webkit-filter: hue-rotate(-32deg) brightness(106%) grayscale(95%);
+          filter: hue-rotate(-32deg) brightness(106%) grayscale(95%);
+        }
+      }
+    }
+  }
+`;

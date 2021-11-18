@@ -1,19 +1,20 @@
-import React, { useEffect, useState } from 'react';
-import { supabase } from '../utils/client';
-import { useRouter } from 'next/router';
-import Loader from '../components/Loader';
-import MainLayout from '../layouts/MainLayout';
+import React, { useEffect, useState } from "react";
+import { supabase } from "../utils/client";
+import { useRouter } from "next/router";
+import Loader from "../components/Loader";
+import MainLayout from "../layouts/MainLayout";
 
-import CommunityPost from '../components/CommunityPost';
+import CommunityPost from "../components/CommunityPost";
 
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const CommunityView = styled.div`
-h1{
-  font-size:28px;
-  border-bottom: 1px solid #e8e8e8;
-  padding-bottom: 15px;
-}`
+  h1 {
+    font-size: 28px;
+    border-bottom: 1px solid #e8e8e8;
+    padding-bottom: 15px;
+  }
+`;
 
 export default function Community() {
   const [data, setData] = useState([]);
@@ -24,26 +25,11 @@ export default function Community() {
     const user = supabase.auth.user();
 
     if (!user) {
-      router.push('/login');
+      router.push("/login");
     } else {
       getPosts();
     }
-
-    // subscribe to all inserts (post)
-    const rave_rant_post = supabase
-      .from('rave_rant_post')
-      .on('INSERT', (payload) => {
-        handleInsert(payload);
-      })
-      .subscribe();
-
-    return () => supabase.removeSubscription(rave_rant_post);
   }, []);
-
-  const handleInsert = (payload) => {
-    setData((prevPosts) => [...prevPosts, payload.new]);
-  };
-
   const getPosts = async () => {
     try {
       let {
@@ -51,10 +37,11 @@ export default function Community() {
         error,
         status,
       } = await supabase
-        .from('rave_rant_post')
-        .select('*')
-        .eq('share', true)
-        .order('created_at', { ascending: false });
+        .from("rave_rant_post")
+        .select("*")
+        .eq("share", true)
+        .eq("deleted", false)
+        .order("created_at", { ascending: false });
 
       if (error && status !== 406) {
         throw error;
@@ -76,11 +63,9 @@ export default function Community() {
       return (
         <CommunityView>
           <h1>Community</h1>
-          {
-            data.map((item, i) => (
-              <CommunityPost key={i} data={item}/>
-            ))
-          }
+          {data.map((item, i) => (
+            <CommunityPost key={i} data={item} />
+          ))}
         </CommunityView>
       );
     }
