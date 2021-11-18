@@ -1,16 +1,11 @@
 import React from 'react'
 import Card from 'react-bootstrap/Card';
-import ModalComp from '../components/Modal';
-import CreateInspo from '../components/CreateInspo';
 import styled from 'styled-components';
 
 
 export default function InspirationPost({data, user}) {
     return (
         <>
-            <ModalComp title='Create Inspiration'>
-                <CreateInspo user={user} />
-            </ModalComp>
             {
             data.map((d) => (
                 <div key={d.id} className='text-white'>

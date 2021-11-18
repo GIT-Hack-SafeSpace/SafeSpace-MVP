@@ -84,9 +84,9 @@ footer {
   text-align: center;
 }
 
-.allFooterButtons{
+.allFooterButtons {
   display: flex;
-  max-width:100%;
+  max-width: 100%;
   list-style: none;
   justify-content: space-between;
   padding-left: 0;
@@ -102,7 +102,8 @@ p.footerIcon {
 }
 
 .activeFooter > .footerBarOption > .footerIcon > .footerSvg {
-  filter: invert(30%) sepia(83%) saturate(4273%) hue-rotate(333deg) brightness(99%) contrast(87%);
+  filter: invert(30%) sepia(83%) saturate(4273%) hue-rotate(333deg)
+    brightness(99%) contrast(87%);
   font-weight: bold;
 }
 

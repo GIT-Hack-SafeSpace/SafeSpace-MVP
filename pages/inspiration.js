@@ -4,13 +4,19 @@ import { useRouter } from 'next/router';
 import Loader from '../components/Loader';
 import MainLayout from '../layouts/MainLayout';
 import InspirationPost from '../components/InspirationPost';
+import CreateInspo from '../components/CreateInspo';
+import ModalComp from '../components/Modal';
 
 
 export default function Inspiration() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState({});
+  const [showModal, setShow] = useState(false);
   const router = useRouter();
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   useEffect(() => {
     // checking if a user is logged in. If not, redirect to login screen
@@ -64,7 +70,15 @@ export default function Inspiration() {
       return <Loader />;
     } else {
       return (
-        <InspirationPost data={data} user={user}/>
+        <>
+          <ModalComp showModal={showModal}
+            handleClose={handleClose}
+            handleShow={handleShow}
+            title='Create Inspiration'>
+            <CreateInspo handleClose={handleClose} user={user} />
+          </ModalComp>
+          <InspirationPost data={data} user={user}/>
+        </>
       );
     }
   };

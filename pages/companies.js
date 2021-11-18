@@ -4,13 +4,18 @@ import { useRouter } from 'next/router';
 import Loader from '../components/Loader';
 import MainLayout from '../layouts/MainLayout';
 import CompanyReview from '../components/CompanyReview';
-
+import ModalComp from '../components/Modal';
+import CreateCompany from '../components/CreateCompany';
 
 export default function Companies() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState({});
+  const [showModal, setShow] = useState(false);
   const router = useRouter();
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   useEffect(() => {
     // checking if a user is logged in. If not, redirect to login screen
@@ -59,7 +64,17 @@ export default function Companies() {
       return <Loader />;
     } else {
       return (
-        <CompanyReview data={data} user={user}/>
+        <>
+          <ModalComp
+            showModal={showModal}
+            handleClose={handleClose}
+            handleShow={handleShow}
+            title='Submit a Great Company'
+          >
+            <CreateCompany handleClose={handleClose} user={user} />
+          </ModalComp>
+          <CompanyReview data={data} user={user}/>
+        </>
       );
     }
   };

@@ -1,6 +1,4 @@
 import React from 'react'
-import ModalComp from '../components/Modal';
-import CreateCompany from '../components/CreateCompany';
 import Card from 'react-bootstrap/Card';
 import styled from 'styled-components';
 import moment from "moment";
@@ -9,9 +7,6 @@ import moment from "moment";
 export default function CompanyReview({data, user}) {
     return (
         <>
-            <ModalComp title='Submit a Great Company'>
-                <CreateCompany user={user} />
-            </ModalComp>
             {
             data.map((d) => (
                 <div key={d.id} className='text-white'>

@@ -11,7 +11,11 @@ export default function RantRave() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState({});
+  const [showModal, setShow] = useState(false);
   const router = useRouter();
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   useEffect(() => {
     // checking if a user is logged in. If not, redirect to login screen
@@ -67,8 +71,11 @@ export default function RantRave() {
     } else {
       return (
         <>
-          <ModalComp title='Add Entry'>
-            <CreateRantRave user={user} />
+          <ModalComp showModal={showModal}
+            handleClose={handleClose}
+            handleShow={handleShow}
+            title='Add Entry'>
+            <CreateRantRave handleClose={handleClose} user={user} />
           </ModalComp>
           {data.map((d) => (
             <div key={d.id} >
