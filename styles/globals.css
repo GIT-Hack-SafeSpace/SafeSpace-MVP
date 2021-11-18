@@ -131,3 +131,39 @@ p.footerIcon {
 .line-break {
   white-space: pre-line;
 }
+
+/* Resource page specs below */
+.resourceRectangle {
+  width: 100%;
+  height: 141px;      
+  position: relative;
+  text-align: center;
+  border-top: 2px solid white;
+}
+
+.resourcelayout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 570px;
+  overflow: hidden;
+  margin: -34px -20px; 
+}
+
+@media only screen and (min-width: 500px){
+  .resourcelayout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 630px;
+    overflow: hidden;
+    margin: -34px -20px; 
+  }
+  .resourceRectangle {
+    height: 158px;
+    width: 100%;
+    position: relative;
+    text-align: center;
+    border-top: 2px solid white;
+  }
+}

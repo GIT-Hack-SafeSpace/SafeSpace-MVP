@@ -3,28 +3,11 @@ import styled from "styled-components";
 import Link from 'next/link'
 
 const ResourceLayout = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  //   height: 644px;
-  height: 570px;  
-  overflow: hidden;
-  margin: -34px -20px;
-
   .arrangeResources {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
   }
-
-  .resourceRectangle {
-      width: 100%;
-      //   height: 158px;
-      height: 141px;      
-      position: relative;
-      text-align: center;
-      border-top: 2px solid white;
-    }
 
     .resourceImg {
         width: 105%;
@@ -42,7 +25,7 @@ const ResourceLayout = styled.div`
 
 export default function ResourcePg() {
   return (
-    <ResourceLayout>
+    <ResourceLayout className="resourcelayout">
             <div className="resourceRectangle">
                 <Link href="/resources/help">
                     <a>
