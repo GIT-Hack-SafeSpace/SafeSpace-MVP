@@ -12,7 +12,6 @@ const JournalStyles = styled.div`
   display: flex;
   flex-direction: column;
   background-color: #ffffff;
-  border-top: 1px solid #e8e8e8;
   border-bottom: 1px solid #e8e8e8;
   margin-bottom: 15px;
 
