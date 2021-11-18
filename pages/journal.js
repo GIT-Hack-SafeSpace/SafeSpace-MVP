@@ -4,8 +4,20 @@ import { useRouter } from 'next/router';
 import Loader from '../components/Loader';
 import ModalComp from '../components/Modal';
 import CreateRantRave from '../components/CreateRantRave';
+import JournalEntry from '../components/JournalEntry';
 import MainLayout from '../layouts/MainLayout';
 
+import styled from 'styled-components';
+
+const JournalStyles = styled.div`
+  background-color: #fefefe;
+
+  h1{
+    border-bottom: 1px solid #e8e8e8;
+    padding-bottom: 15px;
+    font-size: 28px;
+  }
+  `;
 
 export default function RantRave() {
   const [data, setData] = useState([]);
@@ -65,33 +77,29 @@ export default function RantRave() {
       setLoading(false);
     }
   };
+
   const view = () => {
     if (loading) {
       return <Loader />;
     } else {
       return (
-        <>
+        <JournalStyles>
           <ModalComp showModal={showModal}
             handleClose={handleClose}
             handleShow={handleShow}
             title='Add Entry'>
             <CreateRantRave handleClose={handleClose} user={user} />
           </ModalComp>
-          {data.map((d) => (
-            <div key={d.id} >
-              <h1>{d.content}</h1>
-              <h3>{d.created_at}</h3>
-              <h3>{d.type}</h3>
-              <h3>{d.who}</h3>
-              <h3>{d.where}</h3>
-              <p>{d.share}</p>
-              <p>{d.isResolved}</p>
-            </div>
-          ))}
-        </>
+          <h1>Journal</h1>
+          {
+            data.map((item, i) => (
+              <JournalEntry key={i} data={item}/>
+            ))
+          }
+        </JournalStyles>
       );
-    }
+}
   };
 
-  return <MainLayout>{view()}</MainLayout>;
+return <MainLayout>{view()}</MainLayout>;
 }
