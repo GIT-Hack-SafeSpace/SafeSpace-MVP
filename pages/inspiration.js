@@ -84,9 +84,10 @@ export default function Inspiration() {
           </ModalComp>
           {data.map((media) => {
             return media.type === 'image' ? (
-              <InspirationImage image={media} />
+              <InspirationImage key={media.id} image={media} />
             ) : (
               <ReactPlayer
+                key={media.id}
                 url={media.media_url}
                 controls={true}
                 pip={true}
