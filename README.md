@@ -49,6 +49,7 @@ As a team of fullstack software engineers, our team decided on technologies that
 - [React Bootstrap](https://react-bootstrap.github.io/)
 - [Boostrap 5](https://getbootstrap.com/)
 - [React Select](https://react-select.com/home)
+- [React Player](https://www.npmjs.com/package/react-player)
 
 ## Design Tools
 - [Figma](https://www.figma.com/)
