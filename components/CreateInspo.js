@@ -4,6 +4,8 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import styled from 'styled-components';
 import { ButtonStyle } from '../styles/ButtonStyle';
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
+import UploadImage from './ImageUpload';
 
 const SelectStyle = styled.div`
   .select__option {
@@ -14,16 +16,22 @@ const SelectStyle = styled.div`
 export default function CreateInspo({ user, handleClose }) {
   const [loading, setLoading] = useState(null);
   const [data, setData] = useState({});
+  const [video, setVideo] = useState(true);
+  const [showMediaInput, setShowMediaInput] = useState(true);
 
   const postInspo = async (e) => {
     e.preventDefault();
     const { id } = user;
-    const { content } = data;
+    const { content, media_url } = data;
+    const type = video ? 'video' : 'image';
+    
     try {
       setLoading(true);
       const updates = {
         profile_id: id,
         content,
+        media_url,
+        type,
         created_at: new Date(),
       };
 
@@ -45,12 +53,112 @@ export default function CreateInspo({ user, handleClose }) {
     }
   };
 
+  const videoClick = () => {
+    setShowMediaInput(false);
+    setVideo(true);
+    setData((prevState => ({
+      ...prevState,
+      media_url: '',
+    })))
+  };
+
+  const imageClick = () => {
+    setVideo(false);
+    setData((prevState => ({
+      ...prevState,
+      media_url: '',
+    })))
+  }
+
   return (
     <Form onSubmit={postInspo}>
-      <Form.Group className='mb-3'>
-        <Form.Label>Message</Form.Label>
+      <div className='text-center'>
+        <ButtonGroup className='mb-2'>
+          <Button variant={video ? 'secondary' : 'light'} onClick={videoClick}>
+            Video
+          </Button>
+          <Button
+            variant={!video ? 'secondary' : 'light'}
+            onClick={imageClick}
+          >
+            Image
+          </Button>
+        </ButtonGroup>
+      </div>
+
+      <div className='my-3'>
+        {video ? (
+          <>
+            <label htmlFor='media_url' className='visually-hidden'>
+              URL
+            </label>
+            <Form.Control
+              required
+              id='media_url'
+              type='url'
+              placeholder='Paste URL'
+              value={data.media_url || ''}
+              onChange={(e) =>
+                setData((prevState) => ({
+                  ...prevState,
+                  media_url: e.target.value,
+                }))
+              }
+            />
+          </>
+        ) : (
+          <div className='text-center'>
+            <ButtonGroup className='mb-2'>
+            <Button
+                variant={showMediaInput ? 'secondary' : 'light'}
+                onClick={() => setShowMediaInput(true)}
+              >
+                From the web
+              </Button>
+              <Button
+                variant={!showMediaInput ? 'secondary' : 'light'}
+                onClick={() => setShowMediaInput(false)}
+              >
+                From my device
+              </Button>
+            </ButtonGroup>
+          </div>
+        )}
+      </div>
+
+      {!video &&
+        (showMediaInput ? (
+          <>
+            <label htmlFor='media_url' className='visually-hidden'>
+              URL
+            </label>
+            <Form.Control
+              required
+              id='media_url'
+              type='url'
+              placeholder='Paste URL'
+              value={data.media_url || ''}
+              onChange={(e) =>
+                setData((prevState) => ({
+                  ...prevState,
+                  media_url: e.target.value,
+                }))
+              }
+            />
+          </>
+        ) : (
+          <UploadImage
+            url={data.media_url}
+            size={150}
+            onUpload={(url) => {
+              setData((prevState) => ({ ...prevState, media_url: `https://wujfbnqzodthhoxrdnwt.supabase.in/storage/v1/object/public/inspiration/${url}` }));
+            }}
+          />
+        ))}
+      <hr />
+      <Form.Group className='my-3'>
+        <Form.Label>Message (Optional)</Form.Label>
         <Form.Control
-          required
           as='textarea'
           rows={3}
           id='content'
@@ -65,6 +173,7 @@ export default function CreateInspo({ user, handleClose }) {
           }
         />
       </Form.Group>
+
       <ButtonStyle>
         <Button className='save-change' type='submit' disabled={loading}>
           {loading ? 'Loading ...' : 'Save Changes'}
