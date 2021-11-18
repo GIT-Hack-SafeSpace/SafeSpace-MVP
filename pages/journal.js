@@ -11,6 +11,11 @@ import styled from 'styled-components';
 
 const JournalStyles = styled.div`
   background-color: #fefefe;
+
+  h1{
+    border-bottom: 1px solid #e8e8e8;
+    padding-bottom: 5px;
+  }
   `;
 
 export default function RantRave() {
@@ -78,13 +83,13 @@ export default function RantRave() {
     } else {
       return (
         <JournalStyles>
-          <h1>Journal</h1>
           <ModalComp showModal={showModal}
             handleClose={handleClose}
             handleShow={handleShow}
             title='Add Entry'>
             <CreateRantRave handleClose={handleClose} user={user} />
           </ModalComp>
+          <h1>Journal</h1>
           {
             data.map((item, i) => (
               <JournalEntry key={i} data={item}/>
