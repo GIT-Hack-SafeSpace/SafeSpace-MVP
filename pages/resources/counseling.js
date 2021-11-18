@@ -4,8 +4,7 @@ import { useRouter } from 'next/router';
 import Loader from '../../components/Loader';
 import MainLayout from '../../layouts/MainLayout';
 import { counselors } from '../../data/resources';
-import Link from 'next/link'
-
+import Link from 'next/link';
 
 export default function Counseling() {
     const [loading, setLoading] = useState(true);
@@ -54,13 +53,13 @@ export default function Counseling() {
                         </div>
                     </div>
                 </div>
-                <hr style={{color: 'gray'}} />
+                <hr style={{ color: 'gray' }} />
               </div>
-            ))}
-          </>
-        );
-      }
-    };
-  
-    return <MainLayout>{view()}</MainLayout>;
+          ))}
+        </>
+      );
+    }
+  };
+
+  return <MainLayout>{view()}</MainLayout>;
 }

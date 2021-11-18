@@ -6,12 +6,15 @@ import ModalComp from '../components/Modal';
 import CreateCompany from '../components/CreateCompany';
 import MainLayout from '../layouts/MainLayout';
 
-
 export default function Companies() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState({});
+  const [showModal, setShow] = useState(false);
   const router = useRouter();
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   useEffect(() => {
     // checking if a user is logged in. If not, redirect to login screen
@@ -61,8 +64,13 @@ export default function Companies() {
     } else {
       return (
         <>
-          <ModalComp title='Submit a Great Company'>
-            <CreateCompany user={user} />
+          <ModalComp
+            showModal={showModal}
+            handleClose={handleClose}
+            handleShow={handleShow}
+            title='Submit a Great Company'
+          >
+            <CreateCompany handleClose={handleClose} user={user} />
           </ModalComp>
           {data.map((d) => (
             <div key={d.id}>
@@ -72,7 +80,8 @@ export default function Companies() {
             </div>
           ))}
         </>
-      )}
+      );
+    }
   };
 
   return <MainLayout>{view()}</MainLayout>;

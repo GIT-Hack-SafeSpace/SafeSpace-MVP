@@ -51,7 +51,8 @@ export default function Community() {
       } = await supabase
         .from('rave_rant_post')
         .select('*')
-        .eq('share', true);
+        .eq('share', true)
+        .order('created_at', { ascending: false });
 
       if (error && status !== 406) {
         throw error;
@@ -73,7 +74,11 @@ export default function Community() {
       return (
         <CommunityView>
           <h1>Community</h1>
-          <CommunityPost data={data}/>
+          {
+            data.map((item, i) => (
+              <CommunityPost key={i} data={item}/>
+            ))
+          }
         </CommunityView>
       );
     }

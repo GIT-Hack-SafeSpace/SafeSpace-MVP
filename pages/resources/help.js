@@ -3,9 +3,8 @@ import { supabase } from '../../utils/client';
 import { useRouter } from 'next/router';
 import Loader from '../../components/Loader';
 import MainLayout from '../../layouts/MainLayout';
-import {help} from '../../data/resources'
-import Link from 'next/link'
-
+import { help } from '../../data/resources';
+import Link from 'next/link';
 
 export default function Help() {
   const [loading, setLoading] = useState(true);
@@ -20,7 +19,7 @@ export default function Help() {
       router.push('/login');
     } else {
       setUser(user);
-      setLoading(false)
+      setLoading(false);
     }
   }, []);
 
@@ -30,9 +29,14 @@ export default function Help() {
     } else {
       return (
         <>
-        <div className="titleWrap" style={{display: 'flex', justifyContent: 'space-between'}}>
-          <h2><b>Helpful Resources</b></h2>
-        </div>
+          <div
+            className='titleWrap'
+            style={{ display: 'flex', justifyContent: 'space-between' }}
+          >
+            <h2>
+              <b>Helpful Resources</b>
+            </h2>
+          </div>
 
           {help.map((d, i) => (
             <div key={i}>
@@ -49,10 +53,9 @@ export default function Help() {
                         </div>
                     </div>
                 </div>
-                <hr style={{color: 'gray'}} />
+                <hr style={{ color: 'gray' }} />
             </div>
           ))}
-    
         </>
       );
     }
