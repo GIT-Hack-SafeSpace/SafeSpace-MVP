@@ -47,6 +47,13 @@ export default function RantRave() {
       })
       .subscribe();
 
+      // const rave_rant_post_update = supabase
+      // .from('rave_rant_post')
+      // .on('*', payload => {
+      //   handleInsert(payload);
+      // })
+      // .subscribe();
+
     return () => supabase.removeSubscription(rave_rant_post);
   }, []);
 
@@ -63,7 +70,8 @@ export default function RantRave() {
       } = await supabase
         .from('rave_rant_post')
         .select('*')
-        .eq('profile_id', userId);
+        .eq('profile_id', userId)
+        .eq('deleted', false);
 
       if (error && status !== 406) {
         throw error;
