@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { supabase } from '../utils/client';
 import { useRouter } from 'next/router';
 import Loader from '../components/Loader';
-import ModalComp from '../components/Modal';
-import CreateInspo from '../components/CreateInspo';
 import MainLayout from '../layouts/MainLayout';
+import InspirationPost from '../components/InspirationPost';
+import CreateInspo from '../components/CreateInspo';
+import ModalComp from '../components/Modal';
 
 
 export default function Inspiration() {
@@ -49,7 +50,10 @@ export default function Inspiration() {
         data: inspo_post,
         error,
         status,
-      } = await supabase.from('inspo_post').select('*');
+      } = await supabase
+        .from('inspo_post')
+        .select('*')
+        .order('created_at', { ascending: false });
 
       if (error && status !== 406) {
         throw error;
@@ -76,13 +80,7 @@ export default function Inspiration() {
             title='Create Inspiration'>
             <CreateInspo handleClose={handleClose} user={user} />
           </ModalComp>
-          {data.map((d) => (
-            <div key={d.id}>
-              <h1>{d.name}</h1>
-              <h3>{d.industry}</h3>
-              <p>{d.content}</p>
-            </div>
-          ))}
+          <InspirationPost data={data} user={user}/>
         </>
       );
     }
