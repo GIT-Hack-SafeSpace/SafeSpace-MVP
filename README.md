@@ -4,8 +4,8 @@
 Built in conjunction with the **Girls in Tech Mental Health for All Hackathon**:
 Building an inclusive future requires mental health and wellbeing technologies that cater to all
 
-[Deployed App](https://safespacemvp.netlify.app/)
-[Project Board](https://github.com/GIT-Hack-SafeSpace/SafeSpace-MVP/projects/1)
+- [Deployed App](https://safespacemvp.netlify.app/)
+- [Project Board](https://github.com/GIT-Hack-SafeSpace/SafeSpace-MVP/projects/1)
 
 ---
 ## Getting Started
@@ -37,7 +37,7 @@ navigate to `data/industries.js` and add new key value pairs
 ## How to contribute
 The `main` branch is protected. All development work should be against the `development` branch.
 
-PRs against the `main` branch require at least one approval from the organization owners
+PRs against both the `main` and `development` branches require at least one approval from the organization owners
 
 # App Details
 As a team of fullstack software engineers, our team decided on technologies that could produce a usable, scalable MVP version of the prototype.
