@@ -8,6 +8,7 @@ export default function ModalComp({
   handleShow,
   handleClose,
   showModal,
+  button
 }) {
   return (
     <>
