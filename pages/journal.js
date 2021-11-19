@@ -45,7 +45,7 @@ export default function RantRave() {
     }
     // subscribe to all inserts (post)
     const rave_rant_post = supabase
-      .from("rave_rant_post")
+      .from(`rave_rant_post:profile_id=eq:${user.id}`)
       .on("INSERT", (payload) => {
         handleInsert(payload);
       })
