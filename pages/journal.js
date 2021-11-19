@@ -43,22 +43,7 @@ export default function RantRave() {
       });
       setUser(user);
     }
-    // subscribe to all inserts (post)
-    const rave_rant_post = supabase
-      .from(`rave_rant_post`)
-      .on("INSERT", (payload) => {
-        if(payload.profile_id === user.id){
-          handleInsert(payload);
-        }
-      })
-      .subscribe();
-
-    return () => supabase.removeSubscription(rave_rant_post);
   }, []);
-
-  const handleInsert = (payload) => {
-    setData((prevPosts) => [payload.new, ...prevPosts]);
-  };
 
   const view = () => {
     if (loading) {
@@ -72,7 +57,7 @@ export default function RantRave() {
             handleShow={handleShow}
             title="Add Entry"
           >
-            <CreateRantRave handleClose={handleClose} user={user} />
+            <CreateRantRave handleClose={handleClose} user={user} setter={setData} />
           </ModalComp>
           <h1>Journal</h1>
           {data.map((item, i) => (
