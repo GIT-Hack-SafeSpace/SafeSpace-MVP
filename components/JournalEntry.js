@@ -1,12 +1,13 @@
-import { React, useState } from 'react';
-import moment from 'moment';
-import styled from 'styled-components';
-import { Form } from 'react-bootstrap';
-import { communityTagData } from '../data/tagData';
-import Tags from './Tags';
+import { React } from "react";
+import { supabase } from "../utils/client";
+import moment from "moment";
+import styled from "styled-components";
+import { communityTagData } from "../data/tagData";
+import Tags from "./Tags";
+import { deletePost, getPosts } from "../api/journalData";
 
-const editIcon = 'icons/edit-icon.svg';
-const trashIcon = 'icons/trash-icon.svg';
+const editIcon = "icons/edit-icon.svg";
+const trashIcon = "icons/trash-icon.svg";
 
 const JournalStyles = styled.div`
   display: flex;
@@ -43,7 +44,7 @@ const JournalStyles = styled.div`
         .resolvedTag {
           align-items: flex-end;
           font-size: 14px;
-          color: #ED3457;
+          color: #ed3457;
         }
       }
 
@@ -53,11 +54,11 @@ const JournalStyles = styled.div`
         margin-bottom: 7px;
       }
 
-      .type{
+      .type {
         text-transform: uppercase;
         font-weight: bold;
         font-size: 12px;
-        color:#63988E;
+        color: #63988e;
       }
 
       .commBody {
@@ -66,7 +67,7 @@ const JournalStyles = styled.div`
           font-size: 14px;
           margin-top: 10px;
         }
-        .card-bold{
+        .card-bold {
           margin-bottom: 0;
         }
       }
@@ -79,44 +80,60 @@ const JournalStyles = styled.div`
     align-items: self-end;
     padding: 0 10px;
 
-    .footer-action{
+    .footer-action {
       padding-top: 10px;
     }
 
-    .edit{
+    .edit {
       margin-right: 20px;
     }
 
-    .share{
+    .share {
       color: #493843;
-      font-size:14px;
+      font-size: 14px;
     }
   }
 `;
 
-export default function JournalEntry({ data }) {
+export default function JournalEntry({ data, setData }) {
+  const deleteJournal = async (id) => {
+    try {
+      deletePost(id)
+    } catch (error) {
+      alert(error.message);
+    } finally {
+      getPosts(data.profile_id).then(setData);
+    }
+  };
+
   return (
     <JournalStyles key={data.id}>
-      <div className='main-card-body'>
-        <div className='commImgWrapper'>
+      <div className="main-card-body">
+        <div className="commImgWrapper">
           <img
-            src={`profileimages/${data.conflict_type || 'user'}.png`}
-            className='profileImage'
-            alt='image'
+            src={`profileimages/${data.conflict_type || "user"}.png`}
+            className="profileImage"
+            alt="image"
           />
         </div>
-        <div className='card-wrapper'>
-          <div className='commTitleWrapper'>
-            <span className='title'>{data.title}</span>
+        <div className="card-wrapper">
+          <div className="commTitleWrapper">
+            <span className="title">{data.title}</span>
           </div>
-          <p className='date'>
-            {moment(data.created_at).format('MMM DD, YYYY')}
+          <p className="date">
+            {moment(data.created_at).format("MMM DD, YYYY")}
           </p>
-          <div className='commBody'>
-            <p className="card-bold"><strong>Who:</strong><span> {data.who}</span></p>
-            <p className="card-bold"><strong>Where:</strong><span> {data.where}</span></p>
-            <p className='content'>{data.content}</p>
-            <div className='comment-tags'>
+          <div className="commBody">
+            <p className="card-bold">
+              <strong>Who:</strong>
+              <span> {data.who}</span>
+            </p>
+            <p className="card-bold">
+              <strong>Where:</strong>
+              <span> {data.where}</span>
+            </p>
+            <p className="content">{data.content}</p>
+            <div className="comment-tags">
               <Tags
                 tags={[data.tag_1, data.tag_2, data.tag_3]}
                 data={communityTagData}
@@ -125,9 +142,17 @@ export default function JournalEntry({ data }) {
           </div>
         </div>
       </div>
-      <div className='comm-footer'>
-        <p className='footer-action edit'><img src={editIcon} alt="edit post"/></p>
-        <p className='footer-action'><img src={trashIcon} alt="delete post"/></p>
+      <div className="comm-footer">
+        <p className="footer-action edit">
+          <img src={editIcon} alt="edit post" />
+        </p>
+        <p className="footer-action">
+          <img
+            src={trashIcon}
+            alt="delete post"
+            onClick={() => deleteJournal(data.id)}
+          />
+        </p>
       </div>
     </JournalStyles>
   );
