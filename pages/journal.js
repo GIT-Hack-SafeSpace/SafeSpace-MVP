@@ -47,7 +47,6 @@ export default function RantRave() {
     const rave_rant_post = supabase
       .from(`rave_rant_post`)
       .on("INSERT", (payload) => {
-        console.log(payload)
         if(payload.profile_id === user.id){
           handleInsert(payload);
         }
