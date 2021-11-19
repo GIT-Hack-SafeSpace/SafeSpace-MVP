@@ -162,7 +162,7 @@ export default function JournalEntry({ user, data, setData }) {
               </>
             }
           >
-            <CreateRantRave handleClose={handleClose} user={user} obj={data} />
+            <CreateRantRave handleClose={handleClose} user={user} obj={data} setter={setData} />
           </ModalComp>
         </div>
         <p className='footer-action'>

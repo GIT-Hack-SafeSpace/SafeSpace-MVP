@@ -6,6 +6,7 @@ import Select from 'react-select';
 import { ButtonStyle } from '../styles/ButtonStyle';
 import Button from 'react-bootstrap/Button';
 import { communityTagOptions } from '../data/tagData';
+import { getPosts } from '../api/journalData';
 
 const SelectStyle = styled.div`
   margin-top: 5px;
@@ -14,7 +15,7 @@ const SelectStyle = styled.div`
   }
 `;
 
-export default function CreateRantRave({ user, handleClose, obj = {} }) {
+export default function CreateRantRave({ user, handleClose, obj = {}, setter }) {
   const [loading, setLoading] = useState(null);
   const [conflict_type, setConflictType] = useState('');
   const [data, setData] = useState({
@@ -29,10 +30,10 @@ export default function CreateRantRave({ user, handleClose, obj = {} }) {
     }
 
     return () => (isMounted = false);
-  }, [obj]);
+  }, []);
 
   const getData = async () => {
-    if (Object.values(data).length) {
+    if (Object.values(obj).length) {
       setData(obj);
     } else {
       try {
@@ -94,8 +95,10 @@ export default function CreateRantRave({ user, handleClose, obj = {} }) {
       if (Object.values(obj).length) {
         const { data, error } = await supabase
           .from('rave_rant_post')
-          .update(updates)
+          .update({...updates, conflict_type: obj.conflict_type})
           .eq("id", obj.id);
+
+          getPosts(obj.profile_id).then(setter);
       } else {
         const { data, error } = await supabase
           .from('rave_rant_post')
@@ -108,7 +111,6 @@ export default function CreateRantRave({ user, handleClose, obj = {} }) {
         throw error;
       }
     } catch (error) {
-      alert(error.message);
     } finally {
       setLoading(false);
       setData({});
