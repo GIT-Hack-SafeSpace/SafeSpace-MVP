@@ -31,6 +31,7 @@ const SplashStyles = styled.div`
 export default function Login() {
   const [loading, setLoading] = useState(true);
   const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const router = useRouter();
 
   useEffect(() => {
@@ -47,7 +48,10 @@ export default function Login() {
   const handleLogin = async (email) => {
     try {
       setLoading(true);
-      const { error } = await supabase.auth.signIn({ email });
+      const { error } = await supabase.auth.signUp({ 
+        email, 
+        password 
+      });
       if (error) throw error;
       alert('Check your email to confirm login');
     } catch (error) {
@@ -77,10 +81,18 @@ export default function Login() {
               We'll never share your email with anyone else.
             </Form.Text>
             <Form.Control
+              id='email'
               type='email'
               placeholder='Your email address'
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+            />
+            <Form.Control
+              id="password"
+              type='password'
+              placeholder='Password'
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
           </Form.Group>
           <MainButton
