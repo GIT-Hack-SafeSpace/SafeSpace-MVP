@@ -1,13 +1,14 @@
-import { React } from "react";
-import { supabase } from "../utils/client";
-import moment from "moment";
-import styled from "styled-components";
-import { communityTagData } from "../data/tagData";
-import Tags from "./Tags";
-import { deletePost, getPosts } from "../api/journalData";
+import { React, useState } from 'react';
+import moment from 'moment';
+import styled from 'styled-components';
+import { communityTagData } from '../data/tagData';
+import Tags from './Tags';
+import { deletePost, getPosts } from '../api/journalData';
+import ModalComp from './Modal';
+import CreateRantRave from './CreateRantRave';
 
-const editIcon = "icons/edit-icon.svg";
-const trashIcon = "icons/trash-icon.svg";
+const editIcon = 'icons/edit-icon.svg';
+const trashIcon = 'icons/trash-icon.svg';
 
 const JournalStyles = styled.div`
   display: flex;
@@ -95,10 +96,15 @@ const JournalStyles = styled.div`
   }
 `;
 
-export default function JournalEntry({ data, setData }) {
+export default function JournalEntry({ user, data, setData }) {
+  const [showModal, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   const deleteJournal = async (id) => {
     try {
-      deletePost(id)
+      deletePost(id);
     } catch (error) {
       alert(error.message);
     } finally {
@@ -108,32 +114,32 @@ export default function JournalEntry({ data, setData }) {
 
   return (
     <JournalStyles key={data.id}>
-      <div className="main-card-body">
-        <div className="commImgWrapper">
+      <div className='main-card-body'>
+        <div className='commImgWrapper'>
           <img
-            src={`profileimages/${data.conflict_type || "user"}.png`}
-            className="profileImage"
-            alt="image"
+            src={`profileimages/${data.conflict_type || 'user'}.png`}
+            className='profileImage'
+            alt='image'
           />
         </div>
-        <div className="card-wrapper">
-          <div className="commTitleWrapper">
-            <span className="title">{data.title}</span>
+        <div className='card-wrapper'>
+          <div className='commTitleWrapper'>
+            <span className='title'>{data.title}</span>
           </div>
-          <p className="date">
-            {moment(data.created_at).format("MMM DD, YYYY")}
+          <p className='date'>
+            {moment(data.created_at).format('MMM DD, YYYY')}
           </p>
-          <div className="commBody">
-            <p className="card-bold">
+          <div className='commBody'>
+            <p className='card-bold'>
               <strong>Who:</strong>
               <span> {data.who}</span>
             </p>
-            <p className="card-bold">
+            <p className='card-bold'>
               <strong>Where:</strong>
               <span> {data.where}</span>
             </p>
-            <p className="content">{data.content}</p>
-            <div className="comment-tags">
+            <p className='content'>{data.content}</p>
+            <div className='comment-tags'>
               <Tags
                 tags={[data.tag_1, data.tag_2, data.tag_3]}
                 data={communityTagData}
@@ -142,14 +148,27 @@ export default function JournalEntry({ data, setData }) {
           </div>
         </div>
       </div>
-      <div className="comm-footer">
-        <p className="footer-action edit">
-          <img src={editIcon} alt="edit post" />
-        </p>
-        <p className="footer-action">
+      <div className='comm-footer'>
+        <div className='footer-action edit'>
+          {/* <img src={editIcon} alt='edit post' /> */}
+          <ModalComp
+            showModal={showModal}
+            handleClose={handleClose}
+            handleShow={handleShow}
+            title='Edit Entry'
+            button={
+              <>
+                <img src={editIcon} alt='edit post' />
+              </>
+            }
+          >
+            <CreateRantRave handleClose={handleClose} user={user} obj={data} />
+          </ModalComp>
+        </div>
+        <p className='footer-action'>
           <img
             src={trashIcon}
-            alt="delete post"
+            alt='delete post'
             onClick={() => deleteJournal(data.id)}
           />
         </p>

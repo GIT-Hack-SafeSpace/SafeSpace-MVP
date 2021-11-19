@@ -14,7 +14,7 @@ const SelectStyle = styled.div`
   }
 `;
 
-export default function CreateRantRave({ user, handleClose }) {
+export default function CreateRantRave({ user, handleClose, obj = {} }) {
   const [loading, setLoading] = useState(null);
   const [conflict_type, setConflictType] = useState('');
   const [data, setData] = useState({
@@ -23,23 +23,32 @@ export default function CreateRantRave({ user, handleClose }) {
   });
 
   useEffect(async () => {
-
     let isMounted = true;
     if (isMounted) {
+      getData();
+    }
+
+    return () => (isMounted = false);
+  }, [obj]);
+
+  const getData = async () => {
+    if (Object.values(data).length) {
+      setData(obj);
+    } else {
       try {
         setLoading(true);
         const user = supabase.auth.user();
-  
+
         let { data, error, status } = await supabase
           .from('profiles')
           .select(`personality`)
           .eq('id', user.id)
           .single();
-  
+
         if (error && status !== 406) {
           throw error;
         }
-  
+
         if (data) {
           setConflictType(data.personality);
         }
@@ -49,10 +58,7 @@ export default function CreateRantRave({ user, handleClose }) {
         setLoading(false);
       }
     }
-
-    return () => isMounted = false;
-    
-  }, []);
+  };
 
   const postRantRave = async (e) => {
     e.preventDefault();
@@ -85,11 +91,18 @@ export default function CreateRantRave({ user, handleClose }) {
         created_at: new Date(),
       };
 
-      const { data, error } = await supabase
-        .from('rave_rant_post')
-        .upsert(updates, {
-          returning: 'minimal',
-        });
+      if (Object.values(obj).length) {
+        const { data, error } = await supabase
+          .from('rave_rant_post')
+          .update(updates)
+          .eq("id", obj.id);
+      } else {
+        const { data, error } = await supabase
+          .from('rave_rant_post')
+          .upsert(updates, {
+            returning: 'minimal',
+          });
+      }
 
       if (error) {
         throw error;
@@ -122,7 +135,9 @@ export default function CreateRantRave({ user, handleClose }) {
         />
       </div>
       <SelectStyle>
-        <label className="mt-3" htmlFor='postTypes'>Tags (Select up to 3 tags)</label>
+        <label className='mt-3' htmlFor='postTypes'>
+          Tags (Select up to 3 tags)
+        </label>
         <Select
           required={true}
           id='tag_1'
