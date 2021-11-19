@@ -73,7 +73,7 @@ export default function Quiz() {
 
     const getType = () => {
       return Object.keys(userTotals).filter((x) => {
-        return userTotals[x] == Math.max.apply(null, Object.values(userTotals));
+        return userTotals[x] == Math.min.apply(null, Object.values(userTotals));
       });
     };
 
