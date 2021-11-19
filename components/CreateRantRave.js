@@ -105,6 +105,8 @@ export default function CreateRantRave({ user, handleClose, obj = {}, setter }) 
           .upsert(updates, {
             returning: 'minimal',
           });
+
+          getPosts(id).then(setter);
       }
 
       if (error) {
