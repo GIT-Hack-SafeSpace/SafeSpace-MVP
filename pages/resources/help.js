@@ -33,22 +33,22 @@ export default function Help() {
             className='titleWrap'
             style={{ display: 'flex', justifyContent: 'space-between' }}
           >
-            <h2>
-              <b>Helpful Resources</b>
-            </h2>
+            <h1 style={{paddingBottom: '15px'}}>
+              Helpful Resources
+            </h1>
           </div>
 
           {help.map((d, i) => (
             <div key={i}>
                 <div style={{display: 'flex', justifyContent: 'flex-start', marginBottom: '-10px'}}>
                     <div>
-                        <h1 style={{fontSize: '20px', color: '#123456'}}>{d.content}</h1>
+                        <h1 style={{fontSize: '20px', color: '#63988E'}}>{d.content}</h1>
                        { d.address ? <p style={{color: '#000000'}}>📍 {d.address}</p> : <p></p>}
                         <div style={{marginTop: '-10px', color: 'gray'}} className="d-flex">
                             <p><a style={{textDecoration:'none', color: 'blue', fontSize: '18px'}} href={`tel:+${d.phone}`}>📞 </a></p>
                             <p style={{margin: '0 10px'}}>|</p>
                             <Link  href={`${d.link}`}>
-                                <a style={{color: 'blue', fontSize: '17px', textDecoration: 'None'}}>{d.link}</a>
+                                <a style={{color: '#ED3457', fontSize: '17px', textDecoration: 'None'}}>{d.link}</a>
                             </Link>
                         </div>
                     </div>

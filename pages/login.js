@@ -10,7 +10,7 @@ import Link from 'next/link';
 const SplashStyles = styled.div`
   padding: 300px 30px 50px;
   color: white;
-  background-color: darkblue;
+  background-image: url('images/safespaceMainPg.png');
   min-height: 820px;
 
   a {
