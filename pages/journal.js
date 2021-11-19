@@ -55,7 +55,7 @@ export default function RantRave() {
   }, []);
 
   const handleInsert = (payload) => {
-    setData((prevPosts) => [...prevPosts, payload.new]);
+    setData((prevPosts) => [payload.new, ...prevPosts]);
   };
 
   const view = () => {

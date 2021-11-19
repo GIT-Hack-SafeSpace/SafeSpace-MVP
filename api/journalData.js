@@ -10,7 +10,8 @@ export const getPosts = async (userId) => {
       .from('rave_rant_post')
       .select('*')
       .eq('profile_id', userId)
-      .eq('deleted', false);
+      .eq('deleted', false)
+      .order("created_at", { ascending: false });
 
     if (error && status !== 406) {
       throw error;
