@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { supabase } from '../utils/client';
 import { useRouter } from 'next/router';
+import ReactPlayer from 'react-player/lazy';
 import Loader from '../components/Loader';
 import MainLayout from '../layouts/MainLayout';
-import InspirationPost from '../components/InspirationPost';
+import InspirationImage from '../components/InspirationImage';
 import CreateInspo from '../components/CreateInspo';
 import ModalComp from '../components/Modal';
-
 
 export default function Inspiration() {
   const [data, setData] = useState([]);
@@ -41,7 +41,7 @@ export default function Inspiration() {
   }, []);
 
   const handleInsert = (payload) => {
-    setData((prevPosts) => [...prevPosts, payload.new]);
+    setData((prevPosts) => [payload.new, ...prevPosts]);
   };
 
   const getAllInspoPosts = async () => {
@@ -74,13 +74,29 @@ export default function Inspiration() {
     } else {
       return (
         <>
-          <ModalComp showModal={showModal}
+          <ModalComp
+            showModal={showModal}
             handleClose={handleClose}
             handleShow={handleShow}
-            title='Create Inspiration'>
+            title='Create Inspiration'
+          >
             <CreateInspo handleClose={handleClose} user={user} />
           </ModalComp>
-          <InspirationPost data={data} user={user}/>
+          {data.map((media) => {
+            return media.type === 'image' ? (
+              <InspirationImage key={media.id} image={media} />
+            ) : (
+              <ReactPlayer
+                key={media.id}
+                url={media.media_url}
+                controls={true}
+                pip={true}
+                width='100%'
+                height='200px'
+                style={{ backgroundColor: 'black', margin: '5px 0' }}
+              />
+            );
+          })}
         </>
       );
     }

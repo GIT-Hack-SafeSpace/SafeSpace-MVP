@@ -31,7 +31,7 @@ export default function Tags({ tags, data }) {
       {[...new Set(tagArray)].map((tag, i) => (
         <div
           className='tag'
-          key={i + randomNumber(1, 99)}
+          key={tag?.id + randomNumber(1, 99)}
           style={{ backgroundColor: `${tag?.tagColor}` }}
         >
           {tag?.tagName}

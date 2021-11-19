@@ -73,7 +73,7 @@ export default function Login() {
             A place where Black women can support each other, manage our
             mental health, and work related trauma.
           </p>
-          <Form.Group className='form' controlId='formBasicEmail'>
+          <Form.Group className='form'>
             <Form.Label className='visually-hidden visually-hidden-focusable'>
               Email address
             </Form.Label>
