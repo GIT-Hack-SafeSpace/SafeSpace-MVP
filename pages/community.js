@@ -7,6 +7,8 @@ import MainLayout from "../layouts/MainLayout";
 import CommunityPost from "../components/CommunityPost";
 
 import styled from "styled-components";
+import Search from "../components/Search";
+import NoResults from "../components/NoResults";
 
 const CommunityView = styled.div`
   h1 {
@@ -19,6 +21,7 @@ const CommunityView = styled.div`
 export default function Community() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [searchResults, setSearchResults] = useState([]);
   const router = useRouter();
 
   useEffect(() => {
@@ -62,10 +65,19 @@ export default function Community() {
     } else {
       return (
         <CommunityView>
+          <Search
+            data={data}
+            func={setSearchResults}
+            attrs={["content", 'title', 'tag_1', 'tag_2', 'tag_3']}
+            placeholder="Search content"
+          />
           <h1>Community</h1>
-          {data.map((item, i) => (
-            <CommunityPost key={i} data={item} />
-          ))}
+          {!searchResults && <NoResults />}
+          {searchResults?.length
+            ? searchResults.map((item, i) => (
+                <CommunityPost key={i} data={item} />
+              ))
+            : data.map((item, i) => <CommunityPost key={i} data={item} />)}
         </CommunityView>
       );
     }

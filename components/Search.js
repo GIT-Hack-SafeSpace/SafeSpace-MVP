@@ -1,20 +1,37 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-export default function Search({ data, func }) {
-  const [userInput, setUserInput] = useState('');
-  const [searchResults, setSearchResults] = useState([]);
+export default function Search({ data, func, attrs, placeholder }) {
+  const [inputValue, setInputValue] = useState('');
 
-  // grab the users input and do a filter on the value vs the data
-  
-  data.filter((d) => d.whatever.includes(userInput))
+  const handleChange = (e) => {
+    setInputValue(e.target.value);
+    
+    const searchResults = attrs
+      .map((attr) =>
+        data?.filter((entry) =>
+          entry[attr]?.toLowerCase().includes(e.target.value.toLowerCase())
+        )
+      )
+      .flat();
 
-  func(searchResults)
+    if (e.target.value.length && searchResults.length) {
+      func([...new Set(searchResults)]);
+    } else if (e.target.value.length && !searchResults.length) {
+      func(null);
+    } else {
+      func([]);
+    }
+  };
 
-  return <div>
-    <input 
-      onChange={(e) => setUserInput(e.target.value)}
-    />
+  const handleClick = () => {
+    func([]);
+    setInputValue('');
+  };
 
-
-  </div>;
+  return (
+    <div>
+      <input value={inputValue} onChange={handleChange} placeholder={placeholder || 'Search'} />
+      <button onClick={handleClick}>Clear</button>
+    </div>
+  );
 }
