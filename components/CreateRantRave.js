@@ -15,13 +15,22 @@ const SelectStyle = styled.div`
   }
 `;
 
+const initialState = {
+  where: '',
+  who: '',
+  content: '',
+  share: false,
+  isResolved: false,
+  title: '',
+  tag_1: '',
+  tag_2: '',
+  tag_3: '',
+}
+
 export default function CreateRantRave({ user, handleClose, obj = {}, setter }) {
   const [loading, setLoading] = useState(null);
   const [conflict_type, setConflictType] = useState('');
-  const [data, setData] = useState({
-    share: false,
-    isResolved: false,
-  });
+  const [data, setData] = useState(initialState);
 
   useEffect(async () => {
     let isMounted = true;
@@ -115,7 +124,7 @@ export default function CreateRantRave({ user, handleClose, obj = {}, setter }) 
     } catch (error) {
     } finally {
       setLoading(false);
-      setData({});
+      setData(initialState);
       handleClose();
     }
   };
@@ -123,7 +132,7 @@ export default function CreateRantRave({ user, handleClose, obj = {}, setter }) 
   return (
     <Form onSubmit={postRantRave}>
       <div>
-        <label htmlFor='name'>Title</label>
+        <label htmlFor='title'>Title</label>
         <Form.Control
           required
           id='title'
@@ -139,7 +148,7 @@ export default function CreateRantRave({ user, handleClose, obj = {}, setter }) 
         />
       </div>
       <SelectStyle>
-        <label className='mt-3' htmlFor='postTypes'>
+        <label className='mt-3' htmlFor='tag_1'>
           Tags (Select up to 3 tags)
         </label>
         <Select
@@ -211,10 +220,10 @@ export default function CreateRantRave({ user, handleClose, obj = {}, setter }) 
         }
       />
       <div>
-        <label htmlFor='name'>Who?</label>
+        <label htmlFor='who'>Who?</label>
         <Form.Control
           required
-          id='name'
+          id='who'
           type='text'
           placeholder='Who was involved?'
           value={data.who || ''}
@@ -227,12 +236,12 @@ export default function CreateRantRave({ user, handleClose, obj = {}, setter }) 
         />
       </div>
       <div>
-        <label htmlFor='name'>Where?</label>
+        <label htmlFor='where'>Where?</label>
         <Form.Control
           type='text'
           placeholder='Location of event'
           required
-          id='name'
+          id='where'
           type='text'
           value={data.where || ''}
           onChange={(e) =>

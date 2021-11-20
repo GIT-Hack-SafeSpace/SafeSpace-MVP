@@ -6,6 +6,7 @@ import MainLayout from '../layouts/MainLayout';
 import CompanyReview from '../components/CompanyReview';
 import ModalComp from '../components/Modal';
 import CreateCompany from '../components/CreateCompany';
+import ModalCreate from '../components/buttons/ModalCreate';
 
 export default function Companies() {
   const [data, setData] = useState([]);
@@ -73,6 +74,7 @@ export default function Companies() {
             handleClose={handleClose}
             handleShow={handleShow}
             title='Submit a Great Company'
+            button={ModalCreate}
           >
             <CreateCompany handleClose={handleClose} user={user} />
           </ModalComp>

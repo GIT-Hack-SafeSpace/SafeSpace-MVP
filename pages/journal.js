@@ -62,9 +62,9 @@ export default function RantRave() {
             <CreateRantRave handleClose={handleClose} user={user} setter={setData} />
           </ModalComp>
           <h1>Journal</h1>
-          {data.map((item, i) => (
+          {Object.values(data).length ? data.map((item, i) => (
             <JournalEntry key={i} data={item} user={user} setData={setData} setLoading={setLoading} />
-          ))}
+          )): <h2>Get Started, Create a Post!</h2>}
         </JournalStyles>
       );
     }
