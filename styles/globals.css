@@ -83,7 +83,7 @@ nav {
   border-color: rgba(0,0,0,0);
 }
 
-.nav-link {
+.navbar-nav > a {
   display: block;
   padding: .5rem 1rem;
   color: rgb(237, 52, 87);

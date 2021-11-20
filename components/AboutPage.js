@@ -14,7 +14,7 @@ const foundUser = (userId) =>
 const userIcons = (userId) => {
   let teamMemberIcons = foundUser(userId).socialMedias;
 
-  return (teamMemberIcons.map((t)=> <a key={t.id} href={t.userUrl}><img className="icons" src={t.iconUrl} alt={t.alt} /></a>))
+  return (teamMemberIcons.map((t)=> <a target='_blank' key={t.id} href={t.userUrl}><img className="icons" src={t.iconUrl} alt={t.alt} /></a>))
 };
 
 const BioCard = ({u}) => {
