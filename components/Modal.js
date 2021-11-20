@@ -1,4 +1,3 @@
-import Button from 'react-bootstrap/Button';
 import { ButtonStyle } from '../styles/ButtonStyle';
 import Modal from 'react-bootstrap/Modal';
 
@@ -8,14 +7,12 @@ export default function ModalComp({
   handleShow,
   handleClose,
   showModal,
-  button
+  button: Button
 }) {
   return (
     <>
       <ButtonStyle className='d-flex justify-content-center'>
-        <Button className='create' onClick={handleShow}>
-          <span>&#43;</span> CREATE
-        </Button>
+        <Button handleShow={handleShow} />
       </ButtonStyle>
       <Modal show={showModal} onHide={handleClose}>
         <Modal.Header closeButton>

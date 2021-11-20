@@ -9,6 +9,7 @@ import MainLayout from "../layouts/MainLayout";
 import { getPosts } from "../api/journalData";
 
 import styled from "styled-components";
+import ModalCreate from "../components/buttons/ModalCreate";
 
 const JournalStyles = styled.div`
   background-color: #fefefe;
@@ -56,6 +57,7 @@ export default function RantRave() {
             handleClose={handleClose}
             handleShow={handleShow}
             title="Add Entry"
+            button={ModalCreate}
           >
             <CreateRantRave handleClose={handleClose} user={user} setter={setData} />
           </ModalComp>

@@ -6,8 +6,8 @@ import Tags from "./Tags";
 import { deletePost, getPosts } from "../api/journalData";
 import ModalComp from "./Modal";
 import CreateRantRave from "./CreateRantRave";
+import JournalEdit from "./buttons/JournalEdit";
 
-const editIcon = "icons/edit-icon.svg";
 const trashIcon = "icons/trash-icon.svg";
 
 const JournalStyles = styled.div`
@@ -145,18 +145,12 @@ export default function JournalEntry({ user, data, setData, setLoading }) {
         </div>
       </div>
       <div className="comm-footer">
-        <div className="footer-action edit">
-          {/* <img src={editIcon} alt='edit post' /> */}
           <ModalComp
             showModal={showModal}
             handleClose={handleClose}
             handleShow={handleShow}
             title="Edit Entry"
-            button={
-              <>
-                <img src={editIcon} alt="edit post" />
-              </>
-            }
+            button={JournalEdit}
           >
             <CreateRantRave
               handleClose={handleClose}
@@ -165,7 +159,6 @@ export default function JournalEntry({ user, data, setData, setLoading }) {
               setter={setData}
             />
           </ModalComp>
-        </div>
         <p className="footer-action">
           <img
             src={trashIcon}
