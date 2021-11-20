@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react";
-import { supabase } from "../utils/client";
-import Form from "react-bootstrap/Form";
-import styled from "styled-components";
-import Select from "react-select";
-import { ButtonStyle } from "../styles/ButtonStyle";
-import Button from "react-bootstrap/Button";
-import { communityTagOptions } from "../data/tagData";
-import { getPosts } from "../api/journalData";
+import React, { useState, useEffect } from 'react';
+import { supabase } from '../utils/client';
+import Form from 'react-bootstrap/Form';
+import styled from 'styled-components';
+import Select from 'react-select';
+import { ButtonStyle } from '../styles/ButtonStyle';
+import Button from 'react-bootstrap/Button';
+import { communityTagOptions } from '../data/tagData';
+import { getPosts } from '../api/journalData';
 
 const SelectStyle = styled.div`
   margin-top: 5px;
@@ -16,15 +16,16 @@ const SelectStyle = styled.div`
 `;
 
 const initialState = {
-  where: "",
-  who: "",
-  content: "",
+  where: '',
+  who: '',
+  content: '',
   share: false,
   isResolved: false,
-  title: "",
-  tag_1: "",
-  tag_2: "",
-  tag_3: "",
+  resolution: '',
+  title: '',
+  tag_1: '',
+  tag_2: '',
+  tag_3: '',
 };
 
 export default function CreateRantRave({
@@ -34,7 +35,7 @@ export default function CreateRantRave({
   setter,
 }) {
   const [loading, setLoading] = useState(null);
-  const [conflict_type, setConflictType] = useState("");
+  const [conflict_type, setConflictType] = useState('');
   const [data, setData] = useState(initialState);
 
   useEffect(async () => {
@@ -55,9 +56,9 @@ export default function CreateRantRave({
         const user = supabase.auth.user();
 
         let { data, error, status } = await supabase
-          .from("profiles")
+          .from('profiles')
           .select(`personality`)
-          .eq("id", user.id)
+          .eq('id', user.id)
           .single();
 
         if (error && status !== 406) {
@@ -89,16 +90,16 @@ export default function CreateRantRave({
 
       if (Object.values(obj).length) {
         const { data, error } = await supabase
-          .from("rave_rant_post")
+          .from('rave_rant_post')
           .update({ ...updates, conflict_type: obj.conflict_type })
-          .eq("id", obj.id);
+          .eq('id', obj.id);
 
         getPosts(obj.profile_id).then(setter);
       } else {
         const { data, error } = await supabase
-          .from("rave_rant_post")
+          .from('rave_rant_post')
           .upsert(updates, {
-            returning: "minimal",
+            returning: 'minimal',
           });
 
         getPosts(id).then(setter);
@@ -118,13 +119,13 @@ export default function CreateRantRave({
   return (
     <Form onSubmit={postRantRave}>
       <div>
-        <label htmlFor="title">Title</label>
+        <label htmlFor='title'>Title</label>
         <Form.Control
           required
-          id="title"
-          type="text"
-          placeholder="Title of Entry"
-          value={data.title || ""}
+          id='title'
+          type='text'
+          placeholder='Title of Entry'
+          value={data.title || ''}
           onChange={(e) =>
             setData((prevState) => ({
               ...prevState,
@@ -134,69 +135,69 @@ export default function CreateRantRave({
         />
       </div>
       <SelectStyle>
-        <label className="mt-3" htmlFor="tag_1">
+        <label className='mt-3' htmlFor='tag_1'>
           Tags (Select up to 3 tags)
         </label>
         <Select
           required={true}
-          id="tag_1"
-          name="tag_1"
-          type="tag_1"
+          id='tag_1'
+          name='tag_1'
+          type='tag_1'
           options={communityTagOptions}
-          value={communityTagOptions.find((i) => i.value === data.tag_1) || ""}
+          value={communityTagOptions.find((i) => i.value === data.tag_1) || ''}
           onChange={(e) =>
             setData((prevState) => ({
               ...prevState,
-              tag_1: e?.value || "",
+              tag_1: e?.value || '',
             }))
           }
-          className="basic-single"
-          classNamePrefix="select"
+          className='basic-single'
+          classNamePrefix='select'
           isSearchable={true}
         />
       </SelectStyle>
       <SelectStyle>
         <Select
           required={true}
-          id="tag_2"
-          name="tag_2"
-          type="tag_2"
+          id='tag_2'
+          name='tag_2'
+          type='tag_2'
           options={communityTagOptions}
-          value={communityTagOptions.find((i) => i.value === data.tag_2) || ""}
+          value={communityTagOptions.find((i) => i.value === data.tag_2) || ''}
           onChange={(e) =>
             setData((prevState) => ({
               ...prevState,
-              tag_2: e?.value || "",
+              tag_2: e?.value || '',
             }))
           }
-          className="basic-single"
-          classNamePrefix="select"
+          className='basic-single'
+          classNamePrefix='select'
           isSearchable={true}
         />
       </SelectStyle>
       <SelectStyle>
         <Select
           required={true}
-          id="tag_3"
-          name="tag_3"
-          type="tag_3"
+          id='tag_3'
+          name='tag_3'
+          type='tag_3'
           options={communityTagOptions}
-          value={communityTagOptions.find((i) => i.value === data.tag_3) || ""}
+          value={communityTagOptions.find((i) => i.value === data.tag_3) || ''}
           onChange={(e) =>
             setData((prevState) => ({
               ...prevState,
-              tag_3: e?.value || "",
+              tag_3: e?.value || '',
             }))
           }
-          className="basic-single"
-          classNamePrefix="select"
+          className='basic-single'
+          classNamePrefix='select'
           isSearchable={true}
         />
       </SelectStyle>
       <Form.Check
-        type="switch"
-        id="share"
-        label="Share in Community?"
+        type='switch'
+        id='share'
+        label='Share in Community?'
         checked={data.share}
         onChange={(e) =>
           setData((prevState) => ({
@@ -206,13 +207,13 @@ export default function CreateRantRave({
         }
       />
       <div>
-        <label htmlFor="who">Who?</label>
+        <label htmlFor='who'>Who?</label>
         <Form.Control
           required
-          id="who"
-          type="text"
-          placeholder="Who was involved?"
-          value={data.who || ""}
+          id='who'
+          type='text'
+          placeholder='Who was involved?'
+          value={data.who || ''}
           onChange={(e) =>
             setData((prevState) => ({
               ...prevState,
@@ -222,14 +223,14 @@ export default function CreateRantRave({
         />
       </div>
       <div>
-        <label htmlFor="where">Where?</label>
+        <label htmlFor='where'>Where?</label>
         <Form.Control
-          type="text"
-          placeholder="Location of event"
+          type='text'
+          placeholder='Location of event'
           required
-          id="where"
-          type="text"
-          value={data.where || ""}
+          id='where'
+          type='text'
+          value={data.where || ''}
           onChange={(e) =>
             setData((prevState) => ({
               ...prevState,
@@ -238,16 +239,16 @@ export default function CreateRantRave({
           }
         />
       </div>
-      <Form.Group className="mb-3">
+      <Form.Group className='mb-3'>
         <Form.Label>What happened?</Form.Label>
         <Form.Control
           required
-          as="textarea"
+          as='textarea'
           rows={3}
-          id="content"
-          name="content"
-          type="content"
-          value={data.content || ""}
+          id='content'
+          name='content'
+          type='content'
+          value={data.content || ''}
           onChange={(e) =>
             setData((prevState) => ({
               ...prevState,
@@ -257,9 +258,9 @@ export default function CreateRantRave({
         />
       </Form.Group>
       <Form.Check
-        type="switch"
-        id="isResolved"
-        label="Resolved?"
+        type='switch'
+        id='isResolved'
+        label='Resolved?'
         checked={data.isResolved}
         onChange={(e) =>
           setData((prevState) => ({
@@ -268,9 +269,29 @@ export default function CreateRantRave({
           }))
         }
       />
+      {data.isResolved && (
+        <Form.Group className='mb-3'>
+          <Form.Label>Resolution</Form.Label>
+          <Form.Control
+            as='textarea'
+            rows={3}
+            id='resolution'
+            name='resolution'
+            type='resolution'
+            value={data.resolution || ''}
+            onChange={(e) =>
+              setData((prevState) => ({
+                ...prevState,
+                resolution: e.target.value,
+              }))
+            }
+          />
+        </Form.Group>
+      )}
+
       <ButtonStyle>
-        <Button className="save-change" disabled={loading} type="submit">
-          {loading ? "Loading ..." : "Save Changes"}
+        <Button className='save-change' disabled={loading} type='submit'>
+          {loading ? 'Loading ...' : 'Save Changes'}
         </Button>
       </ButtonStyle>
     </Form>
