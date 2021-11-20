@@ -1,8 +1,7 @@
 import React from 'react';
 import { useRouter } from 'next/router';
-import { ButtonStyle } from '../styles/ButtonStyle';
 import { results } from '../data/quizData';
-import NoNavigation from '../layouts/NoNavigation';
+import NoNavigation from '../layouts/HeaderOnly';
 
 export default function ConflictStyles() {
   const router = useRouter();

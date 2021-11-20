@@ -5,12 +5,6 @@ html {
   font-family: 'Inter', sans-serif;
 }
 
-.mood-font {
-  font-family: 'Playfair Display', serif;
-  font-size: 40px;
-  text-align: center;
-}
-
 .appContainer {
   margin-top: 100px;
   margin-bottom: 79px;
@@ -18,7 +12,7 @@ html {
 }
 
 .nnAppContainer {
-  margin-top: 50px;
+  margin-top: 100px;
   margin-bottom: 100px;
   padding: 20px;
 }

@@ -24,6 +24,7 @@ export default function GlobalHeader() {
               <Nav.Link href="/">Profile</Nav.Link>
               <Nav.Link href="/">Your Mood</Nav.Link>
               <Nav.Link href="/conflict-modes">Conflict Types</Nav.Link>
+              <Nav.Link href="/conflict-quiz">Get Your Type</Nav.Link>
               <hr />
               <h2>About</h2>
               <Nav.Link href="/about">The Team</Nav.Link>
