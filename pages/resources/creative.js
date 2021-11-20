@@ -37,7 +37,9 @@ export default function Creative() {
             className='titleWrap'
             style={{ display: 'flex', justifyContent: 'space-between' }}
           >
-            <h1 style={{ paddingBottom: '15px' }}>Creative Solutions</h1>
+            <h1 className="rscHeaders">
+              Creative Solutions
+            </h1>
           </div>
 
           {creative.map((d, i) => (

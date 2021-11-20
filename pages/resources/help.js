@@ -32,7 +32,7 @@ export default function Help() {
             className='titleWrap'
             style={{ display: 'flex', justifyContent: 'space-between' }}
           >
-            <h1 style={{ paddingBottom: '15px' }}>Helpful Resources</h1>
+            <h1 className="rscHeaders">Helpful Resources</h1>
           </div>
 
           {help.map((d, i) => (

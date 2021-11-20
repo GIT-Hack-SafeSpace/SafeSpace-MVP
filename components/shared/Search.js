@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+
 export default function Search({ data, func, attrs, placeholder }) {
   const [inputValue, setInputValue] = useState('');
 
@@ -29,9 +30,13 @@ export default function Search({ data, func, attrs, placeholder }) {
   };
 
   return (
-    <div>
-      <input value={inputValue} onChange={handleChange} placeholder={placeholder || 'Search'} />
-      <button onClick={handleClick}>Clear</button>
+    <>
+    <div class="d-flex justify-content-center" style={{alignItems: 'center', marginBottom: '20px'}}>
+      <input style={{border: '1px solid lightgray', borderRadius: '30px', width: '40vh', height: '35px', marginLeft: '10px', paddingLeft: '20px'}} value={inputValue} onChange={handleChange} placeholder={placeholder || 'Search'} />
+      <p onClick={handleClick} style={{margin: '10px', color: 'red', cursor: 'pointer'}}>Reset</p>
     </div>
+    </>
   );
 }
+
+

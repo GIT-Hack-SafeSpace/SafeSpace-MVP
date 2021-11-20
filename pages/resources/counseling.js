@@ -33,7 +33,7 @@ export default function Counseling() {
             className='titleWrap'
             style={{ display: 'flex', justifyContent: 'space-between' }}
           >
-            <h1 style={{ marginBottom: '15px' }}>Seeking Counseling</h1>
+            <h1 className="rscHeaders">Seeking Counseling</h1>
           </div>
 
           {counselors.map((d, i) => (
