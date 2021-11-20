@@ -6,6 +6,18 @@ import MainLayout from '../layouts/MainLayout';
 import CompanyReview from '../components/CompanyReview';
 import ModalComp from '../components/Modal';
 import CreateCompany from '../components/CreateCompany';
+import ModalCreate from '../components/buttons/ModalCreate';
+import styled from 'styled-components';
+
+const CompanyStyles = styled.div`
+  background-color: #fefefe;
+
+  h1 {
+    border-bottom: 1px solid #e8e8e8;
+    padding-bottom: 15px;
+    font-size: 28px;
+  }
+`;
 
 export default function Companies() {
   const [data, setData] = useState([]);
@@ -39,7 +51,7 @@ export default function Companies() {
   }, []);
 
   const handleInsert = (payload) => {
-    setData((prevPosts) => [...prevPosts, payload.new]);
+    setData((prevPosts) => [payload.new, ...prevPosts ]);
   };
 
   const getCompanyData = async () => {
@@ -67,17 +79,19 @@ export default function Companies() {
       return <Loader />;
     } else {
       return (
-        <>
+        <CompanyStyles>
           <ModalComp
             showModal={showModal}
             handleClose={handleClose}
             handleShow={handleShow}
             title='Submit a Great Company'
+            trigger={ModalCreate}
           >
             <CreateCompany handleClose={handleClose} user={user} />
           </ModalComp>
-          <CompanyReview data={data} user={user}/>
-        </>
+          <h1>Featured Companies</h1>
+          <CompanyReview data={data} />
+        </CompanyStyles>
       );
     }
   };
