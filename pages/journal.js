@@ -9,6 +9,7 @@ import MainLayout from "../layouts/MainLayout";
 import { getPosts } from "../api/journalData";
 
 import styled from "styled-components";
+import ModalCreate from "../components/buttons/ModalCreate";
 
 const JournalStyles = styled.div`
   background-color: #fefefe;
@@ -43,20 +44,7 @@ export default function RantRave() {
       });
       setUser(user);
     }
-    // subscribe to all inserts (post)
-    const rave_rant_post = supabase
-      .from("rave_rant_post")
-      .on("INSERT", (payload) => {
-        handleInsert(payload);
-      })
-      .subscribe();
-
-    return () => supabase.removeSubscription(rave_rant_post);
   }, []);
-
-  const handleInsert = (payload) => {
-    setData((prevPosts) => [payload.new, ...prevPosts]);
-  };
 
   const view = () => {
     if (loading) {
@@ -69,13 +57,14 @@ export default function RantRave() {
             handleClose={handleClose}
             handleShow={handleShow}
             title="Add Entry"
+            trigger={ModalCreate}
           >
-            <CreateRantRave handleClose={handleClose} user={user} />
+            <CreateRantRave handleClose={handleClose} user={user} setter={setData} />
           </ModalComp>
           <h1>Journal</h1>
-          {data.map((item, i) => (
-            <JournalEntry key={i} data={item} user={user} setData={setData} />
-          ))}
+          {Object.values(data).length ? data.map((item, i) => (
+            <JournalEntry key={i} data={item} user={user} setData={setData} setLoading={setLoading} />
+          )): <h2>Get Started, Create a Post!</h2>}
         </JournalStyles>
       );
     }

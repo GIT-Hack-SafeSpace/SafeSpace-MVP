@@ -7,6 +7,7 @@ import MainLayout from '../layouts/MainLayout';
 import InspirationImage from '../components/InspirationImage';
 import CreateInspo from '../components/CreateInspo';
 import ModalComp from '../components/Modal';
+import ModalCreate from '../components/buttons/ModalCreate';
 
 export default function Inspiration() {
   const [data, setData] = useState([]);
@@ -79,6 +80,7 @@ export default function Inspiration() {
             handleClose={handleClose}
             handleShow={handleShow}
             title='Create Inspiration'
+            trigger={ModalCreate}
           >
             <CreateInspo handleClose={handleClose} user={user} />
           </ModalComp>

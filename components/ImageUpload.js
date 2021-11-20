@@ -55,15 +55,3 @@ export default function UploadImage({ url, size, onUpload }) {
     </div>
   );
 }
-
-{
-  // code to use
-  /* <UploadImage
-          url={image_url}
-          size={150}
-          onUpload={(url) => {
-            setUser((prevState) => ({ ...prevState, image_url: url }));
-            updateProfile({ username, industry, image_url: url });
-          }}
-        /> */
-}
