@@ -47,8 +47,8 @@ export default function Counseling() {
                             </Link>
                         </div>
                         <div className="d-flex" style={{marginTop: '-10px', marginBottom: '15px'}}>
-                            {d.specialty.map(specialty => {
-                              return <p style={{filter: 'drop-shadow(1px 1px 1px gray)', padding: '2px 10px', color: 'gray', border: '1px solid gray', margin: '0px 5px', backgroundColor: 'white', borderRadius: '20px', fontSize: '12px'}}>{specialty}</p>
+                            {d.specialty.map((specialty, i) => {
+                              return <p key={i} style={{filter: 'drop-shadow(1px 1px 1px gray)', padding: '2px 10px', color: 'gray', border: '1px solid gray', margin: '0px 5px', backgroundColor: 'white', borderRadius: '20px', fontSize: '12px'}}>{specialty}</p>
                             })}
                         </div>
                     </div>

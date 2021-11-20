@@ -61,7 +61,7 @@ export default function RantRave() {
           </ModalComp>
           <h1>Journal</h1>
           {data.map((item, i) => (
-            <JournalEntry key={i} data={item} user={user} setData={setData} />
+            <JournalEntry key={i} data={item} user={user} setData={setData} setLoading={setLoading} />
           ))}
         </JournalStyles>
       );
