@@ -4,8 +4,13 @@ import { useRouter } from "next/router";
 import Select from "react-select";
 import styled from "styled-components";
 import { industries } from "../data/industries";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+import { ButtonStyle } from "../styles/ButtonStyle";
+import MainLayout from "../layouts/MainLayout";
 
 const SelectStyle = styled.div`
+  margin-top: 10px;
   .select__option {
     color: black !important;
   }
@@ -30,7 +35,7 @@ export default function Profile() {
       } else {
         let { data, error, status } = await supabase
           .from("profiles")
-          .select(`username, industry, avatar_url`)
+          .select(`username, industry, avatar_url, personality, lgbtqa`)
           .eq("id", user.id)
           .single();
 
@@ -38,9 +43,9 @@ export default function Profile() {
           throw error;
         }
         if (data) {
-          setUser({...data, id: user.id});
+          setUser({ ...data, id: user.id });
         } else {
-          setUser({id: user.id})
+          setUser({ id: user.id });
         }
       }
     } catch (error) {
@@ -50,8 +55,9 @@ export default function Profile() {
     }
   }
 
-  async function updateProfile() {
-    const { id, username, industry, avatar_url } = user;
+  async function updateProfile(e) {
+    e.preventDefault();
+    const { id, username, industry, avatar_url, personality, lgbtqa } = user;
 
     try {
       setLoading(true);
@@ -60,6 +66,8 @@ export default function Profile() {
         username,
         industry,
         avatar_url,
+        personality,
+        lgbtqa,
         updated_at: new Date(),
       };
 
@@ -80,24 +88,25 @@ export default function Profile() {
     await supabase.auth.signOut();
     router.push("/login");
   }
-  
-  if (!user) return null
+
+  const handleQuiz = (e) => {
+    updateProfile(e).then(() => router.push("/conflict-quiz"));
+  };
+
+  if (!user) return null;
   return (
-    <div style={{ maxWidth: "420px", margin: "96px auto" }}>
-      <div className="form-widget">
-        <div>
-          {/* <Avatar
-          url={avatar_url}
-          size={150}
-          onUpload={(url) => {
-            setUser((prevState) => ({ ...prevState, avatar_url: url }));
-            updateProfile({ username, industry, avatar_url: url });
-          }}
-        /> */}
-        </div>
+    <MainLayout>
+      <ButtonStyle className="d-flex justify-content-end">
+        <Button className="btn-danger" onClick={signOut}>
+          Sign Out
+        </Button>
+      </ButtonStyle>
+      <Form onSubmit={updateProfile}>
         <div>
           <label htmlFor="username">Username</label>
-          <input
+          <Form.Control
+            type="text"
+            placeholder="Don't use your real name"
             id="username"
             type="text"
             value={user.username || ""}
@@ -115,7 +124,7 @@ export default function Profile() {
         </div>
 
         <SelectStyle>
-          <label htmlFor="industry">Industry</label>
+          <label htmlFor="industry">Your Industry</label>
           <Select
             id="industry"
             name="industry"
@@ -134,23 +143,75 @@ export default function Profile() {
             isSearchable={true}
           />
         </SelectStyle>
-
-        <div>
-          <button
-            className="button block primary"
-            onClick={updateProfile}
-            disabled={loading}
-          >
-            {loading ? "Loading ..." : "Update"}
-          </button>
+        <div className="mt-3">
+          <label htmlFor="group1">
+            Do you a member of the LGBTQA+ community?
+          </label>
+          <div key="inline-radio" className="mb-3">
+            <Form.Check
+              required
+              inline
+              className="mx-2"
+              label="Yes"
+              name="lgbtqa"
+              value="yes"
+              type="radio"
+              id="inline-radio-1"
+              checked={user.lgbtqa === "yes"}
+              onChange={(e) =>
+                setUser((prevState) => ({
+                  ...prevState,
+                  lgbtqa: e.target.value,
+                }))}
+            />
+            <Form.Check
+              inline
+              label="No"
+              className="mx-2"
+              name="lgbtqa"
+              type="radio"
+              value="no"
+              checked={user.lgbtqa === "no"}
+              id="inline-radio-2"
+              onChange={(e) =>
+                setUser((prevState) => ({
+                  ...prevState,
+                  lgbtqa: e.target.value,
+                }))}
+            />
+            <Form.Check
+              inline
+              label="Prefer not to answer"
+              className="mx-2"
+              name="lgbtqa"
+              type="radio"
+              value="pref-not-answer"
+              checked={user.lgbtqa === "pref-not-answer"}
+              id="inline-radio-3"
+              onChange={(e) =>
+                setUser((prevState) => ({
+                  ...prevState,
+                  lgbtqa: e.target.value,
+                }))}
+            />
+          </div>
         </div>
-
-        <div>
-          <button className="button block" onClick={signOut}>
-            Sign Out
-          </button>
-        </div>
-      </div>
-    </div>
+        <ButtonStyle>
+          {user.personality ? (
+            <Button className="btn-update" disabled={loading} type="submit">
+              {loading ? "Loading ..." : "Update Profile"}
+            </Button>
+          ) : (
+            <Button
+              className="btn-update"
+              disabled={loading}
+              onClick={handleQuiz}
+            >
+              Continue
+            </Button>
+          )}
+        </ButtonStyle>
+      </Form>
+    </MainLayout>
   );
 }
