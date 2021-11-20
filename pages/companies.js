@@ -9,6 +9,7 @@ import CreateCompany from '../components/CreateCompany';
 import ModalCreate from '../components/buttons/ModalCreate';
 import styled from 'styled-components';
 import Search from '../components/Search';
+import NoResults from '../components/NoResults';
 
 const CompanyStyles = styled.div`
   background-color: #fefefe;
@@ -99,7 +100,7 @@ export default function Companies() {
           />
           <h1>Featured Companies</h1>
 
-          {!searchResults && <p>No Results</p>}
+          {!searchResults && <NoResults />}
           {searchResults?.length
             ? searchResults.map((item, i) => (
                 <CompanyReview key={i} data={item} />

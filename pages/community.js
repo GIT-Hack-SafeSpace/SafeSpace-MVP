@@ -8,6 +8,7 @@ import CommunityPost from "../components/CommunityPost";
 
 import styled from "styled-components";
 import Search from "../components/Search";
+import NoResults from "../components/NoResults";
 
 const CommunityView = styled.div`
   h1 {
@@ -71,7 +72,7 @@ export default function Community() {
             placeholder="Search content"
           />
           <h1>Community</h1>
-          {!searchResults && <p>No Results</p>}
+          {!searchResults && <NoResults />}
           {searchResults?.length
             ? searchResults.map((item, i) => (
                 <CommunityPost key={i} data={item} />

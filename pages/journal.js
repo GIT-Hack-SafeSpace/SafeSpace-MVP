@@ -11,6 +11,7 @@ import { getPosts } from "../api/journalData";
 import styled from "styled-components";
 import ModalCreate from "../components/buttons/ModalCreate";
 import Search from "../components/Search";
+import NoResults from "../components/NoResults";
 
 const JournalStyles = styled.div`
   background-color: #fefefe;
@@ -74,7 +75,7 @@ export default function RantRave() {
             placeholder="Search Your Journal Content"
           />
           <h1>Journal</h1>
-          {!searchResults && <p>No Results</p>}
+          {!searchResults && <NoResults />}
           {searchResults?.length ? (
             searchResults.map((item, i) => (
               <JournalEntry

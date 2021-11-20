@@ -11,6 +11,7 @@ import ModalCreate from "../components/buttons/ModalCreate";
 import styled from "styled-components";
 import Search from "../components/Search";
 import InspoMedia from "../components/InspoMedia";
+import NoResults from "../components/NoResults";
 
 const InspoStyles = styled.div`
   background-color: #fefefe;
@@ -105,7 +106,7 @@ export default function Inspiration() {
             placeholder="Search for Inspiration"
           />
           <h1>Inspiration</h1>
-          {!searchResults && <p>No Results</p>}
+          {!searchResults && <NoResults />}
           {searchResults?.length
             ? searchResults.map((media, i) => <InspoMedia key={i} media={media} />)
             : data.map((media, i) => <InspoMedia key={i} media={media} />)}
