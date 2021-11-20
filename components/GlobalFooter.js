@@ -2,12 +2,6 @@ import React from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-const community = "/footer/community.svg";
-const companies = "/footer/companies.svg";
-const addentry = "/footer/addentry.svg";
-const inspiration = "/footer/inspiration.svg";
-const resources = "/footer/resources.svg";
-
 export default function GlobalFooter() {
   const router = useRouter();
   return (
