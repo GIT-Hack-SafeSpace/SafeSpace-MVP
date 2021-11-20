@@ -38,7 +38,7 @@ export default function Creative() {
             className='titleWrap'
             style={{ display: 'flex', justifyContent: 'space-between' }}
           >
-            <h1 style={{paddingBottom: '15px'}}>
+            <h1 className="rscHeaders">
               Creative Solutions
             </h1>
           </div>
