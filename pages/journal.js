@@ -57,7 +57,7 @@ export default function RantRave() {
             handleClose={handleClose}
             handleShow={handleShow}
             title="Add Entry"
-            button={ModalCreate}
+            trigger={ModalCreate}
           >
             <CreateRantRave handleClose={handleClose} user={user} setter={setData} />
           </ModalComp>

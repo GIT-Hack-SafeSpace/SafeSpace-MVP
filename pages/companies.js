@@ -85,7 +85,7 @@ export default function Companies() {
             handleClose={handleClose}
             handleShow={handleShow}
             title='Submit a Great Company'
-            button={ModalCreate}
+            trigger={ModalCreate}
           >
             <CreateCompany handleClose={handleClose} user={user} />
           </ModalComp>

@@ -80,7 +80,7 @@ export default function Inspiration() {
             handleClose={handleClose}
             handleShow={handleShow}
             title='Create Inspiration'
-            button={ModalCreate}
+            trigger={ModalCreate}
           >
             <CreateInspo handleClose={handleClose} user={user} />
           </ModalComp>

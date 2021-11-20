@@ -154,7 +154,7 @@ export default function JournalEntry({ user, data, setData, setLoading }) {
             handleClose={handleClose}
             handleShow={handleShow}
             title="Edit Entry"
-            button={JournalEdit}
+            trigger={JournalEdit}
           >
             <CreateRantRave
               handleClose={handleClose}

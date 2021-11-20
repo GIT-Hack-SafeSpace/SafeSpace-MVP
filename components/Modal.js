@@ -7,12 +7,12 @@ export default function ModalComp({
   handleShow,
   handleClose,
   showModal,
-  button: Button
+  trigger: Trigger
 }) {
   return (
     <>
       <ButtonStyle className='d-flex justify-content-center'>
-        <Button handleShow={handleShow} />
+        <Trigger handleShow={handleShow} />
       </ButtonStyle>
       <Modal show={showModal} onHide={handleClose}>
         <Modal.Header closeButton>
