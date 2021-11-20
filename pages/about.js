@@ -1,7 +1,7 @@
 import React from 'react';
 import AboutPage from '../components/AboutPage';
-import NoFooter from '../layouts/NoFooter';
+import HeaderOnly from '../layouts/HeaderOnly';
 
 export default function About() {
-  return <NoFooter><AboutPage/></NoFooter>;
+  return <HeaderOnly><AboutPage/></HeaderOnly>;
 }

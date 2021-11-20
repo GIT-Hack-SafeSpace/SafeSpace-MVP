@@ -5,12 +5,6 @@ html {
   font-family: 'Inter', sans-serif;
 }
 
-.mood-font {
-  font-family: 'Playfair Display', serif;
-  font-size: 40px;
-  text-align: center;
-}
-
 .appContainer {
   margin-top: 100px;
   margin-bottom: 79px;
@@ -18,7 +12,7 @@ html {
 }
 
 .nnAppContainer {
-  margin-top: 50px;
+  margin-top: 100px;
   margin-bottom: 100px;
   padding: 20px;
 }
@@ -28,9 +22,14 @@ input,
   margin: 10px 0;
 }
 
-h1.splash-title, h1.safespace {
+h1.splash-title {
   font-family: 'Poppins', sans-serif;
   font-size: 2.5rem;
+}
+
+h1.safespace {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.1rem;
 }
 
 h2 {
@@ -61,6 +60,35 @@ nav {
   padding-top: 30px;
   border-bottom: 1px solid lightgray;
   z-index: 200;
+}
+
+.nb-fixed {
+  overflow: hidden;
+  height: 90px;
+  background-color: white;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  max-width: 450px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid lightgray;
+  z-index: 1030;
+}
+
+.navbar-light .navbar-toggler {
+  color: rgba(0,0,0,.55);
+  border-color: rgba(0,0,0,0);
+}
+
+.nav-link {
+  display: block;
+  padding: .5rem 1rem;
+  color: rgb(237, 52, 87);
+  text-decoration: none;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
 }
 
 .menuExample {
