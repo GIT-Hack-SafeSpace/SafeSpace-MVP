@@ -7,12 +7,6 @@ import DisplayBio from "./DisplayBio";
 import { allBioData } from "../data/bioData";
 
 const groupPhoto = "/bio/safe.png";
-const windowIcon = '/icons/new-window.svg'
-
-const jeressiasImage = "./bio/jeressia.jpg";
-const jamekasImage = "./bio/jameka.jpeg";
-const teresasImage = "./bio/teresa.jpeg";
-const brittanysImage = "./bio/brittany.jpeg";
 
 const foundUser = (userId) =>
   allBioData.find(x => x.userId == userId);
@@ -36,8 +30,9 @@ export default function AboutPage() {
       <div className="teamContainer">
         {allBioData.map((u)=>{
           let teamMember = foundUser(u.userId);
+          console.log(teamMember);
           return (
-          <div className="memberContainer">
+          <div className="memberContainer" key={u.userId}>
           <div className="userImage">
             <img className="bioImage" src={teamMember.imageUrl} alt={teamMember.alt} />
             <ModalComp
@@ -49,7 +44,7 @@ export default function AboutPage() {
             >
               <DisplayBio
                 handleClose={handleClose}
-                user={u}
+                bio={u.bio}
               />
             </ModalComp >
           </div>
@@ -100,9 +95,9 @@ const AboutStyles = styled.div`
       .userImage{
         position: relative;
 
-        .imgIcon{
+        .bioModalButton{
           position: absolute;
-          bottom: -5px;
+          bottom: 5px;
           left: 0;
           width:25px;
         }
