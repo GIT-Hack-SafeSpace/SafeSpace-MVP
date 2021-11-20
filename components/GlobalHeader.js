@@ -1,12 +1,13 @@
 import React from "react";
-// import Link from "next/link";
-import {Nav, Navbar, Container, Offcanvas} from 'react-bootstrap';
+import { Nav, Navbar, Container, Offcanvas } from "react-bootstrap";
 
 export default function GlobalHeader() {
   return (
     <Navbar className="nb-fixed" expand={false}>
       <Container fluid>
-        <Navbar.Brand href="/journal"><h1 className='safespace'>SafeSpace.</h1></Navbar.Brand>
+        <Navbar.Brand href="/journal">
+          <h1 className="safespace">SafeSpace.</h1>
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="offcanvasNavbar" />
         <Navbar.Offcanvas
           id="offcanvasNavbar"
@@ -15,7 +16,7 @@ export default function GlobalHeader() {
         >
           <Offcanvas.Header closeButton>
             <Offcanvas.Title id="offcanvasNavbarLabel">
-            <h1 className='safespace'>SafeSpace.</h1>
+              <h1 className="safespace">SafeSpace.</h1>
             </Offcanvas.Title>
           </Offcanvas.Header>
           <Offcanvas.Body>
@@ -34,12 +35,5 @@ export default function GlobalHeader() {
         </Navbar.Offcanvas>
       </Container>
     </Navbar>
-    // <nav>
-    //   <p className='menuExample'>=</p>
-    //   <Link href='/journal'>
-    //     <h1 className='safespace'>SafeSpace.</h1>
-    //   </Link>
-    //   <p> </p>
-    // </nav>
   );
 }

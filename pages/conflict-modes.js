@@ -1,13 +1,13 @@
 import React from "react";
 import { useRouter } from "next/router";
 import { profilePictures } from "../data/profilePictures";
-import NoNavigation from "../layouts/HeaderOnly";
+import HeaderOnly from "../layouts/HeaderOnly";
 
 export default function ConflictModes() {
   const router = useRouter();
 
   return (
-    <NoNavigation>
+    <HeaderOnly>
       <h1 className="splash-title text-center">Conflict Modes</h1>
       <hr />
       <div className="d-flex justify-content-between mb-3">
@@ -44,6 +44,6 @@ export default function ConflictModes() {
       >
         See All Styles
       </button>
-    </NoNavigation>
+    </HeaderOnly>
   );
 }
