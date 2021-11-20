@@ -1,5 +1,6 @@
 import React from 'react';
+import HeaderOnly from '../layouts/HeaderOnly';
 
 export default function About() {
-  return <>About Page</>;
+  return <HeaderOnly>About Page</HeaderOnly>;
 }
