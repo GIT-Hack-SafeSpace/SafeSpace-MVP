@@ -1,5 +1,6 @@
 import React from "react";
 import { Nav, Navbar, Container, Offcanvas } from "react-bootstrap";
+import Link from 'next/link';
 
 export default function GlobalHeader() {
   return (
@@ -22,14 +23,14 @@ export default function GlobalHeader() {
           <Offcanvas.Body>
             <Nav className="justify-content-end flex-grow-1 pe-3">
               <h2>Tools</h2>
-              <Nav.Link href="/profile">Profile</Nav.Link>
-              <Nav.Link href="/">Your Mood</Nav.Link>
-              <Nav.Link href="/conflict-modes">Conflict Types</Nav.Link>
-              <Nav.Link href="/conflict-quiz">Get Your Type</Nav.Link>
+              <Link href="/profile">Profile</Link>
+              <Link href="/">Your Mood</Link>
+              <Link href="/conflict-modes">Conflict Types</Link>
+              <Link href="/conflict-quiz">Get Your Type</Link>
               <hr />
               <h2>About</h2>
-              <Nav.Link href="/about">The Team</Nav.Link>
-              <Nav.Link href="/hackathon">Hackathon Info</Nav.Link>
+              <Link href="/about">The Team</Link>
+              <Link href="/hackathon">Hackathon Info</Link>
             </Nav>
           </Offcanvas.Body>
         </Navbar.Offcanvas>
