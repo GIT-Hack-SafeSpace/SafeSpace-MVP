@@ -70,7 +70,7 @@ export default function CreateCompany({ user, handleClose }) {
           />
         </Form.Group>
         <Form.Group className='mb-3'>
-          <Form.Label>Website/Job Listings URL*</Form.Label>
+          <Form.Label>Website/Job Listings URL</Form.Label>
           <Form.Control
             id='jobs_link'
             type='url'
