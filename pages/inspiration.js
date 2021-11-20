@@ -8,7 +8,18 @@ import InspirationImage from '../components/InspirationImage';
 import CreateInspo from '../components/CreateInspo';
 import ModalComp from '../components/Modal';
 import ModalCreate from '../components/buttons/ModalCreate';
+import styled from 'styled-components';
 
+const InspoStyles = styled.div`
+  background-color: #fefefe;
+
+  h1 {
+    border-bottom: 1px solid #e8e8e8;
+    padding-bottom: 15px;
+    font-size: 28px;
+    margin-bottom: 25px;
+  }
+`;
 export default function Inspiration() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -74,7 +85,7 @@ export default function Inspiration() {
       return <Loader />;
     } else {
       return (
-        <>
+        <InspoStyles>
           <ModalComp
             showModal={showModal}
             handleClose={handleClose}
@@ -84,6 +95,7 @@ export default function Inspiration() {
           >
             <CreateInspo handleClose={handleClose} user={user} />
           </ModalComp>
+          <h1>Inspiration</h1>
           {data.map((media) => {
             return media.type === 'image' ? (
               <InspirationImage key={media.id} image={media} />
@@ -99,7 +111,7 @@ export default function Inspiration() {
               />
             );
           })}
-        </>
+        </InspoStyles>
       );
     }
   };
