@@ -38,10 +38,10 @@ const BioCard = ({ u }) => {
           showModal={showModal}
           handleClose={handleClose}
           handleShow={handleShow}
-          title='About'
+          title={`About ${u.name}`}
           trigger={ShowBio}
         >
-          <DisplayBio handleClose={handleClose} bio={u.bio} />
+          <DisplayBio handleClose={handleClose} bio={u.bio} image={teamMember.imageUrl} />
         </ModalComp>
       </div>
       <div className='socials'>

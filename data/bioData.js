@@ -64,7 +64,7 @@ export const allBioData = [
     name:'Dr. Teresa Vasquez',
     imageUrl: '/bio/teresa.jpeg',
     alt:'Teresa',
-    bio:'I am Dr. Teresa Vasquez, but you can call me Dr. T. If I could go back in time and talk with that little girl in the picture, I would tell her that although she had already experienced immense loss at her young age, there was much more loss to come from an industry that she would grow to love and that SHE would become a change agent after 20+ years in tech. She, as a tech leader, would own her trauma and demand healing for herself and other Black women like her. That she would accomplish so much more than she ever dreamed because beauty comes from ashes and she would create SafeSpace. with a group of like-minded Black engineers so that all Black women could embody their full potential and dreams along their way to healing. ',
+    bio:'Hey, my name is Dr. Teresa Vasquez, but you can call me <b>Dr. T</b>. \n\nIf I could go back in time and talk with that little girl in the picture, I would tell her that although she had already experienced immense loss at her young age, there was much more loss to come from an industry that she would grow to love and that <b>SHE would become a change agent after 20+ years in tech.</b> \n\nI would let her know that she, as a tech leader, would own her trauma and demand healing for herself and other Black women like her. \n\nThat she would accomplish so much more than she ever dreamed because beauty comes from ashes and she would create SafeSpace. with a group of like-minded Black engineers so that all Black women could embody their full potential and dreams along their way to healing. ',
     socialMedias:[
       {
         id: 1,

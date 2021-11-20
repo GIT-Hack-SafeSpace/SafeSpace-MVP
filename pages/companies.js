@@ -93,7 +93,7 @@ export default function Companies() {
             data={data}
             func={setSearchResults}
             attrs={['industry', 'name', 'content']}
-            placeholder='Search by industry'
+            placeholder='Search Companies'
           />
           <h1>Featured Companies</h1>
 

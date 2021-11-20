@@ -72,7 +72,12 @@ export default function AccordionMenu() {
                 <Accordion.Item eventKey="6">
                 <Accordion.Header>Go-to-Market</Accordion.Header>
                 <Accordion.Body>
-                    TBD
+                <p>The current version of SafeSpace. is the MVP prototype, but is available for anyone with an internet connection to review at <a href="https://safespacemvp.netlify.app">https://safespacemvp.netlify.app</a>. While the team has done aggressive manual testing, there are no unit tests included, which would need to be completed, among other measures, prior to being prod ready. </p>
+
+                <p>There would also need to be some algorithms in place to check content standards to ensure content meets guidelines as well as terms and conditions as admins manually reviewing posts is not scalable. There is also a need to ensure that users are actually Black women, which we did not cover in this MVP version.</p>
+
+                <p>Once those underlying concerns are addressed, the application runs itself as it was created for and belongs to anyone who identifies as a Black woman. The core is to have a journal and SafeSpace. does this really well.</p>
+
                 </Accordion.Body>
                 </Accordion.Item>
             </Accordion> 
