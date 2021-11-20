@@ -21,6 +21,7 @@ const initialState = {
   content: "",
   share: false,
   isResolved: false,
+  resolution: '',
   title: "",
   tag_1: "",
   tag_2: "",
@@ -268,6 +269,23 @@ export default function CreateRantRave({
           }))
         }
       />
+      <Form.Group className="mb-3">
+        <Form.Label>Resolution</Form.Label>
+        <Form.Control
+          as="textarea"
+          rows={3}
+          id="resolution"
+          name="resolution"
+          type="resolution"
+          value={data.resolution || ""}
+          onChange={(e) =>
+            setData((prevState) => ({
+              ...prevState,
+              resolution: e.target.value,
+            }))
+          }
+        />
+      </Form.Group>
       <ButtonStyle>
         <Button className="save-change" disabled={loading} type="submit">
           {loading ? "Loading ..." : "Save Changes"}
