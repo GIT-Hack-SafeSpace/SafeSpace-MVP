@@ -103,7 +103,7 @@ export default function Inspiration() {
             data={data}
             func={setSearchResults}
             attrs={["content"]}
-            placeholder="Search for Inspiration"
+            placeholder="Search Inspirations"
           />
           <h1>Inspiration</h1>
           {!searchResults && <NoResults />}
