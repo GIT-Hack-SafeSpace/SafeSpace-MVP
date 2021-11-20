@@ -1,15 +1,10 @@
-import {React, useState} from "react";
+import { React, useState } from "react";
 import styled from "styled-components";
 import ModalComp from "./Modal";
 import ShowBio from "./buttons/ShowBio";
 import DisplayBio from "./DisplayBio";
 
-import {
-  jeressiasSocialIcons,
-  jamekasSocialIcons,
-  teresasSocialIcons,
-  brittanysSocialIcons,
-} from "../data/socialIcons";
+import { allBioData } from "../data/bioData";
 
 const groupPhoto = "/bio/safe.png";
 const windowIcon = '/icons/new-window.svg'
@@ -19,10 +14,56 @@ const jamekasImage = "./bio/jameka.jpeg";
 const teresasImage = "./bio/teresa.jpeg";
 const brittanysImage = "./bio/brittany.jpeg";
 
-const userIcons = (array) =>
-  array.map((u) => (
-    <a href={u.userUrl}><img className="icons" src={u.iconUrl} alt={u.alt} /></a>
-  ));
+const foundUser = (userId) =>
+  allBioData.find(x => x.userId == userId);
+
+const userIcons = (userId) => {
+  let teamMemberIcons = foundUser(userId).socialMedias;
+  console.log(teamMemberIcons,'icons');
+  
+  return (teamMemberIcons.map((t)=> <a key={t.id} href={t.userUrl}><img className="icons" src={t.iconUrl} alt={t.alt} /></a>))
+};
+
+export default function AboutPage() {
+  const [showModal, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  return (
+    <AboutStyles>
+      <img className="groupPhoto" src={groupPhoto} alt="group image" />
+      <h1>Meet the Team</h1>
+      <div className="teamContainer">
+        {allBioData.map((u)=>{
+          let teamMember = foundUser(u.userId);
+          return (
+          <div className="memberContainer">
+          <div className="userImage">
+            <img className="bioImage" src={teamMember.imageUrl} alt={teamMember.alt} />
+            <ModalComp
+              showModal={showModal}
+              handleClose={handleClose}
+              handleShow={handleShow}
+              title='About'
+              trigger={ShowBio}
+              found={teamMember}
+            >
+              <DisplayBio
+                handleClose={handleClose}
+              />
+            </ModalComp >
+          </div>
+          <div className="socials">
+            <div className="name">{teamMember.name}</div>
+            <div className="social-links">{userIcons(teamMember.userId)}</div>
+          </div>
+        </div>)
+        })}
+      </div>
+    </AboutStyles>
+  );
+}
 
 const AboutStyles = styled.div`
   display: flex;
@@ -92,135 +133,3 @@ const AboutStyles = styled.div`
     }
   }
 `;
-
-export default function AboutPage() {
-  const [showModal, setShow] = useState(false);
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
-  const displayAboutModal = () => {
-    <ModalComp
-      showModal={showModal}
-      handleClose={handleClose}
-      handleShow={handleShow}
-      title=''
-      trigger={ShowBio}
-    >
-      <DisplayBio
-        handleClose={handleClose}
-      />
-    </ModalComp >
-  };
-
-  return (
-    <AboutStyles>
-      <img className="groupPhoto" src={groupPhoto} alt="group image" />
-      <h1>Meet the Team</h1>
-      <div className="teamContainer">
-        <div className="memberContainer">
-          <div className="userImage">
-            <img className="bioImage" src={jeressiasImage} alt="Jeressia" />
-            <ModalComp
-              showModal={showModal}
-              handleClose={handleClose}
-              handleShow={handleShow}
-              title='About Jeressia'
-              trigger={ShowBio}
-            >
-              <DisplayBio
-                handleClose={handleClose}
-              />
-            </ModalComp >
-          </div>
-          <div className="socials">
-            <div className="name">Jeressia</div>
-            <div className="social-links">{userIcons(jeressiasSocialIcons)}</div>
-          </div>
-        </div>
-        <div className="memberContainer">
-          <div className="userImage">
-            <img className="bioImage" src={jamekasImage} alt="Jameka" />
-            {/* <ModalComp
-              showModal={showModal}
-              handleClose={handleClose}
-              handleShow={handleShow}
-              title='About Jameka'
-              trigger={ShowBio}
-            >
-              <DisplayBio
-                handleClose={handleClose}
-              />
-            </ModalComp > */}
-          </div>
-          <div className="socials">
-            <div className="name">Jameka</div>
-            <div className="social-links">{userIcons(jamekasSocialIcons)}</div>
-          </div>
-        </div>
-        <div className="memberContainer">
-          <div className="userImage">
-            <img className="bioImage" src={teresasImage} alt="Teresa" />
-            {/* <ModalComp
-              showModal={showModal}
-              handleClose={handleClose}
-              handleShow={handleShow}
-              title='About Teresa'
-              trigger={ShowBio}
-            >
-              <DisplayBio
-                handleClose={handleClose}
-              />
-            </ModalComp > */}
-          </div>
-          <div className="socials">
-            <div className="name">Teresa</div>
-            <div className="social-links">{userIcons(teresasSocialIcons)}</div>
-          </div>
-        </div>
-        <div className="memberContainer">
-          <div className="userImage">
-            <img className="bioImage" src={brittanysImage} alt="Brittany" />
-            {/* <ModalComp
-              showModal={showModal}
-              handleClose={handleClose}
-              handleShow={handleShow}
-              title='About Brittany'
-              trigger={ShowBio}
-            >
-              <DisplayBio
-                handleClose={handleClose}
-              />
-            </ModalComp > */}
-          </div>
-          <div className="socials">
-            <div className="name">Brittany</div>
-            <div className="social-links">
-              {userIcons(brittanysSocialIcons)}
-            </div>
-          </div>
-        </div>
-        <div className="memberContainer">
-          <div className="userImage">
-            {/* <img className="bioImage" src={yasmeensImage} alt="Yasmeen" /> */}
-            {/* <ModalComp
-              showModal={showModal}
-              handleClose={handleClose}
-              handleShow={handleShow}
-              title='About Yasmeen'
-              trigger={ShowBio}
-            >
-              <DisplayBio
-                handleClose={handleClose}
-              />
-            </ModalComp > */}
-          </div>
-          <div className="socials">
-            <div className="name">Yasmeen</div>
-            {/* <div className="social-links">{userIcons(yasmeensSocialIcons)}</div> */}
-          </div>
-        </div>
-      </div>
-    </AboutStyles>
-  );
-}
