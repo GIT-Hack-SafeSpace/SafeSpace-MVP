@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import BioModal from './BioModal';
 import { jeressiaSocialIcons } from '../data/socialIcons';
 
 const groupPhoto = '/about/safe.png';
@@ -13,7 +14,7 @@ export default function AboutPage() {
       <h1>Meet the Team</h1>
       <div className="teamContainer">
         <div className="memberContainer">
-          <img className="bioImage" src={jeressiasImage} alt="Jeressia"/>
+          <img className="bioImage" src={jeressiasImage} alt="Jeressia" onClick={handleShow}/>
           <div className="socials">
             <div className="name">Jeressia</div>
             <div className="social-links">{jeressiasIcons}</div>
