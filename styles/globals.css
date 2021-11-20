@@ -62,7 +62,7 @@ nav {
   z-index: 200;
 }
 .navbar {
-  position: fixed;
+  position: fixed !important;
 }
 
 .nb-fixed {
