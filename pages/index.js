@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import Loader from '../components/Loader';
+import { Loader } from '../components/shared';
 import { supabase } from '../utils/client';
 import Login from './login';
 import Mood from './mood';

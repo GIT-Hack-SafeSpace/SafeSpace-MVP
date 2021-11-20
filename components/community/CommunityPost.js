@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from "react";
 import moment from "moment";
-import { supabase } from '../utils/client';
 import styled from "styled-components";
 import Link from "next/link";
-import { reactions } from "../data/reactions";
-import { communityTagData } from "../data/tagData";
-import Tags from "./Tags";
+import { reactions } from "../../data/reactions";
+import { communityTagData } from "../../data/tagData";
+import Tags from "../shared/Tags";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import { ButtonStyle } from "../styles/ButtonStyle";
+import { ButtonStyle } from "../../styles/ButtonStyle";
 import ReactionIcon from "./ReactionIcon";
 
 const reactionIcons = reactions.map((r) => r.url);

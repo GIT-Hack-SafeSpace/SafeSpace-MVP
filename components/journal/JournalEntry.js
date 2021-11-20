@@ -1,12 +1,12 @@
 import { React, useState } from "react";
 import moment from "moment";
 import styled from "styled-components";
-import { communityTagData } from "../data/tagData";
-import Tags from "./Tags";
-import { deletePost, getPosts } from "../api/journalData";
-import ModalComp from "./Modal";
-import CreateRantRave from "./CreateRantRave";
-import JournalEdit from "./buttons/JournalEdit";
+import { communityTagData } from "../../data/tagData";
+import Tags from "../shared/Tags";
+import { deletePost, getPosts } from "../../api/journalData";
+import ModalComp from "../shared/Modal";
+import CreateRantRave from "../forms/CreateRantRave";
+import JournalEdit from "../buttons/JournalEdit";
 
 const trashIcon = "icons/trash-icon.svg";
 

@@ -1,5 +1,5 @@
 import React from "react";
-import GlobalHeader from "../components/GlobalHeader";
+import GlobalHeader from "../components/shared/GlobalHeader";
 
 export default function HeaderOnly({ children }) {
   return (

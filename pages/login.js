@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { supabase } from "../utils/client";
+import Link from "next/link";
 import { useRouter } from "next/router";
-import Loader from "../components/Loader";
+import { Loader } from "../components/shared";
 import styled from "styled-components";
 import { MainButton } from "../styles/ButtonStyle";
 import Form from "react-bootstrap/Form";
-import Link from "next/link";
 
 const SplashStyles = styled.div`
   padding: 300px 30px 50px;

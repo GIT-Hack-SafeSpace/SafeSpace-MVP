@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { supabase } from '../utils/client';
+import { supabase } from '../../utils/client';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import styled from 'styled-components';
-import { ButtonStyle } from '../styles/ButtonStyle';
+import { ButtonStyle } from '../../styles/ButtonStyle';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
-import UploadImage from './ImageUpload';
+import UploadImage from '../shared/ImageUpload';
 
 const SelectStyle = styled.div`
   .select__option {

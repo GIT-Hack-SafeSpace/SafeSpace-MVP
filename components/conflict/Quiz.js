@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { supabase } from '../utils/client';
-import Loader from './Loader';
+import { supabase } from '../../utils/client';
+import { Loader } from '../shared';
 import { useRouter } from 'next/router';
-import { questions, options, results } from '../data/quizData';
-import { ButtonStyle } from '../styles/ButtonStyle';
+import { questions, options, results } from '../../data/quizData';
+import { ButtonStyle } from '../../styles/ButtonStyle';
 import Button from 'react-bootstrap/Button';
 import Results from './Results';
 

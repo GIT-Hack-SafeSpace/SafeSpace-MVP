@@ -22,6 +22,10 @@ input,
   margin: 10px 0;
 }
 
+.form-label {
+  margin-bottom: 0 !important;
+}
+
 h1.splash-title {
   font-family: 'Poppins', sans-serif;
   font-size: 2.5rem;
@@ -89,6 +93,13 @@ nav {
 .navbar-nav > a {
   display: block;
   padding: .5rem 1rem;
+  color: rgb(237, 52, 87);
+  text-decoration: none;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+}
+
+.job-listings-link {
+  display: block;
   color: rgb(237, 52, 87);
   text-decoration: none;
   transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
