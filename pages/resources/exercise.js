@@ -36,7 +36,7 @@ export default function Exercise() {
             className="titleWrap"
             style={{ display: "flex", justifyContent: "space-between" }}
           >
-            <h1 style={{ marginBottom: "15px" }}>Exercise & Meditation</h1>
+            <h1 className="rscHeaders">Exercise & Meditation</h1>
           </div>
 
           {gyms.map((d, i) => (
