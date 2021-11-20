@@ -22,7 +22,7 @@ export default function GlobalHeader() {
           <Offcanvas.Body>
             <Nav className="justify-content-end flex-grow-1 pe-3">
               <h2>Tools</h2>
-              <Nav.Link href="/">Profile</Nav.Link>
+              <Nav.Link href="/profile">Profile</Nav.Link>
               <Nav.Link href="/">Your Mood</Nav.Link>
               <Nav.Link href="/conflict-modes">Conflict Types</Nav.Link>
               <Nav.Link href="/conflict-quiz">Get Your Type</Nav.Link>
