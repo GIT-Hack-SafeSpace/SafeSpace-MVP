@@ -61,6 +61,9 @@ nav {
   border-bottom: 1px solid lightgray;
   z-index: 200;
 }
+.navbar {
+  position: fixed;
+}
 
 .nb-fixed {
   overflow: hidden;
@@ -80,7 +83,7 @@ nav {
 
 .navbar-light .navbar-toggler {
   color: rgba(0,0,0,.55);
-  border-color: rgba(0,0,0,0);
+  border-color: rgba(0,0,0,0) !important;
 }
 
 .navbar-nav > a {

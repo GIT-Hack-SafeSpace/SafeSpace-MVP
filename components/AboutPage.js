@@ -1,23 +1,24 @@
-import { React, useState } from "react";
-import styled from "styled-components";
-import ModalComp from "./Modal";
-import ShowBio from "./buttons/ShowBio";
-import DisplayBio from "./DisplayBio";
+import { React, useState } from 'react';
+import styled from 'styled-components';
+import ModalComp from './Modal';
+import ShowBio from './buttons/ShowBio';
+import DisplayBio from './DisplayBio';
+import { allBioData } from '../data/bioData';
 
-import { allBioData } from "../data/bioData";
-
-const groupPhoto = "/bio/safe.png";
-
-const foundUser = (userId) =>
-  allBioData.find(x => x.userId == userId);
+const groupPhoto = '/bio/safe.png';
+const foundUser = (userId) => allBioData.find((x) => x.userId == userId);
 
 const userIcons = (userId) => {
   let teamMemberIcons = foundUser(userId).socialMedias;
 
-  return (teamMemberIcons.map((t)=> <a target='_blank' key={t.id} href={t.userUrl}><img className="icons" src={t.iconUrl} alt={t.alt} /></a>))
+  return teamMemberIcons.map((t) => (
+    <a target='_blank' key={t.id} href={t.userUrl}>
+      <img className='icons' src={t.iconUrl} alt={t.alt} />
+    </a>
+  ));
 };
 
-const BioCard = ({u}) => {
+const BioCard = ({ u }) => {
   const [showModal, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -26,37 +27,39 @@ const BioCard = ({u}) => {
   let teamMember = foundUser(u.userId);
 
   return (
-  <div className="memberContainer" key={u.userId}>
-    <div className="userImage">
-      <img className="bioImage" src={teamMember.imageUrl} alt={teamMember.alt} />
-      <ModalComp
-        showModal={showModal}
-        handleClose={handleClose}
-        handleShow={handleShow}
-        title='About'
-        trigger={ShowBio}
-      >
-        <DisplayBio
-          handleClose={handleClose}
-          bio={u.bio}
+    <div className='memberContainer' key={u.userId}>
+      <div className='userImage'>
+        <img
+          className='bioImage'
+          src={teamMember.imageUrl}
+          alt={teamMember.alt}
         />
-      </ModalComp >
+        <ModalComp
+          showModal={showModal}
+          handleClose={handleClose}
+          handleShow={handleShow}
+          title='About'
+          trigger={ShowBio}
+        >
+          <DisplayBio handleClose={handleClose} bio={u.bio} />
+        </ModalComp>
+      </div>
+      <div className='socials'>
+        <div className='name'>{teamMember.name}</div>
+        <div className='social-links'>{userIcons(teamMember.userId)}</div>
+      </div>
     </div>
-    <div className="socials">
-      <div className="name">{teamMember.name}</div>
-      <div className="social-links">{userIcons(teamMember.userId)}</div>
-    </div>
-  </div>)
-}
+  );
+};
 
 export default function AboutPage() {
   return (
     <AboutStyles>
-      <img className="groupPhoto" src={groupPhoto} alt="group image" />
+      <img className='groupPhoto' src={groupPhoto} alt='group image' />
       <h1>Meet the Team</h1>
-      <div className="teamContainer">
-        {allBioData.map((u)=>{
-          return <BioCard u={u} key={u.userId}/>
+      <div className='teamContainer'>
+        {allBioData.map((u) => {
+          return <BioCard u={u} key={u.userId} />;
         })}
       </div>
     </AboutStyles>
@@ -97,15 +100,15 @@ const AboutStyles = styled.div`
       display: flex;
       margin-bottom: 10px;
 
-      .userImage{
+      .userImage {
         position: relative;
 
-        .bioModalButton{
+        .bioModalButton {
           position: absolute;
           bottom: -18px;
-          width:80px;
-          color:#ed3457;
-          font-size:12px;
+          width: 80px;
+          color: #ed3457;
+          font-size: 12px;
           text-align: center;
         }
       }
