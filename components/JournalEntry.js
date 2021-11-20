@@ -103,8 +103,12 @@ export default function JournalEntry({ user, data, setData, setLoading }) {
   const handleShow = () => setShow(true);
 
   const deleteJournal = (id) => {
+    setLoading(true);
     deletePost(id).then(() => {
-      getPosts(data.profile_id).then(setData);
+      getPosts(data.profile_id).then((rep) => {
+        setData(rep);
+        setLoading(false);
+      });
     });
   };
 
