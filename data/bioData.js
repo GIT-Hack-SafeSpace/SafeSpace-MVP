@@ -43,25 +43,19 @@ export const allBioData = [
         id: 1,
         iconUrl: '/icons/email.svg',
         alt: 'email Jeressia',
-        userUrl: '@mailto:jeressiajaytv@gmail.com',
+        userUrl: '@mailto:jameka.echols@gmail.com',
       },
       {
         id: 2,
-        iconUrl: '/icons/www.svg',
-        alt: 'view Jeressia\'s website',
-        userUrl:'http://www.jeressia.com'
+        iconUrl: '/icons/linkedin.svg',
+        alt: 'view Jameka\'s LinkedIn',
+        userUrl: 'https://www.linkedin.com/in/jameka-echols/',
       },
       {
         id: 3,
-        iconUrl: '/icons/linkedin.svg',
-        alt: 'view Jeressia\'s LinkedIn',
-        userUrl: 'http://www.linkedin.com/in/jeressia',
-      },
-      {
-        id: 4,
         iconUrl: '/icons/github.svg',
-        alt: 'view Jeressia\'s Github',
-        userUrl: 'http://www.github.com/jeressia',
+        alt: 'view Jameka\'s Github',
+        userUrl: 'https://github.com/jameka23',
       }
     ]
   },
@@ -122,33 +116,33 @@ export const allBioData = [
   {
     userId: 5,
     name:'Yasmeen Cole',
-    imageUrl: '/bio/jameka.jpeg',
+    imageUrl: '/bio/yasmeen.jpeg',
     alt:'Yasmeen',
-    bio:'My name is Jeressia Williamson and I am a software engineer currently living in Nashville, TN. I have been in love with technology for as long as I can remember, but I have only worked in this industry for 2 years. In my spare time, I am a creative. I like to do anything that involves making something: I code, I paint, I build furniture, and I’m heavily interested in interior and graphic design. I have 2 dogs, Java & Jumanji, that help keep me active. As a former mental health social worker, this app means a lot to me. Mental health (especially in the black community) is often neglected and dismissed. I love that SafeSpace is an outlet for black women to be vulnerable and reveal workplace stressors without judgment. An app like ours is so important in a world where we are not allowed to be vocal about negative experiences without being labeled “angry black women.',
+    bio:'',
     socialMedias:[
       {
         id: 1,
         iconUrl: '/icons/email.svg',
-        alt: 'email Jeressia',
-        userUrl: '@mailto:jeressiajaytv@gmail.com',
+        alt: 'email Yasmeen',
+        userUrl: '@mailto:yasmeencole1@gmail.com',
       },
       {
         id: 2,
         iconUrl: '/icons/www.svg',
-        alt: 'view Jeressia\'s website',
-        userUrl:'http://www.jeressia.com'
+        alt: 'view Yasmeen\'s website',
+        userUrl:'https://yasmeencole.github.io/'
       },
       {
         id: 3,
         iconUrl: '/icons/linkedin.svg',
-        alt: 'view Jeressia\'s LinkedIn',
-        userUrl: 'http://www.linkedin.com/in/jeressia',
+        alt: 'view Yasmeen\'s LinkedIn',
+        userUrl: 'https://www.linkedin.com/in/yasmeen-cole-04466366/',
       },
       {
         id: 4,
         iconUrl: '/icons/github.svg',
-        alt: 'view Jeressia\'s Github',
-        userUrl: 'http://www.github.com/jeressia',
+        alt: 'view Yasmeen\'s Github',
+        userUrl: 'https://github.com/yasmeencole',
       }
     ]
   }
