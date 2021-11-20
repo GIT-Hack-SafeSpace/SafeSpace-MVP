@@ -1,14 +1,13 @@
 import React from 'react';
 import { useRouter } from 'next/router';
-import { ButtonStyle } from '../styles/ButtonStyle';
 import { results } from '../data/quizData';
-import NoNavigation from '../layouts/NoNavigation';
+import HeaderOnly from '../layouts/HeaderOnly';
 
 export default function ConflictStyles() {
   const router = useRouter();
 
   return (
-    <NoNavigation>
+    <HeaderOnly>
       <h1 className='splash-title text-center'>Conflict Modes</h1>
       <hr />
       {Object.keys(results).map((style) => {
@@ -44,6 +43,6 @@ export default function ConflictStyles() {
         >
           Get Your Default Style
         </button>
-    </NoNavigation>
+    </HeaderOnly>
   );
 }

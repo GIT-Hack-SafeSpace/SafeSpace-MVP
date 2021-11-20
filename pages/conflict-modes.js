@@ -1,18 +1,19 @@
-import React from 'react';
-import { useRouter } from 'next/router';
-import { profilePictures } from '../data/profilePictures';
-import NoNavigation from '../layouts/NoNavigation';
-import { ButtonStyle } from '../styles/ButtonStyle';
+import React from "react";
+import { useRouter } from "next/router";
+import { profilePictures } from "../data/profilePictures";
+import HeaderOnly from "../layouts/HeaderOnly";
 
 export default function ConflictModes() {
   const router = useRouter();
 
   return (
-    <NoNavigation>
+    <HeaderOnly>
       <h1 className="splash-title text-center">Conflict Modes</h1>
       <hr />
       <div className="d-flex justify-content-between mb-3">
-        {profilePictures.map((pic, i) => <img key={i} style={{width: '60px'}} src={pic.url} />)}
+        {profilePictures.map((pic, i) => (
+          <img key={i} style={{ width: "60px" }} src={pic.url} />
+        ))}
       </div>
       <hr />
       <p>
@@ -31,16 +32,18 @@ export default function ConflictModes() {
         style when needed.
       </p>
 
-        <button
-          className='btn-warning btn'
-          onClick={() => router.push('/conflict-quiz')}
-        >
-          Get Your Default Style
-        </button>
-        <button
-          className='btn-success mx-3 btn'
-          onClick={() => router.push('/conflict-styles')}>See All Styles
-        </button>
-    </NoNavigation>
+      <button
+        className="btn-warning btn"
+        onClick={() => router.push("/conflict-quiz")}
+      >
+        Get Your Default Style
+      </button>
+      <button
+        className="btn-success mx-3 btn"
+        onClick={() => router.push("/conflict-styles")}
+      >
+        See All Styles
+      </button>
+    </HeaderOnly>
   );
 }
