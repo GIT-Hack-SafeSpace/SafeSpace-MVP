@@ -19,8 +19,7 @@ const foundUser = (userId) =>
 
 const userIcons = (userId) => {
   let teamMemberIcons = foundUser(userId).socialMedias;
-  console.log(teamMemberIcons,'icons');
-  
+
   return (teamMemberIcons.map((t)=> <a key={t.id} href={t.userUrl}><img className="icons" src={t.iconUrl} alt={t.alt} /></a>))
 };
 
@@ -47,10 +46,10 @@ export default function AboutPage() {
               handleShow={handleShow}
               title='About'
               trigger={ShowBio}
-              found={teamMember}
             >
               <DisplayBio
                 handleClose={handleClose}
+                user={u}
               />
             </ModalComp >
           </div>
