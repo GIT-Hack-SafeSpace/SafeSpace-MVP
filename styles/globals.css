@@ -88,23 +88,25 @@ nav {
 }
 
 .navbar-light .navbar-toggler {
-  color: rgba(0,0,0,.55);
-  border-color: rgba(0,0,0,0) !important;
+  color: rgba(0, 0, 0, 0.55);
+  border-color: rgba(0, 0, 0, 0) !important;
 }
 
 .navbar-nav > a {
   display: block;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
   color: rgb(237, 52, 87);
   text-decoration: none;
-  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out;
 }
 
 .job-listings-link {
   display: block;
   color: rgb(237, 52, 87);
   text-decoration: none;
-  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out;
 }
 
 .menuExample {
@@ -181,7 +183,7 @@ p.footerIcon {
 /* Resource pages specs below */
 .resourceRectangle {
   width: 100%;
-  height: 141px;      
+  height: 141px;
   position: relative;
   text-align: center;
   border-top: 2px solid white;
@@ -193,7 +195,7 @@ p.footerIcon {
   align-items: center;
   height: 570px;
   overflow: hidden;
-  margin: -34px -20px; 
+  margin: -34px -20px;
 }
 
 .rscHeaders {
@@ -201,14 +203,14 @@ p.footerIcon {
   font-size: 28px;
 }
 
-@media only screen and (min-width: 500px){
+@media only screen and (min-width: 500px) {
   .resourcelayout {
     display: flex;
     flex-direction: column;
     align-items: center;
     height: 630px;
     overflow: hidden;
-    margin: -34px -20px; 
+    margin: -34px -20px;
   }
   .resourceRectangle {
     height: 158px;
@@ -219,7 +221,8 @@ p.footerIcon {
   }
 }
 
-.bio-modal-text {
+.bio-modal-text,
+.company-text {
   overflow-wrap: break-word;
   white-space: pre-wrap;
   font-family: 'Poppins', sans-serif !important;

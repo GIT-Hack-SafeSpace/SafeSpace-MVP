@@ -34,7 +34,7 @@ export default function CompanyReview({ data }) {
               <p className='date'>
                 {moment(data.created_at).format('MMM DD, YYYY')}
               </p>
-              <Card.Text>{data.content}</Card.Text>
+              <Card.Text className="bio-modal-text">{data.content}</Card.Text>
             </Card.Body>
           </Card>
         </CardStyle>
