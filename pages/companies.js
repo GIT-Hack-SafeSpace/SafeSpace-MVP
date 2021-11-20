@@ -40,7 +40,7 @@ export default function Companies() {
   }, []);
 
   const handleInsert = (payload) => {
-    setData((prevPosts) => [...prevPosts, payload.new]);
+    setData((prevPosts) => [payload.new, ...prevPosts ]);
   };
 
   const getCompanyData = async () => {
