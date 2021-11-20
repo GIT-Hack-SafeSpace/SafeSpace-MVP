@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import { supabase } from '../utils/client';
-import { useRouter } from 'next/router';
-import Loader from '../components/Loader';
-import MainLayout from '../layouts/MainLayout';
-import CompanyReview from '../components/CompanyReview';
-import ModalComp from '../components/Modal';
-import CreateCompany from '../components/CreateCompany';
-import ModalCreate from '../components/buttons/ModalCreate';
-import styled from 'styled-components';
+import React, { useEffect, useState } from "react";
+import { supabase } from "../utils/client";
+import { useRouter } from "next/router";
+import Loader from "../components/Loader";
+import MainLayout from "../layouts/MainLayout";
+import CompanyReview from "../components/CompanyReview";
+import ModalComp from "../components/Modal";
+import CreateCompany from "../components/CreateCompany";
+import ModalCreate from "../components/buttons/ModalCreate";
+import styled from "styled-components";
+import Search from "../components/Search";
 
 const CompanyStyles = styled.div`
   background-color: #fefefe;
@@ -24,6 +25,7 @@ export default function Companies() {
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState({});
   const [showModal, setShow] = useState(false);
+  const [searchResults, setSearchResults] = useState([]);
   const router = useRouter();
 
   const handleClose = () => setShow(false);
@@ -33,7 +35,7 @@ export default function Companies() {
     // checking if a user is logged in. If not, redirect to login screen
     const user = supabase.auth.user();
     if (!user) {
-      router.push('/login');
+      router.push("/login");
     } else {
       getCompanyData();
       setUser(user);
@@ -41,8 +43,8 @@ export default function Companies() {
 
     // subscribe to all inserts (post)
     const companyPost = supabase
-      .from('company_post')
-      .on('INSERT', (payload) => {
+      .from("company_post")
+      .on("INSERT", (payload) => {
         handleInsert(payload);
       })
       .subscribe();
@@ -51,7 +53,7 @@ export default function Companies() {
   }, []);
 
   const handleInsert = (payload) => {
-    setData((prevPosts) => [payload.new, ...prevPosts ]);
+    setData((prevPosts) => [payload.new, ...prevPosts]);
   };
 
   const getCompanyData = async () => {
@@ -61,9 +63,9 @@ export default function Companies() {
         error,
         status,
       } = await supabase
-        .from('company_post')
-        .select('*')
-        .order('created_at', { ascending: false });
+        .from("company_post")
+        .select("*")
+        .order("created_at", { ascending: false });
 
       if (error && status !== 406) throw error;
       if (data) setData(company_post);
@@ -84,13 +86,25 @@ export default function Companies() {
             showModal={showModal}
             handleClose={handleClose}
             handleShow={handleShow}
-            title='Submit a Great Company'
+            title="Submit a Great Company"
             trigger={ModalCreate}
           >
             <CreateCompany handleClose={handleClose} user={user} />
           </ModalComp>
+          <Search
+            data={data}
+            func={setSearchResults}
+            attrs={["industry"]}
+            placeholder="Search by industry"
+          />
           <h1>Featured Companies</h1>
-          <CompanyReview data={data} />
+
+          {!searchResults && <p>No Results</p>}
+          {searchResults?.length
+            ? searchResults.map((item, i) => (
+                <CompanyReview key={i} data={item} />
+              ))
+            : data.map((d, i) => <CompanyReview key={i} data={d} />)}
         </CompanyStyles>
       );
     }

@@ -157,7 +157,7 @@ export default function CreateInspo({ user, handleClose }) {
         ))}
       <hr />
       <Form.Group className='my-3'>
-        <Form.Label>Message (Optional)</Form.Label>
+        <Form.Label>Description (Optional)</Form.Label>
         <Form.Control
           as='textarea'
           rows={3}

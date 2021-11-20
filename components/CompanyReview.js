@@ -6,27 +6,25 @@ import moment from "moment";
 export default function CompanyReview({ data }) {
   return (
     <>
-      {data.map((d) => (
-        <div key={d.id} className="text-white">
-          <CardStyle>
-            <Card
-              className="companyCard"
-              style={{ width: "100%", height: "100%" }}
-            >
-              <Card.Body>
-                <Card.Title>{d.name}</Card.Title>
-                <Card.Subtitle className="mb-2 text-muted industry-title">
-                  {d.industry}
-                </Card.Subtitle>
-                <p className="date">
-                  {moment(d.created_at).format("MMM DD, YYYY")}
-                </p>
-                <Card.Text>{d.content}</Card.Text>
-              </Card.Body>
-            </Card>
-          </CardStyle>
-        </div>
-      ))}
+      <div className="text-white">
+        <CardStyle>
+          <Card
+            className="companyCard"
+            style={{ width: "100%", height: "100%" }}
+          >
+            <Card.Body>
+              <Card.Title>{data.name}</Card.Title>
+              <Card.Subtitle className="mb-2 text-muted industry-title">
+                {data.industry}
+              </Card.Subtitle>
+              <p className="date">
+                {moment(data.created_at).format("MMM DD, YYYY")}
+              </p>
+              <Card.Text>{data.content}</Card.Text>
+            </Card.Body>
+          </Card>
+        </CardStyle>
+      </div>
     </>
   );
 }

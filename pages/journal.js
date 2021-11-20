@@ -10,6 +10,7 @@ import { getPosts } from "../api/journalData";
 
 import styled from "styled-components";
 import ModalCreate from "../components/buttons/ModalCreate";
+import Search from "../components/Search";
 
 const JournalStyles = styled.div`
   background-color: #fefefe;
@@ -26,6 +27,7 @@ export default function RantRave() {
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState({});
   const [showModal, setShow] = useState(false);
+  const [searchResults, setSearchResults] = useState([]);
   const router = useRouter();
 
   const handleClose = () => setShow(false);
@@ -59,12 +61,43 @@ export default function RantRave() {
             title="Add Entry"
             trigger={ModalCreate}
           >
-            <CreateRantRave handleClose={handleClose} user={user} setter={setData} />
+            <CreateRantRave
+              handleClose={handleClose}
+              user={user}
+              setter={setData}
+            />
           </ModalComp>
+          <Search
+            data={data}
+            func={setSearchResults}
+            attrs={["content"]}
+            placeholder="Search Your Journal Content"
+          />
           <h1>Journal</h1>
-          {Object.values(data).length ? data.map((item, i) => (
-            <JournalEntry key={i} data={item} user={user} setData={setData} setLoading={setLoading} />
-          )): <h2>Get Started, Create a Post!</h2>}
+          {!searchResults && <p>No Results</p>}
+          {searchResults?.length ? (
+            searchResults.map((item, i) => (
+              <JournalEntry
+                key={i}
+                data={item}
+                user={user}
+                setData={setData}
+                setLoading={setLoading}
+              />
+            ))
+          ) : data.length ? (
+            data.map((item, i) => (
+              <JournalEntry
+                key={i}
+                data={item}
+                user={user}
+                setData={setData}
+                setLoading={setLoading}
+              />
+            ))
+          ) : (
+            <h2>Get Started, Create a Post!</h2>
+          )}
         </JournalStyles>
       );
     }
