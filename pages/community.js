@@ -67,7 +67,7 @@ export default function Community() {
           <Search
             data={data}
             func={setSearchResults}
-            attrs={["content"]}
+            attrs={["content", 'title', 'tag_1', 'tag_2', 'tag_3']}
             placeholder="Search content"
           />
           <h1>Community</h1>

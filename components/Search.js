@@ -1,15 +1,16 @@
-import React from "react";
+import React from 'react';
 
 export default function Search({ data, func, attrs, placeholder }) {
   const handleChange = (e) => {
     const searchResults = attrs.map((attr) =>
-      data?.filter((stuff) =>
-        stuff[attr]?.toLowerCase().includes(e.target.value.toLowerCase())
+      data?.filter((entry) =>
+        entry[attr]?.toLowerCase().includes(e.target.value.toLowerCase())
       )
-    );
-    if (e.target.value.length && searchResults[0].length) {
-      func(...searchResults);
-    } else if (e.target.value.length && !searchResults[0].length) {
+    ).flat();
+
+    if (e.target.value.length && searchResults.length) {
+      func([...new Set(searchResults)]);
+    } else if (e.target.value.length && !searchResults.length) {
       func(null);
     } else {
       func([]);
@@ -18,7 +19,7 @@ export default function Search({ data, func, attrs, placeholder }) {
 
   return (
     <div>
-      <input onChange={handleChange} placeholder={placeholder || "Search"} />
+      <input onChange={handleChange} placeholder={placeholder || 'Search'} />
     </div>
   );
 }

@@ -107,8 +107,8 @@ export default function Inspiration() {
           <h1>Inspiration</h1>
           {!searchResults && <p>No Results</p>}
           {searchResults?.length
-            ? searchResults.map((media) => <InspoMedia media={media} />)
-            : data.map((media) => <InspoMedia media={media} />)}
+            ? searchResults.map((media, i) => <InspoMedia key={i} media={media} />)
+            : data.map((media, i) => <InspoMedia key={i} media={media} />)}
         </InspoStyles>
       );
     }
