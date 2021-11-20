@@ -1,5 +1,4 @@
-# SafeSpace
-
+![Screen Shot 2021-11-20 at 2 43 19 PM](https://user-images.githubusercontent.com/29741570/142742351-83fa33f9-699b-4a64-9bbd-9b6b5f0ee794.png)
 
 <details>
   <summary><strong>Introduction</strong></summary>
