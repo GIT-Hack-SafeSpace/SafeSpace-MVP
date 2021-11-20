@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button';
 import styled from 'styled-components';
 import { ButtonStyle } from '../../styles/ButtonStyle';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
-import UploadImage from '../shared/ImageUpload';
+import { UploadImage } from '../shared';
 
 const SelectStyle = styled.div`
   .select__option {
@@ -24,7 +24,7 @@ export default function CreateInspo({ user, handleClose }) {
     const { id } = user;
     const { content, media_url } = data;
     const type = video ? 'video' : 'image';
-    
+
     try {
       setLoading(true);
       const updates = {
@@ -56,19 +56,19 @@ export default function CreateInspo({ user, handleClose }) {
   const videoClick = () => {
     setShowMediaInput(false);
     setVideo(true);
-    setData((prevState => ({
+    setData((prevState) => ({
       ...prevState,
       media_url: '',
-    })))
+    }));
   };
 
   const imageClick = () => {
     setVideo(false);
-    setData((prevState => ({
+    setData((prevState) => ({
       ...prevState,
       media_url: '',
-    })))
-  }
+    }));
+  };
 
   return (
     <Form onSubmit={postInspo}>
@@ -77,10 +77,7 @@ export default function CreateInspo({ user, handleClose }) {
           <Button variant={video ? 'secondary' : 'light'} onClick={videoClick}>
             Video
           </Button>
-          <Button
-            variant={!video ? 'secondary' : 'light'}
-            onClick={imageClick}
-          >
+          <Button variant={!video ? 'secondary' : 'light'} onClick={imageClick}>
             Image
           </Button>
         </ButtonGroup>
@@ -109,7 +106,7 @@ export default function CreateInspo({ user, handleClose }) {
         ) : (
           <div className='text-center'>
             <ButtonGroup className='mb-2'>
-            <Button
+              <Button
                 variant={showMediaInput ? 'secondary' : 'light'}
                 onClick={() => setShowMediaInput(true)}
               >
@@ -151,7 +148,10 @@ export default function CreateInspo({ user, handleClose }) {
             url={data.media_url}
             size={150}
             onUpload={(url) => {
-              setData((prevState) => ({ ...prevState, media_url: `https://wujfbnqzodthhoxrdnwt.supabase.in/storage/v1/object/public/inspiration/${url}` }));
+              setData((prevState) => ({
+                ...prevState,
+                media_url: `https://wujfbnqzodthhoxrdnwt.supabase.in/storage/v1/object/public/inspiration/${url}`,
+              }));
             }}
           />
         ))}

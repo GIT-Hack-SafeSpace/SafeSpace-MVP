@@ -1,14 +1,13 @@
-import { React, useState } from "react";
-import moment from "moment";
-import styled from "styled-components";
-import { communityTagData } from "../../data/tagData";
-import Tags from "../shared/Tags";
-import { deletePost, getPosts } from "../../api/journalData";
-import ModalComp from "../shared/Modal";
-import CreateRantRave from "../forms/CreateRantRave";
-import JournalEdit from "../buttons/JournalEdit";
+import { React, useState } from 'react';
+import moment from 'moment';
+import styled from 'styled-components';
+import { communityTagData } from '../../data/tagData';
+import { deletePost, getPosts } from '../../api/journalData';
+import { ModalComp, Tags } from '../shared';
+import CreateRantRave from '../forms/CreateRantRave';
+import JournalEdit from '../buttons/JournalEdit';
 
-const trashIcon = "icons/trash-icon.svg";
+const trashIcon = 'icons/trash-icon.svg';
 
 const JournalStyles = styled.div`
   display: flex;
@@ -114,32 +113,32 @@ export default function JournalEntry({ user, data, setData, setLoading }) {
 
   return (
     <JournalStyles key={data.id}>
-      <div className="main-card-body">
-        <div className="commImgWrapper">
+      <div className='main-card-body'>
+        <div className='commImgWrapper'>
           <img
-            src={`profileimages/${data.conflict_type || "user"}.png`}
-            className="profileImage"
-            alt="image"
+            src={`profileimages/${data.conflict_type || 'user'}.png`}
+            className='profileImage'
+            alt='image'
           />
         </div>
-        <div className="card-wrapper">
-          <div className="commTitleWrapper">
-            <span className="title">{data.title}</span>
+        <div className='card-wrapper'>
+          <div className='commTitleWrapper'>
+            <span className='title'>{data.title}</span>
           </div>
-          <p className="date">
-            {moment(data.created_at).format("MMM DD, YYYY")}
+          <p className='date'>
+            {moment(data.created_at).format('MMM DD, YYYY')}
           </p>
-          <div className="commBody">
-            <p className="card-bold">
+          <div className='commBody'>
+            <p className='card-bold'>
               <strong>Who:</strong>
               <span> {data.who}</span>
             </p>
-            <p className="card-bold">
+            <p className='card-bold'>
               <strong>Where:</strong>
               <span> {data.where}</span>
             </p>
-            <p className="content">{data.content}</p>
-            <div className="comment-tags">
+            <p className='content'>{data.content}</p>
+            <div className='comment-tags'>
               <Tags
                 tags={[data.tag_1, data.tag_2, data.tag_3]}
                 data={communityTagData}
@@ -148,25 +147,25 @@ export default function JournalEntry({ user, data, setData, setLoading }) {
           </div>
         </div>
       </div>
-      <div className="comm-footer">
-          <ModalComp
-            showModal={showModal}
+      <div className='comm-footer'>
+        <ModalComp
+          showModal={showModal}
+          handleClose={handleClose}
+          handleShow={handleShow}
+          title='Edit Entry'
+          trigger={JournalEdit}
+        >
+          <CreateRantRave
             handleClose={handleClose}
-            handleShow={handleShow}
-            title="Edit Entry"
-            trigger={JournalEdit}
-          >
-            <CreateRantRave
-              handleClose={handleClose}
-              user={user}
-              obj={data}
-              setter={setData}
-            />
-          </ModalComp>
-        <p className="footer-action">
+            user={user}
+            obj={data}
+            setter={setData}
+          />
+        </ModalComp>
+        <p className='footer-action'>
           <img
             src={trashIcon}
-            alt="delete post"
+            alt='delete post'
             onClick={() => deleteJournal(data.id)}
           />
         </p>

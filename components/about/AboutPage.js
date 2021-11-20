@@ -1,6 +1,6 @@
 import { React, useState } from 'react';
 import styled from 'styled-components';
-import ModalComp from '../shared/Modal';
+import { ModalComp } from '../shared';
 import ShowBio from '../buttons/ShowBio';
 import DisplayBio from './DisplayBio';
 import { allBioData } from '../../data/bioData';
