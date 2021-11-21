@@ -178,10 +178,10 @@ $ npm run dev
 - Create tables based on the [team ERD](https://www.figma.com/file/SW4mVA9Uo9vZq1NHaIf8Gy/Safe-Space-Jam?node-id=0%3A1)
 - Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
   
-## ENV Vars
+## env vars
 In order for the project to run locally, you will need to set up your `.env` file. There is a sample file. DUPLICATE it and rename it `.env` and reach out to another team member for the keys.
 
-## Next steps
+## Project Next steps
 - Allow users to create multiple journals
 - Users can follow other users
 - Users can follow community posts
