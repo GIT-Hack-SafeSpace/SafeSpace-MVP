@@ -52,6 +52,7 @@ const Borders = styled.div`
         background-color: purple;
         // border: 1px solid purple;
         height: 120px;
+        color: white;
         width: 330px;
         border-radius: 20px;
         text-align: center;
@@ -65,6 +66,7 @@ const Borders = styled.div`
         border: 1px solid black;
         height: 200px;
         width: 330px;
+        color: white;
         border-radius: 20px;
         text-align: center;
         margin-bottom: -15px;
@@ -78,7 +80,7 @@ const Borders = styled.div`
 
     span {
         justify-content: space-between;
-        color: black;
+        color: white;
     }
 `
 
@@ -113,7 +115,7 @@ export default function Dashboard() {
                 <br/>
                 
                 <span className='d-flex'>
-                    <div className="mediumBox"></div>
+                    <div className="mediumBox">F</div>
                 </span>
 
                 </Borders>
