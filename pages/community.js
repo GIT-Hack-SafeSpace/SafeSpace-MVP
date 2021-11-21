@@ -1,14 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { supabase } from "../utils/client";
 import { useRouter } from "next/router";
-import Loader from "../components/Loader";
-import MainLayout from "../layouts/MainLayout";
-
-import CommunityPost from "../components/CommunityPost";
-
 import styled from "styled-components";
-import Search from "../components/Search";
-import NoResults from "../components/NoResults";
+import MainLayout from "../layouts/MainLayout";
+import CommunityPost from "../components/community/CommunityPost";
+import { Search, NoResults, Loader } from "../components/shared";
 
 const CommunityView = styled.div`
   h1 {
@@ -69,7 +65,7 @@ export default function Community() {
             data={data}
             func={setSearchResults}
             attrs={["content", 'title', 'tag_1', 'tag_2', 'tag_3']}
-            placeholder="Search content"
+            placeholder="Search Community"
           />
           <h1>Community</h1>
           {!searchResults && <NoResults />}

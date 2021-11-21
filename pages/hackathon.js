@@ -1,11 +1,11 @@
 import React from 'react';
-import AccordianMenu from "../components/AccordionMenu";
+import AccordianMenu from "../components/hackathon/AccordionMenu";
 import HeaderOnly from '../layouts/HeaderOnly';
 
 export default function Hackathon() {
   return (
     <HeaderOnly>
-      <AccordianMenu />
+      <AccordionMenu />
       
       <div style={{display: 'flex', placeContent: 'center', marginTop: '3em'}}>
       <h2 style={{fontSize: '18px', color: '#ED3457'}}><b>User Journey & Entity Relationship Diagram</b></h2>

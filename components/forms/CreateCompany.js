@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { supabase } from '../utils/client';
+import { supabase } from '../../utils/client';
 import Form from 'react-bootstrap/Form';
-import { industries } from '../data/industries';
+import { industries } from '../../data/industries';
 import Select from 'react-select';
 import styled from 'styled-components';
 import Button from 'react-bootstrap/Button';
-import { ButtonStyle } from '../styles/ButtonStyle';
+import { ButtonStyle } from '../../styles/ButtonStyle';
 
 const SelectStyle = styled.div`
   .select__option {
@@ -20,7 +20,7 @@ export default function CreateCompany({ user, handleClose }) {
   const postCompany = async (e) => {
     e.preventDefault();
     const { id } = user;
-    const { name, content, industry } = company;
+    const { name, content, industry, jobs_link } = company;
     try {
       setLoading(true);
       const updates = {
@@ -28,6 +28,7 @@ export default function CreateCompany({ user, handleClose }) {
         name,
         content,
         industry,
+        jobs_link,
         created_at: new Date(),
       };
 
@@ -53,7 +54,7 @@ export default function CreateCompany({ user, handleClose }) {
     <>
       <Form onSubmit={postCompany}>
         <Form.Group className='mb-3'>
-          <Form.Label>Company Name</Form.Label>
+          <Form.Label>Company Name*</Form.Label>
           <Form.Control
             required
             id='name'
@@ -68,15 +69,31 @@ export default function CreateCompany({ user, handleClose }) {
             placeholder='Enter Company Name'
           />
         </Form.Group>
+        <Form.Group className='mb-3'>
+          <Form.Label>Website/Job Listings URL</Form.Label>
+          <Form.Control
+            id='jobs_link'
+            type='url'
+            value={company.jobs_link || ''}
+            onChange={(e) =>
+              setCompany((prevState) => ({
+                ...prevState,
+                jobs_link: e.target.value,
+              }))
+            }
+            placeholder='Enter jobs url'
+          />
+        </Form.Group>
 
         <Form.Group className='mb-3'>
-          <Form.Label>Company Rave</Form.Label>
+          <Form.Label>Company Rave*</Form.Label>
           <Form.Control
             as='textarea'
             rows={3}
             id='content'
             name='content'
             type='content'
+            placeholder='Tell us why this company is so great and any experiences you have had working there'
             value={company.content || ''}
             onChange={(e) =>
               setCompany((prevState) => ({
@@ -87,7 +104,7 @@ export default function CreateCompany({ user, handleClose }) {
           />
         </Form.Group>
         <SelectStyle>
-          <label htmlFor='industry'>Industry</label>
+          <label htmlFor='industry'>Industry*</label>
           <Select
             required
             id='industry'

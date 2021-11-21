@@ -1,5 +1,5 @@
 import React from 'react';
-import Quiz from '../components/Quiz';
+import Quiz from '../components/conflict/Quiz';
 import HeaderOnly from '../layouts/HeaderOnly';
 
 export default function QuizPage() {

@@ -1,15 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { supabase } from '../utils/client';
 import { useRouter } from 'next/router';
-import Loader from '../components/Loader';
-import MainLayout from '../layouts/MainLayout';
-import CompanyReview from '../components/CompanyReview';
-import ModalComp from '../components/Modal';
-import CreateCompany from '../components/CreateCompany';
-import ModalCreate from '../components/buttons/ModalCreate';
 import styled from 'styled-components';
-import Search from '../components/Search';
-import NoResults from '../components/NoResults';
+import MainLayout from '../layouts/MainLayout';
+import CompanyReview from '../components/company/CompanyReview';
+import CreateCompany from '../components/forms/CreateCompany';
+import ModalCreate from '../components/buttons/ModalCreate';
+import { ModalComp, Loader, Search, NoResults } from '../components/shared';
 
 const CompanyStyles = styled.div`
   background-color: #fefefe;
@@ -96,7 +93,7 @@ export default function Companies() {
             data={data}
             func={setSearchResults}
             attrs={['industry', 'name', 'content']}
-            placeholder='Search by industry'
+            placeholder='Search Companies'
           />
           <h1>Featured Companies</h1>
 

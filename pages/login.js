@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { supabase } from "../utils/client";
+import Link from "next/link";
 import { useRouter } from "next/router";
-import Loader from "../components/Loader";
+import { Loader } from "../components/shared";
 import styled from "styled-components";
 import { MainButton } from "../styles/ButtonStyle";
 import Form from "react-bootstrap/Form";
-import Link from "next/link";
 
 const SplashStyles = styled.div`
   padding: 300px 30px 50px;
@@ -31,7 +31,6 @@ const SplashStyles = styled.div`
 export default function Login() {
   const [loading, setLoading] = useState(true);
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const router = useRouter();
 
   useEffect(() => {
@@ -67,8 +66,8 @@ export default function Login() {
           <h1 className="splash-title">SafeSpace. </h1>
           <hr />
           <p className="description">
-            A place where Black women can support each other, manage our mental
-            health, and work related trauma.
+            A place where Black women can support each other and manage our mental
+            health and work related trauma.
           </p>
           <Form.Group className="form">
             <Form.Label className="visually-hidden visually-hidden-focusable">
@@ -84,13 +83,6 @@ export default function Login() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
-            {/* <Form.Control
-              id="password"
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            /> */}
           </Form.Group>
           <MainButton
             onClick={(e) => {

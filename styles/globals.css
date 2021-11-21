@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&family=Playfair+Display&family=Poppins:wght@100;200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&family=Playfair+Display&family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap');
 
 *,
 html {
@@ -22,14 +22,20 @@ input,
   margin: 10px 0;
 }
 
+.form-label {
+  margin-bottom: 0 !important;
+}
+
 h1.splash-title {
   font-family: 'Poppins', sans-serif;
   font-size: 2.5rem;
+  font-weight: 200;
 }
 
 h1.safespace {
   font-family: 'Poppins', sans-serif;
   font-size: 2.1rem;
+  font-weight: 200;
 }
 
 h2 {
@@ -82,16 +88,25 @@ nav {
 }
 
 .navbar-light .navbar-toggler {
-  color: rgba(0,0,0,.55);
-  border-color: rgba(0,0,0,0) !important;
+  color: rgba(0, 0, 0, 0.55);
+  border-color: rgba(0, 0, 0, 0) !important;
 }
 
 .navbar-nav > a {
   display: block;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
   color: rgb(237, 52, 87);
   text-decoration: none;
-  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out;
+}
+
+.job-listings-link {
+  display: block;
+  color: rgb(237, 52, 87);
+  text-decoration: none;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out;
 }
 
 .menuExample {
@@ -165,10 +180,10 @@ p.footerIcon {
   white-space: pre-line;
 }
 
-/* Resource page specs below */
+/* Resource pages specs below */
 .resourceRectangle {
   width: 100%;
-  height: 141px;      
+  height: 141px;
   position: relative;
   text-align: center;
   border-top: 2px solid white;
@@ -180,17 +195,22 @@ p.footerIcon {
   align-items: center;
   height: 570px;
   overflow: hidden;
-  margin: -34px -20px; 
+  margin: -34px -20px;
 }
 
-@media only screen and (min-width: 500px){
+.rscHeaders {
+  margin-bottom: 15px;
+  font-size: 28px;
+}
+
+@media only screen and (min-width: 500px) {
   .resourcelayout {
     display: flex;
     flex-direction: column;
     align-items: center;
     height: 630px;
     overflow: hidden;
-    margin: -34px -20px; 
+    margin: -34px -20px;
   }
   .resourceRectangle {
     height: 158px;
@@ -199,4 +219,29 @@ p.footerIcon {
     text-align: center;
     border-top: 2px solid white;
   }
+}
+
+.bio-modal-text,
+.company-text {
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 400;
+}
+
+.modal-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.25rem;
+}
+
+.resolution-text > p {
+  margin: 0;
+  padding: 0;
+}
+
+.resolution-text {
+  border-radius: 10px;
+  background-color:rgba(161, 178, 167, .2);
+  padding: 10px;
+  margin: 15px 0;
 }
