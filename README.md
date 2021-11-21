@@ -158,7 +158,6 @@ There would also need to be some algorithms in place to check content standards 
 
 Once those underlying concerns are addressed, the application runs itself as it was created for and belongs to anyone who identifies as a Black woman. The core is to have a journal and SafeSpace. does this really well.
 
-  
 </details>
 
 ---
@@ -182,8 +181,10 @@ $ npm run dev
 In order for the project to run locally, you will need to set up your `.env` file. There is a sample file. DUPLICATE it and rename it `.env` and reach out to another team member for the keys.
 
 ## Project Next steps
+- Connect community comments to posts (decided to descope because of the social aspect)
 - Allow users to create multiple journals
 - Users can follow other users
 - Users can follow community posts
 - Users can submit resources
+- Users can upvote companies and doing so would move them to the top of companies page
 - Data dashboard for sharing details on occurences
