@@ -180,3 +180,10 @@ $ npm run dev
   
 ## ENV Vars
 In order for the project to run locally, you will need to set up your `.env` file. There is a sample file. DUPLICATE it and rename it `.env` and reach out to another team member for the keys.
+
+## Next steps
+- Allow users to create multiple journals
+- Users can follow other users
+- Users can follow community posts
+- Users can submit resources
+- Data dashboard for sharing details on occurences
