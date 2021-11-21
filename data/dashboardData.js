@@ -22,9 +22,17 @@ export const journals = [
 export const topCompanies = [
     {
         type:'top industries Black women are in',
-        value:'Management, business, science & arts'
+        value:'35% of Black women work in Management, Business, Science & Arts'
     }
 ]
+ 
+export const numOfCompanies = [
+    {
+        type:'number of companies recommended',
+        value: '6,711'
+    }
+]
+
 
 export const climateBW = [
     {
