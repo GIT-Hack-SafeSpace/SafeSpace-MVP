@@ -81,11 +81,51 @@ const Borders = styled.div`
     span {
         justify-content: space-between;
     }
+
+    @media only screen and (min-width: 420px) {
+        .boxes {
+            color: white;
+            height: 150px;
+            width: 180px;
+            border-radius: 20px;
+            text-align: center;
+            margin-bottom: -15px;
+            filter: drop-shadow(1px 1px 3px gray);
+        }
+
+        .mediumBox {
+            background-color: purple;
+            // border: 1px solid purple;
+            color: white;
+            height: 180px;
+            width: 370px;
+            border-radius: 20px;
+            text-align: center;
+            margin-bottom: -15px;
+            background-position: center; 
+            filter: drop-shadow(1px 1px 3px gray);
+        }
+        
+        .longBox {
+            // background-color: black;
+            border: 1px solid black;
+            height: 200px;
+            width: 370px;
+            color: white;
+            border-radius: 20px;
+            text-align: center;
+            margin-bottom: -15px;
+            background-image: url(https://www.americangeosciences.org/sites/default/files/styles/ci__650_x_430_/public/CI-fireworks-Carlson-084-600-400px-160701.jpg?itok=GJWsYK5S);
+            filter: drop-shadow(1px 1px 3px gray);
+        }
+
+
+    }
 `
 
 export default function Dashboard() {
     return (
-        <>
+        
         <HeaderOnly>
                 <Borders>
                 <span className='d-flex'>
@@ -119,7 +159,7 @@ export default function Dashboard() {
 
                 </Borders>
         </HeaderOnly>
-        </>
+        
     )
 };
 
