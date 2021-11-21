@@ -118,15 +118,13 @@ const Borders = styled.div`
             background-image: url(https://www.americangeosciences.org/sites/default/files/styles/ci__650_x_430_/public/CI-fireworks-Carlson-084-600-400px-160701.jpg?itok=GJWsYK5S);
             filter: drop-shadow(1px 1px 3px gray);
         }
-
-
     }
 `
 
 export default function Dashboard() {
     return (
-        
         <HeaderOnly>
+            <div>
                 <Borders>
                 <span className='d-flex'>
                     <h3>Dashboard</h3>
@@ -158,8 +156,8 @@ export default function Dashboard() {
                 </span>
 
                 </Borders>
+            </div>
         </HeaderOnly>
-        
     )
 };
 
