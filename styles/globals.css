@@ -233,3 +233,15 @@ p.footerIcon {
   font-family: 'Poppins', sans-serif;
   font-size: 1.25rem;
 }
+
+.resolution-text > p {
+  margin: 0;
+  padding: 0;
+}
+
+.resolution-text {
+  border-radius: 10px;
+  background-color:rgba(161, 178, 167, .2);
+  padding: 10px;
+  margin: 15px 0;
+}

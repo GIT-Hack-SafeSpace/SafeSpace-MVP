@@ -67,7 +67,7 @@ export default function RantRave() {
           <Search
             data={data}
             func={setSearchResults}
-            attrs={["content", "title", 'who', 'where', 'tag_1', 'tag_2', 'tag_3']}
+            attrs={["content", "title", 'who', 'where', 'tag_1', 'tag_2', 'tag_3', 'resolution']}
             placeholder="Search Journals"
           />
           <h1>Journal</h1>

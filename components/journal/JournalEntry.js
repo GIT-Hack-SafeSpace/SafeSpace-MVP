@@ -9,6 +9,93 @@ import JournalEdit from '../buttons/JournalEdit';
 
 const trashIcon = 'icons/trash-icon.svg';
 
+export default function JournalEntry({ user, data, setData, setLoading }) {
+  const [showModal, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  const deleteJournal = (id) => {
+    setLoading(true);
+    deletePost(id).then(() => {
+      getPosts(data.profile_id).then((rep) => {
+        setData(rep);
+        setLoading(false);
+      });
+    });
+  };
+
+  return (
+    <JournalStyles key={data.id}>
+      <div className='main-card-body'>
+        <div className='commImgWrapper'>
+          <img
+            src={`profileimages/${data.conflict_type || 'user'}.png`}
+            className='profileImage'
+            alt='image'
+          />
+        </div>
+        <div className='card-wrapper'>
+          <div className='commTitleWrapper'>
+            <span className='title'>{data.title}</span>
+          </div>
+          <p className='date'>
+            {moment(data.created_at).format('MMM DD, YYYY')}
+          </p>
+          <div className='commBody'>
+            <p className='card-bold'>
+              <strong>Who:</strong>
+              <span> {data.who}</span>
+            </p>
+            <p className='card-bold'>
+              <strong>Where:</strong>
+              <span> {data.where}</span>
+            </p>
+            <div className='comment-tags'>
+              <Tags
+                tags={[data.tag_1, data.tag_2, data.tag_3]}
+                data={communityTagData}
+              />
+            </div>
+            <hr />
+            <h6>What Happened?</h6>
+            <p className='content'>{data.content}</p>
+            {data.isResolved && (
+              <div className="resolution-text">
+                <h6>Resolution</h6>
+                <p>{data.resolution}</p>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+      <div className='comm-footer'>
+        <ModalComp
+          showModal={showModal}
+          handleClose={handleClose}
+          handleShow={handleShow}
+          title='Edit Entry'
+          trigger={JournalEdit}
+        >
+          <CreateRantRave
+            handleClose={handleClose}
+            user={user}
+            obj={data}
+            setter={setData}
+          />
+        </ModalComp>
+        <p className='footer-action'>
+          <img
+            src={trashIcon}
+            alt='delete post'
+            onClick={() => deleteJournal(data.id)}
+          />
+        </p>
+      </div>
+    </JournalStyles>
+  );
+}
+
 const JournalStyles = styled.div`
   display: flex;
   flex-direction: column;
@@ -94,82 +181,3 @@ const JournalStyles = styled.div`
     }
   }
 `;
-
-export default function JournalEntry({ user, data, setData, setLoading }) {
-  const [showModal, setShow] = useState(false);
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
-  const deleteJournal = (id) => {
-    setLoading(true);
-    deletePost(id).then(() => {
-      getPosts(data.profile_id).then((rep) => {
-        setData(rep);
-        setLoading(false);
-      });
-    });
-  };
-
-  return (
-    <JournalStyles key={data.id}>
-      <div className='main-card-body'>
-        <div className='commImgWrapper'>
-          <img
-            src={`profileimages/${data.conflict_type || 'user'}.png`}
-            className='profileImage'
-            alt='image'
-          />
-        </div>
-        <div className='card-wrapper'>
-          <div className='commTitleWrapper'>
-            <span className='title'>{data.title}</span>
-          </div>
-          <p className='date'>
-            {moment(data.created_at).format('MMM DD, YYYY')}
-          </p>
-          <div className='commBody'>
-            <p className='card-bold'>
-              <strong>Who:</strong>
-              <span> {data.who}</span>
-            </p>
-            <p className='card-bold'>
-              <strong>Where:</strong>
-              <span> {data.where}</span>
-            </p>
-            <p className='content'>{data.content}</p>
-            <div className='comment-tags'>
-              <Tags
-                tags={[data.tag_1, data.tag_2, data.tag_3]}
-                data={communityTagData}
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className='comm-footer'>
-        <ModalComp
-          showModal={showModal}
-          handleClose={handleClose}
-          handleShow={handleShow}
-          title='Edit Entry'
-          trigger={JournalEdit}
-        >
-          <CreateRantRave
-            handleClose={handleClose}
-            user={user}
-            obj={data}
-            setter={setData}
-          />
-        </ModalComp>
-        <p className='footer-action'>
-          <img
-            src={trashIcon}
-            alt='delete post'
-            onClick={() => deleteJournal(data.id)}
-          />
-        </p>
-      </div>
-    </JournalStyles>
-  );
-}
