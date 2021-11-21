@@ -125,9 +125,9 @@ Ensuring that we all were on the right path for the outcomes of the app because 
   <img src="https://user-images.githubusercontent.com/14102749/142733927-7163abee-85f8-46b0-a037-8cac6792e3ee.jpeg" width=150 heght=300/>
 </div>
   
-I have always been a creative person since I was young. I would draw, write, and create unique things such as poetry, models and designs. I loved video games and anything tech related intrigued me. Aside from my creative abilities and tech interests, I knew I wanted to service disadvantaged communities. I had a curiosity about different healthcare resources for all regardless of their race, access or income. With a background in public health and now the pursuit of a new career path as a software developer, I was excited to learn I could bring all of my interests together to make an application specifically for Black women’s mental health and the expression of their experiences within the workplace. I love the fact that our application, Safespace. welcomes discussion and journaling of workplace taboo topics. I was extremely proud to come together with fellow black female software developers to create a place where women like us can be vulnerable, vocal, and acknowledged. I believe our goal to construct an application that provides women like me with resources and dialogue that can be used to achieve mental health stability and personal growth was accomplished!
+For as long as I can remember, I’ve been drawn to express myself creatively. As a child, and even in my adult life, I find myself drawing, writing, and creating unique models and designs. I have a love for video games and all things tech related. Aside from my creative abilities and tech interests, I have a heart to serve underrepresented communities. Growing up in Chicago’s Southside, I’ve seen first hand the result of limited resources and a lack of focus on physical and mental health. Safespace. has allowed me an opportunity to align my background in Public Health with my newly established journey in software development to aid in the creation of a platform welcoming women to discuss and journal workplace taboo topics. It has been a privilege collaborating with fellow black female software developers to create a mechanism where women like us can be vulnerable, vocal, and supported. It has been a goal of mine to help bridge the gap of resources and create dialogue surrounding mental health stability, and I believe Safespace. does exactly that!
   
-- [Brittany's LinkedIn](https://www.linkedin.com/in/brittanymgarrett/ )
+- [Brittany's LinkedIn](https://www.linkedin.com/in/brittanymgarrett/)
 - [Brittany's Github](https://github.com/bmgdevelopment )
 - [Brittany's Email](brittanymgarrett@gmail.com)
 
@@ -146,6 +146,12 @@ Hi, I’m Jameka, a software developer and mobile engineer. I’ve been in the t
 --- 
 
 <strong>Front End | Yasmeen Cole</strong>
+
+Hi, I am Yasmeen Cole. I am a Software Engineer and a recent graduate of Nashville Software School. I have always been passionate about technology since I was a child. I believe that technology can be a tool to improve our lives and can help us be innovative in ways that were not always possible. In my spare time I enjoy spending time with my family and friends, doing yoga, hiking, painting, and learning about space science. One of my future goals is to be a part of a team that develops software that will ultimately help humans travel to outer space and make a home outside of our planet Earth. For me personally, I use technology as a way to: express myself creatively, to learn, to connect with a community of people who share my passions, and to inspire and be a resource to the members of my family. I love that this group of women has decided to give black women a way to express themselves in an open and safe environment by creating this application Safespace. Safespace will help us to inspire, encourage each other, learn from one another and find new ways to navigate our careers. 
+
+- [Yasmeen's LinkedIn](https://www.linkedin.com/in/yasmeen-cole-04466366/)
+- [Yasmeen's Github](https://github.com/yasmeencole)
+- [Yasmeen's Email](yasmeencole1@gmail.com)
 
 </details>
 

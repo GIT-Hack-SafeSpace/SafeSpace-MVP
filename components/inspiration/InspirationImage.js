@@ -17,7 +17,7 @@ export default function InspirationImage({ image }) {
                 width='100%'
               />
               <Card.ImgOverlay>
-                <Card.Text className='inspoCardText'>{image.content}</Card.Text>
+                <Card.Text className='inspoCardText' style={{filter: 'drop-shadow(2px 4px 2px black)', fontSize: '27px'}}><b>{image.content}</b></Card.Text>
               </Card.ImgOverlay>
             </Card>
           </ImageCardStyle>
