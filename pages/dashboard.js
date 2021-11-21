@@ -80,7 +80,6 @@ const Borders = styled.div`
 
     span {
         justify-content: space-between;
-        color: white;
     }
 `
 
