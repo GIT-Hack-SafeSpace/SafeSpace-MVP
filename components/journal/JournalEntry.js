@@ -38,6 +38,13 @@ export default function JournalEntry({ user, data, setData, setLoading }) {
         <div className='card-wrapper'>
           <div className='commTitleWrapper'>
             <span className='title'>{data.title}</span>
+            <span className='resolvedTags'>
+              {data.isResolved ? (
+                <div className='resolved'>Resolved</div>
+              ) : (
+                'Unresolved'
+              )}
+            </span>
           </div>
           <p className='date'>
             {moment(data.created_at).format('MMM DD, YYYY')}
@@ -57,11 +64,11 @@ export default function JournalEntry({ user, data, setData, setLoading }) {
                 data={communityTagData}
               />
             </div>
-            <hr />
             <h6>What Happened?</h6>
             <p className='content'>{data.content}</p>
+
             {data.isResolved && (
-              <div className="resolution-text">
+              <div className='resolution-text'>
                 <h6>Resolution</h6>
                 <p>{data.resolution}</p>
               </div>
