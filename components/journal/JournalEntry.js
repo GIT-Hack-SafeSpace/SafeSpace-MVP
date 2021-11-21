@@ -58,15 +58,15 @@ export default function JournalEntry({ user, data, setData, setLoading }) {
               <strong>Where:</strong>
               <span> {data.where}</span>
             </p>
+            <hr />
+            <h6>What Happened?</h6>
+            <p className='content'>{data.content}</p>
             <div className='comment-tags'>
               <Tags
                 tags={[data.tag_1, data.tag_2, data.tag_3]}
                 data={communityTagData}
               />
             </div>
-            <h6>What Happened?</h6>
-            <p className='content'>{data.content}</p>
-
             {data.isResolved && (
               <div className='resolution-text'>
                 <h6>Resolution</h6>
