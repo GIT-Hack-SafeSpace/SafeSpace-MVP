@@ -1,5 +1,5 @@
 import React from 'react';
-import AccordianMenu from "../components/hackathon/AccordionMenu";
+import AccordionMenu from "../components/hackathon/AccordionMenu";
 import HeaderOnly from '../layouts/HeaderOnly';
 
 export default function Hackathon() {
@@ -8,7 +8,7 @@ export default function Hackathon() {
       <AccordionMenu />
       
       <div style={{display: 'flex', placeContent: 'center', marginTop: '3em'}}>
-      <h2 style={{fontSize: '18px', color: '#ED3457'}}><b>User Journey & Entity Relationship Diagram</b></h2>
+      <h2 style={{fontSize: '18px', color: '#ED3457', textAlign: 'center'}}><b>User Journey & <br/> Entity Relationship Diagram</b></h2>
       </div>
         <iframe
           style={{ border: '1px solid rgba(0, 0, 0, 0.1)' }}
