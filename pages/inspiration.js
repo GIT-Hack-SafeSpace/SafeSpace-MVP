@@ -1,17 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { supabase } from "../utils/client";
 import { useRouter } from "next/router";
-import ReactPlayer from "react-player/lazy";
-import Loader from "../components/Loader";
-import MainLayout from "../layouts/MainLayout";
-import InspirationImage from "../components/InspirationImage";
-import CreateInspo from "../components/CreateInspo";
-import ModalComp from "../components/Modal";
-import ModalCreate from "../components/buttons/ModalCreate";
 import styled from "styled-components";
-import Search from "../components/Search";
-import InspoMedia from "../components/InspoMedia";
-import NoResults from "../components/NoResults";
+import MainLayout from "../layouts/MainLayout";
+import CreateInspo from "../components/forms/CreateInspo";
+import ModalCreate from "../components/buttons/ModalCreate";
+import InspoMedia from "../components/inspiration/InspoMedia";
+import { Loader, ModalComp, Search, NoResults } from "../components/shared";
 
 const InspoStyles = styled.div`
   background-color: #fefefe;

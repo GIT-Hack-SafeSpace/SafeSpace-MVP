@@ -1,4 +1,4 @@
-import { ButtonStyle } from '../styles/ButtonStyle';
+import { ButtonStyle } from '../../styles/ButtonStyle';
 import Modal from 'react-bootstrap/Modal';
 
 export default function ModalComp({

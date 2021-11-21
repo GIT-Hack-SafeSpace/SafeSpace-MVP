@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import { supabase } from '../utils/client';
+import { useState } from 'react';
+import { supabase } from '../../utils/client';
 
 export default function UploadImage({ url, size, onUpload }) {
   const [imageUrl, setImageUrl] = useState(null);

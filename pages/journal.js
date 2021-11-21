@@ -1,17 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { supabase } from "../utils/client";
 import { useRouter } from "next/router";
-import Loader from "../components/Loader";
-import ModalComp from "../components/Modal";
-import CreateRantRave from "../components/CreateRantRave";
-import JournalEntry from "../components/JournalEntry";
+import styled from "styled-components";
+import CreateRantRave from "../components/forms/CreateRantRave";
+import JournalEntry from "../components/journal/JournalEntry";
+import ModalCreate from "../components/buttons/ModalCreate";
 import MainLayout from "../layouts/MainLayout";
 import { getPosts } from "../api/journalData";
-
-import styled from "styled-components";
-import ModalCreate from "../components/buttons/ModalCreate";
-import Search from "../components/Search";
-import NoResults from "../components/NoResults";
+import { Loader, ModalComp, Search, NoResults } from "../components/shared";
 
 const JournalStyles = styled.div`
   background-color: #fefefe;
@@ -71,7 +67,7 @@ export default function RantRave() {
           <Search
             data={data}
             func={setSearchResults}
-            attrs={["content", "title", 'who', 'where', 'tag_1', 'tag_2', 'tag_3']}
+            attrs={["content", "title", 'who', 'where', 'tag_1', 'tag_2', 'tag_3', 'resolution']}
             placeholder="Search Journals"
           />
           <h1>Journal</h1>

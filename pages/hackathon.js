@@ -1,5 +1,5 @@
 import React from 'react';
-import AccordionMenu from "../components/AccordionMenu";
+import AccordianMenu from "../components/hackathon/AccordionMenu";
 import HeaderOnly from '../layouts/HeaderOnly';
 
 export default function Hackathon() {

@@ -1,9 +1,9 @@
 import { React, useState } from 'react';
 import styled from 'styled-components';
-import ModalComp from './Modal';
-import ShowBio from './buttons/ShowBio';
+import { ModalComp } from '../shared';
+import ShowBio from '../buttons/ShowBio';
 import DisplayBio from './DisplayBio';
-import { allBioData } from '../data/bioData';
+import { allBioData } from '../../data/bioData';
 
 const groupPhoto = '/bio/safe.png';
 const foundUser = (userId) => allBioData.find((x) => x.userId == userId);

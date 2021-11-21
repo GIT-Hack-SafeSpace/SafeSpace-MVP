@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { supabase } from '../../utils/client';
 import { useRouter } from 'next/router';
-import Loader from '../../components/Loader';
+import { Loader, Tags } from '../../components/shared';
 import MainLayout from '../../layouts/MainLayout';
 import { creative } from '../../data/resources';
 import { creativeIconPics } from '../../data/resources';
 import { resourceTagData } from '../../data/tagData';
-import Tags from '../../components/Tags';
 
 const icons = creativeIconPics.map((icon) => icon.url);
 
