@@ -118,7 +118,7 @@ export const allBioData = [
     name:'Yasmeen Cole',
     imageUrl: '/bio/yasmeen.jpeg',
     alt:'Yasmeen',
-    bio:'',
+    bio:'Hi, I am Yasmeen Cole. I am a Software Engineer and a recent graduate of Nashville Software School. I have always been passionate about technology since I was a child. I believe that technology can be a tool to improve our lives and can help us be innovative in ways that were not always possible. In my spare time I enjoy spending time with my family and friends, doing yoga, hiking, painting, and learning about space science. One of my future goals is to be a part of a team that develops software that will ultimately help humans travel to outer space and make a home outside of our planet Earth. For me personally, I use technology as a way to: express myself creatively, to learn, to connect with a community of people who share my passions, and to inspire and be a resource to the members of my family. I love that this group of women has decided to give black women a way to express themselves in an open and safe environment by creating this application Safespace. Safespace will help us to inspire, encourage each other, learn from one another and find new ways to navigate our careers.',
     socialMedias:[
       {
         id: 1,
