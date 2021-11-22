@@ -1,17 +1,29 @@
 import React, { useEffect, useState } from 'react';
 import { supabase } from '../utils/client';
 import { useRouter } from 'next/router';
-import Loader from '../components/Loader';
+import styled from 'styled-components';
 import MainLayout from '../layouts/MainLayout';
-import CompanyReview from '../components/CompanyReview';
-import ModalComp from '../components/Modal';
-import CreateCompany from '../components/CreateCompany';
+import CompanyReview from '../components/company/CompanyReview';
+import CreateCompany from '../components/forms/CreateCompany';
+import ModalCreate from '../components/buttons/ModalCreate';
+import { ModalComp, Loader, Search, NoResults } from '../components/shared';
+
+const CompanyStyles = styled.div`
+  background-color: #fefefe;
+
+  h1 {
+    border-bottom: 1px solid #e8e8e8;
+    padding-bottom: 15px;
+    font-size: 28px;
+  }
+`;
 
 export default function Companies() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState({});
   const [showModal, setShow] = useState(false);
+  const [searchResults, setSearchResults] = useState([]);
   const router = useRouter();
 
   const handleClose = () => setShow(false);
@@ -39,7 +51,7 @@ export default function Companies() {
   }, []);
 
   const handleInsert = (payload) => {
-    setData((prevPosts) => [...prevPosts, payload.new]);
+    setData((prevPosts) => [payload.new, ...prevPosts]);
   };
 
   const getCompanyData = async () => {
@@ -67,17 +79,31 @@ export default function Companies() {
       return <Loader />;
     } else {
       return (
-        <>
+        <CompanyStyles>
           <ModalComp
             showModal={showModal}
             handleClose={handleClose}
             handleShow={handleShow}
             title='Submit a Great Company'
+            trigger={ModalCreate}
           >
             <CreateCompany handleClose={handleClose} user={user} />
           </ModalComp>
-          <CompanyReview data={data} user={user}/>
-        </>
+          <Search
+            data={data}
+            func={setSearchResults}
+            attrs={['industry', 'name', 'content']}
+            placeholder='Search Companies'
+          />
+          <h1>Featured Companies</h1>
+
+          {!searchResults && <NoResults />}
+          {searchResults?.length
+            ? searchResults.map((item, i) => (
+                <CompanyReview key={i} data={item} />
+              ))
+            : data.map((d, i) => <CompanyReview key={i} data={d} />)}
+        </CompanyStyles>
       );
     }
   };

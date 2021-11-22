@@ -1,7 +1,7 @@
 import React from 'react';
-import Quiz from '../components/Quiz';
-import NoNavigation from '../layouts/NoNavigation';
+import Quiz from '../components/conflict/Quiz';
+import HeaderOnly from '../layouts/HeaderOnly';
 
 export default function QuizPage() {
-  return <NoNavigation><Quiz /></NoNavigation>;
+  return <HeaderOnly><Quiz /></HeaderOnly>;
 }

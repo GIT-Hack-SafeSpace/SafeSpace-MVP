@@ -1,15 +1,26 @@
-import React, { useEffect, useState } from 'react';
-import { supabase } from '../utils/client';
-import { useRouter } from 'next/router';
-import Loader from '../components/Loader';
-import MainLayout from '../layouts/MainLayout';
-import InspirationPost from '../components/InspirationPost';
-import CreateInspo from '../components/CreateInspo';
-import ModalComp from '../components/Modal';
+import React, { useEffect, useState } from "react";
+import { supabase } from "../utils/client";
+import { useRouter } from "next/router";
+import styled from "styled-components";
+import MainLayout from "../layouts/MainLayout";
+import CreateInspo from "../components/forms/CreateInspo";
+import ModalCreate from "../components/buttons/ModalCreate";
+import InspoMedia from "../components/inspiration/InspoMedia";
+import { Loader, ModalComp, Search, NoResults } from "../components/shared";
 
+const InspoStyles = styled.div`
+  background-color: #fefefe;
 
+  h1 {
+    border-bottom: 1px solid #e8e8e8;
+    padding-bottom: 15px;
+    font-size: 28px;
+    margin-bottom: 25px;
+  }
+`;
 export default function Inspiration() {
   const [data, setData] = useState([]);
+  const [searchResults, setSearchResults] = useState([]);
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState({});
   const [showModal, setShow] = useState(false);
@@ -23,7 +34,7 @@ export default function Inspiration() {
     const user = supabase.auth.user();
 
     if (!user) {
-      router.push('/login');
+      router.push("/login");
     } else {
       getAllInspoPosts();
       setUser(user);
@@ -31,8 +42,8 @@ export default function Inspiration() {
 
     // subscribe to all inserts (post)
     const inspoPost = supabase
-      .from('inspo_post')
-      .on('INSERT', (payload) => {
+      .from("inspo_post")
+      .on("INSERT", (payload) => {
         handleInsert(payload);
       })
       .subscribe();
@@ -41,7 +52,7 @@ export default function Inspiration() {
   }, []);
 
   const handleInsert = (payload) => {
-    setData((prevPosts) => [...prevPosts, payload.new]);
+    setData((prevPosts) => [payload.new, ...prevPosts]);
   };
 
   const getAllInspoPosts = async () => {
@@ -51,9 +62,9 @@ export default function Inspiration() {
         error,
         status,
       } = await supabase
-        .from('inspo_post')
-        .select('*')
-        .order('created_at', { ascending: false });
+        .from("inspo_post")
+        .select("*")
+        .order("created_at", { ascending: false });
 
       if (error && status !== 406) {
         throw error;
@@ -73,15 +84,28 @@ export default function Inspiration() {
       return <Loader />;
     } else {
       return (
-        <>
-          <ModalComp showModal={showModal}
+        <InspoStyles>
+          <ModalComp
+            showModal={showModal}
             handleClose={handleClose}
             handleShow={handleShow}
-            title='Create Inspiration'>
+            title="Create Inspiration"
+            trigger={ModalCreate}
+          >
             <CreateInspo handleClose={handleClose} user={user} />
           </ModalComp>
-          <InspirationPost data={data} user={user}/>
-        </>
+          <Search
+            data={data}
+            func={setSearchResults}
+            attrs={["content"]}
+            placeholder="Search Inspirations"
+          />
+          <h1>Inspiration</h1>
+          {!searchResults && <NoResults />}
+          {searchResults?.length
+            ? searchResults.map((media, i) => <InspoMedia key={i} media={media} />)
+            : data.map((media, i) => <InspoMedia key={i} media={media} />)}
+        </InspoStyles>
       );
     }
   };

@@ -1,6 +1,5 @@
 import React from 'react';
-import GlobalFooter from '../components/GlobalFooter';
-import GlobalHeader from '../components/GlobalHeader';
+import { GlobalFooter, GlobalHeader } from '../components/shared';
 
 export default function MainLayout({ children }) {
   return (

@@ -9,9 +9,9 @@ const ResourceLayout = styled.div`
     justify-content: space-between;
   }
 
-    .resourceImg {
-        width: 105%;
-    }
+  .resourceImg {
+    width: 105%;
+  }
 
   .bottom-left {
     position: absolute;
@@ -25,15 +25,15 @@ const ResourceLayout = styled.div`
 
 export default function ResourcePg() {
   return (
-    <ResourceLayout className="resourcelayout">
-            <div className="resourceRectangle">
-                <Link href="/resources/help">
-                    <a>
-                        <img className="resourceImg" src='images/help.png' alt="Help"/>
-                        <div className="bottom-left">Help</div>
-                    </a>
-                </Link>
-            </div>
+    <ResourceLayout className='resourcelayout'>
+      <div className='resourceRectangle'>
+        <Link href='/resources/help'>
+          <a>
+            <img className='resourceImg' src='images/help.png' alt='Help' />
+            <div className='bottom-left'>Help</div>
+          </a>
+        </Link>
+      </div>
 
       <div className='resourceRectangle'>
         <Link href='/resources/creative'>
