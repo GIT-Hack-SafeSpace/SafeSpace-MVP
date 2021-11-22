@@ -8,7 +8,7 @@ import { MainButton } from "../styles/ButtonStyle";
 import Form from "react-bootstrap/Form";
 
 const SplashStyles = styled.div`
-  padding: 300px 30px 50px;
+  padding: 300px 30px 80px;
   color: white;
   background-image: url("images/safespaceMainPg.png");
   min-height: 820px;
@@ -79,6 +79,7 @@ export default function Login() {
             <Form.Control
               id="email"
               type="email"
+              className="mb-3"
               placeholder="Your email address"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
