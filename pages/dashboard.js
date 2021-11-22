@@ -14,7 +14,7 @@ const dashboardData = {
 
 const Borders = styled.div`
     border: 1px solid lightgray;
-    border-radius: 20px;
+    border-radius: 5px;
     padding: 20px;
     height: 100vh;
     
@@ -22,7 +22,7 @@ const Borders = styled.div`
         color: white;
         height: 150px;
         width: 160px;
-        border-radius: 20px;
+        border-radius: 5px;
         text-align: center;
         margin-bottom: -15px;
         filter: drop-shadow(1px 1px 3px gray);
@@ -54,7 +54,7 @@ const Borders = styled.div`
         height: 120px;
         color: white;
         width: 330px;
-        border-radius: 20px;
+        border-radius: 5px;
         text-align: center;
         margin-bottom: -15px;
         background-position: center; 
@@ -67,7 +67,7 @@ const Borders = styled.div`
         height: 200px;
         width: 330px;
         color: white;
-        border-radius: 20px;
+        border-radius: 5px;
         text-align: center;
         margin-bottom: -15px;
         background-image: url(https://www.americangeosciences.org/sites/default/files/styles/ci__650_x_430_/public/CI-fireworks-Carlson-084-600-400px-160701.jpg?itok=GJWsYK5S);
@@ -87,7 +87,7 @@ const Borders = styled.div`
             color: white;
             height: 150px;
             width: 180px;
-            border-radius: 20px;
+            border-radius: 5px;
             text-align: center;
             margin-bottom: -15px;
             filter: drop-shadow(1px 1px 3px gray);
@@ -99,7 +99,7 @@ const Borders = styled.div`
             color: white;
             height: 180px;
             width: 370px;
-            border-radius: 20px;
+            border-radius: 5px;
             text-align: center;
             margin-bottom: -15px;
             background-position: center; 
@@ -112,7 +112,7 @@ const Borders = styled.div`
             height: 200px;
             width: 370px;
             color: white;
-            border-radius: 20px;
+            border-radius: 5px;
             text-align: center;
             margin-bottom: -15px;
             background-image: url(https://www.americangeosciences.org/sites/default/files/styles/ci__650_x_430_/public/CI-fireworks-Carlson-084-600-400px-160701.jpg?itok=GJWsYK5S);
