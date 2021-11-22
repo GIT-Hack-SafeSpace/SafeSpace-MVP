@@ -1,6 +1,6 @@
 import React from 'react'
-import styled from "styled-components";
-import HeaderOnly from '../layouts/HeaderOnly';
+// import styled from "styled-components";
+import { Header, Statistic } from 'semantic-ui-react'
 
 const dashboardData = {
     topCompanies: '35% of Black women work in Management, Business, Science & Arts',
@@ -12,153 +12,70 @@ const dashboardData = {
     totalUsers: '9.8 million'
 }
 
-const Borders = styled.div`
-    border: 1px solid lightgray;
-    border-radius: 5px;
-    padding: 20px;
-    height: 100vh;
-    
-    .boxes {
-        color: white;
-        height: 150px;
-        width: 160px;
-        border-radius: 5px;
-        text-align: center;
-        margin-bottom: -15px;
-        filter: drop-shadow(1px 1px 3px gray);
-    }
+const HeaderExampleSubheaderProp = () => (
+    <Header
+    as='h2'
+    color='violet' 
+    textAlign='left'
+    content='SafeSpace. Dashboard'
+    subheader='Quick summarized figures'
+  />
+);
 
-    .box1 {
-        border: 1px solid blue;
-        background-color: blue;
-    }
+const StatisticNum = () => (
+    <Statistic color='grey'>
+      <Statistic.Value>6,711</Statistic.Value>
+      <Statistic.Label>Total Companies</Statistic.Label>
+    </Statistic>
+)
+const StatisticVal = () => (
+    <Statistic size='tiny' color='grey'>
+      <Statistic.Value>#microagression</Statistic.Value>
+      <Statistic.Label>Top Tag</Statistic.Label>
+    </Statistic>
+)
 
-    .box2 {
-        border: 1px solid orange;
-        background-color: orange;
-    }
-    
-    .box3 {
-        border: 1px solid red;
-        background-color: red;   
-    }
-
-    .box4 {
-        border: 1px solid green;
-        background-color: green;   
-    }
-    
-    .mediumBox {
-        background-color: purple;
-        // border: 1px solid purple;
-        height: 120px;
-        color: white;
-        width: 330px;
-        border-radius: 5px;
-        text-align: center;
-        margin-bottom: -15px;
-        background-position: center; 
-        filter: drop-shadow(1px 1px 3px gray);
-    }
-    
-    .longBox {
-        // background-color: black;
-        border: 1px solid black;
-        height: 200px;
-        width: 330px;
-        color: white;
-        border-radius: 5px;
-        text-align: center;
-        margin-bottom: -15px;
-        background-image: url(https://www.americangeosciences.org/sites/default/files/styles/ci__650_x_430_/public/CI-fireworks-Carlson-084-600-400px-160701.jpg?itok=GJWsYK5S);
-        filter: drop-shadow(1px 1px 3px gray);
-    }
-
-    h3 {
-        text-align: center;
-    }
-
-    span {
-        justify-content: space-between;
-    }
-
-    @media only screen and (min-width: 420px) {
-        .boxes {
-            color: white;
-            height: 150px;
-            width: 180px;
-            border-radius: 5px;
-            text-align: center;
-            margin-bottom: -15px;
-            filter: drop-shadow(1px 1px 3px gray);
-        }
-
-        .mediumBox {
-            background-color: purple;
-            // border: 1px solid purple;
-            color: white;
-            height: 180px;
-            width: 370px;
-            border-radius: 5px;
-            text-align: center;
-            margin-bottom: -15px;
-            background-position: center; 
-            filter: drop-shadow(1px 1px 3px gray);
-        }
-        
-        .longBox {
-            // background-color: black;
-            border: 1px solid black;
-            height: 200px;
-            width: 370px;
-            color: white;
-            border-radius: 5px;
-            text-align: center;
-            margin-bottom: -15px;
-            background-image: url(https://www.americangeosciences.org/sites/default/files/styles/ci__650_x_430_/public/CI-fireworks-Carlson-084-600-400px-160701.jpg?itok=GJWsYK5S);
-            filter: drop-shadow(1px 1px 3px gray);
-        }
-    }
-`
 
 export default function Dashboard() {
     return (
-        <HeaderOnly>
-            <div>
-                <Borders>
-                <span className='d-flex'>
-                    <h3>Dashboard</h3>
-                    <p>Sun, 11 / 21 / 2021</p>
-                </span>
-
-                <span className='d-flex'>
-                    <div className="boxes box1">A</div>
-                    <div className="boxes box2">B</div>
-                </span>
-
-                <br/>
-                
-                <span className='d-flex'>
-                    <div className="boxes box3">C</div>
-                    <div className="boxes box4">D</div>
-                </span>
-
-                <br/>
-
-                <span className='d-flex'>
-                    <div className="longBox">E</div>
-                </span>
-                
-                <br/>
-                
-                <span className='d-flex'>
-                    <div className="mediumBox">F</div>
-                </span>
-
-                </Borders>
+        <div style={{padding: '30px', backgroundColor: '#F4F4F4'}}>
+            <div style={{display: 'flex', justifyContent: 'center'}}>
+                <HeaderExampleSubheaderProp />
             </div>
-        </HeaderOnly>
+                <br/>
+            <div className="divAround"> 
+                <div className="mediumBox">
+                    <div style={{padding: '2px'}}>
+                        <p style={{fontSize: '20px', fontFamily: 'Poppins'}}>Top Companies</p>
+                    </div>
+                    <hr style={{margin: '5px 0px'}}/>
+                    <div style={{display: 'flex', alignItems: 'center', fontFamily: 'Poppins', paddingLeft: '5px'}}>
+                        <p style={{fontSize: '15px', marginBottom: '0px', letterSpacing: '1px', flex: '2', marginRight: '10px'}}>This percentage reflects  Black women primarily in Management, Business, Science & Arts</p>
+                        <p style={{flex: '1', fontSize: '53px', alignContent: 'center'}}>35%</p>
+                    </div>
+                </div>
+
+                <div className="mediumBox" style={{display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'Poppins', paddingLeft: '5px'}}>
+                        <StatisticNum/>
+                        <img style={{height: '90px'}} src='../footer/companies.svg'/>
+                </div>
+
+                <div className="mediumBox">
+                    <div style={{padding: '2px'}}>
+                        <p style={{fontSize: '20px', fontFamily: 'Poppins'}}>Lost Money</p>
+                    </div>
+                    <hr style={{margin: '5px 0px'}}/>
+                    <div style={{display: 'flex', alignItems: 'center', fontFamily: 'Poppins', paddingLeft: '5px'}}>
+                        <p style={{flex: '1', fontSize: '53px', alignContent: 'center', marginBottom: '0px'}}>$$$</p>
+                        <p style={{fontSize: '23px', marginBottom: '0px', letterSpacing: '1px', flex: '2', marginLeft: '10px'}}>450 to 550 Billion
+                        </p>
+                    </div>
+                </div>
+
+                <div className="mediumBox" style={{display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'Poppins', paddingLeft: '5px'}}>
+                        <StatisticVal/>
+                </div>
+            </div> 
+        </div> 
     )
 };
-
-

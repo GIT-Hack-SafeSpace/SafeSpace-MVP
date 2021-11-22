@@ -245,3 +245,70 @@ p.footerIcon {
   padding: 10px;
   margin: 15px 0;
 }
+
+/* Dashboard info */
+
+.allSquares{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  flex-wrap: wrap;
+}
+  .boxes {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      height: 150px;
+      border-radius: 20px;
+      text-align: center;
+      width: 45%;
+      margin: 5px;
+  }
+  
+  .mediumBox:nth-child(odd) {
+    color: white;
+    padding: 10px;
+    height: 20vh;
+    background-color: indigo;
+  }
+  
+  .mediumBox:nth-child(even) {
+    color: #493843;
+    background-color: white;
+    padding: 10px;
+    height: 20vh;
+  }
+
+  .ui.statistic {
+    margin-bottom: -20px !important;
+  }
+  
+  .centeringBoxes {
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      align-items: center;
+      position: relative;
+      border: 1px solid orange;
+  }
+
+
+.divAround {
+  background-color: white;
+  /* border: 2px solid green; */
+  border-radius: 5px;
+  height: 100vh;
+}
+
+@media screen and (max-width:400px) {
+.dashboardTitle {
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+  h3 {
+      margin-bottom: 0;
+  }
+}
