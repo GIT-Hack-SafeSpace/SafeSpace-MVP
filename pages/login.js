@@ -10,8 +10,8 @@ import Form from "react-bootstrap/Form";
 const SplashStyles = styled.div`
   padding: 300px 30px 80px;
   color: white;
-  background-image: url("images/safespaceMainPg.png");
-  min-height: 820px;
+  background: url("images/safespaceMainPg.png") no-repeat #25201a;
+  min-height: 1000px;
 
   a {
     color: yellow !important;
