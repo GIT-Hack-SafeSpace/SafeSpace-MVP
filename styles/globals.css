@@ -9,6 +9,7 @@ html {
   margin-top: 100px;
   margin-bottom: 79px;
   padding: 20px;
+  min-height: 1000px;
 }
 
 .nnAppContainer {
