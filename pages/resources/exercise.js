@@ -5,6 +5,7 @@ import { Loader } from '../../components/shared';
 import MainLayout from '../../layouts/MainLayout';
 import { gyms } from '../../data/resources';
 import { exerciseIconPics } from '../../data/resources';
+import { ResourcesStyles } from '../../styles/ResourcesStyles';
 
 const icons = exerciseIconPics.map((icon) => icon.url);
 
