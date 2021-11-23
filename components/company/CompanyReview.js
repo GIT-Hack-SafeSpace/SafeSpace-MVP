@@ -55,6 +55,7 @@ const CardStyle = styled.div`
   .industry-title {
     text-transform: capitalize;
     font-size: 13px;
+    color: #ED3457!important;
   }
 
   .date {
