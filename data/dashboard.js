@@ -37,5 +37,5 @@ export const dashboard = {
       'This represents the amount of revenue lost per hour based on user reports in SafeSpace.',
     type: 'number',
   },
-  topTag: 'microagression'
+  topTag: 'microaggression'
 }

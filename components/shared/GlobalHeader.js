@@ -31,6 +31,7 @@ export default function GlobalHeader() {
               <h2>About</h2>
               <Link href="/about">The Team</Link>
               <Link href="/hackathon">Hackathon Info</Link>
+              <Link href="/dashboard">SafeSpace. Impact Dashboard</Link>
             </Nav>
           </Offcanvas.Body>
         </Navbar.Offcanvas>
