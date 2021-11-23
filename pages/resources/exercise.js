@@ -5,17 +5,7 @@ import { Loader } from '../../components/shared';
 import MainLayout from '../../layouts/MainLayout';
 import { gyms } from '../../data/resources';
 import { exerciseIconPics } from '../../data/resources';
-import styled from 'styled-components';
 
-const ExStyles = styled.div`
-  background-color: #fefefe;
-  margin-bottom: 200px;
-
-  h1 {
-    padding-bottom: 15px;
-    font-size: 28px;
-  }
-`;
 const icons = exerciseIconPics.map((icon) => icon.url);
 
 export default function Exercise() {
@@ -39,7 +29,7 @@ export default function Exercise() {
       return <Loader />;
     } else {
       return (
-        <ExStyles>
+        <ResourcesStyles>
           <div
             className='titleWrap'
             style={{ display: 'flex', justifyContent: 'space-between' }}
@@ -119,7 +109,7 @@ export default function Exercise() {
               <hr style={{ color: 'gray' }} />
             </div>
           ))}
-        </ExStyles>
+        </ResourcesStyles>
       );
     }
   };

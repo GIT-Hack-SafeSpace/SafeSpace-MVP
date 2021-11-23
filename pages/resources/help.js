@@ -4,17 +4,8 @@ import { useRouter } from 'next/router';
 import { Loader } from '../../components/shared';
 import MainLayout from '../../layouts/MainLayout';
 import { help } from '../../data/resources';
-import styled from 'styled-components';
+import { ResourcesStyles } from '../../styles/ResourcesStyles';
 
-const HelpStyles = styled.div`
-  background-color: #fefefe;
-  margin-bottom: 200px;
-
-  h1 {
-    padding-bottom: 15px;
-    font-size: 28px;
-  }
-`;
 export default function Help() {
   const [loading, setLoading] = useState(true);
   const router = useRouter();
@@ -35,7 +26,7 @@ export default function Help() {
       return <Loader />;
     } else {
       return (
-        <HelpStyles>
+        <ResourcesStyles>
           <div
             className='titleWrap'
             style={{ display: 'flex', justifyContent: 'space-between' }}
@@ -95,7 +86,7 @@ export default function Help() {
               <hr style={{ color: 'gray' }} />
             </div>
           ))}
-        </HelpStyles>
+        </ResourcesStyles>
       );
     }
   };

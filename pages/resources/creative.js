@@ -6,17 +6,8 @@ import MainLayout from '../../layouts/MainLayout';
 import { creative } from '../../data/resources';
 import { creativeIconPics } from '../../data/resources';
 import { resourceTagData } from '../../data/tagData';
-import styled from 'styled-components';
+import { ResourcesStyles } from '../../styles/ResourcesStyles';
 
-const CreativeStyles = styled.div`
-  background-color: #fefefe;
-  margin-bottom: 200px;
-
-  h1 {
-    padding-bottom: 15px;
-    font-size: 28px;
-  }
-`;
 const icons = creativeIconPics.map((icon) => icon.url);
 
 export default function Creative() {
@@ -40,7 +31,7 @@ export default function Creative() {
       return <Loader />;
     } else {
       return (
-        <CreativeStyles>
+        <ResourcesStyles>
           <div
             className='titleWrap'
             style={{ display: 'flex', justifyContent: 'space-between' }}
@@ -72,7 +63,7 @@ export default function Creative() {
               <hr style={{ color: 'lightgray' }} />
             </div>
           ))}
-        </CreativeStyles>
+        </ResourcesStyles>
       );
     }
   };

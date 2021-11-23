@@ -4,17 +4,8 @@ import { useRouter } from 'next/router';
 import { Loader } from '../../components/shared';
 import MainLayout from '../../layouts/MainLayout';
 import { counselors } from '../../data/resources';
-import styled from 'styled-components';
+import { ResourcesStyles } from '../../styles/ResourcesStyles';
 
-const CounsStyles = styled.div`
-  background-color: #fefefe;
-  margin-bottom: 200px;
-
-  h1 {
-    padding-bottom: 15px;
-    font-size: 28px;
-  }
-`;
 
 export default function Counseling() {
   const [loading, setLoading] = useState(true);
@@ -36,7 +27,7 @@ export default function Counseling() {
       return <Loader />;
     } else {
       return (
-        <CounsStyles>
+        <ResourcesStyles>
           <div
             className='titleWrap'
             style={{ display: 'flex', justifyContent: 'space-between' }}
@@ -117,7 +108,7 @@ export default function Counseling() {
               <hr style={{ color: 'gray' }} />
             </div>
           ))}
-        </CounsStyles>
+        </ResourcesStyles>
       );
     }
   };
