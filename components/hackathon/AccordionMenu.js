@@ -10,9 +10,9 @@ export default function AccordionMenu() {
                 <Accordion.Header>Introduction</Accordion.Header>
                 <Accordion.Body>
                 <p>
-                    According to an independent study by [McKinsey and Company] (<Link href='https://wiw-report.s3.amazonaws.com/Women_in_the_Workplace_2021.pdf'>
-                    <a>read here</a>
-                    </Link>), “women of color are more likely to face disrespectful and ‘othering’ microaggressions”, which perpetuate workplace trauma. Black women are facing these issues at an alarmingly disproportionate rate. <br/><br/>
+                    According to an independent study by [McKinsey and Company] (<a target="_blank" href='https://wiw-report.s3.amazonaws.com/Women_in_the_Workplace_2021.pdf'>
+                    read here
+                    </a>), “women of color are more likely to face disrespectful and ‘othering’ microaggressions”, which perpetuate workplace trauma. Black women are facing these issues at an alarmingly disproportionate rate. <br/><br/>
 
                     We are often still expected to produce excellent work throughout these violent experiences and there is not a place for us to be free of judgement to share with other Black women who are also on the healing journey through workplace trauma, which can make us feel alone and lead to depression. <br/><br/>
                     During the trauma, we may not realize that we need to track these instances or need a community. As such, these events often go unreported and our source for proof is defined based on memory alone.<br/><br/>

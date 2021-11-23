@@ -4,10 +4,10 @@ import { useRouter } from 'next/router';
 import { Loader } from '../../components/shared';
 import MainLayout from '../../layouts/MainLayout';
 import { help } from '../../data/resources';
+import { ResourcesStyles } from '../../styles/ResourcesStyles';
 
 export default function Help() {
   const [loading, setLoading] = useState(true);
-  const [user, setUser] = useState({});
   const router = useRouter();
 
   useEffect(() => {
@@ -17,7 +17,6 @@ export default function Help() {
     if (!user) {
       router.push('/login');
     } else {
-      setUser(user);
       setLoading(false);
     }
   }, []);
@@ -27,7 +26,7 @@ export default function Help() {
       return <Loader />;
     } else {
       return (
-        <>
+        <ResourcesStyles>
           <div
             className='titleWrap'
             style={{ display: 'flex', justifyContent: 'space-between' }}
@@ -45,9 +44,9 @@ export default function Help() {
                 }}
               >
                 <div>
-                  <h1 style={{ fontSize: '20px', color: '#63988E' }}>
+                  <h2 style={{ fontSize: '20px', color: '#63988E' }}>
                     {d.content}
-                  </h1>
+                  </h2>
                   {d.address ? (
                     <p style={{ color: '#000000' }}>📍 {d.address}</p>
                   ) : (
@@ -87,7 +86,7 @@ export default function Help() {
               <hr style={{ color: 'gray' }} />
             </div>
           ))}
-        </>
+        </ResourcesStyles>
       );
     }
   };

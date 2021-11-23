@@ -7,6 +7,7 @@ import CommunityPost from "../components/community/CommunityPost";
 import { Search, NoResults, Loader } from "../components/shared";
 
 const CommunityView = styled.div`
+margin-bottom: 200px;
   h1 {
     font-size: 28px;
     border-bottom: 1px solid #e8e8e8;
