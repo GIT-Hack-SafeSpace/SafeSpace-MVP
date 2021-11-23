@@ -161,7 +161,7 @@ const CommunityPostStyles = styled.div`
 
   .main-card-body {
     display: flex;
-    padding-top: 20px;
+    padding: 20px 0 10px;
 
     .commImgWrapper {
       flex: 1;

@@ -5,13 +5,7 @@ import Button from 'react-bootstrap/Button';
 import Select from 'react-select';
 import styled from 'styled-components';
 import { resources } from '../../data/resources';
-import { ButtonStyle } from '../../styles/ButtonStyle';
-
-const SelectStyle = styled.div`
-  .select__option {
-    color: black !important;
-  }
-`;
+import { ButtonStyle, SelectStyle } from '../../styles/ButtonStyle';
 
 export default function CreateResource({ user }) {
   const [loading, setLoading] = useState(null);

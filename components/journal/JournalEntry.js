@@ -172,10 +172,9 @@ const JournalStyles = styled.div`
     border-top: 1px solid #e8e8e8;
     justify-content: space-around;
     align-items: self-end;
-    padding: 0 10px;
 
     .footer-action {
-      padding-top: 10px;
+      padding: 20px;
     }
 
     .edit {

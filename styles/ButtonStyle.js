@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const ButtonStyle = styled.div`
   display: flex;
-  margin-top: 15px;
   justify-content: flex-end;
 
   .save-change {
@@ -126,5 +125,13 @@ export const MainButton = styled.button`
     background-color: #fff0e8 !important;
     border-color: #fff0e8 !important;
     color: black;
+  }
+`;
+
+export const SelectStyle = styled.div`
+margin-bottom: 10px;
+margin-top: 10px;
+  .select__option {
+    color: black !important;
   }
 `;

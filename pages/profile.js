@@ -2,19 +2,12 @@ import { useState, useEffect } from "react";
 import { supabase } from "../utils/client";
 import { useRouter } from "next/router";
 import Select from "react-select";
-import styled from "styled-components";
 import { industries } from "../data/industries";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import { ButtonStyle } from "../styles/ButtonStyle";
+import { ButtonStyle, SelectStyle } from '../styles/ButtonStyle';
 import MainLayout from "../layouts/MainLayout";
 
-const SelectStyle = styled.div`
-  margin-top: 10px;
-  .select__option {
-    color: black !important;
-  }
-`;
 
 export default function Profile() {
   const router = useRouter();
