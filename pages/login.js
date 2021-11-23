@@ -6,12 +6,13 @@ import { Loader } from "../components/shared";
 import styled from "styled-components";
 import { MainButton } from "../styles/ButtonStyle";
 import Form from "react-bootstrap/Form";
+import { Button } from "semantic-ui-react";
 
 const SplashStyles = styled.div`
-  padding: 300px 30px 50px;
+  padding: 300px 30px 80px;
   color: white;
-  background-image: url("images/safespaceMainPg.png");
-  min-height: 820px;
+  background: url("images/safespaceMainPg.png") no-repeat #25201a;
+  min-height: 1000px;
 
   a {
     color: yellow !important;
@@ -64,11 +65,18 @@ export default function Login() {
       return (
         <main className="d-flex flex-column text-center">
           <h1 className="splash-title">SafeSpace. </h1>
+
           <hr />
           <p className="description">
             A place where Black women can support each other and manage our mental
             health and work related trauma.
           </p>
+          <div className="text-muted mt-1">
+            <div className="visually-hidden visually-hidden-focusable">
+              Learn More
+            </div>
+            <div>View <Link href="/dashboard">SafeSpace. Impact Dashboard</Link></div>
+          </div>
           <Form.Group className="form">
             <Form.Label className="visually-hidden visually-hidden-focusable">
               Email address
@@ -79,6 +87,7 @@ export default function Login() {
             <Form.Control
               id="email"
               type="email"
+              className="mb-3"
               placeholder="Your email address"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -98,7 +107,7 @@ export default function Login() {
             <Form.Label className="visually-hidden visually-hidden-focusable">
               Learn More
             </Form.Label>
-            <Link href="/about">Learn more</Link> about SafeSpace.
+            <div><Link href="/about">Learn more</Link> about SafeSpace.</div>
           </Form.Text>
         </main>
       );

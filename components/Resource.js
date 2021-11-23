@@ -15,7 +15,7 @@ const ResourceLayout = styled.div`
 
   .bottom-left {
     position: absolute;
-    bottom: 0px;
+    bottom: 7px;
     left: 15px;
     font-size: 30px;
     color: white;

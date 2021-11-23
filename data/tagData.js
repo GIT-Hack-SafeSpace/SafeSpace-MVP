@@ -51,10 +51,10 @@ export const communityTagData = [
   },
   {
     id: '9',
-    tagName: 'Microagression',
+    tagName: 'Microaggression',
     tagColor: '#63988E',
-    value: 'Microagression',
-    label: 'Microagression',
+    value: 'Microaggression',
+    label: 'Microaggression',
   },
   {
     id: '10',
@@ -81,7 +81,7 @@ export const communityTagOptions = [
   { value: 'Hair', label: 'Hair' },
   { value: 'Job Hunting', label: 'Job Hunting' },
   { value: 'Promotion', label: 'Promotion' },
-  { value: 'Microagression', label: 'Microagression' },
+  { value: 'Microaggression', label: 'Microaggression' },
   { value: 'Management', label: 'Management' },
 ];
 

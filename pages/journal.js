@@ -11,6 +11,7 @@ import { Loader, ModalComp, Search, NoResults } from "../components/shared";
 
 const JournalStyles = styled.div`
   background-color: #fefefe;
+  margin-bottom: 200px;
 
   h1 {
     border-bottom: 1px solid #e8e8e8;

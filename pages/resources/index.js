@@ -6,7 +6,6 @@ import ResourcePg from '../../components/Resource';
 import MainLayout from '../../layouts/MainLayout';
 
 export default function Resources() {
-  const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const router = useRouter();
 

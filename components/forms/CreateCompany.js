@@ -3,15 +3,8 @@ import { supabase } from '../../utils/client';
 import Form from 'react-bootstrap/Form';
 import { industries } from '../../data/industries';
 import Select from 'react-select';
-import styled from 'styled-components';
 import Button from 'react-bootstrap/Button';
-import { ButtonStyle } from '../../styles/ButtonStyle';
-
-const SelectStyle = styled.div`
-  .select__option {
-    color: black !important;
-  }
-`;
+import { ButtonStyle, SelectStyle } from '../../styles/ButtonStyle';
 
 export default function CreateCompany({ user, handleClose }) {
   const [loading, setLoading] = useState(null);

@@ -9,6 +9,7 @@ import ModalCreate from '../components/buttons/ModalCreate';
 import { ModalComp, Loader, Search, NoResults } from '../components/shared';
 
 const CompanyStyles = styled.div`
+  margin-bottom: 200px;
   background-color: #fefefe;
 
   h1 {

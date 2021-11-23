@@ -5,12 +5,12 @@ import { Loader } from '../../components/shared';
 import MainLayout from '../../layouts/MainLayout';
 import { gyms } from '../../data/resources';
 import { exerciseIconPics } from '../../data/resources';
+import { ResourcesStyles } from '../../styles/ResourcesStyles';
 
 const icons = exerciseIconPics.map((icon) => icon.url);
 
 export default function Exercise() {
   const [loading, setLoading] = useState(true);
-  const [user, setUser] = useState({});
   const router = useRouter();
   const randomImage = () => icons[Math.floor(Math.random() * icons.length)];
 
@@ -21,7 +21,6 @@ export default function Exercise() {
     if (!user) {
       router.push('/login');
     } else {
-      setUser(user);
       setLoading(false);
     }
   }, []);
@@ -31,7 +30,7 @@ export default function Exercise() {
       return <Loader />;
     } else {
       return (
-        <>
+        <ResourcesStyles>
           <div
             className='titleWrap'
             style={{ display: 'flex', justifyContent: 'space-between' }}
@@ -66,9 +65,9 @@ export default function Exercise() {
                   />
                 </div>
                 <div>
-                  <h1 style={{ fontSize: '20px', color: '#63988E' }}>
+                  <h2 style={{ fontSize: '20px', color: '#63988E' }}>
                     {d.content}
-                  </h1>
+                  </h2>
                   {d.address ? (
                     <p style={{ color: '123456', fontSize: '17px' }}>
                       📍 {d.address}
@@ -111,7 +110,7 @@ export default function Exercise() {
               <hr style={{ color: 'gray' }} />
             </div>
           ))}
-        </>
+        </ResourcesStyles>
       );
     }
   };

@@ -98,7 +98,7 @@ const AboutStyles = styled.div`
 
     .memberContainer {
       display: flex;
-      margin-bottom: 10px;
+      margin-bottom: 25px;
 
       .userImage {
         position: relative;

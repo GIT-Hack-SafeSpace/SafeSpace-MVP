@@ -6,12 +6,12 @@ import MainLayout from '../../layouts/MainLayout';
 import { creative } from '../../data/resources';
 import { creativeIconPics } from '../../data/resources';
 import { resourceTagData } from '../../data/tagData';
+import { ResourcesStyles } from '../../styles/ResourcesStyles';
 
 const icons = creativeIconPics.map((icon) => icon.url);
 
 export default function Creative() {
   const [loading, setLoading] = useState(true);
-  const [user, setUser] = useState({});
   const router = useRouter();
   const randomImage = () => icons[Math.floor(Math.random() * icons.length)];
 
@@ -22,7 +22,6 @@ export default function Creative() {
     if (!user) {
       router.push('/login');
     } else {
-      setUser(user);
       setLoading(false);
     }
   }, []);
@@ -32,7 +31,7 @@ export default function Creative() {
       return <Loader />;
     } else {
       return (
-        <>
+        <ResourcesStyles>
           <div
             className='titleWrap'
             style={{ display: 'flex', justifyContent: 'space-between' }}
@@ -55,7 +54,7 @@ export default function Creative() {
                   />
                 </div>
                 <div>
-                  <h1 style={{ fontSize: '20px' }}>{d.content}</h1>
+                  <h2 style={{ fontSize: '20px' }}>{d.content}</h2>
                   <div className='d-flex'>
                     <Tags tags={d.tags} data={resourceTagData} />
                   </div>
@@ -64,7 +63,7 @@ export default function Creative() {
               <hr style={{ color: 'lightgray' }} />
             </div>
           ))}
-        </>
+        </ResourcesStyles>
       );
     }
   };
