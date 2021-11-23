@@ -293,7 +293,7 @@ p.footerIcon {
   min-height: 20vh;
 }
 .mediumBox:nth-child(odd).meh {
-  color: white;
+  color: black;
   background-color: orange !important;
   padding: 10px;
   min-height: 20vh;
