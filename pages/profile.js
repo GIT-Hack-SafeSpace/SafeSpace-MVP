@@ -138,7 +138,7 @@ export default function Profile() {
         </SelectStyle>
         <div className="mt-3">
           <label htmlFor="group1">
-            Do you a member of the LGBTQA+ community?
+            Do you identify as a member of the LGBTQA+ community?
           </label>
           <div key="inline-radio" className="mb-3">
             <Form.Check
