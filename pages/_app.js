@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/globals.css';
+import 'semantic-ui-css/semantic.min.css'
 
 function SafeSpace({ Component, pageProps }) {
   return (

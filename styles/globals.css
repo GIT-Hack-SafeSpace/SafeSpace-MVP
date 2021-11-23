@@ -242,7 +242,104 @@ p.footerIcon {
 
 .resolution-text {
   border-radius: 10px;
-  background-color:rgba(161, 178, 167, .2);
+  background-color: rgba(161, 178, 167, 0.2);
   padding: 10px;
   margin: 15px 0;
+}
+
+/* Dashboard info */
+
+.allSquares {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  flex-wrap: wrap;
+}
+.boxes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  height: 150px;
+  border-radius: 20px;
+  text-align: center;
+  width: 45%;
+  margin: 5px;
+}
+
+.mediumBox:nth-child(odd) {
+  color: white;
+  padding: 10px;
+  min-height: 20vh;
+  background-color: indigo;
+}
+
+.mediumBox:nth-child(even) {
+  color: #493843;
+  background-color: white;
+  padding: 10px;
+  min-height: 20vh;
+}
+
+.mediumBox:nth-child(odd).excited {
+  color: white;
+  background-color: green !important;
+  padding: 10px;
+  min-height: 20vh;
+}
+.mediumBox:nth-child(odd).happy {
+  color: white;
+  background-color: lightgreen !important;
+  padding: 10px;
+  min-height: 20vh;
+}
+.mediumBox:nth-child(odd).meh {
+  color: black;
+  background-color: orange !important;
+  padding: 10px;
+  min-height: 20vh;
+}
+.mediumBox:nth-child(odd).sad {
+  color: black;
+  background-color: yellow !important;
+  padding: 10px;
+  min-height: 20vh;
+}
+.mediumBox:nth-child(odd).angry {
+  color: white;
+  background-color: red !important;
+  padding: 10px;
+  min-height: 20vh;
+}
+
+.ui.statistic {
+  margin-bottom: -20px !important;
+}
+
+.centeringBoxes {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  position: relative;
+  border: 1px solid orange;
+}
+
+.divAround {
+  background-color: white;
+  /* border: 2px solid green; */
+  border-radius: 5px;
+  height: 100vh;
+}
+
+@media screen and (max-width: 400px) {
+  .dashboardTitle {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 10px;
+  }
+
+  h3 {
+    margin-bottom: 0;
+  }
 }
