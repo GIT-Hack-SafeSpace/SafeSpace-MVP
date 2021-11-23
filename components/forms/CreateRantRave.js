@@ -1,19 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { supabase } from '../../utils/client';
 import Form from 'react-bootstrap/Form';
-import styled from 'styled-components';
 import Select from 'react-select';
-import { ButtonStyle } from '../../styles/ButtonStyle';
+import { ButtonStyle, SelectStyle } from '../../styles/ButtonStyle';
 import Button from 'react-bootstrap/Button';
 import { communityTagOptions } from '../../data/tagData';
 import { getPosts } from '../../api/journalData';
-
-const SelectStyle = styled.div`
-  margin-top: 5px;
-  .select__option {
-    color: black !important;
-  }
-`;
 
 const initialState = {
   where: '',

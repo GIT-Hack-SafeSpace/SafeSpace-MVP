@@ -4,11 +4,20 @@ import { useRouter } from 'next/router';
 import { Loader } from '../../components/shared';
 import MainLayout from '../../layouts/MainLayout';
 import { counselors } from '../../data/resources';
-import Link from 'next/link';
+import styled from 'styled-components';
+
+const CounsStyles = styled.div`
+  background-color: #fefefe;
+  margin-bottom: 200px;
+
+  h1 {
+    padding-bottom: 15px;
+    font-size: 28px;
+  }
+`;
 
 export default function Counseling() {
   const [loading, setLoading] = useState(true);
-  const [user, setUser] = useState({});
   const router = useRouter();
 
   useEffect(() => {
@@ -18,7 +27,6 @@ export default function Counseling() {
     if (!user) {
       router.push('/login');
     } else {
-      setUser(user);
       setLoading(false);
     }
   }, []);
@@ -28,7 +36,7 @@ export default function Counseling() {
       return <Loader />;
     } else {
       return (
-        <>
+        <CounsStyles>
           <div
             className='titleWrap'
             style={{ display: 'flex', justifyContent: 'space-between' }}
@@ -46,9 +54,9 @@ export default function Counseling() {
                 }}
               >
                 <div>
-                  <h1 style={{ fontSize: '20px', color: '#63988E' }}>
+                  <h2 style={{ fontSize: '20px', color: '#63988E' }}>
                     {d.content}
-                  </h1>
+                  </h2>
                   {d.address ? (
                     <p style={{ color: '#123456' }}>📍 {d.address}</p>
                   ) : (
@@ -109,7 +117,7 @@ export default function Counseling() {
               <hr style={{ color: 'gray' }} />
             </div>
           ))}
-        </>
+        </CounsStyles>
       );
     }
   };

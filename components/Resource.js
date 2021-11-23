@@ -15,7 +15,7 @@ const ResourceLayout = styled.div`
 
   .bottom-left {
     position: absolute;
-    bottom: 0px;
+    bottom: 17px;
     left: 15px;
     font-size: 30px;
     color: white;
@@ -30,7 +30,7 @@ export default function ResourcePg() {
         <Link href='/resources/help'>
           <a>
             <img className='resourceImg' src='images/help.png' alt='Help' />
-            <div className='bottom-left'>Help</div>
+            <h className='bottom-left'>Help</h>
           </a>
         </Link>
       </div>
