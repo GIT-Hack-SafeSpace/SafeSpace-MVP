@@ -9,6 +9,7 @@ Built in conjunction with the **Girls in Tech Mental Health for All Hackathon**:
 - [Project Board](https://github.com/GIT-Hack-SafeSpace/SafeSpace-MVP/projects/1)
 - [Wireframes](https://www.figma.com/file/tSFJwjvYJGTZ7asZ4Uwuir/SafeSpace-ProtoType?node-id=142%3A1319)
 - [Prototype](https://www.figma.com/proto/tSFJwjvYJGTZ7asZ4Uwuir/SafeSpace-ProtoType?node-id=38%3A1329&scaling=scale-down&page-id=0%3A1&starting-point-node-id=25%3A168)
+- [User Flows and Data](https://www.figma.com/file/SW4mVA9Uo9vZq1NHaIf8Gy/Safe-Space-Jam?node-id=0%3A1)
 
 # App Details
 As a team of fullstack software engineers, our team decided on technologies that could produce a usable, scalable MVP version of the prototype.
