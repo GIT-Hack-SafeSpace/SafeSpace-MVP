@@ -45,6 +45,7 @@ export default function CompanyReview({ data }) {
 
 const CardStyle = styled.div`
   border-bottom: 1px solid #e8e8e8;
+  font-size: 14px;
 
   .companyCard {
     color: black;
@@ -55,6 +56,7 @@ const CardStyle = styled.div`
   .industry-title {
     text-transform: capitalize;
     font-size: 13px;
+    color: #ED3457!important;
   }
 
   .date {
